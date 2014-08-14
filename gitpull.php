@@ -15,7 +15,7 @@
 **/
 
 // Set Variables
-$LOCAL_ROOT         = "loudenart.com";
+$LOCAL_ROOT         = "";
 $LOCAL_REPO_NAME    = "loudenart";
 $LOCAL_REPO         = "{$LOCAL_ROOT}/{$LOCAL_REPO_NAME}";
 $REMOTE_REPO        = "git@github.com:jloud/loudenart.git";
