@@ -1,0 +1,153 @@
+/*
+	jQuery.mmenu toggles addon CSS
+*/
+/* line 10, ../../scss/addons/jquery.mmenu.toggles.scss */
+input.mm-toggle,
+input.mm-check {
+  position: absolute;
+  left: -10000px;
+}
+
+/* line 17, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-toggle,
+label.mm-check {
+  margin: 0;
+  position: absolute;
+  bottom: 50%;
+  z-index: 2;
+}
+/* line 24, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-toggle:before,
+label.mm-check:before {
+  content: '';
+  display: block;
+}
+
+/* line 32, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-toggle {
+  border-radius: 30px;
+  width: 50px;
+  height: 30px;
+  margin-bottom: -15px;
+}
+/* line 39, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-toggle:before {
+  border-radius: 30px;
+  width: 28px;
+  height: 28px;
+  margin: 1px;
+}
+
+/* line 47, ../../scss/addons/jquery.mmenu.toggles.scss */
+input.mm-toggle:checked ~ label.mm-toggle:before {
+  float: right;
+}
+
+/* line 52, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-check {
+  width: 30px;
+  height: 30px;
+  margin-bottom: -15px;
+}
+/* line 58, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-check:before {
+  border-left: 3px solid;
+  border-bottom: 3px solid;
+  width: 40%;
+  height: 20%;
+  margin: 25% 0 0 20%;
+  opacity: 0.1;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+/* line 70, ../../scss/addons/jquery.mmenu.toggles.scss */
+input.mm-check:checked ~ label.mm-check:before {
+  opacity: 1;
+}
+
+/* line 82, ../../scss/addons/jquery.mmenu.toggles.scss */
+.mm-menu.mm-vertical .mm-list > li label.mm-toggle, .mm-menu.mm-vertical .mm-list > li label.mm-check {
+  bottom: auto;
+  margin-bottom: 0;
+}
+/* line 87, ../../scss/addons/jquery.mmenu.toggles.scss */
+.mm-menu.mm-vertical .mm-list > li label.mm-toggle {
+  top: 5px;
+}
+/* line 92, ../../scss/addons/jquery.mmenu.toggles.scss */
+.mm-menu.mm-vertical .mm-list > li label.mm-check {
+  top: 5px;
+}
+
+/* line 104, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-toggle, label.mm-check {
+  right: 20px;
+}
+
+/* line 112, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-toggle + a,
+label.mm-toggle + span {
+  margin-right: 70px;
+}
+
+/* line 120, ../../scss/addons/jquery.mmenu.toggles.scss */
+label.mm-check + a,
+label.mm-check + span {
+  margin-right: 50px;
+}
+
+/* line 130, ../../scss/addons/jquery.mmenu.toggles.scss */
+a.mm-subopen + label.mm-toggle, a.mm-subopen + label.mm-check {
+  right: 50px;
+}
+
+/* line 138, ../../scss/addons/jquery.mmenu.toggles.scss */
+a.mm-subopen + label.mm-toggle + a,
+a.mm-subopen + label.mm-toggle + span {
+  margin-right: 100px;
+}
+
+/* line 146, ../../scss/addons/jquery.mmenu.toggles.scss */
+a.mm-subopen + label.mm-check + a,
+a.mm-subopen + label.mm-check + span {
+  margin-right: 80px;
+}
+
+/* line 156, ../../scss/addons/jquery.mmenu.toggles.scss */
+em.mm-counter + a.mm-subopen + label.mm-toggle, em.mm-counter + a.mm-subopen + label.mm-check {
+  right: 90px;
+}
+
+/* line 164, ../../scss/addons/jquery.mmenu.toggles.scss */
+em.mm-counter + a.mm-subopen + label.mm-toggle + a,
+em.mm-counter + a.mm-subopen + label.mm-toggle + span {
+  margin-right: 140px;
+}
+
+/* line 172, ../../scss/addons/jquery.mmenu.toggles.scss */
+em.mm-counter + a.mm-subopen + label.mm-check + a,
+em.mm-counter + a.mm-subopen + label.mm-check + span {
+  margin-right: 120px;
+}
+
+/* line 185, ../../scss/inc/_colors.scss */
+.mm-menu label.mm-toggle {
+  background: rgba(0, 0, 0, 0.15);
+}
+/* line 189, ../../scss/inc/_colors.scss */
+.mm-menu label.mm-toggle:before {
+  background: #333333;
+}
+/* line 194, ../../scss/inc/_colors.scss */
+.mm-menu input.mm-toggle:checked ~ label.mm-toggle {
+  background: #4bd963;
+}
+
+/* line 99, ../../scss/inc/_colors.scss */
+.mm-menu label.mm-check:before {
+  border-color: rgba(255, 255, 255, 0.6);
+}

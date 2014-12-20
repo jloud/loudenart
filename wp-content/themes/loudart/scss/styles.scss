@@ -1,0 +1,50 @@
+@import "variables";
+
+@import "jquery.mmenu.all";
+
+@import "featherlight";
+
+@import "lightGallery";
+
+#lightGallery-action {
+  width: 100%;
+  bottom: 45%;
+  position: fixed;
+  left: auto;
+  margin-left: 0;
+}
+
+#lightGallery-action a {
+  margin: 0 !important;
+  border-radius: none;
+  position: absolute;
+  display: inline-block !important;
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.65);
+  font-size: 16px;
+  width: 40px;
+  height: 40px;
+  color: #FFF;
+  cursor: pointer;
+  &#lightGallery-prev {
+    left: 0;
+  }
+  &#lightGallery-next {
+    right: 0;
+  }
+}
+
+#lightGallery-Gallery.opacity .lightGallery-slide .object {
+  height: 80%;
+  transform: scale3d(1, 1, 1);
+}
+
+@import "normalize";
+
+@import "base";
+
+@import "globals";
+
+@import "front";

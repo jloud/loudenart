@@ -1,0 +1,24 @@
+/*
+	jQuery.mmenu iconbar extension CSS
+*/
+/* line 11, ../../scss/extensions/jquery.mmenu.iconbar.scss */
+body {
+  overflow-x: hidden;
+}
+
+/* line 16, ../../scss/extensions/jquery.mmenu.iconbar.scss */
+.mm-page {
+  background: inherit;
+  min-height: 100vh;
+  padding-right: 60px;
+  -webkit-transform: translateX(60px);
+  -moz-transform: translateX(60px);
+  -ms-transform: translateX(60px);
+  -o-transform: translateX(60px);
+  transform: translateX(60px);
+}
+
+/* line 28, ../../scss/extensions/jquery.mmenu.iconbar.scss */
+.mm-menu:first-child, .mm-menu.mm-current {
+  display: block;
+}

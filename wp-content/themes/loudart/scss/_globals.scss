@@ -1,0 +1,21 @@
+body {
+  font-family: $sans;
+  background: url('imgs/bg.gif');
+}
+
+ul {
+  list-style: none;
+  li {
+    padding: 0;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0;
+  position: relative;
+}
+
+div.clear {
+  clear: both;
+}
