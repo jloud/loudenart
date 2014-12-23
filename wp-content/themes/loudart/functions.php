@@ -102,6 +102,7 @@ function html5blank_header_scripts()
     wp_register_script('scrollscene', get_template_directory_uri() . '/js/lib/class.ScrollScene.js', array('jquery'), '1.0.0');
     wp_register_script('scrolldebug', get_template_directory_uri() . '/js/lib/class.ScrollScene.extend.debug.js', array('jquery'), '1.0.0');
     wp_register_script('isotope', get_template_directory_uri() . '/js/lib/isotope.pkgd.min.js', array(), '1.0.0');
+    wp_register_script('lazyload', get_template_directory_uri() . '/js/lib/jquery.unveil.js', array(), '1.0.0');
     wp_register_script('featherlight', get_template_directory_uri() . '/js/lib/featherlight.js', array(), '1.0.0');
     wp_register_script('featherlightGallery', get_template_directory_uri() . '/js/lib/featherlight.gallery.js', array(), '1.0.0');
     wp_register_script('lightgallery', get_template_directory_uri() . '/js/lib/lightGallery.js', array(), '1.0.0');
@@ -121,6 +122,7 @@ function html5blank_header_scripts()
     wp_enqueue_script('scrollscene');
     wp_enqueue_script('scrolldebug');
     wp_enqueue_script('isotope');
+    wp_enqueue_script('lazyload');
     wp_enqueue_script('featherlight');
     wp_enqueue_script('featherlightGallery');
     wp_enqueue_script('lightgallery');

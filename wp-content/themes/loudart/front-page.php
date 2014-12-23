@@ -6,11 +6,11 @@
   ?>
  
 
-  <div class="content">
+  <div id="content" class="content">
     <section id="introduction" class="introduction page active-custom">
     <div class="header-holder">
       <div class="logo-title">
-        <h1>Jim<br />Louden</h1>
+        <img src="<?php echo get_template_directory_uri(); ?>/css/imgs/main.svg">
         <p>Illustration</p>
       </div>
       <hr>

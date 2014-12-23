@@ -29,6 +29,7 @@
     ?>
 
 		<div class="wrapper">
+    <div class="bg-parallax"><div></div></div>
 
 		<header class="header clear" role="banner">
 
@@ -39,13 +40,8 @@
       <div id="nav-button" class="nav-button"><a href="#nav-holder"><span></span><span></span><span></span><span></span></a></div>
 		</header>
 
-    <div class="chapter-holder">
-      <ul class="chapters">
-        <li><a href="#introduction">Home</a></li>
-        <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
-        <li><a href="#art-<?php the_ID(); ?>"><?php the_title(); ?></a></li>
-        <?php endwhile; ?> 
-      </ul>
+    <div class="button-next-holder">
+      <a id="button-next" class="icon-button-next"><span>Next</span></a>
     </div>
 
 

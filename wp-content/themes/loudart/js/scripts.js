@@ -12,47 +12,74 @@
           windowHeight = $(window).innerHeight();
         }); 
 
-                  
 
-        // init controller
-        var controller = new ScrollMagic();
-        // build tween
-        var tween = TweenMax.to(".art-23", 0.5, {});
-        // build scene and supply getWindowHeight function as duration
-        var scene = new ScrollScene({triggerElement: ".art-23", duration: getWindowHeight})
-                .setTween(tween)
-                .addTo(controller);
+        var artScene = [],
+            element,
+            tween,
+            artSceneNumber,
+            contArt = new ScrollMagic(),
+            contPar = new ScrollMagic({globalSceneOptions: {triggerHook: "onEnter", duration: $(window).height() * 8}});
 
-        controller.scrollTo(function (newpos) {
+        artScene = document.getElementsByClassName('artwork-holder');
+        artSceneNumber = artScene.length;
+
+
+        function artTween(el) {
+          tween = TweenMax.fromTo(el, 0.5, 
+            {"border-top": "0px solid white"},
+            {"border-top": "30px solid white", backgroundColor: "blue"}
+          );
+        }
+     
+        for (var i = 0; i < artSceneNumber; i++){
+
+          element = artScene[i];
+          var artId = $(element);
+
+          artTween(artId);
+
+          new ScrollScene({
+              triggerElement: artId,
+              duration: getWindowHeight})
+          .setClassToggle(artId, "active")
+          .setTween(tween)
+          .addTo(contArt);
+        }
+
+         
+        new ScrollScene({triggerElement: ".bg-parallax"})
+              .setTween(TweenMax.from(".bg-parallax > div", 1, {top: "-30%", ease: Linear.easeNone}))
+              .addTo(contPar);
+
+
+        contArt.scrollTo(function (newpos) {
           TweenMax.to(window, 0.75, {scrollTo: {y: newpos}});
         });
 
-        $(document).on("click", "a[href^=#]", function (e) {
-          var id = $(this).attr("href");
-          if ($(id).length > 0) {
-            e.preventDefault();
-            // trigger scroll
-            controller.scrollTo(id);
-              // if supported by the browser we can even update the URL.
-            if (window.history && window.history.pushState) {
-              history.pushState("", document.title, id);
-            }
+
+        $('#button-next').on("click", function (e) {
+          var $currId = $('#content').find('.active'),
+              $nextId = $currId.next();
+
+          if($currId.is(':last-child')){
+            contArt.scrollTo($('#introduction'));
+          } else {
+            contArt.scrollTo($nextId );
           }
         });
 
         $(window).load(function(){
-          // Remove the # from the hash, as different browsers may or may not include it
           var hash = location.hash.replace('#','');
-
           if(hash != ''){
              // Clear the hash in the URL
              // location.hash = '';   // delete front "//" if you want to change the address bar
-             controller.scrollTo('#'+hash);
+             contArt.scrollTo('#'+hash);
           }
         });  
 
-        // show indicators (requires debug extension)
-        //scene.addIndicators();
+    
+
+
        
         $('#nav-holder').mmenu({
           offCanvas: {
@@ -71,21 +98,17 @@
           panelSelector: '.page',
           namespace: '',
           onSnapStart: function($target){
-            $('.page').removeClass('active-custom');
-            $target.addClass('active-custom');
-            console.log('this snapped');
-          },
-          onSnapFinish: function($target){
+            // $('.page').removeClass('active-custom');
+            // $target.addClass('active-custom');
+            // console.log('this snapped');
             var id = $target.attr('id');
-            console.log(id.length);
-            
             if (id.length > 0) {
-              console.log('there is an id');
               if (window.history && window.history.pushState) {
                 history.pushState("", document.title, '#'+id);
               }
             }
           },
+          onSnapFinish: function($target){},
           onActivate: function(){},
           directionThreshold: 50,
           slideSpeed: 800,
@@ -163,6 +186,8 @@
             columnWidth: 100
           }
         });
+
+
 	});
 	
 })(jQuery, this);

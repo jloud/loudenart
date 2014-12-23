@@ -83,3 +83,26 @@
         }
 
         $('.artwork img').featherlightGallery(lightboxdefaults);
+
+
+        $(document).on("click", "a[href^=#]", function (e) {
+          var id = $(this).attr("href");
+          if ($(id).length > 0) {
+            e.preventDefault();
+            // trigger scroll
+            contArt.scrollTo(id);
+              // if supported by the browser we can even update the URL.
+            if (window.history && window.history.pushState) {
+              history.pushState("", document.title, id);
+            }
+          }
+        });
+
+         <div class="chapter-holder">
+      <ul class="chapters">
+        <li><a href="#introduction">Home</a></li>
+        <?php while ($the_query -> have_posts()) : $the_query -> the_post(); ?>
+        <li><a href="#art-<?php the_ID(); ?>"><?php the_title(); ?></a></li>
+        <?php endwhile; ?> 
+      </ul>
+    </div>

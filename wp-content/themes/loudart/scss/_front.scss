@@ -2,7 +2,7 @@
   .logo-title {
     padding: 20px 40px;
     border: 20px solid $grey;
-    display: inline-block;
+    display: block;
   }
   hr {
     position: relative;
@@ -14,6 +14,11 @@
     display: inline-block;
     font-family: $serif;
     font-size: 4rem;
+  }
+  img {
+    width: 300px;
+    height: 200px;
+    display: block;
   }
 }
 
@@ -82,13 +87,28 @@
 }
 
 .page {
-  opacity: 0.5;
+  opacity: 0.25;
   transition: opacity 0.5s ease;
+  position: relative;
+  z-index: 10;
   &.active-custom {
     opacity: 1;
   }
   &.active {
     opacity: 1;
+  }
+}
+
+.bg-parallax {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  div {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background: url('imgs/bg.gif');
   }
 }
 
@@ -157,13 +177,27 @@
   padding-top: 20px;
 }
 
-.chapter-holder {
-  margin-right: 20px;
+.button-next-holder {
   position: fixed;
-  right: 0;
-  top: 300px;
-  z-index: 10;
-  text-align: right;
+  right: 30px;
+  bottom: 30px;
+  z-index: 300;
+  .icon-button-next {
+    position: relative;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    &:before {
+      content: "\ea3e";
+      font-size: 35px;
+    }
+    span {
+      margin: 10px 0 0;
+      display: block;
+    }
+  }
 }
 
 .content {
