@@ -357,30 +357,6 @@ left: 0;
 	margin-left: -46px;
 }
 
-#lightGallery-action a {
-	margin: 0 3px 0 0 !important;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	position: relative;
-	top: auto;
-	left: auto;
-	bottom: auto;
-	right: auto;
-	display: inline-block !important;
-	display: inline-block;
-	vertical-align: middle;
- *display: inline;
- *zoom: 1;
-	background-color: #000;
-	background-color: rgba(0, 0, 0, 0.65);
-	font-size: 16px;
-	width: 28px;
-	height: 28px;
-	font-family: 'Slide-icons';
-	color: #FFF;
-	cursor: pointer;
-}
 #lightGallery-action a.disabled {
 	opacity: 0.6;
 	filter: alpha(opacity=60);
@@ -397,12 +373,7 @@ left: 0;
 	bottom: 3px;
 	position: absolute;
 }
-#lightGallery-action a#lightGallery-prev:before {
-	content: "\e01d";
-}
-#lightGallery-action a#lightGallery-next:after {
-	content: "\e01b";
-}
+
 #lightGallery-action a.cLthumb:after {
 	font-family: 'Slide-icons';
 	content: "\e01c";
@@ -485,12 +456,7 @@ left: 0;
 	position: absolute;
 	top: 4px;
 }
-#lightGallery-Gallery .thumb_cont .thumb_info .close i:after, #lightGallery-close:after {
-	content: "\e01a";
-	font-family: 'Slide-icons';
-	font-style: normal;
-	font-size: 16px;
-}
+
 #lightGallery-Gallery .thumb_cont .thumb_info .close:hover {
 	text-decoration: none;
 	background-color: #000;
@@ -572,40 +538,6 @@ left: 0;
 /*lightGallery Video*/
 
 
-
-
-
-
-/*lightGallery Close*/
-#lightGallery-close {
-	color: #FFFFFF;
-	height: 28px;
-	position: absolute;
-	right: 20px;
-	top: 20px;
-	width: 28px;
-	z-index: 1090;
-	cursor: pointer;
-	background-color: #000;
-	border-radius: 2px;
-	background-color: #000;
-	background-color: rgba(0, 0, 0, 0.65);
-	-webkit-transition: background-color 0.3s ease;
-	-moz-transition: background-color 0.3s ease;
-	-o-transition: background-color 0.3s ease;
-	-ms-transition: background-color 0.3s ease;
-	transition: background-color 0.3s ease;
-	-webkit-backface-visibility: hidden;
-}
-#lightGallery-close:after {
-	position: absolute;
-	right: 6px;
-	top: 3px;
-}
-#lightGallery-close:hover {
-	text-decoration: none;
-	background-color: #000;
-}
 .customHtml {
 	background: none repeat scroll 0 0 black;
 	background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);

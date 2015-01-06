@@ -1,33 +1,48 @@
+@import "susy";
+
+$susy: (
+  columns: 12,
+  container: 90%,
+);
+
 @import "variables";
 
-@import "jquery.mmenu.all";
+//@import "jquery.mmenu.all";
+@import "menu";
 
-@import "featherlight";
+//@import "featherlight";
 
 @import "lightGallery";
 
+#lightGallery-outer {
+  .lb-caption {
+    width: 50%;
+    height: auto;
+    margin: 0 0;
+    padding: 16px;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 2rem;
+    color: #fff;
+    line-height: 1;
+    text-align: left;
+    font-family: $serif;
+    font-weight: normal;
+    z-index: 200;
+    white-space: normal;
+  }
+}
+
 #lightGallery-action {
   width: 100%;
-  bottom: 45%;
-  position: fixed;
-  left: auto;
+  bottom: 0;
+  left: 0;
   margin-left: 0;
 }
 
 #lightGallery-action a {
-  margin: 0 !important;
-  border-radius: none;
-  position: absolute;
-  display: inline-block !important;
-  display: inline-block;
-  vertical-align: middle;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.65);
-  font-size: 16px;
-  width: 40px;
-  height: 40px;
-  color: #FFF;
-  cursor: pointer;
   &#lightGallery-prev {
     left: 0;
   }
@@ -41,6 +56,14 @@
   transform: scale3d(1, 1, 1);
 }
 
+#lightGallery-action a#lightGallery-prev:before {
+  content: " ";
+}
+
+#lightGallery-action a#lightGallery-next:after {
+  content: " ";
+}
+
 @import "normalize";
 
 @import "base";
@@ -48,3 +71,7 @@
 @import "globals";
 
 @import "front";
+
+@import "artwork";
+
+@import "buttons";

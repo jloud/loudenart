@@ -1,9 +1,3 @@
-			<!-- footer -->
-			<footer class="footer" role="contentinfo">
-				<p class="copyright">LoudenArt</p>
-			</footer>
-			<!-- /footer -->
-
 		</div><!-- /wrapper -->
 
 		<?php wp_footer(); ?>

@@ -4,9 +4,47 @@ $serif: 'Droid Serif', serif;
 $sans: 'Nunito', sans-serif;
 
 $grey: lighten(#000,70%);
+$grey-dark: #444;
 
 @mixin vertical-align {
   position: relative;
   top: 50%;
   transform: translateY(-50%);
+}
+
+$break-small: 320px;
+$break-medium: 768px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == phone {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-medium + 1) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+}
+
+@mixin respond-to-height($height) {
+  
+  @media only screen and (max-height: $height) { @content; }
+
+}
+
+@mixin rightEnd {
+  -webkit-animation: rightEnd 0.3s;
+  @keyframes rightEnd2 {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: -30px;
+    }
+    100% {
+      left: 0;
+    }
+  }
 }

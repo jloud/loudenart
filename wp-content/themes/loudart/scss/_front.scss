@@ -1,24 +1,46 @@
+.content {
+  width: 7000px;
+  margin: 0 auto;
+  padding: 0;
+  white-space: nowrap;
+}
+
 .header-holder {
+  padding: 20px;
+  @include vertical-align;
   .logo-title {
-    padding: 20px 40px;
-    border: 20px solid $grey;
+    padding: 30px;
     display: block;
   }
   hr {
     position: relative;
     bottom: 80px;
     border:0;
-    border-bottom: 1px solid #000;
+    
   }
   h1 {
     display: inline-block;
     font-family: $serif;
-    font-size: 4rem;
+    font-size: 3rem;
   }
   img {
     width: 300px;
-    height: 200px;
+    margin: auto;
+    padding: 10px;
     display: block;
+  }
+  p {
+    margin: 10px 0;
+    padding-top: 20px;
+    text-align: center;
+    font-family: $sans;
+    font-size: 2rem;
+    letter-spacing: 0.15em;
+    &.front-email {
+      margin-top: 50px;
+      font-family: $serif;
+      font-size: 1.5rem;
+    }
   }
 }
 
@@ -26,71 +48,25 @@
   margin-top: 100px;
 }
 
-.nav-list {
-  background: #000;
-  color: #fff;
-  padding: 20px;
-}
-
-.nav-button {
-  width: 40px;
-  height: 20px;
-  position: absolute;
-  top: 30px;
-  right: 30px;
-  transform: rotate(0deg);
-  transition: all .75s ease-in-out;
-  cursor: pointer;
-  a {
-    width: 100%;
-    height: 100%;
-    display: block;
-  }
-  span {
-    width: 100%;
-    height: 2px;
-    display: block;
-    position: absolute;
-    background: #000;
-    opacity: 1;
-    left: 0;
-    transform: rotate(0deg);
-    transition: all .25s ease-in-out;
-  }
-  span:nth-child(1) {
-    top: 0px;
-  }
-  span:nth-child(2), span:nth-child(3) {
-    top: 10px;
-  }
-  span:nth-child(4) {
-    top: 20px;
-  }
-  &.open span:nth-child(1) {
-    top: 18px;
-    width: 0%;
-    left: 50%;
-    opacity: 0;
-  }
-  &.open span:nth-child(2) {
-    transform: rotate(45deg);
-  }
-  &.open span:nth-child(3) {
-    transform: rotate(-45deg);
-  }
-  &.open span:nth-child(4) {
-    width: 0%;
-    top: 18px;
-    left: 50%;
-    opacity: 0;
-  }
+.header {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
 }
 
 .page {
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  vertical-align: top;
   opacity: 0.25;
   transition: opacity 0.5s ease;
   position: relative;
   z-index: 10;
+  overflow: hidden;
   &.active-custom {
     opacity: 1;
   }
@@ -100,108 +76,43 @@
 }
 
 .bg-parallax {
-  width: 100%;
+  width: 7000px;
   height: 100%;
   position: absolute;
   top: 0;
+  left: 0;
   div {
-    width: 100%;
+    width: 7000px;
     height: 100%;
-    position: relative;
+    position: fixed;
+    left: 0;
+    top: 0;
     background: url('imgs/bg.gif');
-  }
-}
-
-.artwork-holder.page {
-  height: 100vh;
-  min-height: 500px;
-  text-align: center;
-  .post-content {
-    height: 80%;
-    padding: 3%;
-    @include vertical-align;
-    text-align: center;
-  }
-  .artwork {
-    width: 100%;
-    height: 100%;
-    max-height: 500px;
-    margin: auto;
-    display: inline-block;
-    position: relative;
-  }
-  h1 {
-    width: 100%;
-    margin: 0;
-    padding: 20px;
-    position: absolute;
-    bottom: 0;
-    text-align: center;
-    span {
-      background: #fff;
-    }
-  }
-  img {
-    width: auto;
-    max-width: none;
-    height: 96%;
-    margin: 0 2%;
-    border: #fff solid 8px;
-    transition: border-color 0.5s ease;
-    box-sizing: padding-box;
-    cursor: pointer;
-    &:hover {
-      border: #000 solid 8px;
-    }
-    &:nth-child(2), &:nth-child(3) {
-      height: 50%;
-    }
-  }
-  .caption {
-    font-family: $serif;
+    background-position: fixed;
   }
 }
 
 .about {
   height: 400px;
+  @include vertical-align;
   .photo {
-    width: 200px;
-    height: 300px;
-    margin: auto;
-    background: #ccc;
+    width: 300px;
+    margin: 0 auto 20px;
   }
-}
-
-.introduction {
-  height: 70vh;
-  padding-top: 20px;
-}
-
-.button-next-holder {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 300;
-  .icon-button-next {
-    position: relative;
-    display: block;
-    font-size: 14px;
+  p {
+    max-width: 300px;
+    margin: 0 auto;
     text-align: center;
-    text-transform: uppercase;
-    cursor: pointer;
-    &:before {
-      content: "\ea3e";
-      font-size: 35px;
+    font-size: 1.5rem;
+    &:first-child {
+      margin-top: 30px;
+      padding-top: 20px;
+      border-top: 1px solid #000;
     }
-    span {
-      margin: 10px 0 0;
-      display: block;
+    &.email {
+      font-family: $serif;
+      font-size: 1.9rem;
+      letter-spacing: 0.1em;
     }
   }
-}
-
-.content {
-  width: 94%;
-  margin: 0 auto;
-  padding: 0 3%;
 }

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url(http://fonts.googleapis.com/css?family=Droid+Serif|Nunito:400,300,700);
 @font-face {
   font-family: 'icomoon';
@@ -7,7 +6,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 /* line 14, ../scss/_fonts.scss */
 [class^="icon-"], [class*=" icon-"] {
   font-family: 'icomoon';
@@ -22,1979 +20,87 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-/*
-	jQuery.mmenu CSS
-*/
-/*
-	jQuery.mmenu panels CSS
-*/
-/* line 9, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-horizontal > .mm-panel {
-  -webkit-transition: -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease;
-}
-
-/* line 17, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu .mm-hidden {
-  display: none;
-}
-
-/* line 24, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-wrapper {
-  overflow-x: hidden;
-  position: relative;
-}
-
-/* line 32, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu,
-.mm-menu > .mm-panel {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 0;
-}
-
-/* line 41, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu {
-  background: inherit;
-  display: block;
-  overflow: hidden;
-  padding: 0;
-}
-/* line 48, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu > .mm-panel {
-  background: inherit;
-  -webkit-overflow-scrolling: touch;
-  overflow: scroll;
-  overflow-x: hidden;
-  overflow-y: auto;
-  box-sizing: border-box;
-  padding: 20px;
-  -webkit-transform: translate(100%, 0);
-  -moz-transform: translate(100%, 0);
-  -ms-transform: translate(100%, 0);
-  -o-transform: translate(100%, 0);
-  transform: translate(100%, 0);
-}
-/* line 62, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu > .mm-panel.mm-opened {
-  -webkit-transform: translate(0%, 0);
-  -moz-transform: translate(0%, 0);
-  -ms-transform: translate(0%, 0);
-  -o-transform: translate(0%, 0);
-  transform: translate(0%, 0);
-}
-/* line 66, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu > .mm-panel.mm-subopened {
-  -webkit-transform: translate(-30%, 0);
-  -moz-transform: translate(-30%, 0);
-  -ms-transform: translate(-30%, 0);
-  -o-transform: translate(-30%, 0);
-  transform: translate(-30%, 0);
-}
-/* line 70, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu > .mm-panel.mm-highest {
-  z-index: 1;
-}
-/* line 77, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu .mm-list {
-  padding: 20px 0;
-}
-/* line 81, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu > .mm-list {
-  padding-bottom: 0;
-}
-/* line 85, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu > .mm-list:after {
-  content: '';
-  display: block;
-  height: 40px;
-}
-
-/* line 93, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-panel > .mm-list {
-  margin-left: -20px;
-  margin-right: -20px;
-}
-/* line 98, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-panel > .mm-list:first-child {
-  padding-top: 0;
-}
-
-/* line 105, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list,
-.mm-list > li {
-  list-style: none;
-  display: block;
-  padding: 0;
-  margin: 0;
-}
-
-/* line 112, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list {
-  font: inherit;
-  font-size: 14px;
-}
-/* line 118, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a,
-.mm-list a:hover {
-  text-decoration: none;
-}
-/* line 123, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li {
-  position: relative;
-}
-/* line 128, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li > a,
-.mm-list > li > span {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  color: inherit;
-  line-height: 20px;
-  display: block;
-  padding: 10px 10px 10px 20px;
-  margin: 0;
-}
-/* line 28, ../scss/inc/_mixins.scss */
-.mm-list > li:not(.mm-subtitle):not(.mm-label):not(.mm-search):not(.mm-noresults):after {
-  content: '';
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  display: block;
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-/* line 144, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li:not(.mm-subtitle):not(.mm-label):not(.mm-search):not(.mm-noresults):after {
-  width: auto;
-  margin-left: 20px;
-  position: relative;
-  left: auto;
-}
-/* line 154, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subopen {
-  background: rgba(3, 2, 1, 0);
-  width: 40px;
-  height: 100%;
-  padding: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 2;
-}
-/* line 28, ../scss/inc/_mixins.scss */
-.mm-list a.mm-subopen:before {
-  content: '';
-  border-left-width: 1px;
-  border-left-style: solid;
-  display: block;
-  height: 100%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-/* line 167, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subopen.mm-fullsubopen {
-  width: 100%;
-}
-/* line 171, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subopen.mm-fullsubopen:before {
-  border-left: none;
-}
-/* line 178, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subopen + a,
-.mm-list a.mm-subopen + span {
-  padding-right: 5px;
-  margin-right: 40px;
-}
-/* line 187, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li.mm-selected > a.mm-subopen {
-  background: transparent;
-}
-/* line 194, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li.mm-selected > a.mm-fullsubopen + a,
-.mm-list > li.mm-selected > a.mm-fullsubopen + span {
-  padding-right: 45px;
-  margin-right: 0;
-}
-/* line 202, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subclose {
-  text-indent: 20px;
-  padding-top: 30px;
-  margin-top: -20px;
-}
-/* line 210, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li.mm-label {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  font-size: 10px;
-  text-transform: uppercase;
-  text-indent: 20px;
-  line-height: 25px;
-  padding-right: 5px;
-}
-/* line 222, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li.mm-spacer {
-  padding-top: 40px;
-}
-/* line 226, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list > li.mm-spacer.mm-label {
-  padding-top: 25px;
-}
-/* line 234, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subopen:after,
-.mm-list a.mm-subclose:before {
-  content: '';
-  border: 2px solid transparent;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  margin-bottom: -5px;
-  position: absolute;
-  bottom: 50%;
-}
-/* line 242, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subopen:after {
-  border-top: none;
-  border-left: none;
-  right: 18px;
-}
-/* line 248, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-list a.mm-subclose:before {
-  border-right: none;
-  border-bottom: none;
-  margin-bottom: -15px;
-  left: 22px;
-}
-
-/* line 260, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-vertical .mm-list .mm-panel {
-  display: none;
-  padding: 10px 0 10px 10px;
-}
-/* line 265, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-vertical .mm-list .mm-panel li:last-child:after {
-  border-color: transparent;
-}
-/* line 270, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-vertical .mm-list li.mm-opened > .mm-panel {
-  display: block;
-}
-/* line 276, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-vertical .mm-list > li > a.mm-subopen {
-  height: 40px;
-}
-/* line 279, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-vertical .mm-list > li > a.mm-subopen:after {
-  top: 16px;
-  bottom: auto;
-}
-/* line 287, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-vertical .mm-list > li.mm-opened > a.mm-subopen:after {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* line 292, ../scss/jquery.mmenu.oncanvas.scss */
-.mm-menu.mm-vertical .mm-list > li.mm-label > a.mm-subopen {
-  height: 25px;
-}
-
-/* line 8, ../scss/inc/_colors.scss */
-html.mm-opened .mm-page {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-
-/* line 12, ../scss/inc/_colors.scss */
-.mm-menu {
-  background: #333333;
-  color: rgba(255, 255, 255, 0.6);
-}
-/* line 19, ../scss/inc/_colors.scss */
-.mm-menu .mm-list > li:after {
-  border-color: rgba(0, 0, 0, 0.15);
-}
-/* line 27, ../scss/inc/_colors.scss */
-.mm-menu .mm-list > li > a.mm-subclose {
-  background: rgba(0, 0, 0, 0.1);
-  color: rgba(255, 255, 255, 0.3);
-}
-/* line 33, ../scss/inc/_colors.scss */
-.mm-menu .mm-list > li > a.mm-subopen:after, .mm-menu .mm-list > li > a.mm-subclose:before {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-/* line 37, ../scss/inc/_colors.scss */
-.mm-menu .mm-list > li > a.mm-subopen:before {
-  border-color: rgba(0, 0, 0, 0.15);
-}
-/* line 46, ../scss/inc/_colors.scss */
-.mm-menu .mm-list > li.mm-selected > a:not(.mm-subopen),
-.mm-menu .mm-list > li.mm-selected > span {
-  background: rgba(0, 0, 0, 0.1);
-}
-/* line 51, ../scss/inc/_colors.scss */
-.mm-menu .mm-list > li.mm-label {
-  background: rgba(255, 255, 255, 0.05);
-}
-/* line 62, ../scss/inc/_colors.scss */
-.mm-menu.mm-vertical .mm-list li.mm-opened > a.mm-subopen,
-.mm-menu.mm-vertical .mm-list li.mm-opened > ul {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/*
-	jQuery.mmenu offcanvas addon CSS
-*/
-/* line 10, ../scss/addons/jquery.mmenu.offcanvas.scss */
-.mm-page {
-  box-sizing: border-box;
-  position: relative;
-}
-
-/* line 15, ../scss/addons/jquery.mmenu.offcanvas.scss */
-.mm-slideout {
-  -webkit-transition: -webkit-transform 0.4s ease;
-  -ms-transition: -ms-transform 0.4s ease;
-  transition: transform 0.4s ease;
-}
-
-/* line 23, ../scss/addons/jquery.mmenu.offcanvas.scss */
-html.mm-opened {
-  overflow: hidden;
-  position: relative;
-}
-/* line 28, ../scss/addons/jquery.mmenu.offcanvas.scss */
-html.mm-opened body {
-  overflow: hidden;
-}
-
-/* line 34, ../scss/addons/jquery.mmenu.offcanvas.scss */
-html.mm-background .mm-page {
-  background: inherit;
-}
-
-/* line 38, ../scss/addons/jquery.mmenu.offcanvas.scss */
-#mm-blocker {
-  background: rgba(3, 2, 1, 0);
-  display: none;
-  width: 100%;
-  height: 100%;
+/* line 1, ../scss/_menu.scss */
+.menu-overlay {
   position: fixed;
+  width: 100%;
+  height: 100%;
   top: 0;
   left: 0;
-  z-index: 999999;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+  z-index: 300;
+  font-size: 2rem;
 }
-
-/* line 52, ../scss/addons/jquery.mmenu.offcanvas.scss */
-html.mm-opened #mm-blocker,
-html.mm-blocking #mm-blocker {
-  display: block;
-}
-
-/* line 61, ../scss/addons/jquery.mmenu.offcanvas.scss */
-.mm-menu.mm-offcanvas {
-  display: none;
-  position: fixed;
-}
-/* line 66, ../scss/addons/jquery.mmenu.offcanvas.scss */
-.mm-menu.mm-current {
-  display: block;
-}
-
-/* line 6, ../scss/inc/_sizing.scss */
-.mm-menu {
-  width: 80%;
-  min-width: 140px;
-  max-width: 440px;
-}
-
-/* line 14, ../scss/inc/_sizing.scss */
-html.mm-opening .mm-slideout {
-  -webkit-transform: translate(80%, 0);
-  -moz-transform: translate(80%, 0);
-  -ms-transform: translate(80%, 0);
-  -o-transform: translate(80%, 0);
-  transform: translate(80%, 0);
-}
-
-@media all and (max-width: 175px) {
-  /* line 22, ../scss/inc/_sizing.scss */
-  html.mm-opening .mm-slideout {
-    -webkit-transform: translate(140px, 0);
-    -moz-transform: translate(140px, 0);
-    -ms-transform: translate(140px, 0);
-    -o-transform: translate(140px, 0);
-    transform: translate(140px, 0);
-  }
-}
-@media all and (min-width: 550px) {
-  /* line 31, ../scss/inc/_sizing.scss */
-  html.mm-opening .mm-slideout {
-    -webkit-transform: translate(440px, 0);
-    -moz-transform: translate(440px, 0);
-    -ms-transform: translate(440px, 0);
-    -o-transform: translate(440px, 0);
-    transform: translate(440px, 0);
-  }
-}
-/*
-	jQuery.mmenu buttonbars addon CSS
-*/
-/* line 9, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar {
-  border: 1px solid transparent;
-  border-radius: 5px;
+/* line 13, ../scss/_menu.scss */
+.menu-overlay h2 {
+  margin: 0;
+  font-family: "Droid Serif", serif;
   text-align: center;
-  line-height: 20px;
-  overflow: hidden;
-  display: block;
-  padding: 0;
-  margin: 0;
+  font-weight: normal;
+  line-height: 1;
+}
+/* line 19, ../scss/_menu.scss */
+.menu-overlay h2 span {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+}
+/* line 24, ../scss/_menu.scss */
+.menu-overlay nav {
+  text-align: center;
   position: relative;
-}
-/* line 82, ../scss/inc/_mixins.scss */
-.mm-buttonbar:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-/* line 23, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar > * {
-  border-left: 1px solid transparent;
-  box-sizing: border-box;
-  display: block;
-  width: 100%;
-  height: 100%;
-  float: left;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-/* line 34, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar > a {
-  text-decoration: none;
-}
-/* line 38, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar > input {
-  position: absolute;
-  left: -1000px;
-  top: -1000px;
-}
-/* line 44, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar > input:checked + label {
-  border-color: transparent  !important;
-}
-/* line 50, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar > *:first-child,
-.mm-buttonbar > input:first-child + * {
-  border-left: none;
-}
-/* line 56, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar.mm-buttonbar-2 > * {
-  width: 50%;
-}
-/* line 60, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar.mm-buttonbar-3 > * {
-  width: 33.33%;
-}
-/* line 64, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar.mm-buttonbar-4 > * {
-  width: 25%;
-}
-/* line 68, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-buttonbar.mm-buttonbar-5 > * {
-  width: 20%;
-}
-
-/* line 74, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-header .mm-buttonbar {
-  margin-top: 20px;
-  margin-left: -30px;
-  margin-right: -30px;
-}
-
-/* line 81, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-footer .mm-buttonbar {
-  border: none;
-  border-radius: none;
-  line-height: 40px;
-  margin: -10px -10px 0 -20px;
-}
-/* line 88, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-footer .mm-buttonbar > * {
-  border-left: none;
-}
-
-/* line 94, ../scss/addons/jquery.mmenu.buttonbars.scss */
-.mm-list > li > .mm-buttonbar {
-  margin: 10px 20px;
-}
-
-/* line 77, ../scss/inc/_colors.scss */
-.mm-menu .mm-buttonbar {
-  border-color: rgba(255, 255, 255, 0.6);
-  background: #333333;
-}
-/* line 82, ../scss/inc/_colors.scss */
-.mm-menu .mm-buttonbar > * {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-/* line 87, ../scss/inc/_colors.scss */
-.mm-menu .mm-buttonbar > input:checked + label {
-  background: rgba(255, 255, 255, 0.6);
-  color: #333333;
-}
-
-/*
-	jQuery.mmenu counters addon CSS
-*/
-/* line 9, ../scss/addons/jquery.mmenu.counters.scss */
-em.mm-counter {
-  font: inherit;
-  font-size: 14px;
-  font-style: normal;
-  text-indent: 0;
-  line-height: 20px;
-  display: block;
-  margin-top: -10px;
-  position: absolute;
-  right: 40px;
   top: 50%;
+  transform: translateY(-50%);
 }
-/* line 22, ../scss/addons/jquery.mmenu.counters.scss */
-em.mm-counter + a.mm-subopen {
-  padding-left: 40px;
-}
-/* line 27, ../scss/addons/jquery.mmenu.counters.scss */
-em.mm-counter + a.mm-subopen + a,
-em.mm-counter + a.mm-subopen + span {
-  margin-right: 80px;
-}
-/* line 32, ../scss/addons/jquery.mmenu.counters.scss */
-em.mm-counter + a.mm-fullsubopen {
-  padding-left: 0;
-}
-
-/* line 41, ../scss/addons/jquery.mmenu.counters.scss */
-.mm-vertical em.mm-counter {
-  top: 12px;
-  margin-top: 0;
-}
-
-/* line 49, ../scss/addons/jquery.mmenu.counters.scss */
-.mm-nosubresults > em.mm-counter {
-  display: none;
-}
-
-/* line 108, ../scss/inc/_colors.scss */
-.mm-menu em.mm-counter {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/*
-	jQuery.mmenu dragOpen addon CSS
-*/
-/* line 14, ../scss/addons/jquery.mmenu.dragopen.scss */
-html.mm-opened.mm-dragging .mm-menu,
-html.mm-opened.mm-dragging .mm-page,
-html.mm-opened.mm-dragging .mm-fixed-top,
-html.mm-opened.mm-dragging .mm-fixed-bottom,
-html.mm-opened.mm-dragging #mm-blocker {
-  -webkit-transition-duration: 0s;
-  -moz-transition-duration: 0s;
-  -ms-transition-duration: 0s;
-  -o-transition-duration: 0s;
-  transition-duration: 0s;
-}
-
-/*
-	jQuery.mmenu footer addon CSS
-*/
-/* line 9, ../scss/addons/jquery.mmenu.footer.scss */
-.mm-footer {
-  background: inherit;
-  border-top: 1px solid transparent;
-  text-align: center;
-  line-height: 20px;
-  box-sizing: border-box;
-  width: 100%;
-  height: 40px;
-  padding: 10px 10px 0 20px;
-  position: absolute;
-  z-index: 2;
-  bottom: 0;
-  left: 0;
-}
-
-/* line 28, ../scss/addons/jquery.mmenu.footer.scss */
-.mm-menu.mm-hasfooter > .mm-panel:after {
-  height: 80px;
-}
-
-/* line 120, ../scss/inc/_colors.scss */
-.mm-menu .mm-footer {
-  border-color: rgba(0, 0, 0, 0.15);
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/*
-	jQuery.mmenu header addon CSS
-*/
-/* line 9, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header {
-  background: inherit;
-  border-bottom: 1px solid transparent;
-  text-align: center;
-  line-height: 20px;
-  box-sizing: border-box;
-  width: 100%;
-  height: 60px;
-  padding: 0 50px;
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  left: 0;
-}
-/* line 28, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header .mm-title,
-.mm-header .mm-prev,
-.mm-header .mm-next,
-.mm-header .mm-close {
-  padding-top: 30px;
-}
-/* line 32, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header .mm-title {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  width: 100%;
-  position: relative;
-}
-/* line 43, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header .mm-prev,
-.mm-header .mm-next,
-.mm-header .mm-close {
-  text-decoration: none;
-  display: block;
-  box-sizing: border-box;
-  min-width: 10px;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  z-index: 1;
-}
-/* line 54, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header .mm-prev {
-  padding-left: 20px;
-  padding-right: 10px;
-  left: 0;
-}
-/* line 61, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header .mm-next,
-.mm-header .mm-close {
-  padding-left: 10px;
-  padding-right: 20px;
-  right: 0;
-}
-/* line 70, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header [href].mm-prev:before, .mm-header [href].mm-next:after {
-  content: '';
-  border: 2px solid transparent;
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-/* line 74, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header [href].mm-prev:before {
-  border-right: none;
-  border-bottom: none;
-  margin-left: 2px;
-  margin-right: 5px;
-}
-/* line 81, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header [href].mm-next:after, .mm-header [href].mm-close:after {
-  margin-left: 5px;
-  margin-right: -2px;
-}
-/* line 86, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header [href].mm-next:after {
-  border-top: none;
-  border-left: none;
-}
-/* line 90, ../scss/addons/jquery.mmenu.header.scss */
-.mm-header [href].mm-close:after {
-  content: 'x';
-}
-
-/* line 97, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hassearch .mm-header {
-  height: 50px;
-  top: 50px;
-}
-/* line 105, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hassearch .mm-header .mm-title,
-.mm-menu.mm-hassearch .mm-header .mm-prev,
-.mm-menu.mm-hassearch .mm-header .mm-next,
-.mm-menu.mm-hassearch .mm-header .mm-close {
-  padding-top: 20px;
-}
-
-/* line 114, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hasheader li.mm-subtitle {
-  display: none;
-}
-/* line 118, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hasheader > .mm-panel {
-  padding-top: 80px;
-}
-/* line 121, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hasheader > .mm-panel.mm-list {
-  padding-top: 60px;
-}
-/* line 125, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hasheader > .mm-panel > .mm-list:first-child {
-  margin-top: -20px;
-}
-/* line 130, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hasheader.mm-hassearch > .mm-panel {
-  padding-top: 120px;
-}
-/* line 134, ../scss/addons/jquery.mmenu.header.scss */
-.mm-menu.mm-hasheader.mm-hassearch > .mm-panel.mm-list {
-  padding-top: 100px;
-}
-
-/* line 134, ../scss/inc/_colors.scss */
-.mm-menu .mm-header {
-  border-color: rgba(0, 0, 0, 0.15);
-  color: rgba(255, 255, 255, 0.3);
-}
-/* line 141, ../scss/inc/_colors.scss */
-.mm-menu .mm-header .mm-prev:before,
-.mm-menu .mm-header .mm-next:after,
-.mm-menu .mm-header .mm-close:after {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-/*
-	jQuery.mmenu labels addon CSS
-*/
-/* line 12, ../scss/addons/jquery.mmenu.labels.scss */
-.mm-list li.mm-label > span {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
+/* line 28, ../scss/_menu.scss */
+.menu-overlay ul {
+  margin: 30px 0 !important;
+  list-style: none;
   padding: 0;
-  line-height: 25px;
-}
-/* line 19, ../scss/addons/jquery.mmenu.labels.scss */
-.mm-list li.mm-label.mm-opened a.mm-subopen:after {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-/* line 24, ../scss/addons/jquery.mmenu.labels.scss */
-.mm-list li.mm-collapsed:not(.mm-uncollapsed) {
-  display: none;
-}
-
-/* line 34, ../scss/addons/jquery.mmenu.labels.scss */
-.mm-menu.mm-vertical .mm-list > li.mm-label > a.mm-subopen:after {
-  top: 8.5px;
-}
-
-/* line 154, ../scss/inc/_colors.scss */
-.mm-menu .mm-list li.mm-label > div > div {
-  background: rgba(255, 255, 255, 0.05);
-}
-
-/*
-	jQuery.mmenu searchfield addon CSS
-*/
-/* line 9, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-search,
-.mm-search input {
-  box-sizing: border-box;
-}
-
-/* line 15, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-list > li.mm-search {
-  padding: 10px;
-  margin-top: -20px;
-}
-/* line 20, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-list > li.mm-subtitle + li.mm-search {
-  margin-top: 0;
-}
-
-/* line 25, ../scss/addons/jquery.mmenu.searchfield.scss */
-div.mm-panel > div.mm-search {
-  padding: 0 0 10px 0;
-}
-
-/* line 29, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu.mm-hasheader .mm-list > li.mm-search {
-  margin-top: 0;
-}
-
-/* line 33, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu > .mm-search {
-  background: inherit;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-}
-
-/* line 42, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-search {
-  padding: 10px;
-}
-/* line 46, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-search input {
-  border: none;
-  border-radius: 30px;
-  font: inherit;
-  font-size: 14px;
-  line-height: 30px;
-  outline: none;
-  display: block;
-  width: 100%;
-  height: 30px;
-  margin: 0;
-  padding: 0 10px;
-}
-/* line 60, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-search input::-ms-clear {
-  display: none;
-}
-
-/* line 66, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu .mm-noresultsmsg {
-  text-align: center;
-  font-size: 21px;
-  display: none;
-  padding: 60px 0;
-}
-/* line 73, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu .mm-noresultsmsg:after {
-  border: none !important;
-}
-
-/* line 78, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-noresults .mm-noresultsmsg {
-  display: block;
-}
-
-/* line 86, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu li.mm-nosubresults > a.mm-subopen {
-  display: none;
-}
-/* line 91, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu li.mm-nosubresults > a.mm-subopen + a,
-.mm-menu li.mm-nosubresults > a.mm-subopen + span {
-  padding-right: 10px;
-}
-/* line 98, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu.mm-hassearch > .mm-panel {
-  padding-top: 70px;
-}
-/* line 102, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu.mm-hassearch > .mm-panel > .mm-list:first-child {
-  margin-top: -20px;
-}
-/* line 112, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu.mm-hasheader > .mm-panel > div.mm-search:first-child {
-  margin-top: -10px;
-}
-/* line 116, ../scss/addons/jquery.mmenu.searchfield.scss */
-.mm-menu.mm-hasheader > .mm-panel > div.mm-search:first-child + .mm-list {
-  padding-top: 0;
-}
-
-/* line 167, ../scss/inc/_colors.scss */
-.mm-menu .mm-search input {
-  background: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.6);
-}
-/* line 172, ../scss/inc/_colors.scss */
-.mm-menu .mm-noresultsmsg {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/*
-	jQuery.mmenu toggles addon CSS
-*/
-/* line 10, ../scss/addons/jquery.mmenu.toggles.scss */
-input.mm-toggle,
-input.mm-check {
-  position: absolute;
-  left: -10000px;
-}
-
-/* line 17, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-toggle,
-label.mm-check {
-  margin: 0;
-  position: absolute;
-  bottom: 50%;
-  z-index: 2;
-}
-/* line 24, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-toggle:before,
-label.mm-check:before {
-  content: '';
-  display: block;
-}
-
-/* line 32, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-toggle {
-  border-radius: 30px;
-  width: 50px;
-  height: 30px;
-  margin-bottom: -15px;
-}
-/* line 39, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-toggle:before {
-  border-radius: 30px;
-  width: 28px;
-  height: 28px;
-  margin: 1px;
-}
-
-/* line 47, ../scss/addons/jquery.mmenu.toggles.scss */
-input.mm-toggle:checked ~ label.mm-toggle:before {
-  float: right;
-}
-
-/* line 52, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-check {
-  width: 30px;
-  height: 30px;
-  margin-bottom: -15px;
-}
-/* line 58, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-check:before {
-  border-left: 3px solid;
-  border-bottom: 3px solid;
-  width: 40%;
-  height: 20%;
-  margin: 25% 0 0 20%;
-  opacity: 0.1;
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -ms-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-/* line 70, ../scss/addons/jquery.mmenu.toggles.scss */
-input.mm-check:checked ~ label.mm-check:before {
-  opacity: 1;
-}
-
-/* line 82, ../scss/addons/jquery.mmenu.toggles.scss */
-.mm-menu.mm-vertical .mm-list > li label.mm-toggle, .mm-menu.mm-vertical .mm-list > li label.mm-check {
-  bottom: auto;
-  margin-bottom: 0;
-}
-/* line 87, ../scss/addons/jquery.mmenu.toggles.scss */
-.mm-menu.mm-vertical .mm-list > li label.mm-toggle {
-  top: 5px;
-}
-/* line 92, ../scss/addons/jquery.mmenu.toggles.scss */
-.mm-menu.mm-vertical .mm-list > li label.mm-check {
-  top: 5px;
-}
-
-/* line 104, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-toggle, label.mm-check {
-  right: 20px;
-}
-
-/* line 112, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-toggle + a,
-label.mm-toggle + span {
-  margin-right: 70px;
-}
-
-/* line 120, ../scss/addons/jquery.mmenu.toggles.scss */
-label.mm-check + a,
-label.mm-check + span {
-  margin-right: 50px;
-}
-
-/* line 130, ../scss/addons/jquery.mmenu.toggles.scss */
-a.mm-subopen + label.mm-toggle, a.mm-subopen + label.mm-check {
-  right: 50px;
-}
-
-/* line 138, ../scss/addons/jquery.mmenu.toggles.scss */
-a.mm-subopen + label.mm-toggle + a,
-a.mm-subopen + label.mm-toggle + span {
-  margin-right: 100px;
-}
-
-/* line 146, ../scss/addons/jquery.mmenu.toggles.scss */
-a.mm-subopen + label.mm-check + a,
-a.mm-subopen + label.mm-check + span {
-  margin-right: 80px;
-}
-
-/* line 156, ../scss/addons/jquery.mmenu.toggles.scss */
-em.mm-counter + a.mm-subopen + label.mm-toggle, em.mm-counter + a.mm-subopen + label.mm-check {
-  right: 90px;
-}
-
-/* line 164, ../scss/addons/jquery.mmenu.toggles.scss */
-em.mm-counter + a.mm-subopen + label.mm-toggle + a,
-em.mm-counter + a.mm-subopen + label.mm-toggle + span {
-  margin-right: 140px;
-}
-
-/* line 172, ../scss/addons/jquery.mmenu.toggles.scss */
-em.mm-counter + a.mm-subopen + label.mm-check + a,
-em.mm-counter + a.mm-subopen + label.mm-check + span {
-  margin-right: 120px;
-}
-
-/* line 185, ../scss/inc/_colors.scss */
-.mm-menu label.mm-toggle {
-  background: rgba(0, 0, 0, 0.15);
-}
-/* line 189, ../scss/inc/_colors.scss */
-.mm-menu label.mm-toggle:before {
-  background: #333333;
-}
-/* line 194, ../scss/inc/_colors.scss */
-.mm-menu input.mm-toggle:checked ~ label.mm-toggle {
-  background: #4bd963;
-}
-
-/* line 99, ../scss/inc/_colors.scss */
-.mm-menu label.mm-check:before {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-/*
-	jQuery.mmenu effects extension CSS
-*/
-/* line 12, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide .mm-menu {
-  -webkit-transition: -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease;
-}
-/* line 19, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-opened .mm-menu {
-  -webkit-transform: translateX(-30%);
-  -moz-transform: translateX(-30%);
-  -ms-transform: translateX(-30%);
-  -o-transform: translateX(-30%);
-  transform: translateX(-30%);
-}
-/* line 23, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-opening .mm-menu {
-  -webkit-transform: translateX(0%);
-  -moz-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  -o-transform: translateX(0%);
-  transform: translateX(0%);
-}
-/* line 31, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-right.mm-opened .mm-menu {
-  -webkit-transform: translateX(30%);
-  -moz-transform: translateX(30%);
-  -ms-transform: translateX(30%);
-  -o-transform: translateX(30%);
-  transform: translateX(30%);
-}
-/* line 35, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-right.mm-opening .mm-menu {
-  -webkit-transform: translateX(0%);
-  -moz-transform: translateX(0%);
-  -ms-transform: translateX(0%);
-  -o-transform: translateX(0%);
-  transform: translateX(0%);
-}
-/* line 44, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-top.mm-opened .mm-menu {
-  -webkit-transform: translateY(-30%);
-  -moz-transform: translateY(-30%);
-  -ms-transform: translateY(-30%);
-  -o-transform: translateY(-30%);
-  transform: translateY(-30%);
-}
-/* line 48, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-top.mm-opening .mm-menu {
-  -webkit-transform: translateY(0%);
-  -moz-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  -o-transform: translateY(0%);
-  transform: translateY(0%);
-}
-/* line 57, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-bottom.mm-opened .mm-menu {
-  -webkit-transform: translateY(30%);
-  -moz-transform: translateY(30%);
-  -ms-transform: translateY(30%);
-  -o-transform: translateY(30%);
-  transform: translateY(30%);
-}
-/* line 61, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-slide.mm-bottom.mm-opening .mm-menu {
-  -webkit-transform: translateY(0%);
-  -moz-transform: translateY(0%);
-  -ms-transform: translateY(0%);
-  -o-transform: translateY(0%);
-  transform: translateY(0%);
-}
-
-/* line 74, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu .mm-menu {
-  -webkit-transition: -webkit-transform 0.4s ease;
-  transition: transform 0.4s ease;
-}
-/* line 81, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-opened .mm-menu {
-  -webkit-transform: scale(0.7, 0.7) translateX(-30%);
-  -moz-transform: scale(0.7, 0.7) translateX(-30%);
-  -ms-transform: scale(0.7, 0.7) translateX(-30%);
-  -o-transform: scale(0.7, 0.7) translateX(-30%);
-  transform: scale(0.7, 0.7) translateX(-30%);
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -ms-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-}
-/* line 86, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-opening .mm-menu {
-  -webkit-transform: scale(1, 1) translateX(0%);
-  -moz-transform: scale(1, 1) translateX(0%);
-  -ms-transform: scale(1, 1) translateX(0%);
-  -o-transform: scale(1, 1) translateX(0%);
-  transform: scale(1, 1) translateX(0%);
-}
-/* line 94, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-right.mm-opened .mm-menu {
-  -webkit-transform: scale(0.7, 0.7) translateX(30%);
-  -moz-transform: scale(0.7, 0.7) translateX(30%);
-  -ms-transform: scale(0.7, 0.7) translateX(30%);
-  -o-transform: scale(0.7, 0.7) translateX(30%);
-  transform: scale(0.7, 0.7) translateX(30%);
-  -webkit-transform-origin: right center;
-  -moz-transform-origin: right center;
-  -ms-transform-origin: right center;
-  -o-transform-origin: right center;
-  transform-origin: right center;
-}
-/* line 99, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-right.mm-opening .mm-menu {
-  -webkit-transform: scale(1, 1) translateX(0%);
-  -moz-transform: scale(1, 1) translateX(0%);
-  -ms-transform: scale(1, 1) translateX(0%);
-  -o-transform: scale(1, 1) translateX(0%);
-  transform: scale(1, 1) translateX(0%);
-}
-/* line 108, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-top.mm-opened .mm-menu {
-  -webkit-transform: scale(0.7, 0.7) translateY(-30%);
-  -moz-transform: scale(0.7, 0.7) translateY(-30%);
-  -ms-transform: scale(0.7, 0.7) translateY(-30%);
-  -o-transform: scale(0.7, 0.7) translateY(-30%);
-  transform: scale(0.7, 0.7) translateY(-30%);
-  -webkit-transform-origin: center top;
-  -moz-transform-origin: center top;
-  -ms-transform-origin: center top;
-  -o-transform-origin: center top;
-  transform-origin: center top;
-}
-/* line 113, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-top.mm-opening .mm-menu {
-  -webkit-transform: scale(1, 1) translateY(0%);
-  -moz-transform: scale(1, 1) translateY(0%);
-  -ms-transform: scale(1, 1) translateY(0%);
-  -o-transform: scale(1, 1) translateY(0%);
-  transform: scale(1, 1) translateY(0%);
-}
-/* line 122, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-bottom.mm-opened .mm-menu {
-  -webkit-transform: scale(0.7, 0.7) translateY(30%);
-  -moz-transform: scale(0.7, 0.7) translateY(30%);
-  -ms-transform: scale(0.7, 0.7) translateY(30%);
-  -o-transform: scale(0.7, 0.7) translateY(30%);
-  transform: scale(0.7, 0.7) translateY(30%);
-  -webkit-transform-origin: center bottom;
-  -moz-transform-origin: center bottom;
-  -ms-transform-origin: center bottom;
-  -o-transform-origin: center bottom;
-  transform-origin: center bottom;
-}
-/* line 127, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-menu.mm-bottom.mm-opening .mm-menu {
-  -webkit-transform: scale(1, 1) translateY(0%);
-  -moz-transform: scale(1, 1) translateY(0%);
-  -ms-transform: scale(1, 1) translateY(0%);
-  -o-transform: scale(1, 1) translateY(0%);
-  transform: scale(1, 1) translateY(0%);
-}
-
-/* line 136, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-panels .mm-menu.mm-horizontal > .mm-panel {
-  -webkit-transform: scale(1.5, 1.5) translateX(100%);
-  -moz-transform: scale(1.5, 1.5) translateX(100%);
-  -ms-transform: scale(1.5, 1.5) translateX(100%);
-  -o-transform: scale(1.5, 1.5) translateX(100%);
-  transform: scale(1.5, 1.5) translateX(100%);
-  -webkit-transform-origin: left center;
-  -moz-transform-origin: left center;
-  -ms-transform-origin: left center;
-  -o-transform-origin: left center;
-  transform-origin: left center;
-  -webkit-transition-property: -webkit-transform, left;
-  transition-property: transform, left;
-}
-/* line 144, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-panels .mm-menu.mm-horizontal > .mm-panel.mm-opened {
-  -webkit-transform: scale(1, 1) translateX(0%);
-  -moz-transform: scale(1, 1) translateX(0%);
-  -ms-transform: scale(1, 1) translateX(0%);
-  -o-transform: scale(1, 1) translateX(0%);
-  transform: scale(1, 1) translateX(0%);
-}
-/* line 148, ../scss/extensions/jquery.mmenu.effects.scss */
-html.mm-zoom-panels .mm-menu.mm-horizontal > .mm-panel.mm-opened.mm-subopened {
-  -webkit-transform: scale(0.7, 0.7) translateX(-30%);
-  -moz-transform: scale(0.7, 0.7) translateX(-30%);
-  -ms-transform: scale(0.7, 0.7) translateX(-30%);
-  -o-transform: scale(0.7, 0.7) translateX(-30%);
-  transform: scale(0.7, 0.7) translateX(-30%);
-}
-
-/*
-	jQuery.mmenu fullscreen extension CSS
-*/
-/* line 6, ../scss/inc/_sizing.scss */
-.mm-menu.mm-fullscreen {
-  width: 100%;
-  min-width: 140px;
-  max-width: 10000px;
-}
-
-/* line 14, ../scss/inc/_sizing.scss */
-html.mm-opening.mm-fullscreen .mm-slideout {
-  -webkit-transform: translate(100%, 0);
-  -moz-transform: translate(100%, 0);
-  -ms-transform: translate(100%, 0);
-  -o-transform: translate(100%, 0);
-  transform: translate(100%, 0);
-}
-
-@media all and (max-width: 140px) {
-  /* line 22, ../scss/inc/_sizing.scss */
-  html.mm-opening.mm-fullscreen .mm-slideout {
-    -webkit-transform: translate(140px, 0);
-    -moz-transform: translate(140px, 0);
-    -ms-transform: translate(140px, 0);
-    -o-transform: translate(140px, 0);
-    transform: translate(140px, 0);
-  }
-}
-@media all and (min-width: 10000px) {
-  /* line 31, ../scss/inc/_sizing.scss */
-  html.mm-opening.mm-fullscreen .mm-slideout {
-    -webkit-transform: translate(10000px, 0);
-    -moz-transform: translate(10000px, 0);
-    -ms-transform: translate(10000px, 0);
-    -o-transform: translate(10000px, 0);
-    transform: translate(10000px, 0);
-  }
-}
-/* line 45, ../scss/inc/_sizing.scss */
-html.mm-right.mm-opening.mm-fullscreen .mm-slideout {
-  -webkit-transform: translate(-100%, 0);
-  -moz-transform: translate(-100%, 0);
-  -ms-transform: translate(-100%, 0);
-  -o-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
-}
-
-@media all and (max-width: 140px) {
-  /* line 53, ../scss/inc/_sizing.scss */
-  html.mm-right.mm-opening.mm-fullscreen .mm-slideout {
-    -webkit-transform: translate(-140px, 0);
-    -moz-transform: translate(-140px, 0);
-    -ms-transform: translate(-140px, 0);
-    -o-transform: translate(-140px, 0);
-    transform: translate(-140px, 0);
-  }
-}
-@media all and (min-width: 10000px) {
-  /* line 62, ../scss/inc/_sizing.scss */
-  html.mm-right.mm-opening.mm-fullscreen .mm-slideout {
-    -webkit-transform: translate(-10000px, 0);
-    -moz-transform: translate(-10000px, 0);
-    -ms-transform: translate(-10000px, 0);
-    -o-transform: translate(-10000px, 0);
-    transform: translate(-10000px, 0);
-  }
-}
-/* line 80, ../scss/inc/_sizing.scss */
-.mm-menu.mm-front.mm-fullscreen.mm-top, .mm-menu.mm-front.mm-fullscreen.mm-bottom {
-  height: 100%;
-  min-height: 140px;
-  max-height: 10000px;
-}
-
-/* line 22, ../scss/extensions/jquery.mmenu.fullscreen.scss */
-html.mm-opened.mm-fullscreen .mm-page {
-  box-shadow: none !important;
-}
-
-/*
-	jQuery.mmenu position extension CSS
-*/
-/* line 11, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-top,
-.mm-menu.mm-bottom {
-  width: 100%;
-  min-width: 100%;
-  max-width: 100%;
-}
-
-/* line 19, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-right {
-  left: auto;
-  right: 0;
-}
-
-/* line 26, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-bottom {
-  top: auto;
-  bottom: 0;
-}
-
-/* line 45, ../scss/inc/_sizing.scss */
-html.mm-right.mm-opening .mm-slideout {
-  -webkit-transform: translate(-80%, 0);
-  -moz-transform: translate(-80%, 0);
-  -ms-transform: translate(-80%, 0);
-  -o-transform: translate(-80%, 0);
-  transform: translate(-80%, 0);
-}
-
-@media all and (max-width: 175px) {
-  /* line 53, ../scss/inc/_sizing.scss */
-  html.mm-right.mm-opening .mm-slideout {
-    -webkit-transform: translate(-140px, 0);
-    -moz-transform: translate(-140px, 0);
-    -ms-transform: translate(-140px, 0);
-    -o-transform: translate(-140px, 0);
-    transform: translate(-140px, 0);
-  }
-}
-@media all and (min-width: 550px) {
-  /* line 62, ../scss/inc/_sizing.scss */
-  html.mm-right.mm-opening .mm-slideout {
-    -webkit-transform: translate(-440px, 0);
-    -moz-transform: translate(-440px, 0);
-    -ms-transform: translate(-440px, 0);
-    -o-transform: translate(-440px, 0);
-    transform: translate(-440px, 0);
-  }
-}
-/*
-	jQuery.mmenu z-position extension CSS
-*/
-/* line 43, ../scss/extensions/jquery.mmenu.positioning.scss */
-html.mm-front .mm-slideout {
-  -webkit-transform: none !important;
-  -moz-transform: none !important;
-  -ms-transform: none !important;
-  -o-transform: none !important;
-  transform: none !important;
-  z-index: 0 !important;
-}
-
-/* line 51, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-front {
-  z-index: 1;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-}
-
-/* line 56, ../scss/extensions/jquery.mmenu.positioning.scss */
-html.mm-opened.mm-next .mm-page {
-  box-shadow: none;
-}
-
-/* line 65, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-front, .mm-menu.mm-next {
-  -webkit-transition: -webkit-transform 0.4s ease;
-  -ms-transition: -ms-transform 0.4s ease;
-  transition: transform 0.4s ease;
-  -webkit-transform: translate(-100%, 0);
-  -moz-transform: translate(-100%, 0);
-  -ms-transform: translate(-100%, 0);
-  -o-transform: translate(-100%, 0);
-  transform: translate(-100%, 0);
-}
-/* line 73, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-front.mm-right, .mm-menu.mm-next.mm-right {
-  -webkit-transform: translate(100%, 0);
-  -moz-transform: translate(100%, 0);
-  -ms-transform: translate(100%, 0);
-  -o-transform: translate(100%, 0);
-  transform: translate(100%, 0);
-}
-/* line 80, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-front.mm-top {
-  -webkit-transform: translate(0, -100%);
-  -moz-transform: translate(0, -100%);
-  -ms-transform: translate(0, -100%);
-  -o-transform: translate(0, -100%);
-  transform: translate(0, -100%);
-}
-/* line 84, ../scss/extensions/jquery.mmenu.positioning.scss */
-.mm-menu.mm-front.mm-bottom {
-  -webkit-transform: translate(0, 100%);
-  -moz-transform: translate(0, 100%);
-  -ms-transform: translate(0, 100%);
-  -o-transform: translate(0, 100%);
-  transform: translate(0, 100%);
-}
-
-/* line 93, ../scss/extensions/jquery.mmenu.positioning.scss */
-html.mm-opening .mm-menu.mm-front, html.mm-opening .mm-menu.mm-next {
-  -webkit-transform: translate(0, 0);
-  -moz-transform: translate(0, 0);
-  -ms-transform: translate(0, 0);
-  -o-transform: translate(0, 0);
-  transform: translate(0, 0);
-}
-
-/* line 80, ../scss/inc/_sizing.scss */
-.mm-menu.mm-front.mm-top, .mm-menu.mm-front.mm-bottom {
-  height: 80%;
-  min-height: 140px;
-  max-height: 880px;
-}
-
-/*
-	jQuery.mmenu themes extension CSS
-*/
-/* line 8, ../scss/inc/_colors.scss */
-html.mm-opened.mm-light .mm-page {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-/* line 12, ../scss/inc/_colors.scss */
-.mm-menu.mm-light {
-  background: #f3f3f3;
-  color: rgba(0, 0, 0, 0.6);
-}
-/* line 19, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-list > li:after {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-/* line 27, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-list > li > a.mm-subclose {
-  background: rgba(255, 255, 255, 0.6);
-  color: rgba(0, 0, 0, 0.3);
-}
-/* line 33, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-list > li > a.mm-subopen:after, .mm-menu.mm-light .mm-list > li > a.mm-subclose:before {
-  border-color: rgba(0, 0, 0, 0.3);
-}
-/* line 37, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-list > li > a.mm-subopen:before {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-/* line 46, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-list > li.mm-selected > a:not(.mm-subopen),
-.mm-menu.mm-light .mm-list > li.mm-selected > span {
-  background: rgba(255, 255, 255, 0.6);
-}
-/* line 51, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-list > li.mm-label {
-  background: rgba(0, 0, 0, 0.03);
-}
-/* line 62, ../scss/inc/_colors.scss */
-.mm-menu.mm-light.mm-vertical .mm-list li.mm-opened > a.mm-subopen,
-.mm-menu.mm-light.mm-vertical .mm-list li.mm-opened > ul {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* line 77, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-buttonbar {
-  border-color: rgba(0, 0, 0, 0.6);
-  background: #f3f3f3;
-}
-/* line 82, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-buttonbar > * {
-  border-color: rgba(0, 0, 0, 0.6);
-}
-/* line 87, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-buttonbar > input:checked + label {
-  background: rgba(0, 0, 0, 0.6);
-  color: #f3f3f3;
-}
-
-/* line 99, ../scss/inc/_colors.scss */
-.mm-menu.mm-light label.mm-check:before {
-  border-color: rgba(0, 0, 0, 0.6);
-}
-
-/* line 108, ../scss/inc/_colors.scss */
-.mm-menu.mm-light em.mm-counter {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 120, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-footer {
-  border-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 134, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-header {
-  border-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.3);
-}
-/* line 141, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-header .mm-prev:before,
-.mm-menu.mm-light .mm-header .mm-next:after,
-.mm-menu.mm-light .mm-header .mm-close:after {
-  border-color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 154, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-list li.mm-label > div > div {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* line 167, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-search input {
-  background: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.6);
-}
-/* line 172, ../scss/inc/_colors.scss */
-.mm-menu.mm-light .mm-noresultsmsg {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 185, ../scss/inc/_colors.scss */
-.mm-menu.mm-light label.mm-toggle {
-  background: rgba(0, 0, 0, 0.1);
-}
-/* line 189, ../scss/inc/_colors.scss */
-.mm-menu.mm-light label.mm-toggle:before {
-  background: #f3f3f3;
-}
-/* line 194, ../scss/inc/_colors.scss */
-.mm-menu.mm-light input.mm-toggle:checked ~ label.mm-toggle {
-  background: #4bd963;
-}
-
-/* line 8, ../scss/inc/_colors.scss */
-html.mm-opened.mm-white .mm-page {
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-}
-
-/* line 12, ../scss/inc/_colors.scss */
-.mm-menu.mm-white {
-  background: white;
-  color: rgba(0, 0, 0, 0.6);
-}
-/* line 19, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-list > li:after {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-/* line 27, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-list > li > a.mm-subclose {
-  background: rgba(0, 0, 0, 0.06);
-  color: rgba(0, 0, 0, 0.3);
-}
-/* line 33, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-list > li > a.mm-subopen:after, .mm-menu.mm-white .mm-list > li > a.mm-subclose:before {
-  border-color: rgba(0, 0, 0, 0.3);
-}
-/* line 37, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-list > li > a.mm-subopen:before {
-  border-color: rgba(0, 0, 0, 0.1);
-}
-/* line 46, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-list > li.mm-selected > a:not(.mm-subopen),
-.mm-menu.mm-white .mm-list > li.mm-selected > span {
-  background: rgba(0, 0, 0, 0.06);
-}
-/* line 51, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-list > li.mm-label {
-  background: rgba(0, 0, 0, 0.03);
-}
-/* line 62, ../scss/inc/_colors.scss */
-.mm-menu.mm-white.mm-vertical .mm-list li.mm-opened > a.mm-subopen,
-.mm-menu.mm-white.mm-vertical .mm-list li.mm-opened > ul {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* line 77, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-buttonbar {
-  border-color: rgba(0, 0, 0, 0.6);
-  background: white;
-}
-/* line 82, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-buttonbar > * {
-  border-color: rgba(0, 0, 0, 0.6);
-}
-/* line 87, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-buttonbar > input:checked + label {
-  background: rgba(0, 0, 0, 0.6);
-  color: white;
-}
-
-/* line 99, ../scss/inc/_colors.scss */
-.mm-menu.mm-white label.mm-check:before {
-  border-color: rgba(0, 0, 0, 0.6);
-}
-
-/* line 108, ../scss/inc/_colors.scss */
-.mm-menu.mm-white em.mm-counter {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 120, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-footer {
-  border-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 134, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-header {
-  border-color: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.3);
-}
-/* line 141, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-header .mm-prev:before,
-.mm-menu.mm-white .mm-header .mm-next:after,
-.mm-menu.mm-white .mm-header .mm-close:after {
-  border-color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 154, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-list li.mm-label > div > div {
-  background: rgba(0, 0, 0, 0.03);
-}
-
-/* line 167, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-search input {
-  background: rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.6);
-}
-/* line 172, ../scss/inc/_colors.scss */
-.mm-menu.mm-white .mm-noresultsmsg {
-  color: rgba(0, 0, 0, 0.3);
-}
-
-/* line 185, ../scss/inc/_colors.scss */
-.mm-menu.mm-white label.mm-toggle {
-  background: rgba(0, 0, 0, 0.1);
-}
-/* line 189, ../scss/inc/_colors.scss */
-.mm-menu.mm-white label.mm-toggle:before {
-  background: white;
-}
-/* line 194, ../scss/inc/_colors.scss */
-.mm-menu.mm-white input.mm-toggle:checked ~ label.mm-toggle {
-  background: #4bd963;
-}
-
-/* line 8, ../scss/inc/_colors.scss */
-html.mm-opened.mm-black .mm-page {
-  box-shadow: none;
-}
-
-/* line 12, ../scss/inc/_colors.scss */
-.mm-menu.mm-black {
-  background: black;
-  color: rgba(255, 255, 255, 0.6);
-}
-/* line 19, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-list > li:after {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-/* line 27, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-list > li > a.mm-subclose {
-  background: rgba(255, 255, 255, 0.25);
-  color: rgba(255, 255, 255, 0.3);
-}
-/* line 33, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-list > li > a.mm-subopen:after, .mm-menu.mm-black .mm-list > li > a.mm-subclose:before {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-/* line 37, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-list > li > a.mm-subopen:before {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-/* line 46, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-list > li.mm-selected > a:not(.mm-subopen),
-.mm-menu.mm-black .mm-list > li.mm-selected > span {
-  background: rgba(255, 255, 255, 0.25);
-}
-/* line 51, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-list > li.mm-label {
-  background: rgba(255, 255, 255, 0.15);
-}
-/* line 62, ../scss/inc/_colors.scss */
-.mm-menu.mm-black.mm-vertical .mm-list li.mm-opened > a.mm-subopen,
-.mm-menu.mm-black.mm-vertical .mm-list li.mm-opened > ul {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* line 77, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-buttonbar {
-  border-color: rgba(255, 255, 255, 0.6);
-  background: black;
-}
-/* line 82, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-buttonbar > * {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-/* line 87, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-buttonbar > input:checked + label {
-  background: rgba(255, 255, 255, 0.6);
-  color: black;
-}
-
-/* line 99, ../scss/inc/_colors.scss */
-.mm-menu.mm-black label.mm-check:before {
-  border-color: rgba(255, 255, 255, 0.6);
-}
-
-/* line 108, ../scss/inc/_colors.scss */
-.mm-menu.mm-black em.mm-counter {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/* line 120, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-footer {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/* line 134, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-header {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: rgba(255, 255, 255, 0.3);
-}
-/* line 141, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-header .mm-prev:before,
-.mm-menu.mm-black .mm-header .mm-next:after,
-.mm-menu.mm-black .mm-header .mm-close:after {
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-/* line 154, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-list li.mm-label > div > div {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* line 167, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-search input {
-  background: rgba(255, 255, 255, 0.3);
-  color: rgba(255, 255, 255, 0.6);
-}
-/* line 172, ../scss/inc/_colors.scss */
-.mm-menu.mm-black .mm-noresultsmsg {
-  color: rgba(255, 255, 255, 0.3);
-}
-
-/* line 185, ../scss/inc/_colors.scss */
-.mm-menu.mm-black label.mm-toggle {
-  background: rgba(255, 255, 255, 0.2);
-}
-/* line 189, ../scss/inc/_colors.scss */
-.mm-menu.mm-black label.mm-toggle:before {
-  background: black;
-}
-/* line 194, ../scss/inc/_colors.scss */
-.mm-menu.mm-black input.mm-toggle:checked ~ label.mm-toggle {
-  background: #4bd963;
-}
-
-/**
- * Featherlight – ultra slim jQuery lightbox
- * Version 1.0.3 - http://noelboss.github.io/featherlight/
- *
- * Copyright 2014, Noël Raoul Bossart (http://www.noelboss.com)
- * MIT Licensed.
-**/
-@media all {
-  /* line 9, ../scss/_featherlight.scss */
-  .featherlight {
-    display: none;
-    /* dimensions: spanning the background from edge to edge */
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    /* position: centering content */
-    text-align: center;
-    /* insures that the ::before pseudo element doesn't force wrap with fixed width content; */
-    white-space: nowrap;
-    /* styling */
-    cursor: pointer;
-    background: #333;
-    /* IE8 "hack" for nested featherlights */
-    background: rgba(0, 0, 0, 0);
-  }
-
-  /* support for nested featherlights. Does not work in IE8 (use JS to fix) */
-  /* line 31, ../scss/_featherlight.scss */
-  .featherlight:last-of-type {
-    background: rgba(0, 0, 0, 0.8);
-  }
-
-  /* line 35, ../scss/_featherlight.scss */
-  .featherlight:before {
-    /* position: trick to center content vertically */
-    content: '';
-    display: inline-block;
-    height: 100%;
-    vertical-align: middle;
-    margin-right: -0.25em;
-  }
-
-  /* line 44, ../scss/_featherlight.scss */
-  .featherlight .featherlight-content {
-    /* make content container for positioned elements (close button) */
-    position: relative;
-    /* position: centering vertical and horizontal */
-    text-align: left;
-    vertical-align: middle;
-    display: inline-block;
-    /* dimensions: cut off images */
-    overflow: auto;
-    padding: 25px 25px 0;
-    border-bottom: 25px solid transparent;
-    /* dimensions: handling small or empty content */
-    min-width: 30%;
-    /* dimensions: handling large content */
-    margin-left: 5%;
-    margin-right: 5%;
-    max-height: 95%;
-    /* styling */
-    background: #fff;
-    cursor: auto;
-    /* reset white-space wrapping */
-    white-space: normal;
-  }
-
-  /* contains the content */
-  /* line 75, ../scss/_featherlight.scss */
-  .featherlight .featherlight-inner {
-    /* make sure its visible */
-    display: block;
-  }
-
-  /* line 80, ../scss/_featherlight.scss */
-  .featherlight .featherlight-close-icon {
-    /* position: centering vertical and horizontal */
-    position: absolute;
-    z-index: 9999;
-    top: 0;
-    right: 0;
-    /* dimensions: 25px x 25px */
-    line-height: 25px;
-    width: 25px;
-    /* styling */
-    cursor: pointer;
-    text-align: center;
-    font: Arial, sans-serif;
-    background: #fff;
-    /* Set the background in case it overlaps the content */
-    background: rgba(255, 255, 255, 0.3);
-    color: #000;
-  }
-
-  /* line 101, ../scss/_featherlight.scss */
-  .featherlight .featherlight-image {
-    /* styling */
-    width: 100%;
-  }
-
-  /* line 107, ../scss/_featherlight.scss */
-  .featherlight-iframe .featherlight-content {
-    /* removed the border for image croping since iframe is edge to edge */
-    border-bottom: 0;
-    padding: 0;
-  }
-
-  /* line 113, ../scss/_featherlight.scss */
-  .featherlight iframe {
-    /* styling */
-    border: none;
-  }
-}
-/* handling phones and small screens */
-@media only screen and (max-width: 1024px) {
-  /* line 122, ../scss/_featherlight.scss */
-  .featherlight .featherlight-content {
-    /* dimensions: maximize lightbox with for small screens */
-    margin-left: 10px;
-    margin-right: 10px;
-    max-height: 98%;
-    padding: 10px 10px 0;
-    border-bottom: 10px solid transparent;
-  }
-}
-/* line 133, ../scss/_featherlight.scss */
-.featherlight .featherlight-content {
-  width: 90%;
-  height: 100%;
-  position: relative;
-  text-align: left;
-  vertical-align: middle;
+  margin: 0 auto;
   display: inline-block;
-  overflow: hidden;
-  border-bottom: 25px solid transparent;
-  min-width: 30%;
-  margin-left: 5%;
-  margin-right: 5%;
-  max-height: 95%;
-  background: #fff;
-  cursor: auto;
-  white-space: normal;
+  position: relative;
+  transition: transform 0.5s, opacity 0.5s;
 }
-
-/* line 151, ../scss/_featherlight.scss */
-.featherlight .featherlight-image {
-  width: auto;
+/* line 36, ../scss/_menu.scss */
+.menu-overlay ul li {
+  display: block;
+}
+/* line 39, ../scss/_menu.scss */
+.menu-overlay ul a {
   height: 100%;
-  margin: auto;
+  display: block;
+  color: #000;
+  transition: color 0.2s;
+  font-family: "Nunito", sans-serif;
+}
+/* line 47, ../scss/_menu.scss */
+.menu-overlay p {
+  margin: 0;
+  color: #000;
+  font-family: "Droid Serif", serif;
+}
+/* line 51, ../scss/_menu.scss */
+.menu-overlay p a {
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 10px 20px;
+  border-top: 1px solid #000;
+  color: #000;
+}
+/* line 59, ../scss/_menu.scss */
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s;
+}
+/* line 64, ../scss/_menu.scss */
+.menu-overlay.open nav ul {
+  opacity: 1;
+  transform: rotateX(0deg);
+  width: 100%;
 }
 
 /*clearfix*/
@@ -2021,14 +127,12 @@ html.mm-opened.mm-black .mm-page {
   font-family: 'Slide-icons';
   src: url("../fonts/Slide-icons.eot");
 }
-
 @font-face {
   font-family: 'Slide-icons';
   src: url(data:application/font-woff;charset=utf-8;base64,d09GRk9UVE8AAAWcAAsAAAAACSgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAABCAAAAm4AAAQxqzjSYEZGVE0AAAN4AAAAGgAAABxmWaSOR0RFRgAAA5QAAAAdAAAAIAAzAARPUy8yAAADtAAAAEsAAABgL/bcQGNtYXAAAAQAAAAAPQAAAVLgL/LNaGVhZAAABEAAAAAuAAAANv3vdhloaGVhAAAEcAAAAB4AAAAkBBD/5GhtdHgAAASQAAAAEgAAABIFOwBxbWF4cAAABKQAAAAGAAAABgAGUABuYW1lAAAErAAAAOEAAAGw7pftcnBvc3QAAAWQAAAADAAAACAAAwAAeJx9VE1oE1EQnpfsJutmSWNMQoUoWxB/qmIKnkKJWKvXQlOwhx5E7SEo9WCEHNKAJqVbn8RLzvEgKEUPCgoiIi3YHkWw2mO9CBb8O1SzurXjvLfrJiqEhXkzwzffm/nee8tAUYAxZuQvFs5PHi6cuzR1GVgAGORsM2D3Be1ehRtBbii7ddiZjyPnvmOE+QW7YRfVNNzpSQPE0vBwexqMtNIbh7Dg0KAHUrAL9sARyF6ZKpzKZDK0nMwMHHeXIXc54S7DHU109gPAZpnF5th1xiEkiANgsFpgNDATPB3ldlHZbNiNcBTZ/JNRZBPFZ0nE6mw/GT6MUC6tiPCgihA6Vkb8sXCNI35bGxRuTcYa4vqZIWlUP1sVoCx3Yyqd1gTNIUH4RhJ6rILAxw9yN/bwghVSt56rLoCyFY6gmy8kwENJwjYrlItPVauOuDWyhqDEzlKFIuvIIrAHfTJbr2uSWpgFOVvFHVDQc5dftK751P3CeyuNp8Uf/DL3tal5rFKLuiX2MxGdL00azJHKOWLcrZF3MmtZWhThNRWwx62XSYTF/d8Rc6sR2iFyNYS4MWNSzaeJA+RWfkqjCYBO5tV71bIkjTssUVe5bykrhrXqWqnZ1m9a6rfk61emfu+Px8iIA8zf/SrDNr4s8csd+Gbzn+mXOtWK3rPHkqbeGkuZuvNIGudo9wRdvDkald0Yj9HFy89vtvsgjw7/Pxm9Kf+SEfGj86HU/frlVn6RwgP7CLVRTZDCFZt6j99edcWGSPmz5h4BLO5d73bIzVL7OdTkc8j6O5MIdiPBkzcNnZ7zDvF/2OYkWvSFI78BSE0QpgAAeJxjYGBgZACCk535hiD6XIbUOhgNAD+3BfAAAHicY2BkYGDgA2IJBhBgYmAEQlYgZgHzGAAEgQA4AAAAeJxjYGZiYJzAwMrAwejDmMbAwOAOpb8ySDK0MDAwMbAyM8CBAILJEJDmmsLg8EDqAwPjg/8PGPQYHzAoNDAwMMIVKAAhIwATaAw5AHicY2BgYGaAYBkGRgYQ8AHyGMF8FgYDIM0BhEwgiQeyHxj+/wezpCAs+RcCjFBdYMDIxoDMHZEAAP1aCcoAAAB4nGNgZGBgAGLNvbqy8fw2Xxm4mRhA4FyG1DoE/f8BEwPjAyCXgwEsDQAB0gmnAAB4nGNgZGBgfPD/AYMeEwMDwz8GIAkUQQHMAG3nA/YAAAIAAAAAAAAAAgAAUQClACAAlgAAAABQAAAGAAB4nI2PMW7CQBBFn8FGIkQpo5RbIFHZsjciEhyAMg0SFwALrYS8kuEMOQLH4BgcgGPkAKnz7UxBkYKVVvPmz5/ZWeCZMwndSZjwZjwgozQeMuPLOJXnapyJv41HTJIXOZN0LOW17+p4wBNT4yGffBin8lyMM/HNeCT+Yc2BwI6aXHFLpOEI60PY1XnYxkbJnW7Kqs9PfWzZq9vhKfQPx1L3/6l/Nc9c6kLXy1/xrnGxOa1iu6+dL0q3dHevK/PzfJH7spLxkW03qrZSQ191eqHbi03dHkNsXFWUD835BcvqQqwAAAB4nGNgZsALAAB9AAQ=) format("woff"), url(data:application/x-font-ttf;charset=utf-8;base64,AAEAAAANAIAAAwBQRkZUTWZZpI4AAAboAAAAHEdERUYANQAGAAAGyAAAACBPUy8yL9TcHwAAAVgAAABWY21hcOAx89QAAAHMAAABUmdhc3D//wADAAAGwAAAAAhnbHlmlq1ZxgAAAzQAAAGAaGVhZP3vdhkAAADcAAAANmhoZWEEEP/mAAABFAAAACRobXR4BeoAcQAAAbAAAAAabG9jYQEyAOAAAAMgAAAAEm1heHAAUwAnAAABOAAAACBuYW1l7pftcgAABLQAAAGwcG9zdCBfgkMAAAZkAAAAWgABAAAAAQAAZVgBDF8PPPUACwIAAAAAAM5oGq4AAAAAzmgargAA/+ACAAHgAAAACAACAAAAAAAAAAEAAAHg/+AALgIAAAD+AAIAAAEAAAAAAAAAAAAAAAAAAAAFAAEAAAAIACQACQAAAAAAAgAAAAEAAQAAAEAAAAAAAAAAAQIAAZAABQAIAUwBZgAAAEcBTAFmAAAA9QAZAIQAAAIABQMAAAAAAAAAAAAAEAAAAAAAAAAAAAAAUGZFZABA4BrwAAHg/+AALgHgACCAAAABAAAAAAAAAgAAAAAAAAAAqgAAAAAAAAIAAFEAqgAgAJYAAAAAAAMAAAADAAAAHAABAAAAAABMAAMAAQAAABwABAAwAAAACAAIAAIAAAAA4B3wAP//AAAAAOAa8AD//wAAH+oQAwABAAAAAAAAAAAAAAEGAAABAAAAAAAAAAECAAAAAgAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOAEIAZACeAMAAAAABAAD/4AIAAeAAAgAAEQEhAgD+AAHg/gAAAAAAAQBRADYBrwGKAB0AAAE2NC8BJg8BJyYPAQYUHwEHBh8BFj8BFxY/ATYvAQGqBAQXCwx8fAwLFwQEfX0LCxcLDHx8DAsXCwt9AVwFDQUXCwt9fQsLFwUNBXx8DAsXCwt9fQsLFwsMfAABAKoABQGeAbYAEQAAEyYPAQYfAQcGHwEWMj8BNjQn1AwLEwsLrKwLCxMFDQXBCAgBtgsLEwsMrKwMCxMFBcEJGAkAAAkAIAAAAeABwAADAAcACwAPABMAFwAbAB8AIwAAEzMVIyUzFSMnMxUjBzMVIyUzFSMnMxUjBzMVIyUzFSMnMxUjIICAAUCAgKCAgKCAgAFAgICggICggIABQICAoICAAcCAgICAgCCAgICAgCCAgICAgAAAAQCWAAoBjwG2ABEAAAE2LwEmDwEGFB8BFj8BNjQvAQGKCwsTDAvBCQnBCwsUBAStAYwMCxMLC8EJGAnBCwsTBQ0FrAAAAAwAlgABAAAAAAABAAsAGAABAAAAAAACAAUAMAABAAAAAAADACcAhgABAAAAAAAEAAsAxgABAAAAAAAFAAsA6gABAAAAAAAGAAsBDgADAAEECQABABYAAAADAAEECQACAAoAJAADAAEECQADAE4ANgADAAEECQAEABYArgADAAEECQAFABYA0gADAAEECQAGABYA9gBTAGwAaQBkAGUALQBpAGMAbwBuAHMAAFNsaWRlLWljb25zAABpAGMAbwBuAHMAAGljb25zAABGAG8AbgB0AEYAbwByAGcAZQAgADIALgAwACAAOgAgAFMAbABpAGQAZQAtAGkAYwBvAG4AcwAgADoAIAAyADUALQA5AC0AMgAwADEAMwAARm9udEZvcmdlIDIuMCA6IFNsaWRlLWljb25zIDogMjUtOS0yMDEzAABTAGwAaQBkAGUALQBpAGMAbwBuAHMAAFNsaWRlLWljb25zAABWAGUAcgBzAGkAbwBuACAAMQAuADAAAFZlcnNpb24gMS4wAABTAGwAaQBkAGUALQBpAGMAbwBuAHMAAFNsaWRlLWljb25zAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAABAAIBAgEDAQQBBQEGB3VuaUYwMDAHdW5pRTAxQQd1bmlFMDFCB3VuaUUwMUMHdW5pRTAxRAAAAAAAAf//AAIAAQAAAA4AAAAYAAAAAAACAAEAAwAHAAEABAAAAAIAAAAAAAEAAAAAyYlvMQAAAADOaBquAAAAAM5oGq4=) format("truetype");
   font-weight: normal;
   font-style: normal;
 }
-
 /* line 27, ../scss/_lightGallery.scss */
 [data-icon]:before {
   font-family: 'Slide-icons';
@@ -2365,73 +469,49 @@ html.mm-opened.mm-black .mm-page {
 }
 
 @-webkit-keyframes rightEnd {
-  /* line 291, ../scss/_lightGallery.scss */
   0% {
     left: 0;
   }
-
-  /* line 294, ../scss/_lightGallery.scss */
   50% {
     left: -30px;
   }
-
-  /* line 297, ../scss/_lightGallery.scss */
   100% {
     left: 0;
   }
 }
-
 @keyframes rightEnd {
-  /* line 302, ../scss/_lightGallery.scss */
   0% {
     left: 0;
   }
-
-  /* line 305, ../scss/_lightGallery.scss */
   50% {
     left: -30px;
   }
-
-  /* line 308, ../scss/_lightGallery.scss */
   100% {
     left: 0;
   }
 }
-
 @-webkit-keyframes leftEnd {
-  /* line 313, ../scss/_lightGallery.scss */
   0% {
     left: 0;
   }
-
-  /* line 316, ../scss/_lightGallery.scss */
   50% {
     left: 30px;
   }
-
-  /* line 319, ../scss/_lightGallery.scss */
   100% {
     left: 0;
   }
 }
-
 @keyframes leftEnd {
-  /* line 324, ../scss/_lightGallery.scss */
   0% {
     left: 0;
   }
-
-  /* line 327, ../scss/_lightGallery.scss */
   50% {
     left: 30px;
   }
-
-  /* line 330, ../scss/_lightGallery.scss */
   100% {
     left: 0;
   }
 }
-
 /* line 334, ../scss/_lightGallery.scss */
 .lightGallery-slide .object.rightEnd {
   -webkit-animation: rightEnd 0.3s;
@@ -2464,32 +544,6 @@ html.mm-opened.mm-black .mm-page {
 }
 
 /* line 360, ../scss/_lightGallery.scss */
-#lightGallery-action a {
-  margin: 0 3px 0 0 !important;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  border-radius: 2px;
-  position: relative;
-  top: auto;
-  left: auto;
-  bottom: auto;
-  right: auto;
-  display: inline-block !important;
-  display: inline-block;
-  vertical-align: middle;
-  *display: inline;
-  *zoom: 1;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.65);
-  font-size: 16px;
-  width: 28px;
-  height: 28px;
-  font-family: 'Slide-icons';
-  color: #FFF;
-  cursor: pointer;
-}
-
-/* line 384, ../scss/_lightGallery.scss */
 #lightGallery-action a.disabled {
   opacity: 0.6;
   filter: alpha(opacity=60);
@@ -2498,30 +552,20 @@ html.mm-opened.mm-black .mm-page {
   background-color: rgba(0, 0, 0, 0.65) !important;
 }
 
-/* line 391, ../scss/_lightGallery.scss */
+/* line 367, ../scss/_lightGallery.scss */
 #lightGallery-action a:hover, #lightGallery-action a:focus {
   background-color: #000;
   background-color: rgba(0, 0, 0, 0.85);
 }
 
-/* line 395, ../scss/_lightGallery.scss */
+/* line 371, ../scss/_lightGallery.scss */
 #lightGallery-action a#lightGallery-prev:before, #lightGallery-action a#lightGallery-next:after {
   left: 5px;
   bottom: 3px;
   position: absolute;
 }
 
-/* line 400, ../scss/_lightGallery.scss */
-#lightGallery-action a#lightGallery-prev:before {
-  content: "\e01d";
-}
-
-/* line 403, ../scss/_lightGallery.scss */
-#lightGallery-action a#lightGallery-next:after {
-  content: "\e01b";
-}
-
-/* line 406, ../scss/_lightGallery.scss */
+/* line 377, ../scss/_lightGallery.scss */
 #lightGallery-action a.cLthumb:after {
   font-family: 'Slide-icons';
   content: "\e01c";
@@ -2533,7 +577,7 @@ html.mm-opened.mm-black .mm-page {
 
 /*action*/
 /*counter*/
-/* line 417, ../scss/_lightGallery.scss */
+/* line 388, ../scss/_lightGallery.scss */
 #lightGallery_counter {
   bottom: 52px;
   text-align: center;
@@ -2544,7 +588,7 @@ html.mm-opened.mm-black .mm-page {
 }
 
 /*lightGallery Thumb*/
-/* line 426, ../scss/_lightGallery.scss */
+/* line 397, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont {
   position: absolute;
   bottom: 0;
@@ -2563,12 +607,12 @@ html.mm-opened.mm-black .mm-page {
   opacity: 0;
 }
 
-/* line 443, ../scss/_lightGallery.scss */
+/* line 414, ../scss/_lightGallery.scss */
 #lightGallery-Gallery.open .thumb_cont {
   max-height: 350px;
 }
 
-/* line 446, ../scss/_lightGallery.scss */
+/* line 417, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb_inner {
   margin-left: -12px;
   padding: 12px;
@@ -2579,20 +623,20 @@ html.mm-opened.mm-black .mm-page {
   box-sizing: content-box;
 }
 
-/* line 455, ../scss/_lightGallery.scss */
+/* line 426, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb_info {
   background-color: #333;
   padding: 7px 20px;
 }
 
-/* line 459, ../scss/_lightGallery.scss */
+/* line 430, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb_info .count {
   color: #ffffff;
   font-weight: bold;
   font-size: 12px;
 }
 
-/* line 464, ../scss/_lightGallery.scss */
+/* line 435, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb_info .close {
   color: #FFFFFF;
   display: block;
@@ -2613,29 +657,21 @@ html.mm-opened.mm-black .mm-page {
   cursor: pointer;
 }
 
-/* line 483, ../scss/_lightGallery.scss */
+/* line 454, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb_info .close i:after {
   left: 6px;
   position: absolute;
   top: 4px;
 }
 
-/* line 488, ../scss/_lightGallery.scss */
-#lightGallery-Gallery .thumb_cont .thumb_info .close i:after, #lightGallery-close:after {
-  content: "\e01a";
-  font-family: 'Slide-icons';
-  font-style: normal;
-  font-size: 16px;
-}
-
-/* line 494, ../scss/_lightGallery.scss */
+/* line 460, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb_info .close:hover {
   text-decoration: none;
   background-color: #000;
   background-color: black;
 }
 
-/* line 499, ../scss/_lightGallery.scss */
+/* line 465, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb {
   display: inline-block !important;
   vertical-align: middle;
@@ -2659,19 +695,19 @@ html.mm-opened.mm-black .mm-page {
 }
 
 @media (min-width: 800px) {
-  /* line 522, ../scss/_lightGallery.scss */
+  /* line 488, ../scss/_lightGallery.scss */
   #lightGallery-Gallery .thumb_cont .thumb {
     width: 94px;
     height: 94px;
   }
 }
-/* line 527, ../scss/_lightGallery.scss */
+/* line 493, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb > img {
   height: auto;
   max-width: 100%;
 }
 
-/* line 531, ../scss/_lightGallery.scss */
+/* line 497, ../scss/_lightGallery.scss */
 #lightGallery-Gallery .thumb_cont .thumb.active, #lightGallery-Gallery .thumb_cont .thumb:hover {
   opacity: 1;
   filter: alpha(opacity=100);
@@ -2680,7 +716,7 @@ html.mm-opened.mm-black .mm-page {
 
 /*lightGallery Thumb*/
 /*lightGallery Video*/
-/* line 539, ../scss/_lightGallery.scss */
+/* line 505, ../scss/_lightGallery.scss */
 #lightGallery-slider .video_cont {
   display: inline-block;
   max-height: 100%;
@@ -2692,7 +728,7 @@ html.mm-opened.mm-black .mm-page {
   vertical-align: middle;
 }
 
-/* line 549, ../scss/_lightGallery.scss */
+/* line 515, ../scss/_lightGallery.scss */
 #lightGallery-slider .video_cont {
   background: none;
   max-width: 1140px;
@@ -2703,7 +739,7 @@ html.mm-opened.mm-black .mm-page {
   -moz-box-sizing: border-box;
 }
 
-/* line 558, ../scss/_lightGallery.scss */
+/* line 524, ../scss/_lightGallery.scss */
 #lightGallery-slider .video {
   width: 100%;
   height: 0;
@@ -2712,7 +748,7 @@ html.mm-opened.mm-black .mm-page {
   position: relative;
 }
 
-/* line 565, ../scss/_lightGallery.scss */
+/* line 531, ../scss/_lightGallery.scss */
 #lightGallery-slider .video .object {
   width: 100% !important;
   height: 100% !important;
@@ -2722,43 +758,7 @@ html.mm-opened.mm-black .mm-page {
 }
 
 /*lightGallery Video*/
-/*lightGallery Close*/
-/* line 580, ../scss/_lightGallery.scss */
-#lightGallery-close {
-  color: #FFFFFF;
-  height: 28px;
-  position: absolute;
-  right: 20px;
-  top: 20px;
-  width: 28px;
-  z-index: 1090;
-  cursor: pointer;
-  background-color: #000;
-  border-radius: 2px;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.65);
-  -webkit-transition: background-color 0.3s ease;
-  -moz-transition: background-color 0.3s ease;
-  -o-transition: background-color 0.3s ease;
-  -ms-transition: background-color 0.3s ease;
-  transition: background-color 0.3s ease;
-  -webkit-backface-visibility: hidden;
-}
-
-/* line 600, ../scss/_lightGallery.scss */
-#lightGallery-close:after {
-  position: absolute;
-  right: 6px;
-  top: 3px;
-}
-
-/* line 605, ../scss/_lightGallery.scss */
-#lightGallery-close:hover {
-  text-decoration: none;
-  background-color: #000;
-}
-
-/* line 609, ../scss/_lightGallery.scss */
+/* line 541, ../scss/_lightGallery.scss */
 .customHtml {
   background: none repeat scroll 0 0 black;
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
@@ -2772,12 +772,12 @@ html.mm-opened.mm-black .mm-page {
   z-index: 9;
 }
 
-/* line 621, ../scss/_lightGallery.scss */
+/* line 553, ../scss/_lightGallery.scss */
 .customHtml p {
   font-size: 14px;
 }
 
-/* line 624, ../scss/_lightGallery.scss */
+/* line 556, ../scss/_lightGallery.scss */
 .customHtml > h4 {
   font-family: Arial, sans-serif;
   font-weight: bold;
@@ -2785,44 +785,57 @@ html.mm-opened.mm-black .mm-page {
   margin-top: 15px;
 }
 
-/* line 9, ../scss/styles.scss */
+/* line 18, ../scss/styles.scss */
+#lightGallery-outer .lb-caption {
+  width: 50%;
+  height: auto;
+  margin: 0 0;
+  padding: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1;
+  text-align: left;
+  font-family: "Droid Serif", serif;
+  font-weight: normal;
+  z-index: 200;
+  white-space: normal;
+}
+
+/* line 38, ../scss/styles.scss */
 #lightGallery-action {
   width: 100%;
-  bottom: 45%;
-  position: fixed;
-  left: auto;
+  bottom: 0;
+  left: 0;
   margin-left: 0;
 }
 
-/* line 17, ../scss/styles.scss */
-#lightGallery-action a {
-  margin: 0 !important;
-  border-radius: none;
-  position: absolute;
-  display: inline-block !important;
-  display: inline-block;
-  vertical-align: middle;
-  background-color: #000;
-  background-color: rgba(0, 0, 0, 0.65);
-  font-size: 16px;
-  width: 40px;
-  height: 40px;
-  color: #FFF;
-  cursor: pointer;
-}
-/* line 31, ../scss/styles.scss */
+/* line 46, ../scss/styles.scss */
 #lightGallery-action a#lightGallery-prev {
   left: 0;
 }
-/* line 34, ../scss/styles.scss */
+/* line 49, ../scss/styles.scss */
 #lightGallery-action a#lightGallery-next {
   right: 0;
 }
 
-/* line 39, ../scss/styles.scss */
+/* line 54, ../scss/styles.scss */
 #lightGallery-Gallery.opacity .lightGallery-slide .object {
   height: 80%;
   transform: scale3d(1, 1, 1);
+}
+
+/* line 59, ../scss/styles.scss */
+#lightGallery-action a#lightGallery-prev:before {
+  content: " ";
+}
+
+/* line 63, ../scss/styles.scss */
+#lightGallery-action a#lightGallery-next:after {
+  content: " ";
 }
 
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
@@ -2832,7 +845,7 @@ html.mm-opened.mm-black .mm-page {
 /**
  * Correct `block` display not defined in IE 8/9.
  */
-/* line 22, ../scss/_normalize.scss */
+/* line 11, ../scss/_normalize.scss */
 article,
 aside,
 details,
@@ -2851,7 +864,7 @@ summary {
 /**
  * Correct `inline-block` display not defined in IE 8/9.
  */
-/* line 32, ../scss/_normalize.scss */
+/* line 30, ../scss/_normalize.scss */
 audio,
 canvas,
 video {
@@ -2872,7 +885,7 @@ audio:not([controls]) {
  * Address `[hidden]` styling not present in IE 8/9.
  * Hide the `template` element in IE, Safari, and Firefox < 22.
  */
-/* line 52, ../scss/_normalize.scss */
+/* line 51, ../scss/_normalize.scss */
 [hidden],
 template {
   display: none;
@@ -2926,7 +939,7 @@ a:focus {
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
  */
-/* line 105, ../scss/_normalize.scss */
+/* line 104, ../scss/_normalize.scss */
 a:active,
 a:hover {
   outline: 0;
@@ -2956,7 +969,7 @@ abbr[title] {
 /**
  * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
  */
-/* line 136, ../scss/_normalize.scss */
+/* line 135, ../scss/_normalize.scss */
 b,
 strong {
   font-weight: bold;
@@ -2992,7 +1005,7 @@ mark {
 /**
  * Correct font family set oddly in Safari 5 and Chrome.
  */
-/* line 174, ../scss/_normalize.scss */
+/* line 171, ../scss/_normalize.scss */
 code,
 kbd,
 pre,
@@ -3028,7 +1041,7 @@ small {
 /**
  * Prevent `sub` and `sup` affecting `line-height` in all browsers.
  */
-/* line 208, ../scss/_normalize.scss */
+/* line 207, ../scss/_normalize.scss */
 sub,
 sup {
   font-size: 75%;
@@ -3107,7 +1120,7 @@ legend {
  * 2. Correct font size not being inherited in all browsers.
  * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
  */
-/* line 288, ../scss/_normalize.scss */
+/* line 285, ../scss/_normalize.scss */
 button,
 input,
 select,
@@ -3124,7 +1137,7 @@ textarea {
  * Address Firefox 4+ setting `line-height` on `input` using `!important` in
  * the UA stylesheet.
  */
-/* line 300, ../scss/_normalize.scss */
+/* line 299, ../scss/_normalize.scss */
 button,
 input {
   line-height: normal;
@@ -3136,7 +1149,7 @@ input {
  * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
  * Correct `select` style inheritance in Firefox 4+ and Opera.
  */
-/* line 312, ../scss/_normalize.scss */
+/* line 311, ../scss/_normalize.scss */
 button,
 select {
   text-transform: none;
@@ -3149,7 +1162,7 @@ select {
  * 3. Improve usability and consistency of cursor style between image-type
  *    `input` and others.
  */
-/* line 327, ../scss/_normalize.scss */
+/* line 324, ../scss/_normalize.scss */
 button,
 html input[type="button"],
 input[type="reset"],
@@ -3163,7 +1176,7 @@ input[type="submit"] {
 /**
  * Re-set default cursor for disabled elements.
  */
-/* line 337, ../scss/_normalize.scss */
+/* line 336, ../scss/_normalize.scss */
 button[disabled],
 html input[disabled] {
   cursor: default;
@@ -3173,7 +1186,7 @@ html input[disabled] {
  * 1. Address box sizing set to `content-box` in IE 8/9/10.
  * 2. Remove excess padding in IE 8/9/10.
  */
-/* line 347, ../scss/_normalize.scss */
+/* line 346, ../scss/_normalize.scss */
 input[type="checkbox"],
 input[type="radio"] {
   box-sizing: border-box;
@@ -3201,7 +1214,7 @@ input[type="search"] {
  * Remove inner padding and search cancel button in Safari 5 and Chrome
  * on OS X.
  */
-/* line 371, ../scss/_normalize.scss */
+/* line 370, ../scss/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
@@ -3210,7 +1223,7 @@ input[type="search"]::-webkit-search-decoration {
 /**
  * Remove inner padding and border in Firefox 4+.
  */
-/* line 380, ../scss/_normalize.scss */
+/* line 379, ../scss/_normalize.scss */
 button::-moz-focus-inner,
 input::-moz-focus-inner {
   border: 0;
@@ -3241,7 +1254,7 @@ table {
   border-spacing: 0;
 }
 
-/* line 3, ../scss/_base.scss */
+/* line 1, ../scss/_base.scss */
 *,
 *:after,
 *:before {
@@ -3265,7 +1278,7 @@ body {
 }
 
 /* clear */
-/* line 20, ../scss/_base.scss */
+/* line 19, ../scss/_base.scss */
 .clear:before,
 .clear:after {
   content: ' ';
@@ -3304,7 +1317,7 @@ a:focus {
   outline: 0;
 }
 
-/* line 46, ../scss/_base.scss */
+/* line 45, ../scss/_base.scss */
 a:hover,
 a:active {
   outline: 0;
@@ -3374,7 +1387,7 @@ body {
   margin: 5px 20px 20px 0;
 }
 
-/* line 160, ../scss/_base.scss */
+/* line 159, ../scss/_base.scss */
 .aligncenter,
 div.aligncenter {
   display: block;
@@ -3451,7 +1464,7 @@ a img.aligncenter {
   width: auto;
 }
 
-/* line 213, ../scss/_base.scss */
+/* line 212, ../scss/_base.scss */
 .wp-caption .wp-caption-text,
 .gallery-caption {
   font-size: 11px;
@@ -3472,7 +1485,7 @@ a img.aligncenter {
     text-shadow: none !important;
   }
 
-  /* line 238, ../scss/_base.scss */
+  /* line 237, ../scss/_base.scss */
   a,
   a:visited {
     text-decoration: underline;
@@ -3488,7 +1501,7 @@ a img.aligncenter {
     content: " (" attr(title) ")";
   }
 
-  /* line 249, ../scss/_base.scss */
+  /* line 247, ../scss/_base.scss */
   .ir a:after,
   a[href^="javascript:"]:after,
   a[href^="#"]:after {
@@ -3518,9 +1531,8 @@ a img.aligncenter {
 
   @page {
     margin: 0.5cm;
-}
-
-  /* line 270, ../scss/_base.scss */
+  }
+  /* line 268, ../scss/_base.scss */
   p,
   h2,
   h3 {
@@ -3528,94 +1540,487 @@ a img.aligncenter {
     widows: 3;
   }
 
-  /* line 275, ../scss/_base.scss */
+  /* line 274, ../scss/_base.scss */
   h2,
   h3 {
     page-break-after: avoid;
   }
 }
 /* line 1, ../scss/_globals.scss */
-body {
-  font-family: "Nunito", sans-serif;
+html {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
 }
 
-/* line 5, ../scss/_globals.scss */
+/* line 7, ../scss/_globals.scss */
+body {
+  height: 100%;
+  max-height: 100%;
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+  color: #000;
+}
+
+/* line 15, ../scss/_globals.scss */
 ul {
   list-style: none;
 }
-/* line 7, ../scss/_globals.scss */
+/* line 17, ../scss/_globals.scss */
 ul li {
   padding: 0;
 }
 
-/* line 12, ../scss/_globals.scss */
+/* line 22, ../scss/_globals.scss */
+.blur {
+  -webkit-filter: blur(7px);
+}
+
+/* line 27, ../scss/_globals.scss */
 .wrapper {
   width: 100%;
+  height: 100%;
   margin: 0;
   position: relative;
 }
 
-/* line 18, ../scss/_globals.scss */
+/* line 34, ../scss/_globals.scss */
 div.clear {
   clear: both;
 }
 
-/* line 2, ../scss/_front.scss */
+/* line 38, ../scss/_globals.scss */
+.rightEnd2 {
+  -webkit-animation: rightEnd 0.3s;
+}
+@keyframes rightEnd2 {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+/* line 1, ../scss/_front.scss */
+.content {
+  width: 7000px;
+  margin: 0 auto;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* line 8, ../scss/_front.scss */
+.header-holder {
+  padding: 20px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* line 11, ../scss/_front.scss */
 .header-holder .logo-title {
-  padding: 20px 40px;
-  border: 20px solid #b3b3b3;
+  padding: 30px;
   display: block;
 }
-/* line 7, ../scss/_front.scss */
+/* line 15, ../scss/_front.scss */
 .header-holder hr {
   position: relative;
   bottom: 80px;
   border: 0;
-  border-bottom: 1px solid #000;
 }
-/* line 13, ../scss/_front.scss */
+/* line 21, ../scss/_front.scss */
 .header-holder h1 {
   display: inline-block;
   font-family: "Droid Serif", serif;
-  font-size: 4rem;
+  font-size: 3rem;
 }
-/* line 18, ../scss/_front.scss */
+/* line 26, ../scss/_front.scss */
 .header-holder img {
   width: 300px;
-  height: 200px;
+  margin: auto;
+  padding: 10px;
   display: block;
 }
+/* line 32, ../scss/_front.scss */
+.header-holder p {
+  margin: 10px 0;
+  padding-top: 20px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+}
+/* line 39, ../scss/_front.scss */
+.header-holder p.front-email {
+  margin-top: 50px;
+  font-family: "Droid Serif", serif;
+  font-size: 1.5rem;
+}
 
-/* line 25, ../scss/_front.scss */
+/* line 47, ../scss/_front.scss */
 .main-holder {
   margin-top: 100px;
 }
 
-/* line 29, ../scss/_front.scss */
-.nav-list {
-  background: #000;
-  color: #fff;
-  padding: 20px;
+/* line 51, ../scss/_front.scss */
+.header {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
 }
 
-/* line 35, ../scss/_front.scss */
+/* line 60, ../scss/_front.scss */
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.25;
+  transition: opacity 0.5s ease;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+/* line 70, ../scss/_front.scss */
+.page.active-custom {
+  opacity: 1;
+}
+/* line 73, ../scss/_front.scss */
+.page.active {
+  opacity: 1;
+}
+
+/* line 78, ../scss/_front.scss */
+.bg-parallax {
+  width: 7000px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 84, ../scss/_front.scss */
+.bg-parallax div {
+  width: 7000px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: url("imgs/bg.gif");
+  background-position: fixed;
+}
+
+/* line 95, ../scss/_front.scss */
+.about {
+  height: 400px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* line 98, ../scss/_front.scss */
+.about .photo {
+  width: 300px;
+  margin: 0 auto 20px;
+}
+/* line 102, ../scss/_front.scss */
+.about p {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+/* line 107, ../scss/_front.scss */
+.about p:first-child {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #000;
+}
+/* line 112, ../scss/_front.scss */
+.about p.email {
+  font-family: "Droid Serif", serif;
+  font-size: 1.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* line 1, ../scss/_artwork.scss */
+.artwork-holder.page {
+  width: 100vw;
+  height: 100vh;
+}
+/* line 4, ../scss/_artwork.scss */
+.artwork-holder.page .post-content {
+  height: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+/* line 9, ../scss/_artwork.scss */
+.artwork-holder.page h1.caption {
+  width: 50%;
+  height: auto;
+  margin: 0 0;
+  padding: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  line-height: 1;
+  text-align: left;
+  font-family: "Droid Serif", serif;
+  font-weight: normal;
+  z-index: 200;
+  white-space: normal;
+}
+/* line 25, ../scss/_artwork.scss */
+.artwork-holder.page h1.caption span {
+  background: #fff;
+}
+
+/* line 31, ../scss/_artwork.scss */
+.artwork {
+  margin: auto;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+.artwork:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 35, ../scss/_artwork.scss */
+.artwork .img-holder {
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 1s ease;
+  overflow: hidden;
+}
+/* line 40, ../scss/_artwork.scss */
+.artwork .img-holder img {
+  width: auto;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+}
+/* line 47, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-1 {
+  top: 200px;
+}
+/* line 50, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-2 {
+  top: 400px;
+}
+/* line 53, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-3 {
+  top: 600px;
+}
+/* line 56, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-4 {
+  top: 800px;
+}
+/* line 59, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-5 {
+  top: 1000px;
+}
+/* line 62, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-6 {
+  top: 1200px;
+}
+/* line 65, ../scss/_artwork.scss */
+.active .artwork .img-holder {
+  top: 0 !important;
+}
+/* line 70, ../scss/_artwork.scss */
+.artwork.img2 .img-holder {
+  height: 100%;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  margin-bottom: 0;
+}
+/* line 74, ../scss/_artwork.scss */
+.artwork.img2 .img-holder img {
+  width: 100%;
+  height: auto;
+}
+/* line 78, ../scss/_artwork.scss */
+.artwork.img2 .img-holder:last-child {
+  float: right;
+  margin-right: 0;
+}
+/* line 84, ../scss/_artwork.scss */
+.artwork.img3 .img-holder {
+  height: auto;
+  width: 32.20339%;
+  float: left;
+  margin-right: 1.69492%;
+}
+/* line 87, ../scss/_artwork.scss */
+.artwork.img3 .img-holder img {
+  width: 100%;
+  height: auto;
+}
+/* line 91, ../scss/_artwork.scss */
+.artwork.img3 .img-holder:nth-child(3), .artwork.img3 .img-holder:nth-child(4) {
+  float: right;
+  margin-right: 0;
+}
+/* line 97, ../scss/_artwork.scss */
+.artwork.img4 .img-holder {
+  height: 150px;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+}
+/* line 100, ../scss/_artwork.scss */
+.artwork.img4 .img-holder img {
+  width: 100%;
+  height: auto;
+}
+/* line 104, ../scss/_artwork.scss */
+.artwork.img4 .img-holder:nth-child(2), .artwork.img4 .img-holder:nth-child(4) {
+  float: right;
+  margin-right: 0;
+}
+/* line 109, ../scss/_artwork.scss */
+.artwork.img3 .img-holder:nth-child(3) {
+  float: none;
+  margin: auto;
+}
+/* line 114, ../scss/_artwork.scss */
+.artwork.img6 .img-holder, .artwork.img7 .img-holder {
+  width: 32.20339%;
+  float: left;
+  margin-right: 1.69492%;
+  height: 100px;
+}
+/* line 117, ../scss/_artwork.scss */
+.artwork.img6 .img-holder:nth-child(3), .artwork.img6 .img-holder:nth-child(6), .artwork.img7 .img-holder:nth-child(3), .artwork.img7 .img-holder:nth-child(6) {
+  float: right;
+  margin-right: 0;
+}
+@media only screen and (min-width: 769px) {
+  /* line 123, ../scss/_artwork.scss */
+  .artwork.img2 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img2:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 126, ../scss/_artwork.scss */
+  .artwork.img3 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img3:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 128, ../scss/_artwork.scss */
+  .artwork.img3 .img-holder {
+    height: auto;
+  }
+  /* line 132, ../scss/_artwork.scss */
+  .artwork.img4 {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img4:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 134, ../scss/_artwork.scss */
+  .artwork.img4 .img-holder {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%;
+    height: auto;
+  }
+  /* line 139, ../scss/_artwork.scss */
+  .artwork.img6, .artwork.img7 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img6:after, .artwork.img7:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 141, ../scss/_artwork.scss */
+  .artwork.img6 .img-holder, .artwork.img7 .img-holder {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%;
+    height: auto;
+  }
+  /* line 144, ../scss/_artwork.scss */
+  .artwork.img6 .img-holder:nth-child(3), .artwork.img6 .img-holder:nth-child(6), .artwork.img7 .img-holder:nth-child(3), .artwork.img7 .img-holder:nth-child(6) {
+    float: right;
+    margin-right: 0;
+  }
+  /* line 147, ../scss/_artwork.scss */
+  .artwork.img6 .img-holder img, .artwork.img7 .img-holder img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (max-height: 650px) {
+  /* line 156, ../scss/_artwork.scss */
+  .artwork.img2 {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img2:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+/* line 1, ../scss/_buttons.scss */
 .nav-button {
   width: 40px;
   height: 20px;
-  position: absolute;
-  top: 30px;
-  right: 30px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
   transform: rotate(0deg);
   transition: all .75s ease-in-out;
   cursor: pointer;
+  z-index: 9999;
 }
-/* line 44, ../scss/_front.scss */
+/* line 11, ../scss/_buttons.scss */
 .nav-button a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 49, ../scss/_front.scss */
+/* line 16, ../scss/_buttons.scss */
 .nav-button span {
   width: 100%;
   height: 2px;
@@ -3627,34 +2032,34 @@ div.clear {
   transform: rotate(0deg);
   transition: all .25s ease-in-out;
 }
-/* line 60, ../scss/_front.scss */
+/* line 27, ../scss/_buttons.scss */
 .nav-button span:nth-child(1) {
   top: 0px;
 }
-/* line 63, ../scss/_front.scss */
+/* line 30, ../scss/_buttons.scss */
 .nav-button span:nth-child(2), .nav-button span:nth-child(3) {
   top: 10px;
 }
-/* line 66, ../scss/_front.scss */
+/* line 33, ../scss/_buttons.scss */
 .nav-button span:nth-child(4) {
   top: 20px;
 }
-/* line 69, ../scss/_front.scss */
+/* line 36, ../scss/_buttons.scss */
 .nav-button.open span:nth-child(1) {
   top: 18px;
   width: 0%;
   left: 50%;
   opacity: 0;
 }
-/* line 75, ../scss/_front.scss */
+/* line 42, ../scss/_buttons.scss */
 .nav-button.open span:nth-child(2) {
   transform: rotate(45deg);
 }
-/* line 78, ../scss/_front.scss */
+/* line 45, ../scss/_buttons.scss */
 .nav-button.open span:nth-child(3) {
   transform: rotate(-45deg);
 }
-/* line 81, ../scss/_front.scss */
+/* line 48, ../scss/_buttons.scss */
 .nav-button.open span:nth-child(4) {
   width: 0%;
   top: 18px;
@@ -3662,146 +2067,233 @@ div.clear {
   opacity: 0;
 }
 
-/* line 89, ../scss/_front.scss */
-.page {
-  opacity: 0.25;
-  transition: opacity 0.5s ease;
-  position: relative;
-  z-index: 10;
-}
-/* line 94, ../scss/_front.scss */
-.page.active-custom {
-  opacity: 1;
-}
-/* line 97, ../scss/_front.scss */
-.page.active {
-  opacity: 1;
-}
-
-/* line 102, ../scss/_front.scss */
-.bg-parallax {
+/* line 56, ../scss/_buttons.scss */
+.button-holder {
   width: 100%;
+  height: 80px;
+  position: fixed;
+  display: table;
+  left: 0;
+  bottom: 0;
+  z-index: 300;
+  transition: bottom 1s ease;
+}
+/* line 65, ../scss/_buttons.scss */
+.button-holder .icon-button {
+  width: 50%;
   height: 100%;
+  padding: 0;
+  position: absolute;
+  font-size: 1.9rem;
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 74, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow {
+  width: 90%;
+  height: 100%;
+  display: inline-block;
   position: absolute;
   top: 0;
+  transition: all 0.5s ease;
 }
-/* line 107, ../scss/_front.scss */
-.bg-parallax div {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: url("imgs/bg.gif");
-}
-
-/* line 115, ../scss/_front.scss */
-.artwork-holder.page {
-  height: 100vh;
-  min-height: 500px;
-  text-align: center;
-}
-/* line 119, ../scss/_front.scss */
-.artwork-holder.page .post-content {
-  height: 80%;
-  padding: 3%;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  text-align: center;
-}
-/* line 125, ../scss/_front.scss */
-.artwork-holder.page .artwork {
-  width: 100%;
-  height: 100%;
-  max-height: 500px;
-  margin: auto;
+/* line 81, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow:before {
+  content: '';
+  width: 30px;
+  height: 80px;
   display: inline-block;
-  position: relative;
-}
-/* line 133, ../scss/_front.scss */
-.artwork-holder.page h1 {
-  width: 100%;
-  margin: 0;
-  padding: 20px;
   position: absolute;
-  bottom: 0;
-  text-align: center;
+  transition: all 0.5s ease;
+  background: url("imgs/but_arrow.svg") no-repeat center center;
 }
-/* line 140, ../scss/_front.scss */
-.artwork-holder.page h1 span {
-  background: #fff;
-}
-/* line 144, ../scss/_front.scss */
-.artwork-holder.page img {
-  width: auto;
-  max-width: none;
-  height: 96%;
-  margin: 0 2%;
-  border: #fff solid 8px;
-  transition: border-color 0.5s ease;
-  box-sizing: padding-box;
-  cursor: pointer;
-}
-/* line 153, ../scss/_front.scss */
-.artwork-holder.page img:hover {
-  border: #000 solid 8px;
-}
-/* line 156, ../scss/_front.scss */
-.artwork-holder.page img:nth-child(2), .artwork-holder.page img:nth-child(3) {
+/* line 90, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow:after {
+  width: 93%;
   height: 50%;
+  content: ' ';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  border-top: 1px solid #000;
 }
-/* line 160, ../scss/_front.scss */
-.artwork-holder.page .caption {
-  font-family: "Droid Serif", serif;
+/* line 100, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow-text {
+  margin: 0;
+  display: inline-block;
+  position: absolute;
+  line-height: 80px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  transition: all 0.5s ease;
+}
+/* line 109, ../scss/_buttons.scss */
+.button-holder .icon-button.next {
+  text-align: right;
+  top: 0;
+  right: 0;
+}
+/* line 113, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow {
+  left: 0;
+}
+/* line 115, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow:before {
+  right: 0;
+}
+/* line 118, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow:after {
+  left: 0;
+}
+/* line 122, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow-text {
+  right: -100px;
+}
+/* line 126, ../scss/_buttons.scss */
+.button-holder .icon-button.prev {
+  text-align: left;
+  top: 0;
+  left: 0;
+}
+/* line 130, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow {
+  right: 0;
+}
+/* line 132, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow:before {
+  left: 0;
+  transform: rotate(180deg);
+}
+/* line 136, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow:after {
+  right: 0;
+}
+/* line 140, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow-text {
+  left: -100px;
+}
+/* line 145, ../scss/_buttons.scss */
+.button-holder .icon-button.next:hover .arrow-text {
+  right: 110px;
+}
+/* line 148, ../scss/_buttons.scss */
+.button-holder .icon-button.next:hover .arrow {
+  left: -110px;
+}
+/* line 153, ../scss/_buttons.scss */
+.button-holder .icon-button.prev:hover .arrow-text {
+  left: 60px;
+}
+/* line 156, ../scss/_buttons.scss */
+.button-holder .icon-button.prev:hover .arrow {
+  right: -90px;
+}
+/* line 161, ../scss/_buttons.scss */
+.page-intro .button-holder {
+  bottom: -100px;
 }
 
-/* line 165, ../scss/_front.scss */
-.about {
-  height: 400px;
+/* line 167, ../scss/_buttons.scss */
+#lightGallery-action .arrow {
+  width: 90%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease;
 }
-/* line 167, ../scss/_front.scss */
-.about .photo {
-  width: 200px;
-  height: 300px;
-  margin: auto;
-  background: #ccc;
+/* line 174, ../scss/_buttons.scss */
+#lightGallery-action .arrow:before {
+  width: 30px;
+  height: 80px;
+  display: inline-block;
+  position: absolute;
+  transition: all 0.5s ease;
+  background: url("imgs/but_arrow-wh.svg") no-repeat center center;
+}
+/* line 183, ../scss/_buttons.scss */
+#lightGallery-action .arrow:after {
+  border-color: #fff;
+}
+/* line 186, ../scss/_buttons.scss */
+#lightGallery-action .arrow-text {
+  color: #fff;
 }
 
-/* line 175, ../scss/_front.scss */
-.introduction {
-  height: 70vh;
-  padding-top: 20px;
-}
-
-/* line 180, ../scss/_front.scss */
-.button-next-holder {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 300;
-}
-/* line 185, ../scss/_front.scss */
-.button-next-holder .icon-button-next {
-  position: relative;
-  display: block;
-  font-size: 14px;
-  text-align: center;
-  text-transform: uppercase;
+/* line 191, ../scss/_buttons.scss */
+#lightGallery-close {
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
 }
-/* line 192, ../scss/_front.scss */
-.button-next-holder .icon-button-next:before {
-  content: "\ea3e";
-  font-size: 35px;
-}
-/* line 196, ../scss/_front.scss */
-.button-next-holder .icon-button-next span {
-  margin: 10px 0 0;
+/* line 198, ../scss/_buttons.scss */
+#lightGallery-close a {
+  width: 100%;
+  height: 100%;
   display: block;
 }
+/* line 203, ../scss/_buttons.scss */
+#lightGallery-close span {
+  width: 100%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  background: #fff;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: all .25s ease-in-out;
+}
+/* line 215, ../scss/_buttons.scss */
+#lightGallery-close span:nth-child(1) {
+  transform: rotate(45deg);
+}
+/* line 218, ../scss/_buttons.scss */
+#lightGallery-close span:nth-child(2) {
+  transform: rotate(-45deg);
+}
 
-/* line 203, ../scss/_front.scss */
-.content {
-  width: 94%;
-  margin: 0 auto;
-  padding: 0 3%;
+/* line 223, ../scss/_buttons.scss */
+#nav-holder .menu-close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+/* line 230, ../scss/_buttons.scss */
+#nav-holder .menu-close a {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  background: transparent;
+}
+/* line 239, ../scss/_buttons.scss */
+#nav-holder .menu-close span {
+  width: 40px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 20px;
+  background: #000;
+  opacity: 1;
+  transform: rotate(0deg);
+  transition: all .25s ease-in-out;
+}
+/* line 250, ../scss/_buttons.scss */
+#nav-holder .menu-close span:nth-child(1) {
+  transform: rotate(45deg);
+}
+/* line 253, ../scss/_buttons.scss */
+#nav-holder .menu-close span:nth-child(2) {
+  transform: rotate(-45deg);
 }

@@ -21,6 +21,45 @@
     </div>
   </main>
 
+var $container = $('#art-15 .artwork'),
+            $body = $('body'),
+            colW = 60,
+            columns = null;
+
+        $container.isotope({
+          resizable: false,
+          itemSelector: '.art-img',
+          masonry: {
+            columnWidth: colW
+          }
+        });
+
+        // $('.content').scrollsnap({
+        //     snaps: '.page',
+        //     proximity: 50,
+        //     direction: 'x'
+        // });
+
+        $(window).smartresize(function(){
+          // measure the width of all the items
+          var itemTotalWidth = 0;
+          $container.children().each(function(){
+            itemTotalWidth += $(this).outerWidth(true);
+          });
+          
+          // check if columns has changed
+          var bodyColumns = Math.floor( ( $body.width() -10 ) / colW ),
+              itemColumns = Math.floor( itemTotalWidth / colW ),
+              currentColumns = Math.min( bodyColumns, itemColumns );
+          if ( currentColumns !== columns ) {
+            // set new column count
+            columns = currentColumns;
+            // apply width to container manually, then trigger relayout
+            $container.width( columns * colW )
+              .isotope('reLayout');
+          }
+          
+        }).smartresize(); // trigger resize to set container width
 
 
   var windowHeight = $(window).innerHeight();
@@ -106,3 +145,93 @@
         <?php endwhile; ?> 
       </ul>
     </div>
+
+    //@import "jquery.mmenu.oncanvas";
+
+//@import "addons/jquery.mmenu.offcanvas";
+
+//@import "addons/jquery.mmenu.header";
+
+//@import "extensions/jquery.mmenu.positioning";
+
+// .mm-menu {
+//   z-index: 300;
+//   background: #fff;
+//   &.mm-front {
+//     border-left: 5px solid #000;
+//     box-shadow: none;
+//   }
+//   .mm-header {
+//     padding: 0 20px;
+//     color: #000;
+//     text-align: left;
+//     border: 0;
+//   }
+//   h2 {
+//     margin: 25px 0 0;
+//     padding-bottom: 20px;
+//     font-family: $serif;
+//     font-size: 2.3rem;
+//     font-weight: normal;
+//     border-bottom: 1px solid #000;
+//     span {
+//       font-family: $sans;
+//       font-weight: 300;
+//       font-size: 1.5rem;
+//     }
+//   }
+//   &.mm-hasheader li.mm-subtitle {
+//     display: block;
+//   }
+// }
+
+// .mm-menu .mm-list > li > a.mm-subclose {
+//   margin-top: -13px;
+//   padding-top: 20px;
+//   padding-bottom: 20px;
+//   background: #000;
+//   color: #fff;
+// }
+
+// .mm-menu .mm-list > li > a.mm-subopen:after, .mm-menu .mm-list > li > a.mm-subclose:before {
+//   width: 10px;
+//   height: 10px;
+//   margin-bottom: -5px;
+//   border-color: #fff;
+//   border-width: 1px;
+// }
+
+// .mm-menu .mm-list > li.mm-selected > a:not(.mm-subopen), .mm-menu .mm-list > li.mm-selected > span {
+//   background: transparent;
+// }
+
+// .mm-menu .mm-list > li > a.mm-subopen:before {
+//   border: 0;
+// }
+
+// .mm-list a.mm-subopen:after {
+//   color: #000;
+//   border-color: #000 !important;
+// }
+
+// .mm-menu.mm-hasheader > .mm-panel.mm-list {
+//   padding-top: 100px;
+//   a {
+//     padding-left: 50px;
+//     font-family: $serif;
+//     font-size: 1.7rem;
+//     color: #000;
+//     &.mm-subclose {
+//       color: #fff;
+//     }
+//   }
+//   .email-line a {
+//     padding-left: 20px;
+//   }
+//   .artwork-line a {
+//     padding-left: 20px;
+//   }
+//   & > li:after {
+//     border: 0;
+//   }
+// }
