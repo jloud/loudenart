@@ -1,6 +1,8 @@
 # Include your project-specific ignores in this file
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 
-wp-config/
+wp-config.php
+
+dev/
 
 wp-content/uploads/*
