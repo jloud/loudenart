@@ -5,42 +5,95 @@
   white-space: nowrap;
 }
 
-.header-holder {
+.introduction {
   padding: 20px;
-  @include vertical-align;
+  position: relative;
   .logo-title {
+    @include vertical-align;
     padding: 30px;
-    display: block;
-  }
-  hr {
-    position: relative;
-    bottom: 80px;
-    border:0;
-    
-  }
-  h1 {
-    display: inline-block;
-    font-family: $serif;
-    font-size: 3rem;
-  }
-  img {
-    width: 300px;
-    margin: auto;
-    padding: 10px;
-    display: block;
-  }
-  p {
-    margin: 10px 0;
-    padding-top: 20px;
     text-align: center;
-    font-family: $sans;
-    font-size: 2rem;
-    letter-spacing: 0.15em;
-    &.front-email {
-      margin-top: 50px;
-      font-family: $serif;
-      font-size: 1.5rem;
+    img {
+      width: 450px;
+      margin: auto;
+      padding: 10px;
+      display: block;
     }
+    p {
+      margin: -60px auto 0;
+      display: inline-block;
+      position: relative;
+      left: 2%;
+      padding: 10px 20px;
+      border: 1px solid #000;
+      font-size: 2.5rem;
+      span {
+        font-size: 2rem;
+      }
+    }
+  }
+  .front-footer {
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    text-align: center;
+    p {
+      height: 100%;
+      margin: 0;
+      text-align: center;
+      font-family: $serif;
+      font-size: 2rem;
+      cursor: pointer;
+      display: inline-block;
+      vertical-align: middle;
+      .front-arrow {
+        content: '';
+        width: 30px;
+        height: 80px;
+        position: absolute;
+        bottom: -30px;
+        right: -20px;
+        transition: opacity 0.5s ease;
+        opacity: 0;
+        background: url('imgs/but_arrow.svg') no-repeat center center;
+      }
+      a {
+        height: 100%;
+        display: table-cell;
+        position: relative;
+        line-height: 100%;
+        vertical-align: middle;
+      }
+      .front-line {
+        width: 0;
+        content: ' ';
+        display: inline-block;
+        position: relative;
+        bottom: 7px;
+        left: 5px;
+        opacity: 0;
+        border-top: 1px solid #000;
+        transition: width 0.5s ease, opacity 0.5s ease;
+      }
+    }
+    &:hover {
+      .front-line {
+        width: 80px;
+        opacity: 1;
+      }
+      .front-arrow {
+        opacity: 1;
+      }
+    }
+  }
+  .front-email {
+    margin: 0;
+    font-family: $serif;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 20px;
+    top: 20px;
   }
 }
 

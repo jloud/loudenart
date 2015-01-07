@@ -12,13 +12,14 @@
 
   <div id="content" class="content">
     <section id="introduction" class="introduction page active">
-    <div class="header-holder">
       <div class="logo-title">
-        <img src="<?php echo get_template_directory_uri(); ?>/css/imgs/intro.svg">
+        <img src="<?php echo get_template_directory_uri(); ?>/css/imgs/intro2.svg">
+        <p>Pen <span>&</span> Pencil Illustrator</p>
       </div>
-      <p><a id="button-intro">See the work</a></p>
+      <div class="front-footer">
+      <p><a id="button-intro">See the work<span class="front-line"></span><span class="front-arrow"></span></a></p>
+      </div>
       <p class="front-email"><a href="mailto:jim@loudenart.com?Subject=Website%20Contact">jim@loudenart.com</a></p>
-    </div>
     </section>
 
     <?php while ($the_query -> have_posts()) : $the_query -> the_post();

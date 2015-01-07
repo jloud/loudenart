@@ -19,6 +19,13 @@ ul {
   }
 }
 
+a {
+  color: #000;
+  &:hover {
+    color: #000;
+  }
+}
+
 .blur {     
   -webkit-filter: blur(7px);     
   //filter: blur(7px);      

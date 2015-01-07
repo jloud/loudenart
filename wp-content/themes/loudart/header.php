@@ -47,13 +47,3 @@
       <a id="button-prev" class="icon-button prev"><span class="arrow-text">Previous</span><span class="arrow"></span></a>
       <a id="button-next" class="icon-button next"><span class="arrow"></span><span class="arrow-text">Next</span></a>
     </div>
-
-    
-    <!-- <header class="header" role="banner">
-      <nav id="nav-holder" class="nav-holder" role="navigation">
-        <?php main_nav(); ?>
-      </nav>
-      <div id="nav-button" class="nav-button"><a href="#nav-holder"><span></span><span></span><span></span><span></span></a></div>
-    </header> -->
-
-

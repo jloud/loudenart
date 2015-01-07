@@ -6,3 +6,5 @@ wp-config.php
 dev/
 
 wp-content/uploads/*
+
+.htaccess

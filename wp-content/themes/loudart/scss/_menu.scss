@@ -9,9 +9,12 @@
   visibility: hidden;
   transition: opacity 0.5s, visibility 0s 0.5s;
   z-index: 300;
-  font-size: 2rem;
+  font-size: 2.2rem;
+  span {
+    font-size: 32px;
+  }
   h2 {
-    margin: 0;
+    margin: 1px;
     font-family: $serif;
     text-align: center;
     font-weight: normal;
