@@ -764,7 +764,7 @@
   margin-top: 15px;
 }
 
-/* line 18, ../scss/styles.scss */
+/* line 19, ../scss/styles.scss */
 #lightGallery-outer .lb-caption {
   width: 50%;
   height: auto;
@@ -784,7 +784,7 @@
   white-space: normal;
 }
 
-/* line 38, ../scss/styles.scss */
+/* line 39, ../scss/styles.scss */
 #lightGallery-action {
   width: 100%;
   bottom: 0;
@@ -792,28 +792,28 @@
   margin-left: 0;
 }
 
-/* line 46, ../scss/styles.scss */
+/* line 47, ../scss/styles.scss */
 #lightGallery-action a#lightGallery-prev {
   left: 0;
 }
-/* line 49, ../scss/styles.scss */
+/* line 50, ../scss/styles.scss */
 #lightGallery-action a#lightGallery-next {
   right: 0;
 }
 
-/* line 54, ../scss/styles.scss */
+/* line 55, ../scss/styles.scss */
 #lightGallery-Gallery.opacity .lightGallery-slide .object {
   height: 80%;
   -webkit-transform: scale3d(1, 1, 1);
           transform: scale3d(1, 1, 1);
 }
 
-/* line 59, ../scss/styles.scss */
+/* line 60, ../scss/styles.scss */
 #lightGallery-action a#lightGallery-prev:before {
   content: " ";
 }
 
-/* line 63, ../scss/styles.scss */
+/* line 64, ../scss/styles.scss */
 #lightGallery-action a#lightGallery-next:after {
   content: " ";
 }
@@ -1607,7 +1607,7 @@ div.clear {
 }
 /* line 1, ../scss/_front.scss */
 .content {
-  width: 7000px;
+  width: 9000px;
   margin: 0 auto;
   padding: 0;
   white-space: nowrap;
@@ -1615,10 +1615,12 @@ div.clear {
 
 /* line 8, ../scss/_front.scss */
 .introduction {
+  width: 100vw;
+  height: 100vh;
   padding: 20px;
   position: relative;
 }
-/* line 11, ../scss/_front.scss */
+/* line 13, ../scss/_front.scss */
 .introduction .logo-title {
   position: relative;
   top: 50%;
@@ -1628,14 +1630,14 @@ div.clear {
   padding: 30px;
   text-align: center;
 }
-/* line 15, ../scss/_front.scss */
+/* line 17, ../scss/_front.scss */
 .introduction .logo-title img {
   width: 450px;
   margin: auto;
   padding: 10px;
   display: block;
 }
-/* line 21, ../scss/_front.scss */
+/* line 23, ../scss/_front.scss */
 .introduction .logo-title p {
   margin: -60px auto 0;
   display: inline-block;
@@ -1645,11 +1647,11 @@ div.clear {
   border: 1px solid #000;
   font-size: 2.5rem;
 }
-/* line 29, ../scss/_front.scss */
+/* line 31, ../scss/_front.scss */
 .introduction .logo-title p span {
   font-size: 2rem;
 }
-/* line 34, ../scss/_front.scss */
+/* line 36, ../scss/_front.scss */
 .introduction .front-footer {
   width: 100%;
   height: 80px;
@@ -1658,7 +1660,7 @@ div.clear {
   left: 0;
   text-align: center;
 }
-/* line 41, ../scss/_front.scss */
+/* line 43, ../scss/_front.scss */
 .introduction .front-footer p {
   height: 100%;
   margin: 0;
@@ -1669,7 +1671,7 @@ div.clear {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 50, ../scss/_front.scss */
+/* line 52, ../scss/_front.scss */
 .introduction .front-footer p .front-arrow {
   content: '';
   width: 30px;
@@ -1681,7 +1683,7 @@ div.clear {
   opacity: 0;
   background: url("imgs/but_arrow.svg") no-repeat center center;
 }
-/* line 61, ../scss/_front.scss */
+/* line 63, ../scss/_front.scss */
 .introduction .front-footer p a {
   height: 100%;
   display: table-cell;
@@ -1689,7 +1691,7 @@ div.clear {
   line-height: 100%;
   vertical-align: middle;
 }
-/* line 68, ../scss/_front.scss */
+/* line 70, ../scss/_front.scss */
 .introduction .front-footer p .front-line {
   width: 0;
   content: ' ';
@@ -1701,16 +1703,16 @@ div.clear {
   border-top: 1px solid #000;
   transition: width 0.5s ease, opacity 0.5s ease;
 }
-/* line 81, ../scss/_front.scss */
+/* line 83, ../scss/_front.scss */
 .introduction .front-footer:hover .front-line {
   width: 80px;
   opacity: 1;
 }
-/* line 85, ../scss/_front.scss */
+/* line 87, ../scss/_front.scss */
 .introduction .front-footer:hover .front-arrow {
   opacity: 1;
 }
-/* line 90, ../scss/_front.scss */
+/* line 92, ../scss/_front.scss */
 .introduction .front-email {
   margin: 0;
   font-family: "Droid Serif", serif;
@@ -1720,12 +1722,12 @@ div.clear {
   top: 20px;
 }
 
-/* line 100, ../scss/_front.scss */
+/* line 102, ../scss/_front.scss */
 .main-holder {
   margin-top: 100px;
 }
 
-/* line 104, ../scss/_front.scss */
+/* line 106, ../scss/_front.scss */
 .header {
   width: 100%;
   height: 50px;
@@ -1735,25 +1737,14 @@ div.clear {
   z-index: 999;
 }
 
-/* line 113, ../scss/_front.scss */
+/* line 115, ../scss/_front.scss */
 .page {
-  width: 100vw;
-  height: 100vh;
   display: inline-block;
   vertical-align: top;
-  opacity: 0.25;
   transition: opacity 0.5s ease;
   position: relative;
   z-index: 10;
   overflow: hidden;
-}
-/* line 123, ../scss/_front.scss */
-.page.active-custom {
-  opacity: 1;
-}
-/* line 126, ../scss/_front.scss */
-.page.active {
-  opacity: 1;
 }
 
 /* line 131, ../scss/_front.scss */
@@ -1776,33 +1767,40 @@ div.clear {
 }
 
 /* line 148, ../scss/_front.scss */
+.bio {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* line 153, ../scss/_front.scss */
 .about {
-  height: 400px;
+  width: 100vh;
+  height: 100vh;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-/* line 151, ../scss/_front.scss */
+/* line 157, ../scss/_front.scss */
 .about .photo {
   width: 300px;
   margin: 0 auto 20px;
 }
-/* line 155, ../scss/_front.scss */
+/* line 161, ../scss/_front.scss */
 .about p {
   max-width: 300px;
   margin: 0 auto;
   text-align: center;
   font-size: 1.5rem;
 }
-/* line 160, ../scss/_front.scss */
+/* line 166, ../scss/_front.scss */
 .about p:first-child {
   margin-top: 30px;
   padding-top: 20px;
   border-top: 1px solid #000;
 }
-/* line 165, ../scss/_front.scss */
+/* line 171, ../scss/_front.scss */
 .about p.email {
   font-family: "Droid Serif", serif;
   font-size: 1.9rem;
@@ -1811,16 +1809,17 @@ div.clear {
 
 /* line 1, ../scss/_artwork.scss */
 .artwork-holder.page {
-  width: 100vw;
+  width: 70vw;
   height: 100vh;
+  display: inline-block;
 }
-/* line 4, ../scss/_artwork.scss */
+/* line 5, ../scss/_artwork.scss */
 .artwork-holder.page .post-content {
   height: 100%;
-  padding: 20px 0;
+  padding: 50px 0 70px;
   text-align: center;
 }
-/* line 9, ../scss/_artwork.scss */
+/* line 10, ../scss/_artwork.scss */
 .artwork-holder.page h1.caption {
   width: 50%;
   height: auto;
@@ -1838,22 +1837,58 @@ div.clear {
   z-index: 200;
   white-space: normal;
 }
-/* line 25, ../scss/_artwork.scss */
+/* line 26, ../scss/_artwork.scss */
 .artwork-holder.page h1.caption span {
   background: #fff;
 }
+/* line 30, ../scss/_artwork.scss */
+.artwork-holder.page .artwork a {
+  width: 100%;
+  height: 100%;
+  transition: all 1s ease;
+}
+/* line 34, ../scss/_artwork.scss */
+.artwork-holder.page .artwork a span {
+  background: #000;
+  display: inline-block;
+  transition: all 1s ease;
+}
+/* line 39, ../scss/_artwork.scss */
+.artwork-holder.page .artwork a img {
+  opacity: 0;
+  transition: all 1s ease;
+}
+/* line 45, ../scss/_artwork.scss */
+.artwork-holder.page.active .artwork a {
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+}
+/* line 51, ../scss/_artwork.scss */
+.artwork-holder.page.active .artwork a span {
+  background: transparent;
+}
+/* line 54, ../scss/_artwork.scss */
+.artwork-holder.page.active .artwork a img {
+  opacity: 1;
+  transition: all 1s ease;
+}
 
-/* line 31, ../scss/_artwork.scss */
+/* line 61, ../scss/_artwork.scss */
 .artwork {
-  margin: auto;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
+  height: 90%;
+  padding: 0 2.5%;
+  position: relative;
 }
 /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
 .artwork:after {
@@ -1861,210 +1896,159 @@ div.clear {
   display: block;
   clear: both;
 }
-/* line 35, ../scss/_artwork.scss */
-.artwork .img-holder {
-  margin-bottom: 20px;
+/* line 67, ../scss/_artwork.scss */
+.artwork a {
+  width: 100%;
+  display: inline-block;
   position: relative;
-  transition: all 1s ease;
-  overflow: hidden;
 }
-/* line 40, ../scss/_artwork.scss */
-.artwork .img-holder img {
-  width: auto;
-  max-width: none;
-  height: 100%;
+/* line 71, ../scss/_artwork.scss */
+.artwork a img {
+  width: 100%;
   margin: 0;
-  text-align: center;
 }
-/* line 47, ../scss/_artwork.scss */
-.artwork .img-holder.imgpic-1 {
-  top: 200px;
-}
-/* line 50, ../scss/_artwork.scss */
-.artwork .img-holder.imgpic-2 {
-  top: 400px;
-}
-/* line 53, ../scss/_artwork.scss */
-.artwork .img-holder.imgpic-3 {
-  top: 600px;
-}
-/* line 56, ../scss/_artwork.scss */
-.artwork .img-holder.imgpic-4 {
-  top: 800px;
-}
-/* line 59, ../scss/_artwork.scss */
-.artwork .img-holder.imgpic-5 {
-  top: 1000px;
-}
-/* line 62, ../scss/_artwork.scss */
-.artwork .img-holder.imgpic-6 {
-  top: 1200px;
-}
-/* line 65, ../scss/_artwork.scss */
-.active .artwork .img-holder {
-  top: 0 !important;
-}
-/* line 70, ../scss/_artwork.scss */
+/* line 77, ../scss/_artwork.scss */
 .artwork.img2 .img-holder {
   height: 100%;
-  width: 49.15254%;
-  float: left;
-  margin-right: 1.69492%;
   margin-bottom: 0;
+  position: relative;
 }
-/* line 74, ../scss/_artwork.scss */
+/* line 81, ../scss/_artwork.scss */
 .artwork.img2 .img-holder img {
   width: 100%;
   height: auto;
+  max-width: none;
 }
-/* line 78, ../scss/_artwork.scss */
+/* line 87, ../scss/_artwork.scss */
 .artwork.img2 .img-holder:last-child {
   float: right;
   margin-right: 0;
 }
-/* line 84, ../scss/_artwork.scss */
-.artwork.img3 .img-holder {
-  height: auto;
-  width: 32.20339%;
-  float: left;
-  margin-right: 1.69492%;
-}
-/* line 87, ../scss/_artwork.scss */
-.artwork.img3 .img-holder img {
-  width: 100%;
-  height: auto;
-}
 /* line 91, ../scss/_artwork.scss */
-.artwork.img3 .img-holder:nth-child(3), .artwork.img3 .img-holder:nth-child(4) {
+.artwork.img2 .art-holder1 {
+  width: 38.23529%;
+  float: left;
+  margin-right: 5.88235%;
+  padding-top: 10%;
+}
+/* line 94, ../scss/_artwork.scss */
+.artwork.img2 .art-holder1 a {
+  top: -200px;
+}
+/* line 98, ../scss/_artwork.scss */
+.artwork.img2 .art-holder2 {
+  width: 55.88235%;
+  float: left;
+  margin-right: 5.88235%;
+}
+/* line 100, ../scss/_artwork.scss */
+.artwork.img2 .art-holder2 a {
+  bottom: -200px;
+}
+/* line 106, ../scss/_artwork.scss */
+.artwork.img3 .img-holder {
+  width: 47.05882%;
+  float: left;
+  margin-right: 5.88235%;
+}
+/* line 108, ../scss/_artwork.scss */
+.artwork.img3 .img-holder img {
+  height: auto;
+}
+/* line 112, ../scss/_artwork.scss */
+.artwork.img3 .img-holder:nth-child(2), .artwork.img3 .img-holder:nth-child(3) {
   float: right;
   margin-right: 0;
 }
-/* line 97, ../scss/_artwork.scss */
-.artwork.img4 .img-holder {
-  height: 150px;
-  width: 49.15254%;
+/* line 116, ../scss/_artwork.scss */
+.artwork.img3 .art-holder1 {
+  width: 55.88235%;
   float: left;
-  margin-right: 1.69492%;
+  margin-right: 5.88235%;
+  height: 100%;
 }
-/* line 100, ../scss/_artwork.scss */
+/* line 119, ../scss/_artwork.scss */
+.artwork.img3 .art-holder1 a {
+  left: -100px;
+}
+/* line 123, ../scss/_artwork.scss */
+.artwork.img3 .art-holder2, .artwork.img3 .art-holder3 {
+  width: 38.23529%;
+  float: left;
+  margin-right: 5.88235%;
+  height: 47%;
+  text-align: left;
+}
+/* line 128, ../scss/_artwork.scss */
+.artwork.img3 .art-holder2 {
+  margin: 0;
+  margin-bottom: 3%;
+}
+/* line 131, ../scss/_artwork.scss */
+.artwork.img3 .art-holder2 a {
+  top: -100px;
+}
+/* line 135, ../scss/_artwork.scss */
+.artwork.img3 .art-holder3 {
+  margin-top: 3%;
+}
+/* line 137, ../scss/_artwork.scss */
+.artwork.img3 .art-holder3 a {
+  top: 100px;
+}
+/* line 143, ../scss/_artwork.scss */
+.artwork.img4 .img-holder {
+  height: 47%;
+  width: 47.05882%;
+  float: left;
+  margin-right: 5.88235%;
+}
+/* line 146, ../scss/_artwork.scss */
 .artwork.img4 .img-holder img {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
 }
-/* line 104, ../scss/_artwork.scss */
+/* line 150, ../scss/_artwork.scss */
+.artwork.img4 .img-holder:nth-child(1), .artwork.img4 .img-holder:nth-child(2) {
+  margin-bottom: 3%;
+}
+/* line 153, ../scss/_artwork.scss */
+.artwork.img4 .img-holder:nth-child(3), .artwork.img4 .img-holder:nth-child(4) {
+  margin-top: 3%;
+}
+/* line 156, ../scss/_artwork.scss */
 .artwork.img4 .img-holder:nth-child(2), .artwork.img4 .img-holder:nth-child(4) {
   float: right;
   margin-right: 0;
 }
-/* line 109, ../scss/_artwork.scss */
-.artwork.img3 .img-holder:nth-child(3) {
-  float: none;
-  margin: auto;
-}
-/* line 114, ../scss/_artwork.scss */
-.artwork.img6 .img-holder, .artwork.img7 .img-holder {
-  width: 32.20339%;
+/* line 162, ../scss/_artwork.scss */
+.artwork.img6 .img-holder {
+  height: 20%;
+  position: relative;
+  width: 20.58824%;
   float: left;
-  margin-right: 1.69492%;
-  height: 100px;
+  margin-right: 5.88235%;
 }
-/* line 117, ../scss/_artwork.scss */
-.artwork.img6 .img-holder:nth-child(3), .artwork.img6 .img-holder:nth-child(6), .artwork.img7 .img-holder:nth-child(3), .artwork.img7 .img-holder:nth-child(6) {
+/* line 166, ../scss/_artwork.scss */
+.artwork.img6 .img-holder:nth-child(4), .artwork.img6 .img-holder:nth-child(5) {
   float: right;
   margin-right: 0;
 }
-@media only screen and (min-width: 769px) {
-  /* line 123, ../scss/_artwork.scss */
-  .artwork.img2 {
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
-  .artwork.img2:after {
-    content: " ";
-    display: block;
-    clear: both;
-  }
-  /* line 126, ../scss/_artwork.scss */
-  .artwork.img3 {
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
-  .artwork.img3:after {
-    content: " ";
-    display: block;
-    clear: both;
-  }
-  /* line 128, ../scss/_artwork.scss */
-  .artwork.img3 .img-holder {
-    height: auto;
-  }
-  /* line 132, ../scss/_artwork.scss */
-  .artwork.img4 {
-    max-width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
-  .artwork.img4:after {
-    content: " ";
-    display: block;
-    clear: both;
-  }
-  /* line 134, ../scss/_artwork.scss */
-  .artwork.img4 .img-holder {
-    width: 23.72881%;
-    float: left;
-    margin-right: 1.69492%;
-    height: auto;
-  }
-  /* line 139, ../scss/_artwork.scss */
-  .artwork.img6, .artwork.img7 {
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
-  .artwork.img6:after, .artwork.img7:after {
-    content: " ";
-    display: block;
-    clear: both;
-  }
-  /* line 141, ../scss/_artwork.scss */
-  .artwork.img6 .img-holder, .artwork.img7 .img-holder {
-    width: 23.72881%;
-    float: left;
-    margin-right: 1.69492%;
-    height: auto;
-  }
-  /* line 144, ../scss/_artwork.scss */
-  .artwork.img6 .img-holder:nth-child(3), .artwork.img6 .img-holder:nth-child(6), .artwork.img7 .img-holder:nth-child(3), .artwork.img7 .img-holder:nth-child(6) {
-    float: right;
-    margin-right: 0;
-  }
-  /* line 147, ../scss/_artwork.scss */
-  .artwork.img6 .img-holder img, .artwork.img7 .img-holder img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-  }
+/* line 169, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder1 {
+  height: 100%;
+  width: 47.05882%;
+  float: left;
+  margin-right: 5.88235%;
 }
-@media only screen and (max-height: 650px) {
-  /* line 156, ../scss/_artwork.scss */
-  .artwork.img2 {
-    max-width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
-  .artwork.img2:after {
-    content: " ";
-    display: block;
-    clear: both;
-  }
+/* line 173, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder2 {
+  height: 50%;
+  width: 47.05882%;
+  float: left;
+  margin-right: 5.88235%;
+  float: right;
+  margin-right: 0;
 }
 
 /* line 1, ../scss/_buttons.scss */

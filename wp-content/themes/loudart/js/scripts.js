@@ -20,6 +20,7 @@
 
         var artScene = [],
             element,
+            element1,
             tween,
             artSceneNumber,
             $currId,
@@ -27,13 +28,13 @@
             //contPar = new ScrollMagic({vertical: false});
             //contPar = new ScrollMagic({vertical: false});
 
-        artScene = document.getElementsByClassName('page'),
+        artScene = document.getElementsByClassName('artwork-holder'),
         artSceneNumber = artScene.length;
 
         artTween = function(el) {
           picTween = TweenMax.fromTo(el, 0.5, 
-              {"border-top": "0px solid white"},
-              {"border-top": "0px solid white", backgroundColor: "rgba(0,0,0,0)"}
+              {'bottom': '-60px'},
+              {'bottom': '0px'}
           );
         }
 
@@ -44,14 +45,24 @@
 
         for (var i = 0; i < artSceneNumber; i++){
           element = artScene[i];
-          var $artId = $(element);
+          var $artId = $(element),
+              $artImgs = [];
+              
+              $artId.find('.img-holder').each(function(){
+                $artImgs.push($(this));
+              });
 
-          artTween($artId);
-
-          new ScrollScene({ triggerElement: $artId, duration: 300})
-          //.setClassToggle(artId, 'active')
-          .setTween(picTween)
-          .addTo(contArt);
+              console.log($artImgs);
+              // });
+          // for (var j = 0; j < $artImgs; j++) {
+          //   element1 = $artImgs[j];
+          //   var $indImg = $(element1);
+          //   artTween($artImgs[j]);
+          //   console.log($artImgs[j]);
+          //   new ScrollScene({ triggerElement: $artId, duration: 300})
+          //     .setTween(picTween)
+          //     .addTo(contArt);
+          // }
         }
 
         new ScrollScene({ triggerElement: $('#content'), duration: '10000px'})
@@ -64,8 +75,9 @@
         }
 
         contArt.scrollTo(function (target) {
-          TweenMax.to(window, 1.2, {scrollTo: {x: target}, ease: Quint.easeOut});
-          //TweenMax.to(".bg-parallax > div", 1.2, {backgroundPosition: "-=2% 0", ease: Quint.easeOut})
+          var eleWidth = $('.artwork-holder').first().width(),
+              newTarget = target - ((windowWidth/2) - (eleWidth/2));
+          TweenMax.to(window, 1.2, {scrollTo: {x: newTarget}, ease: Quint.easeOut});
         });
 
         pageControls = function(el){
@@ -262,6 +274,15 @@
           $menuOverlay.removeClass('open');
           $('#wrapper').removeClass('blur');
         });
+
+        // $('.artwork-page').isotope({
+        //   layoutMode: 'masonryHorizontal',
+        //   itemSelector: 'a',
+        //   masonryHorizontal: {
+        //     rowHeight: 50,
+        //     gutter: 10
+        //   }
+        // });
 
 	});
 	

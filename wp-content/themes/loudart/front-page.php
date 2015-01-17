@@ -35,7 +35,6 @@
       $imgNumber = count($aImgs[0]);
 
     ?>
-
     <section id="<?php echo $pTitle; ?>" class="artwork-holder art-<?php the_ID(); ?> page">
     <h1 id="caption" class="caption"><span class="lb-caption"><?php the_title(); ?></span></h1>
     <div class="post-content">
@@ -44,7 +43,7 @@
         $counter = 1;
         foreach($aImgs[0] as $img) {
           $src = (string) reset(simplexml_import_dom(DOMDocument::loadHTML($img))->xpath("//img/@src"));
-          echo '<div class="img-holder imgpic-'.$counter.'" data-src="'.$src.'" data-sub-html="'.get_the_title().'" /><a href="#">'.$img.'</a></div>';
+          echo '<div class="img-holder art-holder'.$counter.'" data-src="'.$src.'" data-sub-html="'.get_the_title().'" ><a href="#"><span>'.$img.'</span></a></div>';
           //echo '<a class="lbox" href="#">'.$img.'</a>';
           $counter++;
         }
@@ -52,8 +51,9 @@
       </div>
     </div>
     </section>
-    <?php endwhile; ?> 
 
+    <?php endwhile; ?> 
+ 
     <section id="bio" class="bio page">
     <div class="about">
       <div class="photo">

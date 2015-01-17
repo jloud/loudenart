@@ -1,11 +1,13 @@
 .content {
-  width: 7000px;
+  width: 9000px;
   margin: 0 auto;
   padding: 0;
   white-space: nowrap;
 }
 
 .introduction {
+  width: 100vw;
+  height: 100vh;
   padding: 20px;
   position: relative;
   .logo-title {
@@ -111,20 +113,18 @@
 }
 
 .page {
-  width: 100vw;
-  height: 100vh;
   display: inline-block;
   vertical-align: top;
-  opacity: 0.25;
+  
   transition: opacity 0.5s ease;
   position: relative;
   z-index: 10;
   overflow: hidden;
   &.active-custom {
-    opacity: 1;
+    //opacity: 1;
   }
   &.active {
-    opacity: 1;
+    //opacity: 1;
   }
 }
 
@@ -145,8 +145,14 @@
   }
 }
 
+.bio {
+  width: 100vw;
+  height: 100vh;
+}
+
 .about {
-  height: 400px;
+  width: 100vh;
+  height: 100vh;
   @include vertical-align;
   .photo {
     width: 300px;

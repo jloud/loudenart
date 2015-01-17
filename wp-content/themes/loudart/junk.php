@@ -265,3 +265,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.registerTask('default',['watch']);
 }
+
+ $counter = 1;
+        foreach($aImgs[0] as $img) {
+          $src = (string) reset(simplexml_import_dom(DOMDocument::loadHTML($img))->xpath("//img/@src"));
+          echo '<div class="img-holder imgpic-'.$counter.'" data-src="'.$src.'" data-sub-html="'.get_the_title().'" /><a href="#">'.$img.'</a></div>';
+          //echo '<a class="lbox" href="#">'.$img.'</a>';
+          $counter++;
+        }
