@@ -9,45 +9,70 @@
   visibility: hidden;
   transition: opacity 0.5s, visibility 0s 0.5s;
   z-index: 300;
-  font-size: 2.2rem;
-  span {
-    font-size: 32px;
-  }
   h2 {
-    margin: 1px;
+    margin: 0;
     font-family: $serif;
     text-align: center;
     font-weight: normal;
     line-height: 1;
+    font-family: $serif;
+    font-weight: normal;
+    font-size: 4.5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #000;
     span {
-      font-family: $sans;
-      font-size: 1.5rem;
+      margin: 0;
+      display: block;
+      &.name, &.ill {
+        font-size: 2.5rem;
+      }
+      &.pp {
+        margin: 15px 0 10px;
+        span {
+          display: inline;
+          font-size: 0.7em;
+          line-height: 1.5;
+          vertical-align:middle;
+        }
+      }
     }
   }
   nav {
     text-align: center;
     @include vertical-align;
+    transition: transform 0.5s ease;
+    transform: scale(0.95) translateY(-50%);
   }
   ul {
-    margin: 30px 0 !important;
+    width: 100%;
+    max-width: 340px;
+    margin: 20px auto 15px !important;
     list-style: none;
     padding: 0;
     margin: 0 auto;
-    display: inline-block;
     position: relative;
     transition: transform 0.5s, opacity 0.5s;
-    li {
-      display: block;
-    }
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
     a {
       height:100%;
       display: block;
       color: #000;
       transition: color 0.2s;
       font-family: $sans;
+      font-size: 2.3rem;
+      line-height: 2;
+    }
+    li:first-child {
+      margin-top: 10px;
+    }
+    li:last-child {
+      margin-bottom: 10px;
     }
   }
-  p {
+  p.email {
     margin: 0;
     color: #000;
     font-family: $serif;
@@ -55,20 +80,20 @@
       display: inline-block;
       box-sizing: content-box;
       padding: 10px 20px;
-      border-top: 1px solid #000;
       color: #000;
+      font-size: 2rem;
     }
   }
   &.open {
     opacity: 1;
     visibility: visible;
-    //-webkit-transition: opacity 0.5s;
-    transition: opacity 0.5s;
-    nav ul {
-      opacity: 1;
-      //-webkit-transform: rotateX(0deg);
-      transform: rotateX(0deg);
-      width:100%;
+    transition: opacity 0.5s ease;
+    nav {
+      transform: scale(1) translateY(-50%);
+      ul {
+        opacity: 1;
+        width:100%;
+      }
     }
   }
 }

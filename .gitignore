@@ -6,5 +6,6 @@ wp-config.php
 dev/
 
 wp-content/uploads/*
+wp-content/themes/loudart/.sass-cache/*
 
 .htaccess

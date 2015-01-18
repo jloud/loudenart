@@ -11,25 +11,37 @@
   padding: 20px;
   position: relative;
   .logo-title {
-    @include vertical-align;
-    padding: 30px;
-    text-align: center;
-    img {
-      width: 450px;
-      margin: auto;
-      padding: 10px;
-      display: block;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    top: -100px;
+    background: url(imgs/front_bg.svg) no-repeat center center;
+    background-size: 100% auto;
+    .title-holder {
+      @include vertical-align;
     }
-    p {
-      margin: -60px auto 0;
-      display: inline-block;
-      position: relative;
-      left: 2%;
-      padding: 10px 20px;
-      border: 1px solid #000;
-      font-size: 2.5rem;
+    h1 {
+      margin-top: 100px;
+      font-family: $serif;
+      font-weight: normal;
+      font-size: 5.2rem;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: #fff;
+      text-shadow: #000 -3px -1px 0, #000 -2px 3px 0, #000 -2px 3px 0, #000 2px 2px 0;
       span {
-        font-size: 2rem;
+        margin: 0;
+        display: block;
+        &.name, &.ill {
+          font-size: 3.2rem;
+        }
+        &.pp span {
+          display: inline;
+          font-size: 0.7em;
+        }
       }
     }
   }
@@ -51,14 +63,14 @@
       vertical-align: middle;
       .front-arrow {
         content: '';
-        width: 30px;
-        height: 80px;
+        width: 18px;
+        height: 40px;
         position: absolute;
-        bottom: -30px;
+        bottom: -10px;
         right: -20px;
-        transition: opacity 0.5s ease;
+        transition: opacity 0.6s ease;
         opacity: 0;
-        background: url('imgs/but_arrow.svg') no-repeat center center;
+        background: url('imgs/but_arrow.svg') no-repeat center center / cover;
       }
       a {
         height: 100%;
@@ -75,13 +87,13 @@
         bottom: 7px;
         left: 5px;
         opacity: 0;
-        border-top: 1px solid #000;
-        transition: width 0.5s ease, opacity 0.5s ease;
+        border-top: 2px solid #000;
+        transition: width 0.5s ease, opacity 0.3s ease;
       }
     }
     &:hover {
       .front-line {
-        width: 80px;
+        width: 40px;
         opacity: 1;
       }
       .front-arrow {
@@ -115,7 +127,6 @@
 .page {
   display: inline-block;
   vertical-align: top;
-  
   transition: opacity 0.5s ease;
   position: relative;
   z-index: 10;
@@ -145,33 +156,83 @@
   }
 }
 
-.bio {
-  width: 100vw;
+.contact {
+  width: 70vw;
   height: 100vh;
 }
 
 .about {
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   @include vertical-align;
   .photo {
     width: 300px;
     margin: 0 auto 20px;
   }
   p {
+    width: 100%;
     max-width: 300px;
     margin: 0 auto;
+    font-family: $serif;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+    white-space: normal;
     &:first-child {
       margin-top: 30px;
       padding-top: 20px;
-      border-top: 1px solid #000;
     }
     &.email {
       font-family: $serif;
       font-size: 1.9rem;
       letter-spacing: 0.1em;
+    }
+  }
+  form {
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+    input, textarea {
+      width: 100%;
+      max-width: 600px;
+      margin: 30px 0;
+      padding: 10px;
+      display: block;
+      border: 1px solid #000;
+      background: transparent;
+      box-sizing: content-box;
+      transition: background 1s ease;
+    }
+    input:first-child {
+      margin-top: 0;
+    }
+    textarea {
+      height: 200px;
+    }
+    input[type=text], textarea, ::-webkit-input-placeholder, .submit-button {
+      font-family: $sans;
+      font-size: 2rem;
+      color: #000;
+    }
+    input.submit-button {
+      margin-bottom: 0;
+      font-family: $serif;
+      font-size: 2.3rem;
+      text-transform: uppercase;
+      background: transparent;
+      border: 2px solid #000;
+      letter-spacing: 0.1em;
+      transition: color 0.75s ease, background 0.5s ease;
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+    input:focus, input:active, textarea:focus, textarea:active {
+      margin-left: -3px;
+      margin-top: -2px;
+      border: 4px solid #000;
+      background: #fff;
+      outline: none;
     }
   }
 }

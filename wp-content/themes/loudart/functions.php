@@ -115,6 +115,7 @@ function html5blank_header_scripts()
     //wp_register_script('mmenu', get_template_directory_uri() . '/js/lib/jquery.mmenu.min.all.js', array('jquery'), '1.0.0');
     //wp_register_script('mmenu-header', get_template_directory_uri() . '/js/lib/addons/jquery.mmenu.header.js', array('jquery'), '1.0.0');
     wp_register_script('utillls', get_template_directory_uri() . '/js/lib/utils.js', array('jquery'), '1.0.0');
+    wp_register_script('preloader', get_template_directory_uri() . '/js/lib/pace.min.js', array('jquery'), '1.0.0');
     wp_register_script('scripts', get_template_directory_uri() . '/js/scripts.js', array('jquery'), '1.0.0');
 
     wp_enqueue_script('jquery');
@@ -140,9 +141,17 @@ function html5blank_header_scripts()
     //wp_enqueue_script('mmenu-header');
     //wp_enqueue_script('blur');
     wp_enqueue_script('utillls');
+    wp_enqueue_script('preloader');
     wp_enqueue_script('scripts');
   }
 }
+
+// add_filter('script_loader_tag', function ( $tag, $handle ) {
+//   if('pace.min.js' !== $handle){
+//     return $tag;
+//   }
+//   return str_replace( ' src', ' defer="defer" src', $tag );
+// }, 10, 2 );
 
 // Load HTML5 Blank conditional scripts
 function html5blank_conditional_scripts()

@@ -32,26 +32,43 @@
   visibility: hidden;
   transition: opacity 0.5s, visibility 0s 0.5s;
   z-index: 300;
-  font-size: 2.2rem;
 }
-/* line 13, ../scss/_menu.scss */
-.menu-overlay span {
-  font-size: 32px;
-}
-/* line 16, ../scss/_menu.scss */
+/* line 12, ../scss/_menu.scss */
 .menu-overlay h2 {
-  margin: 1px;
+  margin: 0;
   font-family: "Droid Serif", serif;
   text-align: center;
   font-weight: normal;
   line-height: 1;
+  font-family: "Droid Serif", serif;
+  font-weight: normal;
+  font-size: 4.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #000;
 }
-/* line 22, ../scss/_menu.scss */
+/* line 25, ../scss/_menu.scss */
 .menu-overlay h2 span {
-  font-family: "Nunito", sans-serif;
-  font-size: 1.5rem;
+  margin: 0;
+  display: block;
 }
-/* line 27, ../scss/_menu.scss */
+/* line 28, ../scss/_menu.scss */
+.menu-overlay h2 span.name, .menu-overlay h2 span.ill {
+  font-size: 2.5rem;
+}
+/* line 31, ../scss/_menu.scss */
+.menu-overlay h2 span.pp {
+  margin: 15px 0 10px;
+}
+/* line 33, ../scss/_menu.scss */
+.menu-overlay h2 span.pp span {
+  display: inline;
+  font-size: 0.7em;
+  line-height: 1.5;
+  vertical-align: middle;
+}
+/* line 42, ../scss/_menu.scss */
 .menu-overlay nav {
   text-align: center;
   position: relative;
@@ -59,55 +76,73 @@
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  -webkit-transform: scale(0.95) translateY(-50%);
+      -ms-transform: scale(0.95) translateY(-50%);
+          transform: scale(0.95) translateY(-50%);
 }
-/* line 31, ../scss/_menu.scss */
+/* line 48, ../scss/_menu.scss */
 .menu-overlay ul {
-  margin: 30px 0 !important;
+  width: 100%;
+  max-width: 340px;
+  margin: 20px auto 15px !important;
   list-style: none;
   padding: 0;
   margin: 0 auto;
-  display: inline-block;
   position: relative;
   transition: -webkit-transform 0.5s, opacity 0.5s;
   transition: transform 0.5s, opacity 0.5s;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
-/* line 39, ../scss/_menu.scss */
-.menu-overlay ul li {
-  display: block;
-}
-/* line 42, ../scss/_menu.scss */
+/* line 59, ../scss/_menu.scss */
 .menu-overlay ul a {
   height: 100%;
   display: block;
   color: #000;
   transition: color 0.2s;
   font-family: "Nunito", sans-serif;
+  font-size: 2.3rem;
+  line-height: 2;
 }
-/* line 50, ../scss/_menu.scss */
-.menu-overlay p {
+/* line 68, ../scss/_menu.scss */
+.menu-overlay ul li:first-child {
+  margin-top: 10px;
+}
+/* line 71, ../scss/_menu.scss */
+.menu-overlay ul li:last-child {
+  margin-bottom: 10px;
+}
+/* line 75, ../scss/_menu.scss */
+.menu-overlay p.email {
   margin: 0;
   color: #000;
   font-family: "Droid Serif", serif;
 }
-/* line 54, ../scss/_menu.scss */
-.menu-overlay p a {
+/* line 79, ../scss/_menu.scss */
+.menu-overlay p.email a {
   display: inline-block;
   box-sizing: content-box;
   padding: 10px 20px;
-  border-top: 1px solid #000;
   color: #000;
+  font-size: 2rem;
 }
-/* line 62, ../scss/_menu.scss */
+/* line 87, ../scss/_menu.scss */
 .menu-overlay.open {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.5s;
+  transition: opacity 0.5s ease;
 }
-/* line 67, ../scss/_menu.scss */
+/* line 91, ../scss/_menu.scss */
+.menu-overlay.open nav {
+  -webkit-transform: scale(1) translateY(-50%);
+      -ms-transform: scale(1) translateY(-50%);
+          transform: scale(1) translateY(-50%);
+}
+/* line 93, ../scss/_menu.scss */
 .menu-overlay.open nav ul {
   opacity: 1;
-  -webkit-transform: rotateX(0deg);
-          transform: rotateX(0deg);
   width: 100%;
 }
 
@@ -243,7 +278,7 @@
 /**/
 /* line 116, ../scss/_lightGallery.scss */
 #lightGallery-slider .lightGallery-slide {
-  background: url(../img/loading.gif) no-repeat scroll center center transparent;
+  background: url(imgs/loading.gif) no-repeat scroll center center transparent;
   display: inline-block;
   height: 100%;
   text-align: center;
@@ -764,7 +799,19 @@
   margin-top: 15px;
 }
 
-/* line 19, ../scss/styles.scss */
+/* line 15, ../scss/styles.scss */
+.lightGallery-slide .object {
+  -webkit-transform: scale3d(0.85, 0.85, 0.85);
+          transform: scale3d(0.85, 0.85, 0.85);
+  transition: -webkit-transform 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.5s ease 0s;
+  transition: transform 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.5s ease 0s;
+}
+
+/* line 21, ../scss/styles.scss */
+#lightGallery-outer {
+  background: rgba(0, 0, 0, 0.7);
+}
+/* line 23, ../scss/styles.scss */
 #lightGallery-outer .lb-caption {
   width: 50%;
   height: auto;
@@ -784,38 +831,26 @@
   white-space: normal;
 }
 
-/* line 39, ../scss/styles.scss */
-#lightGallery-action {
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  margin-left: 0;
-}
-
-/* line 47, ../scss/styles.scss */
-#lightGallery-action a#lightGallery-prev {
-  left: 0;
-}
-/* line 50, ../scss/styles.scss */
-#lightGallery-action a#lightGallery-next {
-  right: 0;
-}
-
-/* line 55, ../scss/styles.scss */
+/* line 43, ../scss/styles.scss */
 #lightGallery-Gallery.opacity .lightGallery-slide .object {
   height: 80%;
   -webkit-transform: scale3d(1, 1, 1);
           transform: scale3d(1, 1, 1);
 }
 
-/* line 60, ../scss/styles.scss */
-#lightGallery-action a#lightGallery-prev:before {
-  content: " ";
+/* line 48, ../scss/styles.scss */
+#lightGallery-action {
+  bottom: auto;
+  left: 50%;
+  margin-left: -30px;
+  z-index: 9;
+  -webkit-backface-visibility: hidden;
 }
 
-/* line 64, ../scss/styles.scss */
-#lightGallery-action a#lightGallery-next:after {
-  content: " ";
+/* line 56, ../scss/styles.scss */
+#lightGallery-action a:hover, #lightGallery-action a:focus {
+  background-color: transparent;
+  background-color: transparent;
 }
 
 /*! normalize.css v2.1.3 | MIT License | git.io/normalize */
@@ -1532,69 +1567,67 @@ html {
   width: 100%;
   min-height: 100%;
   position: relative;
+  font-size: 62.5%;
 }
 
-/* line 7, ../scss/_globals.scss */
+/* line 8, ../scss/_globals.scss */
 body {
   height: 100%;
   max-height: 100%;
   font-family: "Nunito", sans-serif;
   overflow-x: hidden;
   color: #000;
+  font-size: inherit;
+  background: #fff;
 }
 
-/* line 15, ../scss/_globals.scss */
+/* line 18, ../scss/_globals.scss */
 ul {
   list-style: none;
 }
-/* line 17, ../scss/_globals.scss */
+/* line 20, ../scss/_globals.scss */
 ul li {
   padding: 0;
 }
 
-/* line 22, ../scss/_globals.scss */
+/* line 25, ../scss/_globals.scss */
 a {
   color: #000;
 }
-/* line 24, ../scss/_globals.scss */
+/* line 27, ../scss/_globals.scss */
 a:hover {
   color: #000;
 }
 
-/* line 29, ../scss/_globals.scss */
+/* line 32, ../scss/_globals.scss */
 .blur {
   -webkit-filter: blur(7px);
 }
 
-/* line 34, ../scss/_globals.scss */
+/* line 37, ../scss/_globals.scss */
 .wrapper {
   width: 100%;
   height: 100%;
   margin: 0;
   position: relative;
+  transition: opacity 1s ease;
+  opacity: 1;
+}
+/* line 44, ../scss/_globals.scss */
+.lightGallery .wrapper {
+  -webkit-filter: blur(7px);
 }
 
-/* line 41, ../scss/_globals.scss */
+/* line 49, ../scss/_globals.scss */
 div.clear {
   clear: both;
 }
 
-/* line 45, ../scss/_globals.scss */
+/* line 53, ../scss/_globals.scss */
 .rightEnd2 {
   -webkit-animation: rightEnd 0.3s;
 }
-@-webkit-keyframes rightEnd2 {
-  0% {
-    left: 0;
-  }
-  50% {
-    left: -30px;
-  }
-  100% {
-    left: 0;
-  }
-}
-@keyframes rightEnd2 {
+@keyframes rightEnd {
   0% {
     left: 0;
   }
@@ -1622,36 +1655,50 @@ div.clear {
 }
 /* line 13, ../scss/_front.scss */
 .introduction .logo-title {
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  top: -100px;
+  background: url(imgs/front_bg.svg) no-repeat center center;
+  background-size: 100% auto;
+}
+/* line 22, ../scss/_front.scss */
+.introduction .logo-title .title-holder {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
-  padding: 30px;
-  text-align: center;
 }
-/* line 17, ../scss/_front.scss */
-.introduction .logo-title img {
-  width: 450px;
-  margin: auto;
-  padding: 10px;
+/* line 25, ../scss/_front.scss */
+.introduction .logo-title h1 {
+  margin-top: 100px;
+  font-family: "Droid Serif", serif;
+  font-weight: normal;
+  font-size: 5.2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-shadow: #000 -3px -1px 0, #000 -2px 3px 0, #000 -2px 3px 0, #000 2px 2px 0;
+}
+/* line 35, ../scss/_front.scss */
+.introduction .logo-title h1 span {
+  margin: 0;
   display: block;
 }
-/* line 23, ../scss/_front.scss */
-.introduction .logo-title p {
-  margin: -60px auto 0;
-  display: inline-block;
-  position: relative;
-  left: 2%;
-  padding: 10px 20px;
-  border: 1px solid #000;
-  font-size: 2.5rem;
+/* line 38, ../scss/_front.scss */
+.introduction .logo-title h1 span.name, .introduction .logo-title h1 span.ill {
+  font-size: 3.2rem;
 }
-/* line 31, ../scss/_front.scss */
-.introduction .logo-title p span {
-  font-size: 2rem;
+/* line 41, ../scss/_front.scss */
+.introduction .logo-title h1 span.pp span {
+  display: inline;
+  font-size: 0.7em;
 }
-/* line 36, ../scss/_front.scss */
+/* line 48, ../scss/_front.scss */
 .introduction .front-footer {
   width: 100%;
   height: 80px;
@@ -1660,7 +1707,7 @@ div.clear {
   left: 0;
   text-align: center;
 }
-/* line 43, ../scss/_front.scss */
+/* line 55, ../scss/_front.scss */
 .introduction .front-footer p {
   height: 100%;
   margin: 0;
@@ -1671,19 +1718,19 @@ div.clear {
   display: inline-block;
   vertical-align: middle;
 }
-/* line 52, ../scss/_front.scss */
+/* line 64, ../scss/_front.scss */
 .introduction .front-footer p .front-arrow {
   content: '';
-  width: 30px;
-  height: 80px;
+  width: 18px;
+  height: 40px;
   position: absolute;
-  bottom: -30px;
+  bottom: -10px;
   right: -20px;
-  transition: opacity 0.5s ease;
+  transition: opacity 0.6s ease;
   opacity: 0;
-  background: url("imgs/but_arrow.svg") no-repeat center center;
+  background: url("imgs/but_arrow.svg") no-repeat center center/cover;
 }
-/* line 63, ../scss/_front.scss */
+/* line 75, ../scss/_front.scss */
 .introduction .front-footer p a {
   height: 100%;
   display: table-cell;
@@ -1691,7 +1738,7 @@ div.clear {
   line-height: 100%;
   vertical-align: middle;
 }
-/* line 70, ../scss/_front.scss */
+/* line 82, ../scss/_front.scss */
 .introduction .front-footer p .front-line {
   width: 0;
   content: ' ';
@@ -1700,19 +1747,19 @@ div.clear {
   bottom: 7px;
   left: 5px;
   opacity: 0;
-  border-top: 1px solid #000;
-  transition: width 0.5s ease, opacity 0.5s ease;
+  border-top: 2px solid #000;
+  transition: width 0.5s ease, opacity 0.3s ease;
 }
-/* line 83, ../scss/_front.scss */
+/* line 95, ../scss/_front.scss */
 .introduction .front-footer:hover .front-line {
-  width: 80px;
+  width: 40px;
   opacity: 1;
 }
-/* line 87, ../scss/_front.scss */
+/* line 99, ../scss/_front.scss */
 .introduction .front-footer:hover .front-arrow {
   opacity: 1;
 }
-/* line 92, ../scss/_front.scss */
+/* line 104, ../scss/_front.scss */
 .introduction .front-email {
   margin: 0;
   font-family: "Droid Serif", serif;
@@ -1722,12 +1769,12 @@ div.clear {
   top: 20px;
 }
 
-/* line 102, ../scss/_front.scss */
+/* line 114, ../scss/_front.scss */
 .main-holder {
   margin-top: 100px;
 }
 
-/* line 106, ../scss/_front.scss */
+/* line 118, ../scss/_front.scss */
 .header {
   width: 100%;
   height: 50px;
@@ -1737,7 +1784,7 @@ div.clear {
   z-index: 999;
 }
 
-/* line 115, ../scss/_front.scss */
+/* line 127, ../scss/_front.scss */
 .page {
   display: inline-block;
   vertical-align: top;
@@ -1747,7 +1794,7 @@ div.clear {
   overflow: hidden;
 }
 
-/* line 131, ../scss/_front.scss */
+/* line 142, ../scss/_front.scss */
 .bg-parallax {
   width: 7000px;
   height: 100%;
@@ -1755,7 +1802,7 @@ div.clear {
   top: 0;
   left: 0;
 }
-/* line 137, ../scss/_front.scss */
+/* line 148, ../scss/_front.scss */
 .bg-parallax div {
   width: 7000px;
   height: 100%;
@@ -1766,45 +1813,103 @@ div.clear {
   background-position: fixed;
 }
 
-/* line 148, ../scss/_front.scss */
-.bio {
-  width: 100vw;
+/* line 159, ../scss/_front.scss */
+.contact {
+  width: 70vw;
   height: 100vh;
 }
 
-/* line 153, ../scss/_front.scss */
+/* line 164, ../scss/_front.scss */
 .about {
-  width: 100vh;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
 }
-/* line 157, ../scss/_front.scss */
+/* line 168, ../scss/_front.scss */
 .about .photo {
   width: 300px;
   margin: 0 auto 20px;
 }
-/* line 161, ../scss/_front.scss */
+/* line 172, ../scss/_front.scss */
 .about p {
+  width: 100%;
   max-width: 300px;
   margin: 0 auto;
+  font-family: "Droid Serif", serif;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 2.5rem;
+  white-space: normal;
 }
-/* line 166, ../scss/_front.scss */
+/* line 180, ../scss/_front.scss */
 .about p:first-child {
   margin-top: 30px;
   padding-top: 20px;
-  border-top: 1px solid #000;
 }
-/* line 171, ../scss/_front.scss */
+/* line 184, ../scss/_front.scss */
 .about p.email {
   font-family: "Droid Serif", serif;
   font-size: 1.9rem;
   letter-spacing: 0.1em;
+}
+/* line 190, ../scss/_front.scss */
+.about form {
+  max-width: 600px;
+  margin: auto;
+  padding: 40px;
+}
+/* line 194, ../scss/_front.scss */
+.about form input, .about form textarea {
+  width: 100%;
+  max-width: 600px;
+  margin: 30px 0;
+  padding: 10px;
+  display: block;
+  border: 1px solid #000;
+  background: transparent;
+  box-sizing: content-box;
+  transition: background 1s ease;
+}
+/* line 205, ../scss/_front.scss */
+.about form input:first-child {
+  margin-top: 0;
+}
+/* line 208, ../scss/_front.scss */
+.about form textarea {
+  height: 200px;
+}
+/* line 211, ../scss/_front.scss */
+.about form input[type=text], .about form textarea, .about form ::-webkit-input-placeholder, .about form .submit-button {
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  color: #000;
+}
+/* line 216, ../scss/_front.scss */
+.about form input.submit-button {
+  margin-bottom: 0;
+  font-family: "Droid Serif", serif;
+  font-size: 2.3rem;
+  text-transform: uppercase;
+  background: transparent;
+  border: 2px solid #000;
+  letter-spacing: 0.1em;
+  transition: color 0.75s ease, background 0.5s ease;
+}
+/* line 225, ../scss/_front.scss */
+.about form input.submit-button:hover {
+  background: #000;
+  color: #fff;
+}
+/* line 230, ../scss/_front.scss */
+.about form input:focus, .about form input:active, .about form textarea:focus, .about form textarea:active {
+  margin-left: -3px;
+  margin-top: -2px;
+  border: 4px solid #000;
+  background: #fff;
+  outline: none;
 }
 
 /* line 1, ../scss/_artwork.scss */
@@ -1819,12 +1924,45 @@ div.clear {
   padding: 50px 0 70px;
   text-align: center;
 }
-/* line 10, ../scss/_artwork.scss */
+/* line 11, ../scss/_artwork.scss */
+.artwork-holder.page h1 .lb-caption {
+  display: block;
+  opacity: 0;
+  transition: opacity 0.5 ease;
+}
+/* line 15, ../scss/_artwork.scss */
+.artwork-holder.page h1 .lb-caption:before {
+  content: '';
+  height: 0;
+  margin: 0;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-left: 4px solid #000;
+  transition: all 1s ease;
+  transition-delay: 1s;
+  opacity: 0;
+}
+/* line 28, ../scss/_artwork.scss */
+.artwork-holder.page h1 .lb-caption:after {
+  content: '';
+  width: 0;
+  margin: 0;
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-bottom: 2px solid #000;
+  transition: all 1s ease;
+  transition-delay: 2s;
+  opacity: 0;
+}
+/* line 42, ../scss/_artwork.scss */
 .artwork-holder.page h1.caption {
-  width: 50%;
   height: auto;
   margin: 0 0;
-  padding: 16px;
+  padding: 16px 16px 16px 20px;
   display: inline-block;
   position: absolute;
   top: 0;
@@ -1837,46 +1975,65 @@ div.clear {
   z-index: 200;
   white-space: normal;
 }
-/* line 26, ../scss/_artwork.scss */
-.artwork-holder.page h1.caption span {
-  background: #fff;
-}
-/* line 30, ../scss/_artwork.scss */
+/* line 59, ../scss/_artwork.scss */
 .artwork-holder.page .artwork a {
   width: 100%;
   height: 100%;
   transition: all 1s ease;
 }
-/* line 34, ../scss/_artwork.scss */
+/* line 63, ../scss/_artwork.scss */
 .artwork-holder.page .artwork a span {
   background: #000;
   display: inline-block;
   transition: all 1s ease;
 }
-/* line 39, ../scss/_artwork.scss */
+/* line 68, ../scss/_artwork.scss */
 .artwork-holder.page .artwork a img {
-  opacity: 0;
   transition: all 1s ease;
 }
-/* line 45, ../scss/_artwork.scss */
-.artwork-holder.page.active .artwork a {
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+/* line 73, ../scss/_artwork.scss */
+.artwork-holder.page.active .lb-caption {
+  display: block;
   opacity: 1;
 }
-/* line 51, ../scss/_artwork.scss */
+/* line 76, ../scss/_artwork.scss */
+.artwork-holder.page.active .lb-caption:before {
+  height: 100%;
+  opacity: 1;
+}
+/* line 80, ../scss/_artwork.scss */
+.artwork-holder.page.active .lb-caption:after {
+  width: 100%;
+  opacity: 1;
+}
+/* line 87, ../scss/_artwork.scss */
+.artwork-holder.page.active .artwork a {
+  margin-right: 0 !important;
+  top: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  opacity: 1;
+}
+/* line 94, ../scss/_artwork.scss */
 .artwork-holder.page.active .artwork a span {
   background: transparent;
 }
-/* line 54, ../scss/_artwork.scss */
+/* line 97, ../scss/_artwork.scss */
 .artwork-holder.page.active .artwork a img {
-  opacity: 1;
   transition: all 1s ease;
+  opacity: 1;
+  -webkit-filter: contrast(100%);
+          filter: contrast(100%);
+  box-sizing: border-box;
+  -webkit-transform: translate3d(0, 0, 0);
+}
+/* line 103, ../scss/_artwork.scss */
+.artwork-holder.page.active .artwork a img:hover {
+  box-shadow: 0 0 10px 0 #000;
 }
 
-/* line 61, ../scss/_artwork.scss */
+/* line 112, ../scss/_artwork.scss */
 .artwork {
   max-width: 100%;
   margin-left: auto;
@@ -1896,82 +2053,95 @@ div.clear {
   display: block;
   clear: both;
 }
-/* line 67, ../scss/_artwork.scss */
+/* line 118, ../scss/_artwork.scss */
 .artwork a {
   width: 100%;
   display: inline-block;
   position: relative;
 }
-/* line 71, ../scss/_artwork.scss */
+/* line 122, ../scss/_artwork.scss */
 .artwork a img {
   width: 100%;
   margin: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-filter: contrast(0%);
+          filter: contrast(0%);
+  opacity: 1;
 }
-/* line 77, ../scss/_artwork.scss */
+/* line 133, ../scss/_artwork.scss */
 .artwork.img2 .img-holder {
   height: 100%;
   margin-bottom: 0;
   position: relative;
 }
-/* line 81, ../scss/_artwork.scss */
+/* line 137, ../scss/_artwork.scss */
 .artwork.img2 .img-holder img {
   width: 100%;
   height: auto;
   max-width: none;
 }
-/* line 87, ../scss/_artwork.scss */
+/* line 142, ../scss/_artwork.scss */
 .artwork.img2 .img-holder:last-child {
   float: right;
   margin-right: 0;
 }
-/* line 91, ../scss/_artwork.scss */
+/* line 146, ../scss/_artwork.scss */
 .artwork.img2 .art-holder1 {
   width: 38.23529%;
   float: left;
   margin-right: 5.88235%;
-  padding-top: 10%;
+  padding-top: 20%;
 }
-/* line 94, ../scss/_artwork.scss */
+/* line 149, ../scss/_artwork.scss */
 .artwork.img2 .art-holder1 a {
-  top: -200px;
+  left: -50px;
 }
-/* line 98, ../scss/_artwork.scss */
+/* line 153, ../scss/_artwork.scss */
 .artwork.img2 .art-holder2 {
   width: 55.88235%;
   float: left;
   margin-right: 5.88235%;
+  padding-top: 10%;
 }
-/* line 100, ../scss/_artwork.scss */
+/* line 156, ../scss/_artwork.scss */
 .artwork.img2 .art-holder2 a {
-  bottom: -200px;
+  top: -50px;
 }
-/* line 106, ../scss/_artwork.scss */
+/* line 162, ../scss/_artwork.scss */
 .artwork.img3 .img-holder {
   width: 47.05882%;
   float: left;
   margin-right: 5.88235%;
 }
-/* line 108, ../scss/_artwork.scss */
+/* line 164, ../scss/_artwork.scss */
 .artwork.img3 .img-holder img {
-  height: auto;
+  width: auto;
+  height: 100%;
 }
-/* line 112, ../scss/_artwork.scss */
+/* line 168, ../scss/_artwork.scss */
 .artwork.img3 .img-holder:nth-child(2), .artwork.img3 .img-holder:nth-child(3) {
   float: right;
   margin-right: 0;
 }
-/* line 116, ../scss/_artwork.scss */
+/* line 172, ../scss/_artwork.scss */
 .artwork.img3 .art-holder1 {
   width: 55.88235%;
   float: left;
   margin-right: 5.88235%;
   height: 100%;
 }
-/* line 119, ../scss/_artwork.scss */
+/* line 175, ../scss/_artwork.scss */
 .artwork.img3 .art-holder1 a {
-  left: -100px;
+  left: -50px;
 }
-/* line 123, ../scss/_artwork.scss */
+/* line 178, ../scss/_artwork.scss */
+.artwork.img3 .art-holder1 img {
+  width: 100%;
+  height: auto;
+}
+/* line 183, ../scss/_artwork.scss */
 .artwork.img3 .art-holder2, .artwork.img3 .art-holder3 {
   width: 38.23529%;
   float: left;
@@ -1979,49 +2149,80 @@ div.clear {
   height: 47%;
   text-align: left;
 }
-/* line 128, ../scss/_artwork.scss */
+/* line 188, ../scss/_artwork.scss */
 .artwork.img3 .art-holder2 {
   margin: 0;
   margin-bottom: 3%;
 }
-/* line 131, ../scss/_artwork.scss */
+/* line 191, ../scss/_artwork.scss */
 .artwork.img3 .art-holder2 a {
-  top: -100px;
+  top: -50px;
 }
-/* line 135, ../scss/_artwork.scss */
+/* line 195, ../scss/_artwork.scss */
 .artwork.img3 .art-holder3 {
   margin-top: 3%;
 }
-/* line 137, ../scss/_artwork.scss */
+/* line 197, ../scss/_artwork.scss */
 .artwork.img3 .art-holder3 a {
   top: 100px;
 }
-/* line 143, ../scss/_artwork.scss */
+/* line 203, ../scss/_artwork.scss */
 .artwork.img4 .img-holder {
   height: 47%;
   width: 47.05882%;
   float: left;
   margin-right: 5.88235%;
 }
-/* line 146, ../scss/_artwork.scss */
+/* line 206, ../scss/_artwork.scss */
+.artwork.img4 .img-holder span {
+  width: 100%;
+  height: 100%;
+}
+/* line 210, ../scss/_artwork.scss */
 .artwork.img4 .img-holder img {
   height: 100%;
   width: auto;
 }
-/* line 150, ../scss/_artwork.scss */
+/* line 214, ../scss/_artwork.scss */
 .artwork.img4 .img-holder:nth-child(1), .artwork.img4 .img-holder:nth-child(2) {
   margin-bottom: 3%;
 }
-/* line 153, ../scss/_artwork.scss */
+/* line 217, ../scss/_artwork.scss */
 .artwork.img4 .img-holder:nth-child(3), .artwork.img4 .img-holder:nth-child(4) {
   margin-top: 3%;
 }
-/* line 156, ../scss/_artwork.scss */
+/* line 220, ../scss/_artwork.scss */
 .artwork.img4 .img-holder:nth-child(2), .artwork.img4 .img-holder:nth-child(4) {
   float: right;
   margin-right: 0;
 }
-/* line 162, ../scss/_artwork.scss */
+/* line 223, ../scss/_artwork.scss */
+.artwork.img4 .img-holder.art-holder1 a {
+  left: -50px;
+}
+/* line 225, ../scss/_artwork.scss */
+.artwork.img4 .img-holder.art-holder1 a img {
+  left: auto;
+  right: 0;
+}
+/* line 230, ../scss/_artwork.scss */
+.artwork.img4 .img-holder.art-holder2 a {
+  top: -50px;
+}
+/* line 233, ../scss/_artwork.scss */
+.artwork.img4 .img-holder.art-holder3 a {
+  top: 50px;
+}
+/* line 235, ../scss/_artwork.scss */
+.artwork.img4 .img-holder.art-holder3 a img {
+  left: auto;
+  right: 0;
+}
+/* line 240, ../scss/_artwork.scss */
+.artwork.img4 .img-holder.art-holder4 a {
+  margin-right: -50px;
+}
+/* line 246, ../scss/_artwork.scss */
 .artwork.img6 .img-holder {
   height: 20%;
   position: relative;
@@ -2029,19 +2230,23 @@ div.clear {
   float: left;
   margin-right: 5.88235%;
 }
-/* line 166, ../scss/_artwork.scss */
+/* line 250, ../scss/_artwork.scss */
 .artwork.img6 .img-holder:nth-child(4), .artwork.img6 .img-holder:nth-child(5) {
   float: right;
   margin-right: 0;
 }
-/* line 169, ../scss/_artwork.scss */
+/* line 253, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder1 {
   height: 100%;
   width: 47.05882%;
   float: left;
   margin-right: 5.88235%;
 }
-/* line 173, ../scss/_artwork.scss */
+/* line 256, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder1 a {
+  top: -50px;
+}
+/* line 260, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder2 {
   height: 50%;
   width: 47.05882%;
@@ -2050,9 +2255,37 @@ div.clear {
   float: right;
   margin-right: 0;
 }
+/* line 264, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder2 a {
+  right: -50px;
+}
+/* line 268, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder3 a {
+  left: 50px;
+}
+/* line 271, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder4 a {
+  right: -50px;
+}
+/* line 274, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder5 a {
+  top: 50px;
+}
+/* line 277, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder6 a {
+  margin-right: 50px;
+}
+/* line 284, ../scss/_artwork.scss */
+#inked-cities .artwork.img2 .img-holder.art-holder1 {
+  padding-top: 7%;
+}
+/* line 287, ../scss/_artwork.scss */
+#inked-cities .artwork.img2 .img-holder.art-holder2 {
+  padding-top: 25%;
+}
 
 /* line 1, ../scss/_buttons.scss */
-.nav-button {
+.menu-button {
   width: 40px;
   height: 20px;
   position: fixed;
@@ -2066,15 +2299,15 @@ div.clear {
   z-index: 9999;
 }
 /* line 11, ../scss/_buttons.scss */
-.nav-button a {
+.menu-button a {
   width: 100%;
   height: 100%;
   display: block;
 }
 /* line 16, ../scss/_buttons.scss */
-.nav-button span {
+.menu-button span {
   width: 100%;
-  height: 1px;
+  height: 2px;
   display: block;
   position: absolute;
   background: #000;
@@ -2086,201 +2319,201 @@ div.clear {
   transition: all .25s ease-in-out;
 }
 /* line 27, ../scss/_buttons.scss */
-.nav-button span:nth-child(1) {
+.menu-button span:nth-child(1) {
   top: 0px;
 }
 /* line 30, ../scss/_buttons.scss */
-.nav-button span:nth-child(2), .nav-button span:nth-child(3) {
+.menu-button span:nth-child(2), .menu-button span:nth-child(3) {
   top: 10px;
 }
 /* line 33, ../scss/_buttons.scss */
-.nav-button span:nth-child(4) {
+.menu-button span:nth-child(4) {
   top: 20px;
 }
 /* line 36, ../scss/_buttons.scss */
-.nav-button.open span:nth-child(1) {
+.menu-button.open span:nth-child(1) {
   top: 18px;
   width: 0%;
   left: 50%;
   opacity: 0;
 }
 /* line 42, ../scss/_buttons.scss */
-.nav-button.open span:nth-child(2) {
+.menu-button.open span:nth-child(2) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 /* line 45, ../scss/_buttons.scss */
-.nav-button.open span:nth-child(3) {
+.menu-button.open span:nth-child(3) {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 /* line 48, ../scss/_buttons.scss */
-.nav-button.open span:nth-child(4) {
+.menu-button.open span:nth-child(4) {
   width: 0%;
   top: 18px;
   left: 50%;
   opacity: 0;
 }
+/* line 54, ../scss/_buttons.scss */
+.lightGallery .menu-button {
+  opacity: 0;
+}
 
-/* line 56, ../scss/_buttons.scss */
-.button-holder {
+/* line 59, ../scss/_buttons.scss */
+.button-holder, #lightGallery-action.button-holder {
   width: 100%;
-  height: 80px;
+  height: 40px;
+  margin: 0;
   position: fixed;
   display: table;
   left: 0;
-  bottom: 0;
+  bottom: 30px;
   z-index: 300;
   transition: bottom 1s ease;
 }
-/* line 65, ../scss/_buttons.scss */
-.button-holder .icon-button {
-  width: 50%;
-  height: 100%;
-  padding: 0;
-  position: absolute;
-  font-size: 1.9rem;
-  cursor: pointer;
-  display: table-cell;
-  vertical-align: middle;
-}
-/* line 74, ../scss/_buttons.scss */
-.button-holder .icon-button .arrow {
-  width: 90%;
+/* line 69, ../scss/_buttons.scss */
+.button-holder .arrow, #lightGallery-action.button-holder .arrow {
+  width: 100%;
   height: 100%;
   display: inline-block;
   position: absolute;
   top: 0;
   transition: all 0.5s ease;
 }
-/* line 81, ../scss/_buttons.scss */
-.button-holder .icon-button .arrow:before {
+/* line 76, ../scss/_buttons.scss */
+.button-holder .arrow:before, #lightGallery-action.button-holder .arrow:before {
   content: '';
-  width: 30px;
-  height: 80px;
+  width: 18px;
+  height: 40px;
   display: inline-block;
   position: absolute;
   transition: all 0.5s ease;
   background: url("imgs/but_arrow.svg") no-repeat center center;
 }
-/* line 90, ../scss/_buttons.scss */
-.button-holder .icon-button .arrow:after {
-  width: 93%;
+/* line 85, ../scss/_buttons.scss */
+.button-holder .arrow:after, #lightGallery-action.button-holder .arrow:after {
+  width: 70%;
   height: 50%;
   content: ' ';
   display: inline-block;
   position: absolute;
-  top: 50%;
-  border-top: 1px solid #000;
+  top: 49%;
+  border-top: 2px solid #000;
 }
-/* line 100, ../scss/_buttons.scss */
-.button-holder .icon-button .arrow-text {
+/* line 95, ../scss/_buttons.scss */
+.button-holder .arrow-text, #lightGallery-action.button-holder .arrow-text {
   margin: 0;
   display: inline-block;
   position: absolute;
-  line-height: 80px;
+  line-height: 40px;
+  font-size: 1.5rem;
   font-family: "Nunito", sans-serif;
+  text-transform: uppercase;
   font-weight: 300;
+  opacity: 0;
   transition: all 0.5s ease;
 }
-/* line 109, ../scss/_buttons.scss */
-.button-holder .icon-button.next {
+/* line 107, ../scss/_buttons.scss */
+.button-holder .icon-button, #lightGallery-action.button-holder .icon-button {
+  width: 60px;
+  height: 100%;
+  padding: 0;
+  position: absolute;
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: middle;
+  z-index: 100;
+}
+/* line 116, ../scss/_buttons.scss */
+.button-holder .icon-button.next, #lightGallery-action.button-holder .icon-button.next {
   text-align: right;
   top: 0;
-  right: 0;
+  right: 10%;
 }
-/* line 113, ../scss/_buttons.scss */
-.button-holder .icon-button.next .arrow {
-  left: 0;
-}
-/* line 115, ../scss/_buttons.scss */
-.button-holder .icon-button.next .arrow:before {
-  right: 0;
-}
-/* line 118, ../scss/_buttons.scss */
-.button-holder .icon-button.next .arrow:after {
+/* line 120, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow, #lightGallery-action.button-holder .icon-button.next .arrow {
   left: 0;
 }
 /* line 122, ../scss/_buttons.scss */
-.button-holder .icon-button.next .arrow-text {
-  right: -100px;
-}
-/* line 126, ../scss/_buttons.scss */
-.button-holder .icon-button.prev {
-  text-align: left;
-  top: 0;
-  left: 0;
-}
-/* line 130, ../scss/_buttons.scss */
-.button-holder .icon-button.prev .arrow {
+.button-holder .icon-button.next .arrow:before, #lightGallery-action.button-holder .icon-button.next .arrow:before {
   right: 0;
 }
-/* line 132, ../scss/_buttons.scss */
-.button-holder .icon-button.prev .arrow:before {
+/* line 125, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow:after, #lightGallery-action.button-holder .icon-button.next .arrow:after {
+  right: 30%;
+}
+/* line 129, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow-text, #lightGallery-action.button-holder .icon-button.next .arrow-text {
+  right: -55px;
+}
+/* line 133, ../scss/_buttons.scss */
+.button-holder .icon-button.prev, #lightGallery-action.button-holder .icon-button.prev {
+  text-align: left;
+  top: 0;
+  left: 10%;
+}
+/* line 137, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow, #lightGallery-action.button-holder .icon-button.prev .arrow {
+  right: 0;
+}
+/* line 139, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow:before, #lightGallery-action.button-holder .icon-button.prev .arrow:before {
   left: 0;
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-/* line 136, ../scss/_buttons.scss */
-.button-holder .icon-button.prev .arrow:after {
-  right: 0;
+/* line 143, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow:after, #lightGallery-action.button-holder .icon-button.prev .arrow:after {
+  left: 30%;
 }
-/* line 140, ../scss/_buttons.scss */
-.button-holder .icon-button.prev .arrow-text {
-  left: -100px;
+/* line 147, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow-text, #lightGallery-action.button-holder .icon-button.prev .arrow-text {
+  left: -90px;
 }
-/* line 145, ../scss/_buttons.scss */
-.button-holder .icon-button.next:hover .arrow-text {
-  right: 110px;
-}
-/* line 148, ../scss/_buttons.scss */
-.button-holder .icon-button.next:hover .arrow {
-  left: -110px;
-}
-/* line 153, ../scss/_buttons.scss */
-.button-holder .icon-button.prev:hover .arrow-text {
-  left: 60px;
+/* line 152, ../scss/_buttons.scss */
+.button-holder .icon-button.next:hover .arrow-text, #lightGallery-action.button-holder .icon-button.next:hover .arrow-text {
+  right: 5px;
+  opacity: 1;
 }
 /* line 156, ../scss/_buttons.scss */
-.button-holder .icon-button.prev:hover .arrow {
-  right: -90px;
+.button-holder .icon-button.next:hover .arrow, #lightGallery-action.button-holder .icon-button.next:hover .arrow {
+  left: -50px;
 }
 /* line 161, ../scss/_buttons.scss */
-.page-intro .button-holder {
+.button-holder .icon-button.prev:hover .arrow-text, #lightGallery-action.button-holder .icon-button.prev:hover .arrow-text {
+  left: -30px;
+  opacity: 1;
+}
+/* line 165, ../scss/_buttons.scss */
+.button-holder .icon-button.prev:hover .arrow, #lightGallery-action.button-holder .icon-button.prev:hover .arrow {
+  right: -50px;
+}
+/* line 170, ../scss/_buttons.scss */
+.page-intro .button-holder, .page-intro #lightGallery-action.button-holder {
   bottom: -100px;
 }
-
-/* line 167, ../scss/_buttons.scss */
-#lightGallery-action .arrow {
-  width: 90%;
-  height: 100%;
-  display: inline-block;
-  position: absolute;
-  top: 0;
-  transition: all 0.5s ease;
-}
 /* line 174, ../scss/_buttons.scss */
-#lightGallery-action .arrow:before {
-  width: 30px;
-  height: 80px;
-  display: inline-block;
-  position: absolute;
-  transition: all 0.5s ease;
+.page-contact .button-holder .icon-button.next, .page-contact #lightGallery-action.button-holder .icon-button.next {
+  display: none;
+}
+
+/* line 182, ../scss/_buttons.scss */
+#lightGallery-action.button-holder .arrow:before {
   background: url("imgs/but_arrow-wh.svg") no-repeat center center;
 }
-/* line 183, ../scss/_buttons.scss */
-#lightGallery-action .arrow:after {
+/* line 186, ../scss/_buttons.scss */
+#lightGallery-action.button-holder .arrow:after {
   border-color: #fff;
 }
-/* line 186, ../scss/_buttons.scss */
-#lightGallery-action .arrow-text {
+/* line 189, ../scss/_buttons.scss */
+#lightGallery-action.button-holder .arrow-text {
   color: #fff;
 }
 
-/* line 191, ../scss/_buttons.scss */
+/* line 194, ../scss/_buttons.scss */
 #lightGallery-close {
   width: 40px;
   height: 20px;
@@ -2289,16 +2522,16 @@ div.clear {
   right: 20px;
   cursor: pointer;
 }
-/* line 198, ../scss/_buttons.scss */
+/* line 201, ../scss/_buttons.scss */
 #lightGallery-close a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 203, ../scss/_buttons.scss */
+/* line 206, ../scss/_buttons.scss */
 #lightGallery-close span {
   width: 100%;
-  height: 1px;
+  height: 2px;
   display: block;
   position: absolute;
   top: 20px;
@@ -2310,20 +2543,20 @@ div.clear {
           transform: rotate(0deg);
   transition: all .25s ease-in-out;
 }
-/* line 215, ../scss/_buttons.scss */
+/* line 218, ../scss/_buttons.scss */
 #lightGallery-close span:nth-child(1) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-/* line 218, ../scss/_buttons.scss */
+/* line 221, ../scss/_buttons.scss */
 #lightGallery-close span:nth-child(2) {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-/* line 223, ../scss/_buttons.scss */
+/* line 226, ../scss/_buttons.scss */
 #nav-holder .menu-close {
   width: 40px;
   height: 40px;
@@ -2332,7 +2565,7 @@ div.clear {
   top: 20px;
   cursor: pointer;
 }
-/* line 230, ../scss/_buttons.scss */
+/* line 233, ../scss/_buttons.scss */
 #nav-holder .menu-close a {
   width: 40px;
   height: 40px;
@@ -2342,7 +2575,7 @@ div.clear {
   right: 20px;
   background: transparent;
 }
-/* line 239, ../scss/_buttons.scss */
+/* line 242, ../scss/_buttons.scss */
 #nav-holder .menu-close span {
   width: 40px;
   height: 1px;
@@ -2356,15 +2589,624 @@ div.clear {
           transform: rotate(0deg);
   transition: all .25s ease-in-out;
 }
-/* line 250, ../scss/_buttons.scss */
+/* line 253, ../scss/_buttons.scss */
 #nav-holder .menu-close span:nth-child(1) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-/* line 253, ../scss/_buttons.scss */
+/* line 256, ../scss/_buttons.scss */
 #nav-holder .menu-close span:nth-child(2) {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
+}
+
+/* line 261, ../scss/_buttons.scss */
+.chapters {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+}
+/* line 267, ../scss/_buttons.scss */
+.chapters li {
+  width: 40px;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+}
+/* line 272, ../scss/_buttons.scss */
+.chapters li:before {
+  content: '';
+  height: 100%;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -0.25em;
+}
+/* line 279, ../scss/_buttons.scss */
+.chapters li a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+/* line 284, ../scss/_buttons.scss */
+.chapters li a:hover .marker {
+  height: 20px;
+}
+/* line 290, ../scss/_buttons.scss */
+.chapters .marker {
+  height: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  border-left: 2px solid #000;
+  transition: height 0.5s ease;
+}
+/* line 298, ../scss/_buttons.scss */
+.chapters li.active a:hover .marker {
+  height: inherit;
+}
+/* line 301, ../scss/_buttons.scss */
+.chapters li.active .marker {
+  height: 40px;
+}
+
+/* line 1, ../scss/_preloader.scss */
+.pace {
+  width: 100%;
+  height: 50px;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  box-sizing: border-box;
+  background-clip: padding-box;
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top: 12px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+/* line 16, ../scss/_preloader.scss */
+.pace .pace-progress {
+  width: 100%;
+  height: 3px;
+  margin: auto;
+  box-sizing: border-box;
+  background: #000;
+  background-clip: padding-box;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  display: block;
+  position: absolute;
+  right: 100%;
+  top: 7px;
+}
+
+/* line 31, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="0%"]:after {
+  right: -200px;
+}
+
+/* line 32, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="1%"]:after {
+  right: -198.14px;
+}
+
+/* line 33, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="2%"]:after {
+  right: -196.28px;
+}
+
+/* line 34, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="3%"]:after {
+  right: -194.42px;
+}
+
+/* line 35, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="4%"]:after {
+  right: -192.56px;
+}
+
+/* line 36, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="5%"]:after {
+  right: -190.7px;
+}
+
+/* line 37, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="6%"]:after {
+  right: -188.84px;
+}
+
+/* line 38, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="7%"]:after {
+  right: -186.98px;
+}
+
+/* line 39, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="8%"]:after {
+  right: -185.12px;
+}
+
+/* line 40, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="9%"]:after {
+  right: -183.26px;
+}
+
+/* line 41, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="10%"]:after {
+  right: -181.4px;
+}
+
+/* line 42, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="11%"]:after {
+  right: -179.54px;
+}
+
+/* line 43, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="12%"]:after {
+  right: -177.68px;
+}
+
+/* line 44, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="13%"]:after {
+  right: -175.82px;
+}
+
+/* line 45, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="14%"]:after {
+  right: -173.96px;
+}
+
+/* line 46, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="15%"]:after {
+  right: -172.1px;
+}
+
+/* line 47, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="16%"]:after {
+  right: -170.24px;
+}
+
+/* line 48, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="17%"]:after {
+  right: -168.38px;
+}
+
+/* line 49, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="18%"]:after {
+  right: -166.52px;
+}
+
+/* line 50, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="19%"]:after {
+  right: -164.66px;
+}
+
+/* line 51, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="20%"]:after {
+  right: -162.8px;
+}
+
+/* line 52, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="21%"]:after {
+  right: -160.94px;
+}
+
+/* line 53, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="22%"]:after {
+  right: -159.08px;
+}
+
+/* line 54, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="23%"]:after {
+  right: -157.22px;
+}
+
+/* line 55, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="24%"]:after {
+  right: -155.36px;
+}
+
+/* line 56, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="25%"]:after {
+  right: -153.5px;
+}
+
+/* line 57, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="26%"]:after {
+  right: -151.64px;
+}
+
+/* line 58, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="27%"]:after {
+  right: -149.78px;
+}
+
+/* line 59, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="28%"]:after {
+  right: -147.92px;
+}
+
+/* line 60, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="29%"]:after {
+  right: -146.06px;
+}
+
+/* line 61, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="30%"]:after {
+  right: -144.2px;
+}
+
+/* line 62, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="31%"]:after {
+  right: -142.34px;
+}
+
+/* line 63, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="32%"]:after {
+  right: -140.48px;
+}
+
+/* line 64, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="33%"]:after {
+  right: -138.62px;
+}
+
+/* line 65, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="34%"]:after {
+  right: -136.76px;
+}
+
+/* line 66, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="35%"]:after {
+  right: -134.9px;
+}
+
+/* line 67, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="36%"]:after {
+  right: -133.04px;
+}
+
+/* line 68, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="37%"]:after {
+  right: -131.18px;
+}
+
+/* line 69, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="38%"]:after {
+  right: -129.32px;
+}
+
+/* line 70, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="39%"]:after {
+  right: -127.46px;
+}
+
+/* line 71, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="40%"]:after {
+  right: -125.6px;
+}
+
+/* line 72, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="41%"]:after {
+  right: -123.74px;
+}
+
+/* line 73, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="42%"]:after {
+  right: -121.88px;
+}
+
+/* line 74, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="43%"]:after {
+  right: -120.02px;
+}
+
+/* line 75, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="44%"]:after {
+  right: -118.16px;
+}
+
+/* line 76, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="45%"]:after {
+  right: -116.3px;
+}
+
+/* line 77, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="46%"]:after {
+  right: -114.44px;
+}
+
+/* line 78, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="47%"]:after {
+  right: -112.58px;
+}
+
+/* line 79, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="48%"]:after {
+  right: -110.72px;
+}
+
+/* line 80, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="49%"]:after {
+  right: -108.86px;
+}
+
+/* line 81, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="50%"]:after {
+  right: -107px;
+}
+
+/* line 82, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="51%"]:after {
+  right: -105.14px;
+}
+
+/* line 83, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="52%"]:after {
+  right: -103.28px;
+}
+
+/* line 84, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="53%"]:after {
+  right: -101.42px;
+}
+
+/* line 85, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="54%"]:after {
+  right: -99.56px;
+}
+
+/* line 86, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="55%"]:after {
+  right: -97.7px;
+}
+
+/* line 87, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="56%"]:after {
+  right: -95.84px;
+}
+
+/* line 88, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="57%"]:after {
+  right: -93.98px;
+}
+
+/* line 89, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="58%"]:after {
+  right: -92.12px;
+}
+
+/* line 90, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="59%"]:after {
+  right: -90.26px;
+}
+
+/* line 91, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="60%"]:after {
+  right: -88.4px;
+}
+
+/* line 92, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="61%"]:after {
+  right: -86.54px;
+}
+
+/* line 93, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="62%"]:after {
+  right: -84.68px;
+}
+
+/* line 94, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="63%"]:after {
+  right: -82.82px;
+}
+
+/* line 95, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="64%"]:after {
+  right: -80.96px;
+}
+
+/* line 96, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="65%"]:after {
+  right: -79.1px;
+}
+
+/* line 97, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="66%"]:after {
+  right: -77.24px;
+}
+
+/* line 98, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="67%"]:after {
+  right: -75.38px;
+}
+
+/* line 99, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="68%"]:after {
+  right: -73.52px;
+}
+
+/* line 100, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="69%"]:after {
+  right: -71.66px;
+}
+
+/* line 101, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="70%"]:after {
+  right: -69.8px;
+}
+
+/* line 102, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="71%"]:after {
+  right: -67.94px;
+}
+
+/* line 103, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="72%"]:after {
+  right: -66.08px;
+}
+
+/* line 104, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="73%"]:after {
+  right: -64.22px;
+}
+
+/* line 105, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="74%"]:after {
+  right: -62.36px;
+}
+
+/* line 106, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="75%"]:after {
+  right: -60.5px;
+}
+
+/* line 107, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="76%"]:after {
+  right: -58.64px;
+}
+
+/* line 108, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="77%"]:after {
+  right: -56.78px;
+}
+
+/* line 109, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="78%"]:after {
+  right: -54.92px;
+}
+
+/* line 110, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="79%"]:after {
+  right: -53.06px;
+}
+
+/* line 111, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="80%"]:after {
+  right: -51.2px;
+}
+
+/* line 112, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="81%"]:after {
+  right: -49.34px;
+}
+
+/* line 113, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="82%"]:after {
+  right: -47.48px;
+}
+
+/* line 114, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="83%"]:after {
+  right: -45.62px;
+}
+
+/* line 115, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="84%"]:after {
+  right: -43.76px;
+}
+
+/* line 116, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="85%"]:after {
+  right: -41.9px;
+}
+
+/* line 117, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="86%"]:after {
+  right: -40.04px;
+}
+
+/* line 118, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="87%"]:after {
+  right: -38.18px;
+}
+
+/* line 119, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="88%"]:after {
+  right: -36.32px;
+}
+
+/* line 120, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="89%"]:after {
+  right: -34.46px;
+}
+
+/* line 121, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="90%"]:after {
+  right: -32.6px;
+}
+
+/* line 122, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="91%"]:after {
+  right: -30.74px;
+}
+
+/* line 123, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="92%"]:after {
+  right: -28.88px;
+}
+
+/* line 124, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="93%"]:after {
+  right: -27.02px;
+}
+
+/* line 125, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="94%"]:after {
+  right: -25.16px;
+}
+
+/* line 126, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="95%"]:after {
+  right: -23.3px;
+}
+
+/* line 127, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="96%"]:after {
+  right: -21.44px;
+}
+
+/* line 128, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="97%"]:after {
+  right: -19.58px;
+}
+
+/* line 129, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="98%"]:after {
+  right: -17.72px;
+}
+
+/* line 130, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="99%"]:after {
+  right: -15.86px;
+}
+
+/* line 131, ../scss/_preloader.scss */
+.pace .pace-progress[data-progress-text="100%"]:after {
+  right: -14px;
+}
+
+/* line 133, ../scss/_preloader.scss */
+.pace .pace-activity {
+  position: absolute;
+  width: 100%;
+  height: 28px;
+  z-index: 2001;
+}
+
+/* line 140, ../scss/_preloader.scss */
+.pace.pace-inactive {
+  display: none;
+}
+
+/* line 145, ../scss/_preloader.scss */
+.pace-running .wrapper {
+  opacity: 0;
 }

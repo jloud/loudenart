@@ -52,7 +52,7 @@
                 $artImgs.push($(this));
               });
 
-              console.log($artImgs);
+              //console.log($artImgs);
               // });
           // for (var j = 0; j < $artImgs; j++) {
           //   element1 = $artImgs[j];
@@ -69,16 +69,22 @@
           .setTween(parallaxtween)
           .addTo(contArt);
 
-        scrollActions = function(target, curr) {
-          target.addClass('active');
-          curr.removeClass('active');
-        }
-
         contArt.scrollTo(function (target) {
           var eleWidth = $('.artwork-holder').first().width(),
               newTarget = target - ((windowWidth/2) - (eleWidth/2));
+          if(target === 0){
+            newTarget = 0;
+          }
+          console.log(target);    
           TweenMax.to(window, 1.2, {scrollTo: {x: newTarget}, ease: Quint.easeOut});
         });
+
+        scrollActions = function(target) {
+          $('.page, .chapters li').removeClass('active');
+          target.addClass('active');
+          $('.chapters').find('.'+target.attr('id')).addClass('active');
+          contArt.scrollTo(target);
+        }
 
         pageControls = function(el){
           var $currId = $('#content').find('.active'),
@@ -93,8 +99,7 @@
               id = $currId.attr('id');
               return false;
             } else {
-              contArt.scrollTo($prevId);
-              scrollActions($prevId,$currId);
+              scrollActions($prevId);
               id = $prevId.attr('id');
             }
           } else if (dir === 'next'){
@@ -106,13 +111,11 @@
               id = $currId.attr('id');
               return false;
             } else {
-              contArt.scrollTo($nextId);
-              scrollActions($nextId,$currId);
+              scrollActions($nextId);
               id = $nextId.attr('id'); 
             }
           } else {
-            contArt.scrollTo($target);
-            scrollActions($target,$currId);
+            scrollActions(el);
             id = $target.attr('id'); 
           }
           if (id.length > 0) {
@@ -120,33 +123,16 @@
               if(id === 'introduction') {
                 $('body').addClass('page-intro');
                 history.pushState("", document.title, window.location.pathname);
+              } else if(id === 'contact'){
+                $('body').addClass('page-contact');
+                history.pushState("", document.title, '#'+id);
               } else {
-                $('body').removeClass('page-intro');
+                $('body').removeClass('page-intro page-contact');
                 history.pushState("", document.title, '#'+id);
               }
             }
           }
         }
-
-        $('#button-next').on('click', function (e) {
-          pageControls($(this));
-        });
-
-        $('#button-prev').on("click", function (e) {
-          pageControls($(this));
-        });
-
-        $('#button-intro').on("click", function (e) {
-          pageControls($('#heavy-pen-work'));
-        });
-
-        $('#nav-list li a').on("click", function (e) {
-          e.preventDefault();
-          var hrefId = $(this).attr('href');
-          if (hrefId != undefined){
-            pageControls($(hrefId));
-          }
-        });
 
         $(window).load(function(){
           var hash = location.hash.replace('#','');
@@ -154,14 +140,13 @@
           if(hash === 'introduction'){
             $('body').addClass('page-intro');
             return false;
+          } else if(hash === 'contact'){
+            $('body').addClass('page-contact');
+            return false;
           } else if (hash != ''){
-             $('body').removeClass('page-intro');
+             $('body').removeClass('page-intro page-contact');
              $currId = $('#'+hash);
-             $('.page').removeClass('active');
-             $currId.addClass('active');
-             // Clear the hash in the URL
-             // location.hash = '';   // delete front "//" if you want to change the address bar
-             contArt.scrollTo('#'+hash);
+             scrollActions($currId);
           } else {
             $('body').addClass('page-intro');
             return false;
@@ -173,35 +158,30 @@
 
         $(window).on('resize', function () {
           $currId = $('#content').find('.active');
-          contArt.scrollTo($currId);
+          //contArt.scrollTo($currId);
+          scrollActions($currId);
         }); 
-       
 
-        // $('#nav-holder').mmenu({
-        //   offCanvas: false,
-        //   // offCanvas: {
-        //   //   position: "right",
-        //   //   zposition : "front"
-        //   // },
-        //   header: {
-        //     add: true,
-        //     content: '<h2>Jim Louden <br /><span>Pen & Pencil Illustration</span></h2><div class="menu-close"><span></span><span></span></div>'
-        //   }
-        // }).on('opening.mm', function() {
-        //   $('#nav-button').addClass('open');
-        //   contArt.scrollTo($currId);
-        // }).on('closing.mm', function() {
-        //   $('#nav-button').removeClass('open');
-        //   $currId = $('#content').find('.active');
-        // }).on('closed.mm', function() {
-        //   contArt.scrollTo($currId);
-        // });
+        $('.icon-button').on('click', function (e) {
+          pageControls($(this));
+        });
 
-        // $('.menu-close').on('click', function (e) {
-        //   console.log("close me");
-        //   $('#nav-holder').trigger("close.mm");
-        // });
+        $('#button-intro').on("click", function (e) {
+          firstId = $('.content').find(':first-child').next('section').attr('id');
+          //pageControls($('#' + firstId));
+          pageControls($('#heavy-pen-work'));
+          console.log(firstId);
+        });
 
+        $('#nav-list li a, #chapters a').on("click", function (e) {
+          e.preventDefault();
+          var hrefId = $(this).attr('href');
+          if (hrefId != undefined){
+            pageControls($(hrefId));
+          }
+        });
+
+      
         // lightbox
 
         var lgoptions = {
@@ -259,12 +239,11 @@
 
         // MENU
 
-        var $menuBut = $('#nav-button'),
+        var $menuBut = $('#menu-button'),
             $menuOverlay = $('div.menu-overlay');
             //closeBttn = overlay.querySelector( 'button.overlay-close' );
 
-        $('#nav-button').on("click", function() {
-          console.log('this but works');
+        $menuBut.on("click", function() {
           $(this).toggleClass('open');
           $('#wrapper').toggleClass('blur');
           $menuOverlay.toggleClass('open');
@@ -283,6 +262,10 @@
         //     gutter: 10
         //   }
         // });
+
+paceOptions = {
+  restartOnPushState: false
+}
 
 	});
 	

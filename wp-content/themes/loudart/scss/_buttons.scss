@@ -1,4 +1,4 @@
-.nav-button {
+.menu-button {
   width: 40px;
   height: 20px;
   position: fixed;
@@ -15,7 +15,7 @@
   }
   span {
     width: 100%;
-    height: 1px;
+    height: 2px;
     display: block;
     position: absolute;
     background: #000;
@@ -51,82 +51,89 @@
     left: 50%;
     opacity: 0;
   }
+  .lightGallery & {
+    opacity: 0;
+  }
 }
 
-.button-holder {
+.button-holder, #lightGallery-action.button-holder {
   width: 100%;
-  height: 80px;
+  height: 40px;
+  margin: 0;
   position: fixed;
   display: table;
   left: 0;
-  bottom: 0;
+  bottom: 30px;
   z-index: 300;
   transition: bottom 1s ease;
+  .arrow {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    transition: all 0.5s ease;
+    &:before {
+      content: '';
+      width: 18px;
+      height: 40px;
+      display: inline-block;
+      position: absolute;
+      transition: all 0.5s ease;
+      background: url('imgs/but_arrow.svg') no-repeat center center;
+    }
+    &:after {
+      width: 70%;
+      height: 50%;
+      content: ' ';
+      display: inline-block;
+      position: absolute;
+      top: 49%;
+      border-top: 2px solid #000;
+    }
+  }
+  .arrow-text {
+    margin: 0;
+    display: inline-block;
+    position: absolute;
+    line-height: 40px;
+    font-size: 1.5rem;
+    font-family: $sans;
+    text-transform: uppercase;
+    font-weight: 300;
+    opacity: 0;
+    transition: all 0.5s ease;
+  }
   .icon-button {
-    width: 50%;
+    width: 60px;
     height: 100%;
     padding: 0;
     position: absolute;
-    font-size: 1.9rem;
     cursor: pointer;
     display: table-cell;
     vertical-align: middle;
-    .arrow {
-      width: 90%;
-      height: 100%;
-      display: inline-block;
-      position: absolute;
-      top: 0;
-      transition: all 0.5s ease;
-      &:before {
-        content: '';
-        width: 30px;
-        height: 80px;
-        display: inline-block;
-        position: absolute;
-        transition: all 0.5s ease;
-        background: url('imgs/but_arrow.svg') no-repeat center center;
-      }
-      &:after {
-        width: 93%;
-        height: 50%;
-        content: ' ';
-        display: inline-block;
-        position: absolute;
-        top: 50%;
-        border-top: 1px solid #000;
-      }
-    }
-    .arrow-text {
-      margin: 0;
-      display: inline-block;
-      position: absolute;
-      line-height: 80px;
-      font-family: $sans;
-      font-weight: 300;
-      transition: all 0.5s ease;
-    }
+    z-index: 100;
     &.next {
       text-align: right;
       top: 0;
-      right: 0;
+      right: 10%;
       .arrow {
         left: 0;
         &:before {
           right: 0;
         }
         &:after {
-          left: 0;
+          right: 30%;
         }
       }
       .arrow-text{
-        right: -100px;
+        right: -55px;
       }
     }
     &.prev {
       text-align: left;
       top: 0;
-      left: 0;
+      left: 10%;
       .arrow {
         right: 0;
         &:before {
@@ -134,49 +141,45 @@
           transform: rotate(180deg);
         }
         &:after {
-          right: 0;
+          left: 30%;
         }
       }
       .arrow-text {
-        left: -100px;
+        left: -90px;
       }
     }
     &.next:hover {
       .arrow-text{
-        right: 110px;
+        right: 5px;
+        opacity: 1;
       }
       .arrow {
-        left: -110px;
+        left: -50px;
       }
     }
     &.prev:hover {
       .arrow-text {
-        left: 60px;
+        left: -30px;
+        opacity: 1;
       }
       .arrow {
-        right: -90px;
+        right: -50px;
       }
     }
   }
   .page-intro & {
     bottom: -100px;
   }
+  .page-contact & {
+    .icon-button.next {
+      display: none;
+    }
+  }
 }
 
-#lightGallery-action {
+#lightGallery-action.button-holder {
   .arrow {
-    width: 90%;
-    height: 100%;
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    transition: all 0.5s ease;
     &:before {
-      width: 30px;
-      height: 80px;
-      display: inline-block;
-      position: absolute;
-      transition: all 0.5s ease;
       background: url('imgs/but_arrow-wh.svg') no-repeat center center;
     }
   }
@@ -202,7 +205,7 @@
   }
   span {
     width: 100%;
-    height: 1px;
+    height: 2px;
     display: block;
     position: absolute;
     top: 20px;
@@ -252,5 +255,51 @@
   }
   span:nth-child(2) {
     transform: rotate(-45deg);
+  }
+}
+
+.chapters {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: absolute;
+  text-align: center;
+  li {
+    width: 40px;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    &:before {
+      content: '';
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: -0.25em;
+    }
+    a {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      &:hover {
+        .marker {
+          height: 20px;
+        }
+      }
+    }
+  }
+  .marker {
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    border-left: 2px solid #000;
+    transition: height 0.5s ease;
+  }
+  li.active {
+    a:hover .marker {
+      height: inherit;
+    }
+    .marker {
+      height: 40px;
+    }
   }
 }

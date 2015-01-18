@@ -36,7 +36,7 @@ $break-large: 1024px;
 
 @mixin rightEnd {
   -webkit-animation: rightEnd 0.3s;
-  @keyframes rightEnd2 {
+  @keyframes rightEnd {
     0% {
       left: 0;
     }
@@ -48,3 +48,4 @@ $break-large: 1024px;
     }
   }
 }
+
