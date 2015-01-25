@@ -26,10 +26,10 @@
       margin-top: 100px;
       font-family: $serif;
       font-weight: normal;
-      font-size: 5.2rem;
+      font-size: 5rem;
       text-align: center;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
+      //text-transform: uppercase;
+      letter-spacing: 0.1em;
       color: #fff;
       text-shadow: #000 -3px -1px 0, #000 -2px 3px 0, #000 -2px 3px 0, #000 2px 2px 0;
       span {
@@ -43,6 +43,9 @@
           font-size: 0.7em;
         }
       }
+      @include respond-to(tablet){
+        font-size: 5.7rem;
+      }
     }
   }
   .front-footer {
@@ -54,19 +57,17 @@
     text-align: center;
     p {
       height: 100%;
-      margin: 0;
-      text-align: center;
-      font-family: $serif;
-      font-size: 2rem;
+      margin: 0 auto;
       cursor: pointer;
-      display: inline-block;
+      display: table;
       vertical-align: middle;
+      background: rgba(255,255,255,0.5);
       .front-arrow {
         content: '';
         width: 18px;
         height: 40px;
         position: absolute;
-        bottom: -10px;
+        bottom: 20px;
         right: -20px;
         transition: opacity 0.6s ease;
         opacity: 0;
@@ -78,20 +79,23 @@
         position: relative;
         line-height: 100%;
         vertical-align: middle;
+        text-align: center;
+        font-family: $sans;
+        font-size: 2rem;
       }
       .front-line {
         width: 0;
         content: ' ';
         display: inline-block;
         position: relative;
-        bottom: 7px;
+        bottom: 6px;
         left: 5px;
         opacity: 0;
         border-top: 2px solid #000;
         transition: width 0.5s ease, opacity 0.3s ease;
       }
     }
-    &:hover {
+    & p:hover {
       .front-line {
         width: 40px;
         opacity: 1;
@@ -103,7 +107,7 @@
   }
   .front-email {
     margin: 0;
-    font-family: $serif;
+    font-family: $sans;
     font-size: 1.5rem;
     position: absolute;
     left: 20px;
@@ -157,30 +161,39 @@
 }
 
 .contact {
-  width: 70vw;
+  width: 100vw;
   height: 100vh;
+  opacity: 0.2;
+  @include respond-to(tablet){
+    width: 70vw;
+  }
+  &.active {
+    opacity: 1;
+  }
 }
 
 .about {
   width: 100%;
   height: 100%;
-  @include vertical-align;
   .photo {
     width: 300px;
     margin: 0 auto 20px;
   }
+  .text {
+    @include vertical-align;
+    margin-top: -20px;
+    @include respond-to(tablet){
+      margin-top: 0;
+    }
+  }
   p {
     width: 100%;
-    max-width: 300px;
+    max-width: 260px;
     margin: 0 auto;
     font-family: $serif;
     text-align: center;
     font-size: 2.5rem;
     white-space: normal;
-    &:first-child {
-      margin-top: 30px;
-      padding-top: 20px;
-    }
     &.email {
       font-family: $serif;
       font-size: 1.9rem;
@@ -190,12 +203,12 @@
   form {
     max-width: 600px;
     margin: auto;
-    padding: 40px;
+    padding: 20px;
     input, textarea {
-      width: 100%;
+      width: 96%;
       max-width: 600px;
-      margin: 30px 0;
-      padding: 10px;
+      margin: 20px 0;
+      padding: 2%;
       display: block;
       border: 1px solid #000;
       background: transparent;
@@ -206,7 +219,7 @@
       margin-top: 0;
     }
     textarea {
-      height: 200px;
+      height: 100px;
     }
     input[type=text], textarea, ::-webkit-input-placeholder, .submit-button {
       font-family: $sans;

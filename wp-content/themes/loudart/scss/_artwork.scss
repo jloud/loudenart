@@ -1,5 +1,5 @@
 .artwork-holder.page {
-  width: 70vw;
+  width: 100vw;
   height: 100vh;
   display: inline-block;
   .post-content {
@@ -105,6 +105,9 @@
       }
     }
   }
+  @include respond-to(tablet){
+    width: 70vw;
+  }
 }
 
 $animate-distance: 50px;
@@ -145,6 +148,7 @@ $animate-distance: 50px;
     }
     .art-holder1 {
       @include span(5);
+      height: 80%;
       padding-top: 20%;
       a {
         left: -$animate-distance;
@@ -152,6 +156,7 @@ $animate-distance: 50px;
     }
     .art-holder2 {
       @include span(7);
+      height: 90%;
       padding-top: 10%;
       a {
         top: -$animate-distance;
@@ -247,6 +252,10 @@ $animate-distance: 50px;
       height: 20%;
       position: relative;
       @include span(3);
+      img {
+        width: auto;
+        height: 100%
+      }
       &:nth-child(4), &:nth-child(5) {
         @include span(last);
       }
@@ -255,6 +264,11 @@ $animate-distance: 50px;
         @include span(6);
         a {
           top: -$animate-distance;
+          
+        }
+        img {
+          left: auto;
+          right: 0;
         }
       }
       &.art-holder2 {
@@ -271,26 +285,78 @@ $animate-distance: 50px;
       &.art-holder4 a {
         right: -$animate-distance;
       }
-      &.art-holder5 a {
-        top: $animate-distance;
+      &.art-holder5 {
+        margin-top: 20px;
+        a {
+         top: $animate-distance;
+        }
       }
-      &.art-holder6 a {
-        margin-right: $animate-distance;
+      &.art-holder6 {
+        margin-top: 20px;
+        a {
+          margin-right: $animate-distance;
+        }
+      }
+    }
+  }
+  #heavy-pen-work &.img2 {
+    @include respond-to(tablet){
+      .art-holder2 {
+        padding: 0;
+        img {
+          width: auto;
+          height: 100%;
+        }
       }
     }
   }
   #inked-cities &.img2 {
     .img-holder {
       &.art-holder1 {
-        padding-top: 7%;
+        @include span(12);
+        height: 50%;
+        padding: 0;
+        img {
+          width: auto;
+          height: 100%;
+        }
       }
       &.art-holder2 {
-        padding-top: 25%;
+        @include span(12);
+        height: 50%;
+        padding: 0;
+        img {
+          width: auto;
+          height: 100%;
+          left: auto;
+          right: 0;
+        }
+      }
+    }
+    @include respond-to(tablet){
+      .art-holder1 {
+        @include span(5);
+        height: 90%;
+        padding-top: 10%;
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+      .art-holder2 {
+        @include span(7);
+        height: 90%;
+        padding-top: 10%;
+        img {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }
 
   @include respond-to(tablet){
+    width: 70vw;
     &.img6, &.img7 {
       //@include container(80%);
       // .img-holder {

@@ -1677,10 +1677,9 @@ div.clear {
   margin-top: 100px;
   font-family: "Droid Serif", serif;
   font-weight: normal;
-  font-size: 5.2rem;
+  font-size: 5rem;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
   color: #fff;
   text-shadow: #000 -3px -1px 0, #000 -2px 3px 0, #000 -2px 3px 0, #000 2px 2px 0;
 }
@@ -1698,7 +1697,13 @@ div.clear {
   display: inline;
   font-size: 0.7em;
 }
-/* line 48, ../scss/_front.scss */
+@media only screen and (min-width: 769px) {
+  /* line 25, ../scss/_front.scss */
+  .introduction .logo-title h1 {
+    font-size: 5.7rem;
+  }
+}
+/* line 51, ../scss/_front.scss */
 .introduction .front-footer {
   width: 100%;
   height: 80px;
@@ -1707,74 +1712,75 @@ div.clear {
   left: 0;
   text-align: center;
 }
-/* line 55, ../scss/_front.scss */
+/* line 58, ../scss/_front.scss */
 .introduction .front-footer p {
   height: 100%;
-  margin: 0;
-  text-align: center;
-  font-family: "Droid Serif", serif;
-  font-size: 2rem;
+  margin: 0 auto;
   cursor: pointer;
-  display: inline-block;
+  display: table;
   vertical-align: middle;
+  background: rgba(255, 255, 255, 0.5);
 }
-/* line 64, ../scss/_front.scss */
+/* line 65, ../scss/_front.scss */
 .introduction .front-footer p .front-arrow {
   content: '';
   width: 18px;
   height: 40px;
   position: absolute;
-  bottom: -10px;
+  bottom: 20px;
   right: -20px;
   transition: opacity 0.6s ease;
   opacity: 0;
   background: url("imgs/but_arrow.svg") no-repeat center center/cover;
 }
-/* line 75, ../scss/_front.scss */
+/* line 76, ../scss/_front.scss */
 .introduction .front-footer p a {
   height: 100%;
   display: table-cell;
   position: relative;
   line-height: 100%;
   vertical-align: middle;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
 }
-/* line 82, ../scss/_front.scss */
+/* line 86, ../scss/_front.scss */
 .introduction .front-footer p .front-line {
   width: 0;
   content: ' ';
   display: inline-block;
   position: relative;
-  bottom: 7px;
+  bottom: 6px;
   left: 5px;
   opacity: 0;
   border-top: 2px solid #000;
   transition: width 0.5s ease, opacity 0.3s ease;
 }
-/* line 95, ../scss/_front.scss */
-.introduction .front-footer:hover .front-line {
+/* line 99, ../scss/_front.scss */
+.introduction .front-footer p:hover .front-line {
   width: 40px;
   opacity: 1;
 }
-/* line 99, ../scss/_front.scss */
-.introduction .front-footer:hover .front-arrow {
+/* line 103, ../scss/_front.scss */
+.introduction .front-footer p:hover .front-arrow {
   opacity: 1;
 }
-/* line 104, ../scss/_front.scss */
+/* line 108, ../scss/_front.scss */
 .introduction .front-email {
   margin: 0;
-  font-family: "Droid Serif", serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.5rem;
   position: absolute;
   left: 20px;
   top: 20px;
 }
 
-/* line 114, ../scss/_front.scss */
+/* line 118, ../scss/_front.scss */
 .main-holder {
   margin-top: 100px;
 }
 
-/* line 118, ../scss/_front.scss */
+/* line 122, ../scss/_front.scss */
 .header {
   width: 100%;
   height: 50px;
@@ -1784,7 +1790,7 @@ div.clear {
   z-index: 999;
 }
 
-/* line 127, ../scss/_front.scss */
+/* line 131, ../scss/_front.scss */
 .page {
   display: inline-block;
   vertical-align: top;
@@ -1794,7 +1800,7 @@ div.clear {
   overflow: hidden;
 }
 
-/* line 142, ../scss/_front.scss */
+/* line 146, ../scss/_front.scss */
 .bg-parallax {
   width: 7000px;
   height: 100%;
@@ -1802,7 +1808,7 @@ div.clear {
   top: 0;
   left: 0;
 }
-/* line 148, ../scss/_front.scss */
+/* line 152, ../scss/_front.scss */
 .bg-parallax div {
   width: 7000px;
   height: 100%;
@@ -1813,81 +1819,97 @@ div.clear {
   background-position: fixed;
 }
 
-/* line 159, ../scss/_front.scss */
+/* line 163, ../scss/_front.scss */
 .contact {
-  width: 70vw;
+  width: 100vw;
   height: 100vh;
+  opacity: 0.2;
+}
+@media only screen and (min-width: 769px) {
+  /* line 163, ../scss/_front.scss */
+  .contact {
+    width: 70vw;
+  }
+}
+/* line 170, ../scss/_front.scss */
+.contact.active {
+  opacity: 1;
 }
 
-/* line 164, ../scss/_front.scss */
+/* line 175, ../scss/_front.scss */
 .about {
   width: 100%;
   height: 100%;
+}
+/* line 178, ../scss/_front.scss */
+.about .photo {
+  width: 300px;
+  margin: 0 auto 20px;
+}
+/* line 182, ../scss/_front.scss */
+.about .text {
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
       -ms-transform: translateY(-50%);
           transform: translateY(-50%);
+  margin-top: -20px;
 }
-/* line 168, ../scss/_front.scss */
-.about .photo {
-  width: 300px;
-  margin: 0 auto 20px;
+@media only screen and (min-width: 769px) {
+  /* line 182, ../scss/_front.scss */
+  .about .text {
+    margin-top: 0;
+  }
 }
-/* line 172, ../scss/_front.scss */
+/* line 189, ../scss/_front.scss */
 .about p {
   width: 100%;
-  max-width: 300px;
+  max-width: 260px;
   margin: 0 auto;
   font-family: "Droid Serif", serif;
   text-align: center;
   font-size: 2.5rem;
   white-space: normal;
 }
-/* line 180, ../scss/_front.scss */
-.about p:first-child {
-  margin-top: 30px;
-  padding-top: 20px;
-}
-/* line 184, ../scss/_front.scss */
+/* line 197, ../scss/_front.scss */
 .about p.email {
   font-family: "Droid Serif", serif;
   font-size: 1.9rem;
   letter-spacing: 0.1em;
 }
-/* line 190, ../scss/_front.scss */
+/* line 203, ../scss/_front.scss */
 .about form {
   max-width: 600px;
   margin: auto;
-  padding: 40px;
+  padding: 20px;
 }
-/* line 194, ../scss/_front.scss */
+/* line 207, ../scss/_front.scss */
 .about form input, .about form textarea {
-  width: 100%;
+  width: 96%;
   max-width: 600px;
-  margin: 30px 0;
-  padding: 10px;
+  margin: 20px 0;
+  padding: 2%;
   display: block;
   border: 1px solid #000;
   background: transparent;
   box-sizing: content-box;
   transition: background 1s ease;
 }
-/* line 205, ../scss/_front.scss */
+/* line 218, ../scss/_front.scss */
 .about form input:first-child {
   margin-top: 0;
 }
-/* line 208, ../scss/_front.scss */
+/* line 221, ../scss/_front.scss */
 .about form textarea {
-  height: 200px;
+  height: 100px;
 }
-/* line 211, ../scss/_front.scss */
+/* line 224, ../scss/_front.scss */
 .about form input[type=text], .about form textarea, .about form ::-webkit-input-placeholder, .about form .submit-button {
   font-family: "Nunito", sans-serif;
   font-size: 2rem;
   color: #000;
 }
-/* line 216, ../scss/_front.scss */
+/* line 229, ../scss/_front.scss */
 .about form input.submit-button {
   margin-bottom: 0;
   font-family: "Droid Serif", serif;
@@ -1898,12 +1920,12 @@ div.clear {
   letter-spacing: 0.1em;
   transition: color 0.75s ease, background 0.5s ease;
 }
-/* line 225, ../scss/_front.scss */
+/* line 238, ../scss/_front.scss */
 .about form input.submit-button:hover {
   background: #000;
   color: #fff;
 }
-/* line 230, ../scss/_front.scss */
+/* line 243, ../scss/_front.scss */
 .about form input:focus, .about form input:active, .about form textarea:focus, .about form textarea:active {
   margin-left: -3px;
   margin-top: -2px;
@@ -1914,7 +1936,7 @@ div.clear {
 
 /* line 1, ../scss/_artwork.scss */
 .artwork-holder.page {
-  width: 70vw;
+  width: 100vw;
   height: 100vh;
   display: inline-block;
 }
@@ -2032,8 +2054,14 @@ div.clear {
 .artwork-holder.page.active .artwork a img:hover {
   box-shadow: 0 0 10px 0 #000;
 }
+@media only screen and (min-width: 769px) {
+  /* line 1, ../scss/_artwork.scss */
+  .artwork-holder.page {
+    width: 70vw;
+  }
+}
 
-/* line 112, ../scss/_artwork.scss */
+/* line 115, ../scss/_artwork.scss */
 .artwork {
   max-width: 100%;
   margin-left: auto;
@@ -2053,13 +2081,13 @@ div.clear {
   display: block;
   clear: both;
 }
-/* line 118, ../scss/_artwork.scss */
+/* line 121, ../scss/_artwork.scss */
 .artwork a {
   width: 100%;
   display: inline-block;
   position: relative;
 }
-/* line 122, ../scss/_artwork.scss */
+/* line 125, ../scss/_artwork.scss */
 .artwork a img {
   width: 100%;
   margin: 0;
@@ -2070,78 +2098,80 @@ div.clear {
           filter: contrast(0%);
   opacity: 1;
 }
-/* line 133, ../scss/_artwork.scss */
+/* line 136, ../scss/_artwork.scss */
 .artwork.img2 .img-holder {
   height: 100%;
   margin-bottom: 0;
   position: relative;
 }
-/* line 137, ../scss/_artwork.scss */
+/* line 140, ../scss/_artwork.scss */
 .artwork.img2 .img-holder img {
   width: 100%;
   height: auto;
   max-width: none;
 }
-/* line 142, ../scss/_artwork.scss */
+/* line 145, ../scss/_artwork.scss */
 .artwork.img2 .img-holder:last-child {
   float: right;
   margin-right: 0;
 }
-/* line 146, ../scss/_artwork.scss */
+/* line 149, ../scss/_artwork.scss */
 .artwork.img2 .art-holder1 {
   width: 38.23529%;
   float: left;
   margin-right: 5.88235%;
+  height: 80%;
   padding-top: 20%;
 }
-/* line 149, ../scss/_artwork.scss */
+/* line 153, ../scss/_artwork.scss */
 .artwork.img2 .art-holder1 a {
   left: -50px;
 }
-/* line 153, ../scss/_artwork.scss */
+/* line 157, ../scss/_artwork.scss */
 .artwork.img2 .art-holder2 {
   width: 55.88235%;
   float: left;
   margin-right: 5.88235%;
+  height: 90%;
   padding-top: 10%;
 }
-/* line 156, ../scss/_artwork.scss */
+/* line 161, ../scss/_artwork.scss */
 .artwork.img2 .art-holder2 a {
   top: -50px;
 }
-/* line 162, ../scss/_artwork.scss */
+/* line 167, ../scss/_artwork.scss */
 .artwork.img3 .img-holder {
   width: 47.05882%;
   float: left;
   margin-right: 5.88235%;
 }
-/* line 164, ../scss/_artwork.scss */
+/* line 169, ../scss/_artwork.scss */
 .artwork.img3 .img-holder img {
   width: auto;
   height: 100%;
 }
-/* line 168, ../scss/_artwork.scss */
+/* line 173, ../scss/_artwork.scss */
 .artwork.img3 .img-holder:nth-child(2), .artwork.img3 .img-holder:nth-child(3) {
   float: right;
   margin-right: 0;
 }
-/* line 172, ../scss/_artwork.scss */
+/* line 177, ../scss/_artwork.scss */
 .artwork.img3 .art-holder1 {
   width: 55.88235%;
   float: left;
   margin-right: 5.88235%;
   height: 100%;
 }
-/* line 175, ../scss/_artwork.scss */
+/* line 180, ../scss/_artwork.scss */
 .artwork.img3 .art-holder1 a {
   left: -50px;
 }
-/* line 178, ../scss/_artwork.scss */
+/* line 183, ../scss/_artwork.scss */
 .artwork.img3 .art-holder1 img {
   width: 100%;
   height: auto;
 }
-/* line 183, ../scss/_artwork.scss */
+/* line 188, ../scss/_artwork.scss */
 .artwork.img3 .art-holder2, .artwork.img3 .art-holder3 {
   width: 38.23529%;
   float: left;
@@ -2149,80 +2179,80 @@ div.clear {
   height: 47%;
   text-align: left;
 }
-/* line 188, ../scss/_artwork.scss */
+/* line 193, ../scss/_artwork.scss */
 .artwork.img3 .art-holder2 {
   margin: 0;
   margin-bottom: 3%;
 }
-/* line 191, ../scss/_artwork.scss */
+/* line 196, ../scss/_artwork.scss */
 .artwork.img3 .art-holder2 a {
   top: -50px;
 }
-/* line 195, ../scss/_artwork.scss */
+/* line 200, ../scss/_artwork.scss */
 .artwork.img3 .art-holder3 {
   margin-top: 3%;
 }
-/* line 197, ../scss/_artwork.scss */
+/* line 202, ../scss/_artwork.scss */
 .artwork.img3 .art-holder3 a {
   top: 100px;
 }
-/* line 203, ../scss/_artwork.scss */
+/* line 208, ../scss/_artwork.scss */
 .artwork.img4 .img-holder {
   height: 47%;
   width: 47.05882%;
   float: left;
   margin-right: 5.88235%;
 }
-/* line 206, ../scss/_artwork.scss */
+/* line 211, ../scss/_artwork.scss */
 .artwork.img4 .img-holder span {
   width: 100%;
   height: 100%;
 }
-/* line 210, ../scss/_artwork.scss */
+/* line 215, ../scss/_artwork.scss */
 .artwork.img4 .img-holder img {
   height: 100%;
   width: auto;
 }
-/* line 214, ../scss/_artwork.scss */
+/* line 219, ../scss/_artwork.scss */
 .artwork.img4 .img-holder:nth-child(1), .artwork.img4 .img-holder:nth-child(2) {
   margin-bottom: 3%;
 }
-/* line 217, ../scss/_artwork.scss */
+/* line 222, ../scss/_artwork.scss */
 .artwork.img4 .img-holder:nth-child(3), .artwork.img4 .img-holder:nth-child(4) {
   margin-top: 3%;
 }
-/* line 220, ../scss/_artwork.scss */
+/* line 225, ../scss/_artwork.scss */
 .artwork.img4 .img-holder:nth-child(2), .artwork.img4 .img-holder:nth-child(4) {
   float: right;
   margin-right: 0;
 }
-/* line 223, ../scss/_artwork.scss */
+/* line 228, ../scss/_artwork.scss */
 .artwork.img4 .img-holder.art-holder1 a {
   left: -50px;
 }
-/* line 225, ../scss/_artwork.scss */
+/* line 230, ../scss/_artwork.scss */
 .artwork.img4 .img-holder.art-holder1 a img {
   left: auto;
   right: 0;
 }
-/* line 230, ../scss/_artwork.scss */
+/* line 235, ../scss/_artwork.scss */
 .artwork.img4 .img-holder.art-holder2 a {
   top: -50px;
 }
-/* line 233, ../scss/_artwork.scss */
+/* line 238, ../scss/_artwork.scss */
 .artwork.img4 .img-holder.art-holder3 a {
   top: 50px;
 }
-/* line 235, ../scss/_artwork.scss */
+/* line 240, ../scss/_artwork.scss */
 .artwork.img4 .img-holder.art-holder3 a img {
   left: auto;
   right: 0;
 }
-/* line 240, ../scss/_artwork.scss */
+/* line 245, ../scss/_artwork.scss */
 .artwork.img4 .img-holder.art-holder4 a {
   margin-right: -50px;
 }
-/* line 246, ../scss/_artwork.scss */
+/* line 251, ../scss/_artwork.scss */
 .artwork.img6 .img-holder {
   height: 20%;
   position: relative;
@@ -2230,23 +2260,33 @@ div.clear {
   float: left;
   margin-right: 5.88235%;
 }
-/* line 250, ../scss/_artwork.scss */
+/* line 255, ../scss/_artwork.scss */
+.artwork.img6 .img-holder img {
+  width: auto;
+  height: 100%;
+}
+/* line 259, ../scss/_artwork.scss */
 .artwork.img6 .img-holder:nth-child(4), .artwork.img6 .img-holder:nth-child(5) {
   float: right;
   margin-right: 0;
 }
-/* line 253, ../scss/_artwork.scss */
+/* line 262, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder1 {
   height: 100%;
   width: 47.05882%;
   float: left;
   margin-right: 5.88235%;
 }
-/* line 256, ../scss/_artwork.scss */
+/* line 265, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder1 a {
   top: -50px;
 }
-/* line 260, ../scss/_artwork.scss */
+/* line 269, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder1 img {
+  left: auto;
+  right: 0;
+}
+/* line 274, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder2 {
   height: 50%;
   width: 47.05882%;
@@ -2255,33 +2295,108 @@ div.clear {
   float: right;
   margin-right: 0;
 }
-/* line 264, ../scss/_artwork.scss */
+/* line 278, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder2 a {
   right: -50px;
 }
-/* line 268, ../scss/_artwork.scss */
+/* line 282, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder3 a {
   left: 50px;
 }
-/* line 271, ../scss/_artwork.scss */
+/* line 285, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder4 a {
   right: -50px;
 }
-/* line 274, ../scss/_artwork.scss */
+/* line 288, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder5 {
+  margin-top: 20px;
+}
+/* line 290, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder5 a {
   top: 50px;
 }
-/* line 277, ../scss/_artwork.scss */
+/* line 294, ../scss/_artwork.scss */
+.artwork.img6 .img-holder.art-holder6 {
+  margin-top: 20px;
+}
+/* line 296, ../scss/_artwork.scss */
 .artwork.img6 .img-holder.art-holder6 a {
   margin-right: 50px;
 }
-/* line 284, ../scss/_artwork.scss */
-#inked-cities .artwork.img2 .img-holder.art-holder1 {
-  padding-top: 7%;
+@media only screen and (min-width: 769px) {
+  /* line 304, ../scss/_artwork.scss */
+  #heavy-pen-work .artwork.img2 .art-holder2 {
+    padding: 0;
+  }
+  /* line 306, ../scss/_artwork.scss */
+  #heavy-pen-work .artwork.img2 .art-holder2 img {
+    width: auto;
+    height: 100%;
+  }
 }
-/* line 287, ../scss/_artwork.scss */
+/* line 315, ../scss/_artwork.scss */
+#inked-cities .artwork.img2 .img-holder.art-holder1 {
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  height: 50%;
+  padding: 0;
+}
+/* line 319, ../scss/_artwork.scss */
+#inked-cities .artwork.img2 .img-holder.art-holder1 img {
+  width: auto;
+  height: 100%;
+}
+/* line 324, ../scss/_artwork.scss */
 #inked-cities .artwork.img2 .img-holder.art-holder2 {
-  padding-top: 25%;
+  width: 100%;
+  float: left;
+  margin-left: 0;
+  margin-right: 0;
+  height: 50%;
+  padding: 0;
+}
+/* line 328, ../scss/_artwork.scss */
+#inked-cities .artwork.img2 .img-holder.art-holder2 img {
+  width: auto;
+  height: 100%;
+  left: auto;
+  right: 0;
+}
+@media only screen and (min-width: 769px) {
+  /* line 337, ../scss/_artwork.scss */
+  #inked-cities .artwork.img2 .art-holder1 {
+    width: 38.23529%;
+    float: left;
+    margin-right: 5.88235%;
+    height: 90%;
+    padding-top: 10%;
+  }
+  /* line 341, ../scss/_artwork.scss */
+  #inked-cities .artwork.img2 .art-holder1 img {
+    width: 100%;
+    height: auto;
+  }
+  /* line 346, ../scss/_artwork.scss */
+  #inked-cities .artwork.img2 .art-holder2 {
+    width: 55.88235%;
+    float: left;
+    margin-right: 5.88235%;
+    height: 90%;
+    padding-top: 10%;
+  }
+  /* line 350, ../scss/_artwork.scss */
+  #inked-cities .artwork.img2 .art-holder2 img {
+    width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (min-width: 769px) {
+  /* line 115, ../scss/_artwork.scss */
+  .artwork {
+    width: 70vw;
+  }
 }
 
 /* line 1, ../scss/_buttons.scss */
@@ -2473,47 +2588,49 @@ div.clear {
 .button-holder .icon-button.prev .arrow-text, #lightGallery-action.button-holder .icon-button.prev .arrow-text {
   left: -90px;
 }
-/* line 152, ../scss/_buttons.scss */
-.button-holder .icon-button.next:hover .arrow-text, #lightGallery-action.button-holder .icon-button.next:hover .arrow-text {
-  right: 5px;
-  opacity: 1;
+@media only screen and (min-width: 769px) {
+  /* line 153, ../scss/_buttons.scss */
+  .button-holder .icon-button.next:hover .arrow-text, #lightGallery-action.button-holder .icon-button.next:hover .arrow-text {
+    right: 5px;
+    opacity: 1;
+  }
+  /* line 157, ../scss/_buttons.scss */
+  .button-holder .icon-button.next:hover .arrow, #lightGallery-action.button-holder .icon-button.next:hover .arrow {
+    left: -50px;
+  }
+  /* line 162, ../scss/_buttons.scss */
+  .button-holder .icon-button.prev:hover .arrow-text, #lightGallery-action.button-holder .icon-button.prev:hover .arrow-text {
+    left: -30px;
+    opacity: 1;
+  }
+  /* line 166, ../scss/_buttons.scss */
+  .button-holder .icon-button.prev:hover .arrow, #lightGallery-action.button-holder .icon-button.prev:hover .arrow {
+    right: -50px;
+  }
 }
-/* line 156, ../scss/_buttons.scss */
-.button-holder .icon-button.next:hover .arrow, #lightGallery-action.button-holder .icon-button.next:hover .arrow {
-  left: -50px;
-}
-/* line 161, ../scss/_buttons.scss */
-.button-holder .icon-button.prev:hover .arrow-text, #lightGallery-action.button-holder .icon-button.prev:hover .arrow-text {
-  left: -30px;
-  opacity: 1;
-}
-/* line 165, ../scss/_buttons.scss */
-.button-holder .icon-button.prev:hover .arrow, #lightGallery-action.button-holder .icon-button.prev:hover .arrow {
-  right: -50px;
-}
-/* line 170, ../scss/_buttons.scss */
+/* line 172, ../scss/_buttons.scss */
 .page-intro .button-holder, .page-intro #lightGallery-action.button-holder {
   bottom: -100px;
 }
-/* line 174, ../scss/_buttons.scss */
+/* line 176, ../scss/_buttons.scss */
 .page-contact .button-holder .icon-button.next, .page-contact #lightGallery-action.button-holder .icon-button.next {
   display: none;
 }
 
-/* line 182, ../scss/_buttons.scss */
+/* line 184, ../scss/_buttons.scss */
 #lightGallery-action.button-holder .arrow:before {
   background: url("imgs/but_arrow-wh.svg") no-repeat center center;
 }
-/* line 186, ../scss/_buttons.scss */
+/* line 188, ../scss/_buttons.scss */
 #lightGallery-action.button-holder .arrow:after {
   border-color: #fff;
 }
-/* line 189, ../scss/_buttons.scss */
+/* line 191, ../scss/_buttons.scss */
 #lightGallery-action.button-holder .arrow-text {
   color: #fff;
 }
 
-/* line 194, ../scss/_buttons.scss */
+/* line 196, ../scss/_buttons.scss */
 #lightGallery-close {
   width: 40px;
   height: 20px;
@@ -2522,13 +2639,13 @@ div.clear {
   right: 20px;
   cursor: pointer;
 }
-/* line 201, ../scss/_buttons.scss */
+/* line 203, ../scss/_buttons.scss */
 #lightGallery-close a {
   width: 100%;
   height: 100%;
   display: block;
 }
-/* line 206, ../scss/_buttons.scss */
+/* line 208, ../scss/_buttons.scss */
 #lightGallery-close span {
   width: 100%;
   height: 2px;
@@ -2543,20 +2660,20 @@ div.clear {
           transform: rotate(0deg);
   transition: all .25s ease-in-out;
 }
-/* line 218, ../scss/_buttons.scss */
+/* line 220, ../scss/_buttons.scss */
 #lightGallery-close span:nth-child(1) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-/* line 221, ../scss/_buttons.scss */
+/* line 223, ../scss/_buttons.scss */
 #lightGallery-close span:nth-child(2) {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-/* line 226, ../scss/_buttons.scss */
+/* line 228, ../scss/_buttons.scss */
 #nav-holder .menu-close {
   width: 40px;
   height: 40px;
@@ -2565,7 +2682,7 @@ div.clear {
   top: 20px;
   cursor: pointer;
 }
-/* line 233, ../scss/_buttons.scss */
+/* line 235, ../scss/_buttons.scss */
 #nav-holder .menu-close a {
   width: 40px;
   height: 40px;
@@ -2575,7 +2692,7 @@ div.clear {
   right: 20px;
   background: transparent;
 }
-/* line 242, ../scss/_buttons.scss */
+/* line 244, ../scss/_buttons.scss */
 #nav-holder .menu-close span {
   width: 40px;
   height: 1px;
@@ -2589,35 +2706,36 @@ div.clear {
           transform: rotate(0deg);
   transition: all .25s ease-in-out;
 }
-/* line 253, ../scss/_buttons.scss */
+/* line 255, ../scss/_buttons.scss */
 #nav-holder .menu-close span:nth-child(1) {
   -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
           transform: rotate(45deg);
 }
-/* line 256, ../scss/_buttons.scss */
+/* line 258, ../scss/_buttons.scss */
 #nav-holder .menu-close span:nth-child(2) {
   -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
           transform: rotate(-45deg);
 }
 
-/* line 261, ../scss/_buttons.scss */
+/* line 263, ../scss/_buttons.scss */
 .chapters {
   width: 100%;
   height: 100%;
   margin: 0;
+  padding: 0;
   position: absolute;
   text-align: center;
 }
-/* line 267, ../scss/_buttons.scss */
+/* line 270, ../scss/_buttons.scss */
 .chapters li {
-  width: 40px;
+  width: 5%;
   height: 100%;
   display: inline-block;
   text-align: center;
 }
-/* line 272, ../scss/_buttons.scss */
+/* line 276, ../scss/_buttons.scss */
 .chapters li:before {
   content: '';
   height: 100%;
@@ -2625,17 +2743,17 @@ div.clear {
   vertical-align: middle;
   margin-right: -0.25em;
 }
-/* line 279, ../scss/_buttons.scss */
+/* line 283, ../scss/_buttons.scss */
 .chapters li a {
   width: 100%;
   height: 100%;
   display: inline-block;
 }
-/* line 284, ../scss/_buttons.scss */
+/* line 288, ../scss/_buttons.scss */
 .chapters li a:hover .marker {
   height: 20px;
 }
-/* line 290, ../scss/_buttons.scss */
+/* line 294, ../scss/_buttons.scss */
 .chapters .marker {
   height: 10px;
   display: inline-block;
@@ -2643,11 +2761,11 @@ div.clear {
   border-left: 2px solid #000;
   transition: height 0.5s ease;
 }
-/* line 298, ../scss/_buttons.scss */
+/* line 302, ../scss/_buttons.scss */
 .chapters li.active a:hover .marker {
   height: inherit;
 }
-/* line 301, ../scss/_buttons.scss */
+/* line 305, ../scss/_buttons.scss */
 .chapters li.active .marker {
   height: 40px;
 }
