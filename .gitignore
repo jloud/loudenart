@@ -2,10 +2,15 @@
 # Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
 
 wp-config.php
+wp-admin/*
+wp-includes/*
 
-dev/
-
+wp-content/plugins/*
+wp-content/upgrade/*
 wp-content/uploads/*
 wp-content/themes/loudart/.sass-cache/*
+wp-content/themes/loudart/node_modules/*
+wp-content/themes/loudart/Gruntfile.js
 
+dev/
 .htaccess
