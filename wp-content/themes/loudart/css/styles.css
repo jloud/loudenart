@@ -2512,61 +2512,79 @@ nav.main-nav ul li a {
 .main-holder .container {
   margin: 0;
   margin-top: -5%;
-  padding-top: 5%;
+  padding-top: 3%;
   position: relative;
   -webkit-transform: skewY(-3deg);
       -ms-transform: skewY(-3deg);
           transform: skewY(-3deg);
-  background: #1e1e1e;
   border-left: 0;
   border-right: 0;
   overflow: hidden;
+  z-index: 10;
+  text-align: right;
+  background: #1e1e1e url(imgs/strip.gif) fixed;
 }
-/* line 130, ../scss/coder/_general.scss */
+/* line 132, ../scss/coder/_general.scss */
 .main-holder .container h2 {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin: 0 auto;
+  margin: 0 -20px 23px 0;
+  padding: 3px;
+  display: inline-block;
+  border: 1px solid #3061a5;
+  border-left: 0;
+  border-right: 0;
   color: #3061a5;
   font-family: "Open Sans", sans-serif;
   font-weight: 300;
-  font-size: 5rem;
-  line-height: 140px;
+  font-size: 3rem;
   letter-spacing: 0.1em;
-  vertical-align: middle;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.5);
+  text-align: right;
 }
-/* line 145, ../scss/coder/_general.scss */
+/* line 144, ../scss/coder/_general.scss */
 .main-holder .container h2 span {
-  padding: 20px 30px 20px 100px;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 80px;
   display: inline-block;
   vertical-align: middle;
   border: 1px solid #3061a5;
   border-left: 0;
   border-right: 0;
-  line-height: 1.4;
+}
+/* line 155, ../scss/coder/_general.scss */
+.main-holder:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(48, 97, 165, 0.4);
+  -webkit-transform: skewY(3deg);
+      -ms-transform: skewY(3deg);
+          transform: skewY(3deg);
+  z-index: 5;
 }
 
-/* line 157, ../scss/coder/_general.scss */
+/* line 171, ../scss/coder/_general.scss */
 .work {
   width: 85%;
+  margin-top: -1%;
   margin-left: 15%;
+  padding: 0 5% 5%;
   position: relative;
   -webkit-transform: skewY(3deg);
       -ms-transform: skewY(3deg);
           transform: skewY(3deg);
   z-index: 10;
 }
-/* line 164, ../scss/coder/_general.scss */
+/* line 179, ../scss/coder/_general.scss */
 .work .holder {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
   max-width: 1200px;
   margin: auto;
-  padding: 5%;
 }
 /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
 .work .holder:after {
@@ -2574,32 +2592,78 @@ nav.main-nav ul li a {
   display: block;
   clear: both;
 }
-/* line 169, ../scss/coder/_general.scss */
+/* line 183, ../scss/coder/_general.scss */
 .work .holder:after {
   content: '';
   display: block;
   clear: both;
 }
-/* line 175, ../scss/coder/_general.scss */
+/* line 189, ../scss/coder/_general.scss */
 .work .thumbnails {
   width: 100%;
   height: 260px;
   margin: auto;
   padding: 1%;
 }
-/* line 180, ../scss/coder/_general.scss */
+/* line 194, ../scss/coder/_general.scss */
+.work .thumbnails a {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  font-family: "Open Sans", sans-serif;
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-align: center;
+}
+/* line 206, ../scss/coder/_general.scss */
+.work .thumbnails a:after {
+  content: "See the work";
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(30, 30, 30, 0.5);
+  color: #3061a5;
+  line-height: 260px;
+  text-align: center;
+  opacity: 0;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  transition: opacity 0.5s ease, background 0.5s ease, -webkit-filter 0.75s ease;
+}
+/* line 223, ../scss/coder/_general.scss */
 .work .thumbnails .thumbnails-bg {
   height: 100%;
+  margin-top: -1px;
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
-  transition: box-shadow 0.4s ease;
+  box-sizing: border-box;
+  box-shadow: inset 0px 0px 0px 15px #1e1e1e;
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
+  transition: brightness 0.5s ease, box-shadow 0.4s ease;
 }
-/* line 187, ../scss/coder/_general.scss */
+/* line 235, ../scss/coder/_general.scss */
+.work .thumbnails:hover a:after {
+  opacity: 1;
+  -webkit-filter: blur(0px);
+          filter: blur(0px);
+  background: transparent;
+}
+/* line 240, ../scss/coder/_general.scss */
 .work .thumbnails:hover .thumbnails-bg {
-  box-shadow: inset 0 0 0 15px #53a7ea;
+  -webkit-filter: brightness(100%);
+          filter: brightness(100%);
+  box-shadow: inset 0 0 0 30px #3061a5;
 }
-/* line 191, ../scss/coder/_general.scss */
+/* line 246, ../scss/coder/_general.scss */
 .work:after {
   content: "";
   width: 80%;
@@ -2611,7 +2675,7 @@ nav.main-nav ul li a {
   z-index: -10;
 }
 @media only screen and (min-width: 600px) {
-  /* line 202, ../scss/coder/_general.scss */
+  /* line 257, ../scss/coder/_general.scss */
   .work .thumbnails {
     width: 50%;
     float: left;
@@ -2631,7 +2695,7 @@ nav.main-nav ul li a {
   }
 }
 @media only screen and (min-width: 769px) {
-  /* line 207, ../scss/coder/_general.scss */
+  /* line 262, ../scss/coder/_general.scss */
   .work .thumbnails {
     width: 50%;
     float: left;
@@ -2651,7 +2715,7 @@ nav.main-nav ul li a {
   }
 }
 @media only screen and (min-width: 1024px) {
-  /* line 212, ../scss/coder/_general.scss */
+  /* line 267, ../scss/coder/_general.scss */
   .work .thumbnails {
     width: 50%;
     float: left;
@@ -2671,7 +2735,7 @@ nav.main-nav ul li a {
   }
 }
 
-/* line 218, ../scss/coder/_general.scss */
+/* line 273, ../scss/coder/_general.scss */
 .skills {
   padding-top: 50px;
   -webkit-transform: skewY(10deg);
@@ -2679,7 +2743,7 @@ nav.main-nav ul li a {
           transform: skewY(10deg);
   background: #ccc;
 }
-/* line 222, ../scss/coder/_general.scss */
+/* line 277, ../scss/coder/_general.scss */
 .skills .holder {
   max-width: 100%;
   margin-left: auto;
@@ -2697,24 +2761,24 @@ nav.main-nav ul li a {
   display: block;
   clear: both;
 }
-/* line 228, ../scss/coder/_general.scss */
+/* line 283, ../scss/coder/_general.scss */
 .skills .holder:after {
   content: '';
   clear: both;
   display: block;
 }
-/* line 234, ../scss/coder/_general.scss */
+/* line 289, ../scss/coder/_general.scss */
 .skills h2 {
   -webkit-transform: skewY(-5deg);
       -ms-transform: skewY(-5deg);
           transform: skewY(-5deg);
 }
-/* line 237, ../scss/coder/_general.scss */
+/* line 292, ../scss/coder/_general.scss */
 .skills ul {
   width: 100%;
   padding: 0;
 }
-/* line 244, ../scss/coder/_general.scss */
+/* line 299, ../scss/coder/_general.scss */
 .skills li {
   margin-bottom: 10px;
   text-align: center;
@@ -2722,38 +2786,38 @@ nav.main-nav ul li a {
   font-size: 1.6rem;
   font-weight: 300;
 }
-/* line 250, ../scss/coder/_general.scss */
+/* line 305, ../scss/coder/_general.scss */
 .skills li.list-head {
   display: block;
   font-size: 1.3rem;
   font-weight: 700;
   text-transform: uppercase;
 }
-/* line 256, ../scss/coder/_general.scss */
+/* line 311, ../scss/coder/_general.scss */
 .skills li .sub-line {
   font-size: 1.3rem;
   display: block;
 }
 @media only screen and (min-width: 600px) {
-  /* line 262, ../scss/coder/_general.scss */
+  /* line 317, ../scss/coder/_general.scss */
   .skills ul {
     width: 50%;
     float: left;
   }
-  /* line 264, ../scss/coder/_general.scss */
+  /* line 319, ../scss/coder/_general.scss */
   .skills ul:last-child {
     width: 100%;
   }
 }
 @media only screen and (min-width: 769px) {
-  /* line 270, ../scss/coder/_general.scss */
+  /* line 325, ../scss/coder/_general.scss */
   .skills ul, .skills ul:last-child {
     width: 33.33333%;
     float: left;
   }
 }
 
-/* line 276, ../scss/coder/_general.scss */
+/* line 331, ../scss/coder/_general.scss */
 .intro-text {
   width: 100%;
   margin: -200px auto -50px;
@@ -2767,14 +2831,14 @@ nav.main-nav ul li a {
       -ms-transform: skewY(0deg);
           transform: skewY(0deg);
 }
-/* line 286, ../scss/coder/_general.scss */
+/* line 341, ../scss/coder/_general.scss */
 .intro-text p {
   -webkit-transform: skewY(5deg);
       -ms-transform: skewY(5deg);
           transform: skewY(5deg);
 }
 
-/* line 292, ../scss/coder/_general.scss */
+/* line 347, ../scss/coder/_general.scss */
 .contact-form form {
   max-width: 600px;
   margin: auto;
@@ -2783,7 +2847,7 @@ nav.main-nav ul li a {
       -ms-transform: skewY(5deg);
           transform: skewY(5deg);
 }
-/* line 297, ../scss/coder/_general.scss */
+/* line 352, ../scss/coder/_general.scss */
 .contact-form form input, .contact-form form textarea {
   width: 96%;
   max-width: 600px;
@@ -2795,21 +2859,21 @@ nav.main-nav ul li a {
   box-sizing: content-box;
   transition: background 1s ease;
 }
-/* line 308, ../scss/coder/_general.scss */
+/* line 363, ../scss/coder/_general.scss */
 .contact-form form input:first-child {
   margin-top: 0;
 }
-/* line 311, ../scss/coder/_general.scss */
+/* line 366, ../scss/coder/_general.scss */
 .contact-form form textarea {
   height: 100px;
 }
-/* line 314, ../scss/coder/_general.scss */
+/* line 369, ../scss/coder/_general.scss */
 .contact-form form input[type=text], .contact-form form textarea, .contact-form form ::-webkit-input-placeholder, .contact-form form .submit-button {
   font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   color: #000;
 }
-/* line 319, ../scss/coder/_general.scss */
+/* line 374, ../scss/coder/_general.scss */
 .contact-form form input.submit-button {
   margin-bottom: 0;
   font-family: "Droid Serif", serif;
@@ -2820,12 +2884,12 @@ nav.main-nav ul li a {
   letter-spacing: 0.1em;
   transition: color 0.75s ease, background 0.5s ease;
 }
-/* line 328, ../scss/coder/_general.scss */
+/* line 383, ../scss/coder/_general.scss */
 .contact-form form input.submit-button:hover {
   background: #000;
   color: #fff;
 }
-/* line 333, ../scss/coder/_general.scss */
+/* line 388, ../scss/coder/_general.scss */
 .contact-form form input:focus, .contact-form form input:active, .contact-form form textarea:focus, .contact-form form textarea:active {
   margin-left: -3px;
   margin-top: -2px;
@@ -2834,7 +2898,7 @@ nav.main-nav ul li a {
   outline: none;
 }
 
-/* line 343, ../scss/coder/_general.scss */
+/* line 398, ../scss/coder/_general.scss */
 .footer {
   width: 100%;
   height: 50px;

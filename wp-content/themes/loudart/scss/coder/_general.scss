@@ -121,51 +121,65 @@ nav.main-nav {
   .container {
     margin: 0;
     margin-top: -5%;
-    padding-top: 5%;
+    padding-top: 3%;
     position: relative;
     transform: skewY(-3deg);
-    background: #1e1e1e;
     border-left: 0; border-right: 0;
     overflow: hidden;
+    z-index: 10;
+    text-align: right;
+    background: $grey url(imgs/strip.gif) fixed;
     h2 {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      margin: 0 auto;
-      color: #3061a5;
+      margin: 0 -20px 23px 0;
+      padding: 3px;
+      display: inline-block;
+      border: 1px solid $blue;
+      border-left: 0; border-right: 0;
+      color: $blue;
       font-family: $sans2;
       font-weight: 300;
-      font-size: 5rem;
-      line-height: 140px;
+      font-size: 3rem;
       letter-spacing: 0.1em;
-      vertical-align: middle;
-      text-align: center;
-      background: rgba(0,0,0,0.5);
-      //border: 1px solid #3061a5;
+      text-align: right;
       span {
-        padding: 20px 30px 20px 100px;
+        width: 100%;
+        height: 100%;
+        padding: 10px 10px 10px 80px;
         display: inline-block;
         vertical-align: middle;
-        border: 1px solid #3061a5;
+        border: 1px solid $blue;
         border-left: 0; border-right: 0;
-        line-height: 1.4;
       }
     }
   }
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: transparentize($blue,0.6);
+    transform: skewY(3deg);
+    z-index: 5;
+  }
 }
+
+$thumb-height: 260px;
 
 .work {
   width: 85%;
+  margin-top: -1%;
   margin-left: 15%;
+  padding: 0 5% 5%;
   position: relative;
   transform: skewY(3deg);
-  //margin-top: -12%;
   z-index: 10;
   .holder {
     @include container;
     max-width: 1200px;
     margin: auto;
-    padding: 5%;
     &:after {
       content: '';
       display: block;
@@ -174,18 +188,59 @@ nav.main-nav {
   }
   .thumbnails {
     width: 100%;
-    height: 260px;
+    height: $thumb-height;
     margin: auto;
     padding: 1%;
+    a {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+      font-family: $sans2;
+      font-size: 2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-align: center;   
+      &:after {
+        content: "See the work";
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: transparentize($grey,0.5);
+        color: $blue;
+        line-height: $thumb-height;
+        text-align: center;
+        opacity: 0;
+        filter: blur(10px);
+        transition: opacity 0.5s ease, background 0.5s ease, -webkit-filter 0.75s ease;
+      }
+    }
     .thumbnails-bg {
       height: 100%;
+      margin-top: -1px;
       background-repeat: no-repeat;
       background-position: center center;
       background-size: cover;
-      transition: box-shadow 0.4s ease;
+      box-sizing: border-box;
+      box-shadow: inset 0px 0px 0px 15px $grey;
+      filter: brightness(50%);
+      transition: brightness 0.5s ease, box-shadow 0.4s ease;
     }
-    &:hover .thumbnails-bg {
-      box-shadow: inset 0 0 0 15px #53a7ea;
+    &:hover{
+      a:after {
+        opacity: 1;
+        filter: blur(0px);
+        background: transparent;
+      }
+      .thumbnails-bg {
+        filter: brightness(100%);
+        box-shadow: inset 0 0 0 30px $blue;
+      }
     }
   }
   &:after {

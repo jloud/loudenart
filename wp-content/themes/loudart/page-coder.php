@@ -18,7 +18,7 @@
 	<main class="main-holder" role="main">
 		<div class="container">
 			<section class="work">
-				<h2><span>Work</span></h2>
+				<h2><span>Selected work</span></h2>
 				<div class="holder">
 				<?php
 					while ($the_query -> have_posts()) : $the_query -> the_post();
