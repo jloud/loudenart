@@ -1,0 +1,84 @@
+@import "fonts";
+
+$serif: 'Droid Serif', serif;
+$serif2: 'Neuton', serif;
+
+$sans: 'Nunito', sans-serif;
+
+$sans2: 'Open Sans', sans-serif;
+
+$grey: lighten(#000,70%);
+$grey-dark: #444;
+
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+$break-small: 320px;
+$break-medium: 768px;
+$break-large: 1024px;
+
+@mixin respond-to($media) {
+  @if $media == phone {
+    @media only screen and (max-width: $break-small) { @content; }
+  }
+  @else if $media == tablet {
+    @media only screen and (min-width: $break-medium + 1) { @content; }
+  }
+  @else if $media == desktop {
+    @media only screen and (min-width: $break-large) { @content; }
+  }
+  @else {
+    @media only screen and (min-width: $media) { @content; }
+  }
+}
+
+@mixin respond-to-height($height) {
+  
+  @media only screen and (max-height: $height) { @content; }
+
+}
+
+@mixin rightEnd {
+  -webkit-animation: rightEnd 0.3s;
+  @keyframes rightEnd {
+    0% {
+      left: 0;
+    }
+    50% {
+      left: -30px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+}
+
+@mixin maintain-ratio($ratio: 1 1) {
+  @if length($ratio) < 2 or length($ratio) > 2 {
+    @warn "$ratio must be a list with two values.";
+  }
+ 
+  $width: 100%;
+  $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+  
+  width: $width;
+  height: 0;
+  padding-bottom: $height;
+}
+
+@mixin aspect-ratio($percentual-height){
+  // Wrapper
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  &:before { 
+    padding-top:$percentual-height; 
+    content: '';
+    display: block;            
+  }
+}
+
+
