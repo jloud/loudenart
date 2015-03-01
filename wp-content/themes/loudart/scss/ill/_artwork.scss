@@ -1,0 +1,111 @@
+$animate-distance: 50px;
+
+#artwork {
+  padding: 0 4%;
+}
+  .artwork-holder {
+    width: 100%;
+    margin-bottom: 15%;
+    padding: 0;
+  }
+  .art-holder {
+    width: 100%;
+    clear: both;
+  }
+
+.art-img {
+  width: 23%;
+  margin: 0 1%;
+  padding: 2%;
+  display: block;
+  text-align: center;
+  img {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+  }
+  &.heavy-pen-work {
+    width: 48%;
+    img {
+      width: 80%;
+    }
+  }
+  &.pen-pencil-faces, &.inked-cities {
+    width: 48%;
+    img {
+      width: 60%;
+    }
+  }
+  &.inked-cities {
+    width: 48%;
+    img {
+      width: 90%;
+    }
+  }
+  &.pen-drawings {
+    // width: 20%;
+    img {
+      // width: 90%;
+    }
+  }
+  &.pencil-color {
+    img {
+      width: 70%;
+    }
+  }
+}
+
+.clear-row {
+  width: 100%;
+  height: 10px;
+}
+
+.heavy-pen-work {
+  &.art-holder-1 {
+    text-align: right;
+  }
+  &.art-holder-2 {
+    text-align: left;
+  }
+}
+
+.loose-pen-work {
+  &.art-holder-1 {
+    width: 48%;
+    padding: 0 3%;
+    text-align: right;
+  }
+}
+
+.pen-drawings {
+  &.art-holder-3 {
+    margin-top: 10px;
+  }
+}
+
+.pencil-color {
+  width: 48%;
+  &.art-holder-1 {
+    width: 100%;
+    img {
+      width: 70%;
+    }
+  }
+}
+
+.room-sims {
+  width: 48%;
+  img {
+    width: 80%;
+  }
+  &.art-holder-1 {
+    width: 100%;
+    img {
+      width: 70%;
+    }
+  }
+}
+
+.art-grid-sizer {
+  width: 25%;
+}
