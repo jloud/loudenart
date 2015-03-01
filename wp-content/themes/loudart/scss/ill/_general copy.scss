@@ -1,0 +1,144 @@
+@import "landing";
+
+@import "artwork";
+
+.content {
+  width: 9000px;
+  margin: 0 auto;
+  padding: 0;
+  white-space: nowrap;
+}
+
+.main-holder {
+  margin-top: 100px;
+}
+
+.header {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+
+.content.page {
+  display: inline-block;
+  vertical-align: top;
+  transition: opacity 0.5s ease;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  &.active-custom {
+    //opacity: 1;
+  }
+  &.active {
+    //opacity: 1;
+  }
+}
+
+.bg-parallax {
+  width: 7000px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  div {
+    width: 7000px;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: url('imgs/bg.gif');
+    background-position: fixed;
+  }
+}
+
+.contact {
+  width: 100vw;
+  height: 100vh;
+  @include respond-to(tablet){
+    width: 70vw;
+  }
+  &.active {
+    opacity: 1;
+  }
+}
+
+// .about {
+//   width: 100%;
+//   height: 100%;
+//   .photo {
+//     width: 300px;
+//     margin: 0 auto 20px;
+//   }
+//   .text {
+//     @include vertical-align;
+//     margin-top: -20px;
+//     @include respond-to(tablet){
+//       margin-top: 0;
+//     }
+//   }
+//   p {
+//     width: 100%;
+//     max-width: 260px;
+//     margin: 0 auto;
+//     font-family: $serif;
+//     text-align: center;
+//     font-size: 2.5rem;
+//     white-space: normal;
+//     &.email {
+//       font-family: $serif;
+//       font-size: 1.9rem;
+//       letter-spacing: 0.1em;
+//     }
+//   }
+//   form {
+//     max-width: 600px;
+//     margin: auto;
+//     padding: 20px;
+//     input, textarea {
+//       width: 96%;
+//       max-width: 600px;
+//       margin: 20px 0;
+//       padding: 2%;
+//       display: block;
+//       border: 1px solid #000;
+//       background: transparent;
+//       box-sizing: content-box;
+//       transition: background 1s ease;
+//     }
+//     input:first-child {
+//       margin-top: 0;
+//     }
+//     textarea {
+//       height: 100px;
+//     }
+//     input[type=text], textarea, ::-webkit-input-placeholder, .submit-button {
+//       font-family: $sans;
+//       font-size: 2rem;
+//       color: #000;
+//     }
+//     input.submit-button {
+//       margin-bottom: 0;
+//       font-family: $serif;
+//       font-size: 2.3rem;
+//       text-transform: uppercase;
+//       background: transparent;
+//       border: 2px solid #000;
+//       letter-spacing: 0.1em;
+//       transition: color 0.75s ease, background 0.5s ease;
+//       &:hover {
+//         background: #000;
+//         color: #fff;
+//       }
+//     }
+//     input:focus, input:active, textarea:focus, textarea:active {
+//       margin-left: -3px;
+//       margin-top: -2px;
+//       border: 4px solid #000;
+//       background: #fff;
+//       outline: none;
+//     }
+//   }
+// }

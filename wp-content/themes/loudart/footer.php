@@ -1,16 +1,23 @@
+					<section id="contact" class="contact page-section">
+						<div class="holder">
+							<h2><span class="outer"><span class="inner">Contact</span></span></h2>
+							<div class="about-me">
+							<p>I'm a front-end web developer based on the East coast, specializing in translating designs to real working web pages. This page shows off my web development work, if you're looking for illustration click here.</p>
+							</div>
+							<div class="contact-form">
+							<?php include (TEMPLATEPATH.'/cust-email-form.php'); ?>
+							</div>
+						</div><!-- holder -->
+					</section>
+				</main><!-- main-holder -->
+				<footer>
+						<?php footer_nav(); ?>
+						<!-- <span>&#169;</span>2015 Jim Louden <a href="">Web</a> <a href="">Art</a> -->
+				</footer>
+			</div><!-- site-container -->
 		</div><!-- /wrapper -->
 
 		<?php wp_footer(); ?>
-
-		<!-- analytics -->
-		<script>
-		(function(f,i,r,e,s,h,l){i['GoogleAnalyticsObject']=s;f[s]=f[s]||function(){
-		(f[s].q=f[s].q||[]).push(arguments)},f[s].l=1*new Date();h=i.createElement(r),
-		l=i.getElementsByTagName(r)[0];h.async=1;h.src=e;l.parentNode.insertBefore(h,l)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-		ga('create', 'UA-XXXXXXXX-XX', 'yourdomain.com');
-		ga('send', 'pageview');
-		</script>
 
 	</body>
 </html>

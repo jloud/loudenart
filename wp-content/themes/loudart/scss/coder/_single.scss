@@ -1,0 +1,151 @@
+.single {
+  background: $grey-dark url(imgs/strip.gif) fixed;
+  #wrapper {
+    background: $grey-dark;
+  }
+}
+
+.single-header-holder {
+  background: $grey;
+  text-align: center;
+  h1.initials {
+    margin: 0;
+    display: inline-block;
+    font-family: $sans2;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #fff;
+  }
+  .main-nav {
+    display: inline-block;
+    border: 0;
+  }
+}
+
+.single-sub-header {
+  margin: 0 0 2% 30px;
+  position: relative;
+  h2 {
+    width: 50%;
+    margin: 0;
+    @include section-header;
+    color: #fff;
+    span {
+      border-color: #fff;
+    }
+  }
+  p {
+    width: 50%;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+  }
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.main-holder.single-post {
+  margin-top: 0;
+  .container {
+    transform: none;
+  }
+  .work-single {
+    max-width: 100%;
+    margin: auto;
+    padding-bottom: 12%;
+    background: $grey-dark url(imgs/strip.png) fixed;
+    &:after {
+      @include clear;
+    }
+  }
+  article {
+    margin: 0;
+    padding-top: 0;
+  }
+}
+
+.work-thumbs {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  .thumbs {
+    width: 100%;
+    padding: 5px;
+    display: inline-block;
+    text-align: center;
+    float: left;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .grid-sizer {
+    width: 100%;
+    clear: both;
+  }
+  @include respond-to(tablet){
+    .thumbs {
+      width: 50%;
+      padding: 10px;
+    }
+    .grid-sizer {
+      width: 300px;
+    }
+  }
+}
+
+.work-description {
+  margin-top: 30px;
+  padding: 3% 6% 0;
+  p {
+    width: 70%;
+    margin: auto;
+    padding: 30px;
+    border-top: 1px solid $grey-light;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.web-single.chapter-holder {
+  right: 0;
+  opacity: 1;
+  li.chapter-link a {
+    opacity: 1;
+  }
+}
+
+@include respond-to(tablet){
+  .thumbs.pic-1 {
+    width: 100%;
+    img {
+      width: 75%;
+    }
+  }
+  .page-ef {
+    .pic-4, .pic-5 {
+      width: 100%;
+      margin-top: 30px;
+      img {
+        width: 75%;
+      }
+    }
+  }
+  .page-tp {
+    .pic-6 {
+      width: 100%;
+      margin-top: 30px;
+      img {
+        width: 75%;
+      }
+    }
+  }
+}

@@ -1,3256 +1,582 @@
+/**
+ * smoothState.js is a jQuery plugin to stop page load jank.
+ *
+ * This jQuery plugin progressively enhances page loads to 
+ * behave more like a single-page application.
+ *
+ * @author  Miguel Ángel Pérez   reachme@miguel-perez.com
+ * @see     https://github.com/miguel-perez/jquery.smoothState.js
+ * 
+ */
+;(function ( $, window, document, undefined ) {
+    "use strict";
 
+    /** Abort plugin if browser does not suppost pushState */
+    if(!history.pushState) {
+        // setup a dummy fn, but don't intercept on link clicks
+        $.fn.smoothState = function() { return this; };
+        $.fn.smoothState.options = {};
+        return;
+    }
 
+    /** Abort if smoothstate is already present **/
+    if($.fn.smoothState) { return; }
 
-
-<!DOCTYPE html>
-<html lang="en" class="">
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Language" content="en">
-    
-    
-    <title>jquery.smoothState.js/jquery.smoothState.js at master · weblinc/jquery.smoothState.js</title>
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
-    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-114.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-144.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144.png">
-    <meta property="fb:app_id" content="1401488693436528">
-
-      <meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="weblinc/jquery.smoothState.js" name="twitter:title" /><meta content="jquery.smoothState.js - A jQuery plugin to stop the jank of page loads." name="twitter:description" /><meta content="https://avatars0.githubusercontent.com/u/1520285?v=3&amp;s=400" name="twitter:image:src" />
-<meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="https://avatars0.githubusercontent.com/u/1520285?v=3&amp;s=400" property="og:image" /><meta content="weblinc/jquery.smoothState.js" property="og:title" /><meta content="https://github.com/weblinc/jquery.smoothState.js" property="og:url" /><meta content="jquery.smoothState.js - A jQuery plugin to stop the jank of page loads." property="og:description" />
-
-      <meta name="browser-stats-url" content="/_stats">
-    <link rel="assets" href="https://assets-cdn.github.com/">
-    <link rel="conduit-xhr" href="https://ghconduit.com:25035">
-    <link rel="xhr-socket" href="/_sockets">
-    <meta name="pjax-timeout" content="1000">
-    <link rel="sudo-modal" href="/sessions/sudo_modal">
-
-    <meta name="msapplication-TileImage" content="/windows-tile.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="selected-link" value="repo_source" data-pjax-transient>
-      <meta name="google-analytics" content="UA-3769691-2">
-
-    <meta content="collector.githubapp.com" name="octolytics-host" /><meta content="collector-cdn.github.com" name="octolytics-script-host" /><meta content="github" name="octolytics-app-id" /><meta content="185A1F2C:202C:CABD61B:54CE9FBD" name="octolytics-dimension-request_id" /><meta content="6080212" name="octolytics-actor-id" /><meta content="jloud" name="octolytics-actor-login" /><meta content="4be6d5c2f8a71a8570423e6f6714a62a2763d9e251c322eb8d1a50c299a5153a" name="octolytics-actor-hash" />
-    
-    <meta content="Rails, view, blob#show" name="analytics-event" />
-
-    
-    
-    <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
-
-
-    <meta content="authenticity_token" name="csrf-param" />
-<meta content="34iKMwPhXkY2QtqfHAEA7jFvIZdow181/CK8dboVQFPNW9UPhQ3Soe0kneQXb0M9Z7qvth+ipPMZrlYyIy0jYg==" name="csrf-token" />
-
-    <link href="https://assets-cdn.github.com/assets/github-e3321d79480f0738576ff81cb2f3f717fdbb0bf35ea5938c30005a3349371133.css" media="all" rel="stylesheet" type="text/css" />
-    <link href="https://assets-cdn.github.com/assets/github2-dde0fad02eec63beeeea358c4fcea2f224cb2d4fcf094f9cf9d9dd6bd5c5eece.css" media="all" rel="stylesheet" type="text/css" />
-    
-    
-
-
-    <meta http-equiv="x-pjax-version" content="47acc7b6a71679710fe333073bd18058">
-
-      
-  <meta name="description" content="jquery.smoothState.js - A jQuery plugin to stop the jank of page loads.">
-  <meta name="go-import" content="github.com/weblinc/jquery.smoothState.js git https://github.com/weblinc/jquery.smoothState.js.git">
-
-  <meta content="1520285" name="octolytics-dimension-user_id" /><meta content="weblinc" name="octolytics-dimension-user_login" /><meta content="21748166" name="octolytics-dimension-repository_id" /><meta content="weblinc/jquery.smoothState.js" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="21748166" name="octolytics-dimension-repository_network_root_id" /><meta content="weblinc/jquery.smoothState.js" name="octolytics-dimension-repository_network_root_nwo" />
-  <link href="https://github.com/weblinc/jquery.smoothState.js/commits/master.atom" rel="alternate" title="Recent Commits to jquery.smoothState.js:master" type="application/atom+xml">
-
-  </head>
-
-
-  <body class="logged_in  env-production macintosh vis-public page-blob">
-    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
-    <div class="wrapper">
-      
-      
-      
-      
-
-
-      <div class="header header-logged-in true" role="banner">
-  <div class="container clearfix">
-
-    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" ga-data-click="Header, go to dashboard, icon:logo">
-  <span class="mega-octicon octicon-mark-github"></span>
-</a>
-
-
-      <div class="site-search repo-scope js-site-search" role="search">
-          <form accept-charset="UTF-8" action="/weblinc/jquery.smoothState.js/search" class="js-site-search-form" data-global-search-url="/search" data-repo-search-url="/weblinc/jquery.smoothState.js/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-  <input type="text"
-    class="js-site-search-field is-clearable"
-    data-hotkey="s"
-    name="q"
-    placeholder="Search"
-    data-global-scope-placeholder="Search GitHub"
-    data-repo-scope-placeholder="Search"
-    tabindex="1"
-    autocapitalize="off">
-  <div class="scope-badge">This repository</div>
-</form>
-      </div>
-      <ul class="header-nav left" role="navigation">
-        <li class="header-nav-item explore">
-          <a class="header-nav-link" href="/explore" data-ga-click="Header, go to explore, text:explore">Explore</a>
-        </li>
-          <li class="header-nav-item">
-            <a class="header-nav-link" href="https://gist.github.com" data-ga-click="Header, go to gist, text:gist">Gist</a>
-          </li>
-          <li class="header-nav-item">
-            <a class="header-nav-link" href="/blog" data-ga-click="Header, go to blog, text:blog">Blog</a>
-          </li>
-        <li class="header-nav-item">
-          <a class="header-nav-link" href="https://help.github.com" data-ga-click="Header, go to help, text:help">Help</a>
-        </li>
-      </ul>
-
-    
-<ul class="header-nav user-nav right" id="user-links">
-  <li class="header-nav-item dropdown js-menu-container">
-    <a class="header-nav-link name" href="/jloud" data-ga-click="Header, go to profile, text:username">
-      <img alt="jloud" class="avatar" data-user="6080212" height="20" src="https://avatars3.githubusercontent.com/u/6080212?v=3&amp;s=40" width="20" />
-      <span class="css-truncate">
-        <span class="css-truncate-target">jloud</span>
-      </span>
-    </a>
-  </li>
-
-  <li class="header-nav-item dropdown js-menu-container">
-    <a class="header-nav-link js-menu-target tooltipped tooltipped-s" href="#" aria-label="Create new..." data-ga-click="Header, create new, icon:add">
-      <span class="octicon octicon-plus"></span>
-      <span class="dropdown-caret"></span>
-    </a>
-
-    <div class="dropdown-menu-content js-menu-content">
-      
-<ul class="dropdown-menu">
-  <li>
-    <a href="/new" data-ga-click="Header, create new repository, icon:repo"><span class="octicon octicon-repo"></span> New repository</a>
-  </li>
-  <li>
-    <a href="/organizations/new" data-ga-click="Header, create new organization, icon:organization"><span class="octicon octicon-organization"></span> New organization</a>
-  </li>
-
-
-    <li class="dropdown-divider"></li>
-    <li class="dropdown-header">
-      <span title="weblinc/jquery.smoothState.js">This repository</span>
-    </li>
-      <li>
-        <a href="/weblinc/jquery.smoothState.js/issues/new" data-ga-click="Header, create new issue, icon:issue"><span class="octicon octicon-issue-opened"></span> New issue</a>
-      </li>
-</ul>
-
-    </div>
-  </li>
-
-  <li class="header-nav-item">
-        <a href="/notifications" aria-label="You have no unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s" data-ga-click="Header, go to notifications, icon:read" data-hotkey="g n">
-        <span class="mail-status all-read"></span>
-        <span class="octicon octicon-inbox"></span>
-</a>
-  </li>
-
-  <li class="header-nav-item">
-    <a class="header-nav-link tooltipped tooltipped-s" href="/settings/profile" id="account_settings" aria-label="Settings" data-ga-click="Header, go to settings, icon:settings">
-      <span class="octicon octicon-gear"></span>
-    </a>
-  </li>
-
-  <li class="header-nav-item">
-    <form accept-charset="UTF-8" action="/logout" class="logout-form" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="2OtWF0vtQ6P7sdNRD3CkAFoyQ4u+g4P8n9JWxPifzVvki88fnQJvZOlM4ui2qbdz2WWPwtX5fV+3waVH4gH0HA==" /></div>
-      <button class="header-nav-link sign-out-button tooltipped tooltipped-s" aria-label="Sign out" data-ga-click="Header, sign out, icon:logout">
-        <span class="octicon octicon-sign-out"></span>
-      </button>
-</form>  </li>
-
-</ul>
-
-
-    
-  </div>
-</div>
-
-      
-
+    var
+        /** Used later to scroll page to the top */
+        $body       = $("html, body"),
         
-
-
-      <div id="start-of-content" class="accessibility-aid"></div>
-          <div class="site" itemscope itemtype="http://schema.org/WebPage">
-    <div id="js-flash-container">
-      
-    </div>
-    <div class="pagehead repohead instapaper_ignore readability-menu">
-      <div class="container">
+        /** Used in development mode to console out useful warnings */
+        consl       = (window.console || false),
         
-<ul class="pagehead-actions">
+        /** Plugin default options, will be exposed as $fn.smoothState.options */
+        defaults    = {
 
-    <li class="subscription">
-      <form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ZCnxyuYiJAB3785JGWe+C/wZQFJpdItnXbGfCZGRW1oQIZ7V5oyYP/wp9yKzV8Svzf/P4efvN8cAICZoRfDjsQ==" /></div>  <input id="repository_id" name="repository_id" type="hidden" value="21748166" />
+            /** jquery element string to specify which anchors smoothstate should bind to */
+            anchors : "a",
 
-    <div class="select-menu js-menu-container js-select-menu">
-      <a class="social-count js-social-count" href="/weblinc/jquery.smoothState.js/watchers">
-        86
-      </a>
-      <a href="/weblinc/jquery.smoothState.js/subscription"
-        class="minibutton select-menu-button with-count js-menu-target" role="button" tabindex="0" aria-haspopup="true">
-        <span class="js-select-button">
-          <span class="octicon octicon-eye"></span>
-          Watch
-        </span>
-      </a>
-
-      <div class="select-menu-modal-holder">
-        <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
-          <div class="select-menu-header">
-            <span class="select-menu-title">Notifications</span>
-            <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
-          </div> <!-- /.select-menu-header -->
-
-          <div class="select-menu-list js-navigation-container" role="menu">
-
-            <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <div class="select-menu-item-text">
-                <input checked="checked" id="do_included" name="do" type="radio" value="included" />
-                <h4>Not watching</h4>
-                <span class="description">Be notified when participating or @mentioned.</span>
-                <span class="js-select-button-text hidden-select-button-text">
-                  <span class="octicon octicon-eye"></span>
-                  Watch
-                </span>
-              </div>
-            </div> <!-- /.select-menu-item -->
-
-            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
-              <span class="select-menu-item-icon octicon octicon octicon-check"></span>
-              <div class="select-menu-item-text">
-                <input id="do_subscribed" name="do" type="radio" value="subscribed" />
-                <h4>Watching</h4>
-                <span class="description">Be notified of all conversations.</span>
-                <span class="js-select-button-text hidden-select-button-text">
-                  <span class="octicon octicon-eye"></span>
-                  Unwatch
-                </span>
-              </div>
-            </div> <!-- /.select-menu-item -->
-
-            <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <div class="select-menu-item-text">
-                <input id="do_ignore" name="do" type="radio" value="ignore" />
-                <h4>Ignoring</h4>
-                <span class="description">Never be notified.</span>
-                <span class="js-select-button-text hidden-select-button-text">
-                  <span class="octicon octicon-mute"></span>
-                  Stop ignoring
-                </span>
-              </div>
-            </div> <!-- /.select-menu-item -->
-
-          </div> <!-- /.select-menu-list -->
-
-        </div> <!-- /.select-menu-modal -->
-      </div> <!-- /.select-menu-modal-holder -->
-    </div> <!-- /.select-menu -->
-
-</form>
-    </li>
-
-  <li>
-    
-  <div class="js-toggler-container js-social-container starring-container ">
-
-    <form accept-charset="UTF-8" action="/weblinc/jquery.smoothState.js/unstar" class="js-toggler-form starred js-unstar-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="yQVvlFNxjv2uPdrOsEjiouBxiNQx7KZa2kkM5kRqzyjx1MvHgj5wh8UUL/TvEmu1cFvp48pjp6JWenCJPdws/Q==" /></div>
-      <button
-        class="minibutton with-count js-toggler-target star-button"
-        aria-label="Unstar this repository" title="Unstar weblinc/jquery.smoothState.js">
-        <span class="octicon octicon-star"></span>
-        Unstar
-      </button>
-        <a class="social-count js-social-count" href="/weblinc/jquery.smoothState.js/stargazers">
-          2,008
-        </a>
-</form>
-    <form accept-charset="UTF-8" action="/weblinc/jquery.smoothState.js/star" class="js-toggler-form unstarred js-star-button" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="Ikkr2H4FzZdTA1zcU9qsh2fI+7+wtFUh/rDkPlyhTtiPPiFlNnsL0yajr1bbjYLf0gHO+O2lojA7QJqeyrUtZQ==" /></div>
-      <button
-        class="minibutton with-count js-toggler-target star-button"
-        aria-label="Star this repository" title="Star weblinc/jquery.smoothState.js">
-        <span class="octicon octicon-star"></span>
-        Star
-      </button>
-        <a class="social-count js-social-count" href="/weblinc/jquery.smoothState.js/stargazers">
-          2,008
-        </a>
-</form>  </div>
-
-  </li>
-
-
-        <li>
-          <a href="/weblinc/jquery.smoothState.js/fork" class="minibutton with-count js-toggler-target fork-button tooltipped-n" title="Fork your own copy of weblinc/jquery.smoothState.js to your account" aria-label="Fork your own copy of weblinc/jquery.smoothState.js to your account" rel="nofollow" data-method="post">
-            <span class="octicon octicon-repo-forked"></span>
-            Fork
-          </a>
-          <a href="/weblinc/jquery.smoothState.js/network" class="social-count">181</a>
-        </li>
-
-</ul>
-
-        <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
-          <span class="mega-octicon octicon-repo"></span>
-          <span class="author"><a href="/weblinc" class="url fn" itemprop="url" rel="author"><span itemprop="title">weblinc</span></a></span><!--
-       --><span class="path-divider">/</span><!--
-       --><strong><a href="/weblinc/jquery.smoothState.js" class="js-current-repository" data-pjax="#js-repo-pjax-container">jquery.smoothState.js</a></strong>
-
-          <span class="page-context-loader">
-            <img alt="" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
-          </span>
-
-        </h1>
-      </div><!-- /.container -->
-    </div><!-- /.repohead -->
-
-    <div class="container">
-      <div class="repository-with-sidebar repo-container new-discussion-timeline  ">
-        <div class="repository-sidebar clearfix">
+            /** If set to true, smoothState will prefetch a link's contents on hover */
+            prefetch : false,
             
-<nav class="sunken-menu repo-nav js-repo-nav js-sidenav-container-pjax js-octicon-loaders"
-     role="navigation"
-     data-pjax="#js-repo-pjax-container"
-     data-issue-count-url="/weblinc/jquery.smoothState.js/issues/counts">
-  <ul class="sunken-menu-group">
-    <li class="tooltipped tooltipped-w" aria-label="Code">
-      <a href="/weblinc/jquery.smoothState.js" aria-label="Code" class="selected js-selected-navigation-item sunken-menu-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /weblinc/jquery.smoothState.js">
-        <span class="octicon octicon-code"></span> <span class="full-word">Code</span>
-        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
-</a>    </li>
+            /** A selecor that deinfes with links should be ignored by smoothState */
+            blacklist : ".no-smoothstate, [target]",
+            
+            /** If set to true, smoothState will log useful debug information instead of aborting */
+            development : false,
+            
+            /** The number of pages smoothState will try to store in memory and not request again */
+            pageCacheSize : 0,
+            
+            /** A function that can be used to alter urls before they are used to request content */
+            alterRequestUrl : function (url) {
+                return url;
+            },
+            
+            /** Run when a link has been activated */
+            onStart : {
+                duration: 0,
+                render: function (url, $container) {
+                    $body.scrollTop(0);
+                }
+            },
 
-      <li class="tooltipped tooltipped-w" aria-label="Issues">
-        <a href="/weblinc/jquery.smoothState.js/issues" aria-label="Issues" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /weblinc/jquery.smoothState.js/issues">
-          <span class="octicon octicon-issue-opened"></span> <span class="full-word">Issues</span>
-          <span class="js-issue-replace-counter"></span>
-          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
-</a>      </li>
+            /** Run if the page request is still pending and onStart has finished animating */
+            onProgress : {
+                duration: 0,
+                render: function (url, $container) {
+                    $body.css("cursor", "wait");
+                    $body.find("a").css("cursor", "wait");
+                }
+            },
 
-    <li class="tooltipped tooltipped-w" aria-label="Pull Requests">
-      <a href="/weblinc/jquery.smoothState.js/pulls" aria-label="Pull Requests" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g p" data-selected-links="repo_pulls /weblinc/jquery.smoothState.js/pulls">
-          <span class="octicon octicon-git-pull-request"></span> <span class="full-word">Pull Requests</span>
-          <span class="js-pull-replace-counter"></span>
-          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
-</a>    </li>
+            /** Run when requested content is ready to be injected into the page  */
+            onEnd : {
+                duration: 0,
+                render: function (url, $container, $content) {
+                    $body.css("cursor", "auto");
+                    $body.find("a").css("cursor", "auto");
+                    $container.html($content);
+                }
+            },
 
+            /** Run when content has been injected and all animations are complete  */
+            callback : function(url, $container, $content) {
 
-      <li class="tooltipped tooltipped-w" aria-label="Wiki">
-        <a href="/weblinc/jquery.smoothState.js/wiki" aria-label="Wiki" class="js-selected-navigation-item sunken-menu-item" data-hotkey="g w" data-selected-links="repo_wiki /weblinc/jquery.smoothState.js/wiki">
-          <span class="octicon octicon-book"></span> <span class="full-word">Wiki</span>
-          <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
-</a>      </li>
-  </ul>
-  <div class="sunken-menu-separator"></div>
-  <ul class="sunken-menu-group">
+            }
+        },
+        
+        /** Utility functions that are decoupled from SmoothState */
+        utility     = {
 
-    <li class="tooltipped tooltipped-w" aria-label="Pulse">
-      <a href="/weblinc/jquery.smoothState.js/pulse" aria-label="Pulse" class="js-selected-navigation-item sunken-menu-item" data-selected-links="pulse /weblinc/jquery.smoothState.js/pulse">
-        <span class="octicon octicon-pulse"></span> <span class="full-word">Pulse</span>
-        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
-</a>    </li>
+            /**
+             * Checks to see if the url is external
+             * @param   {string}    url - url being evaluated
+             * @see     http://stackoverflow.com/questions/6238351/fastest-way-to-detect-external-urls
+             * 
+             */
+            isExternal: function (url) {
+                var match = url.match(/^([^:\/?#]+:)?(?:\/\/([^\/?#]*))?([^?#]+)?(\?[^#]*)?(#.*)?/);
+                if (typeof match[1] === "string" && match[1].length > 0 && match[1].toLowerCase() !== window.location.protocol) {
+                    return true;
+                }
+                if (typeof match[2] === "string" && match[2].length > 0 && match[2].replace(new RegExp(":(" + {"http:": 80, "https:": 443}[window.location.protocol] + ")?$"), "") !== window.location.host) {
+                    return true;
+                }
+                return false;
+            },
 
-    <li class="tooltipped tooltipped-w" aria-label="Graphs">
-      <a href="/weblinc/jquery.smoothState.js/graphs" aria-label="Graphs" class="js-selected-navigation-item sunken-menu-item" data-selected-links="repo_graphs repo_contributors /weblinc/jquery.smoothState.js/graphs">
-        <span class="octicon octicon-graph"></span> <span class="full-word">Graphs</span>
-        <img alt="" class="mini-loader" height="16" src="https://assets-cdn.github.com/images/spinners/octocat-spinner-32.gif" width="16" />
-</a>    </li>
-  </ul>
+            /**
+             * Checks to see if the url is an internal hash
+             * @param   {string}    url - url being evaluated
+             * 
+             */
+            isHash: function (url) {
+                var hasPathname = (url.indexOf(window.location.pathname) > 0) ? true : false,
+                    hasHash = (url.indexOf("#") > 0) ? true : false;
+                return (hasPathname && hasHash) ? true : false;
+            },
 
+            /**
+             * Checks to see if we should be loading this URL
+             * @param   {string}    url - url being evaluated
+             * @param   {string}    blacklist - jquery selector
+             * 
+             */
+            shouldLoad: function ($anchor, blacklist) {
+                var url = $anchor.prop("href");
+                // URL will only be loaded if it"s not an external link, hash, or blacklisted
+                return (!utility.isExternal(url) && !utility.isHash(url) && !$anchor.is(blacklist));
+            },
 
-</nav>
+            /**
+             * Prevents jQuery from stripping elements from $(html)
+             * @param   {string}    url - url being evaluated
+             * @author  Ben Alman   http://benalman.com/
+             * @see     https://gist.github.com/cowboy/742952
+             * 
+             */
+            htmlDoc: function (html) {
+                var parent,
+                    elems       = $(),
+                    matchTag    = /<(\/?)(html|head|body|title|base|meta)(\s+[^>]*)?>/ig,
+                    prefix      = "ss" + Math.round(Math.random() * 100000),
+                    htmlParsed  = html.replace(matchTag, function(tag, slash, name, attrs) {
+                        var obj = {};
+                        if (!slash) {
+                            $.merge(elems, $("<" + name + "/>"));
+                            if (attrs) {
+                                $.each($("<div" + attrs + "/>")[0].attributes, function(i, attr) {
+                                    obj[attr.name] = attr.value;
+                                });
+                            }
+                            elems.eq(-1).attr(obj);
+                        }
+                        return "<" + slash + "div" + (slash ? "" : " id='" + prefix + (elems.length - 1) + "'") + ">";
+                    });
 
-              <div class="only-with-full-nav">
+                // If no placeholder elements were necessary, just return normal
+                // jQuery-parsed HTML.
+                if (!elems.length) {
+                    return $(html);
+                }
+                // Create parent node if it hasn't been created yet.
+                if (!parent) {
+                    parent = $("<div/>");
+                }
+                // Create the parent node and append the parsed, place-held HTML.
+                parent.html(htmlParsed);
                 
-  
-<div class="clone-url open"
-  data-protocol-type="http"
-  data-url="/users/set_protocol?protocol_selector=http&amp;protocol_type=clone">
-  <h3><span class="text-emphasized">HTTPS</span> clone URL</h3>
-  <div class="input-group js-zeroclipboard-container">
-    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
-           value="https://github.com/weblinc/jquery.smoothState.js.git" readonly="readonly">
-    <span class="input-group-button">
-      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
-    </span>
-  </div>
-</div>
+                // Replace each placeholder element with its intended element.
+                $.each(elems, function(i) {
+                    var elem = parent.find("#" + prefix + i).before(elems[i]);
+                    elems.eq(i).html(elem.contents());
+                    elem.remove();
+                });
 
-  
-<div class="clone-url "
-  data-protocol-type="ssh"
-  data-url="/users/set_protocol?protocol_selector=ssh&amp;protocol_type=clone">
-  <h3><span class="text-emphasized">SSH</span> clone URL</h3>
-  <div class="input-group js-zeroclipboard-container">
-    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
-           value="git@github.com:weblinc/jquery.smoothState.js.git" readonly="readonly">
-    <span class="input-group-button">
-      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
-    </span>
-  </div>
-</div>
+                return parent.children().unwrap();
+            },
 
-  
-<div class="clone-url "
-  data-protocol-type="subversion"
-  data-url="/users/set_protocol?protocol_selector=subversion&amp;protocol_type=clone">
-  <h3><span class="text-emphasized">Subversion</span> checkout URL</h3>
-  <div class="input-group js-zeroclipboard-container">
-    <input type="text" class="input-mini input-monospace js-url-field js-zeroclipboard-target"
-           value="https://github.com/weblinc/jquery.smoothState.js" readonly="readonly">
-    <span class="input-group-button">
-      <button aria-label="Copy to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
-    </span>
-  </div>
-</div>
+            /**
+             * Resets an object if it has too many properties
+             *
+             * This is used to clear the "cache" object that stores
+             * all of the html. This would prevent the client from
+             * running out of memory and allow the user to hit the 
+             * server for a fresh copy of the content.
+             *
+             * @param   {object}    obj
+             * @param   {number}    cap
+             * 
+             */
+            clearIfOverCapacity: function (obj, cap) {
+                // Polyfill Object.keys if it doesn't exist
+                if (!Object.keys) {
+                    Object.keys = function (obj) {
+                        var keys = [],
+                            k;
+                        for (k in obj) {
+                            if (Object.prototype.hasOwnProperty.call(obj, k)) {
+                                keys.push(k);
+                            }
+                        }
+                        return keys;
+                    };
+                }
 
+                if (Object.keys(obj).length > cap) {
+                    obj = {};
+                }
 
+                return obj;
+            },
 
-<p class="clone-options">You can clone with
-  <a href="#" class="js-clone-selector" data-protocol="http">HTTPS</a>, <a href="#" class="js-clone-selector" data-protocol="ssh">SSH</a>, or <a href="#" class="js-clone-selector" data-protocol="subversion">Subversion</a>.
-  <a href="https://help.github.com/articles/which-remote-url-should-i-use" class="help tooltipped tooltipped-n" aria-label="Get help on which URL is right for you.">
-    <span class="octicon octicon-question"></span>
-  </a>
-</p>
+            /**
+             * Finds the inner content of an element, by an ID, from a jQuery object
+             * @param   {string}    id
+             * @param   {object}    $html
+             * 
+             */
+            getContentById: function (id, $html) {
+                $html = ($html instanceof jQuery) ? $html : utility.htmlDoc($html);
+                var $insideElem         = $html.find(id),
+                    updatedContainer    = ($insideElem.length) ? $.trim($insideElem.html()) : $html.filter(id).html(),
+                    newContent          = (updatedContainer.length) ? $(updatedContainer) : null;
+                return newContent;
+            },
 
-  <a href="http://mac.github.com" data-url="github-mac://openRepo/https://github.com/weblinc/jquery.smoothState.js" class="minibutton sidebar-button js-conduit-rewrite-url" title="Save weblinc/jquery.smoothState.js to your computer and use it in GitHub Desktop." aria-label="Save weblinc/jquery.smoothState.js to your computer and use it in GitHub Desktop.">
-    <span class="octicon octicon-device-desktop"></span>
-    Clone in Desktop
-  </a>
+            /**
+             * Stores html content as jquery object in given object
+             * @param   {object}    object - object contents will be stored into
+             * @param   {string}    url - url to be used as the prop
+             * @param   {jquery}    html - contents to store
+             * 
+             */
+            storePageIn: function (object, url, $html) {
+                $html = ($html instanceof jQuery) ? $html : utility.htmlDoc($html);
+                object[url] = { // Content is indexed by the url
+                    status: "loaded",
+                    title: $html.find("title").text(), // Stores the title of the page
+                    html: $html // Stores the contents of the page
+                };
+                return object;
+            },
 
+            /**
+             * Triggers an "allanimationend" event when all animations are complete
+             * @param   {object}    $element - jQuery object that should trigger event
+             * @param   {string}    resetOn - which other events to trigger allanimationend on
+             * 
+             */
+            triggerAllAnimationEndEvent: function ($element, resetOn) {
 
-                <a href="/weblinc/jquery.smoothState.js/archive/master.zip"
-                   class="minibutton sidebar-button"
-                   aria-label="Download the contents of weblinc/jquery.smoothState.js as a zip file"
-                   title="Download the contents of weblinc/jquery.smoothState.js as a zip file"
-                   rel="nofollow">
-                  <span class="octicon octicon-cloud-download"></span>
-                  Download ZIP
-                </a>
-              </div>
-        </div><!-- /.repository-sidebar -->
+                resetOn = " " + resetOn || "";
 
-        <div id="js-repo-pjax-container" class="repository-content context-loader-container" data-pjax-container>
-          
+                var animationCount      = 0,
+                    animationstart      = "animationstart webkitAnimationStart oanimationstart MSAnimationStart",
+                    animationend        = "animationend webkitAnimationEnd oanimationend MSAnimationEnd",
+                    eventname           = "allanimationend",
+                    onAnimationStart    = function (e) {
+                        if ($(e.delegateTarget).is($element)) {
+                            e.stopPropagation();
+                            animationCount ++;
+                        }
+                    },
+                    onAnimationEnd      = function (e) {
+                        if ($(e.delegateTarget).is($element)) {
+                            e.stopPropagation();
+                            animationCount --;
+                            if(animationCount === 0) {
+                                $element.trigger(eventname);
+                            }
+                        }
+                    };
 
-<a href="/weblinc/jquery.smoothState.js/blob/ca4cb0f0add7d1eace7812cfa94af41c587b54fc/jquery.smoothState.js" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
+                $element.on(animationstart, onAnimationStart);
+                $element.on(animationend, onAnimationEnd);
 
-<!-- blob contrib key: blob_contributors:v21:2d9f6ba00860e3033603607797dbf0e2 -->
+                $element.on("allanimationend" + resetOn, function(){
+                    animationCount = 0;
+                    utility.redraw($element);
+                });
+            },
 
-<div class="file-navigation js-zeroclipboard-container">
-  
-<div class="select-menu js-menu-container js-select-menu left">
-  <span class="minibutton select-menu-button js-menu-target css-truncate" data-hotkey="w"
-    data-master-branch="master"
-    data-ref="master"
-    title="master"
-    role="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
-    <span class="octicon octicon-git-branch"></span>
-    <i>branch:</i>
-    <span class="js-select-button css-truncate-target">master</span>
-  </span>
+            /** Forces browser to redraw elements */
+            redraw: function ($element) {
+                $element.height();
+                //setTimeout(function(){$element.height("100%");}, 0);
+            }
+        }, // eo utility
 
-  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
+        /** Handles the popstate event, like when the user hits "back" */
+        onPopState = function ( e ) {
+            if(e.state !== null) {
+                var url     = window.location.href,
+                    $page   = $("#" + e.state.id),
+                    page    = $page.data("smoothState");
+                
+                if(page.href !== url && !utility.isHash(url)) {
+                    page.load(url, true);
+                }
+            }
+        },
 
-    <div class="select-menu-modal">
-      <div class="select-menu-header">
-        <span class="select-menu-title">Switch branches/tags</span>
-        <span class="octicon octicon-x js-menu-close" role="button" aria-label="Close"></span>
-      </div> <!-- /.select-menu-header -->
+        /** Constructor function */
+        SmoothState = function ( element, options ) {
+            var
+                /** Container element smoothState is run on */
+                $container  = $(element),
+                
+                /** Variable that stores pages after they are requested */
+                cache       = {},
+                
+                /** Url of the content that is currently displayed */
+                currentHref = window.location.href,
 
-      <div class="select-menu-filters">
-        <div class="select-menu-text-filter">
-          <input type="text" aria-label="Filter branches/tags" id="context-commitish-filter-field" class="js-filterable-field js-navigation-enable" placeholder="Filter branches/tags">
-        </div>
-        <div class="select-menu-tabs">
-          <ul>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="branches" class="js-select-menu-tab">Branches</a>
-            </li>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="tags" class="js-select-menu-tab">Tags</a>
-            </li>
-          </ul>
-        </div><!-- /.select-menu-tabs -->
-      </div><!-- /.select-menu-filters -->
+                /**
+                 * Loads the contents of a url into our container 
+                 *
+                 * @param   {string}    url
+                 * @param   {bool}      isPopped - used to determine if whe should
+                 *                      add a new item into the history object
+                 * 
+                 */
+                load = function (url, isPopped) {
+                    
+                    /** Makes this an optional variable by setting a default */
+                    isPopped = isPopped || false;
 
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches">
+                    var
+                        /** Used to check if the onProgress function has been run */
+                        hasRunCallback  = false,
 
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+                        callbBackEnded  = false,
+                        
+                        /** List of responses for the states of the page request */
+                        responses       = {
 
+                            /** Page is ready, update the content */
+                            loaded: function() {
+                                var eventName = hasRunCallback ? "ss.onProgressEnd" : "ss.onStartEnd";
 
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/blob/gh-pages/jquery.smoothState.js"
-                 data-name="gh-pages"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="gh-pages">gh-pages</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item selected">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/blob/master/jquery.smoothState.js"
-                 data-name="master"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="master">master</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/blob/revert-18-prefetch-bug/jquery.smoothState.js"
-                 data-name="revert-18-prefetch-bug"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="revert-18-prefetch-bug">revert-18-prefetch-bug</a>
-            </div> <!-- /.select-menu-item -->
-        </div>
+                                if(!callbBackEnded || !hasRunCallback) {
+                                    $container.one(eventName, function(){
+                                        updateContent(url);
+                                    });
+                                } else if(callbBackEnded) {
+                                    updateContent(url);
+                                }
 
-          <div class="select-menu-no-results">Nothing to show</div>
-      </div> <!-- /.select-menu-list -->
+                                if(!isPopped) {
+                                    window.history.pushState({ id: $container.prop("id") }, cache[url].title, url);
+                                }
+                            },
 
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
+                            /** Loading, wait 10 ms and check again */
+                            fetching: function() {
+                                
+                                if(!hasRunCallback) {
+                                    
+                                    hasRunCallback = true;
+                                    
+                                    // Run the onProgress callback and set trigger
+                                    $container.one("ss.onStartEnd", function(){
+                                        options.onProgress.render(url, $container, null);
+                                        
+                                        setTimeout(function(){
+                                            $container.trigger("ss.onProgressEnd");
+                                            callbBackEnded = true;
+                                        }, options.onStart.duration);
+                                    
+                                    });
+                                }
+                                
+                                setTimeout(function () {
+                                    // Might of been canceled, better check!
+                                    if(cache.hasOwnProperty(url)){
+                                        responses[cache[url].status]();
+                                    }
+                                }, 10);
+                            },
 
+                            /** Error, abort and redirect */
+                            error: function(){
+                                window.location = url;
+                            }
+                        };
+                    
+                    if (!cache.hasOwnProperty(url)) {
+                        fetch(url);
+                    }
+                    
+                    // Run the onStart callback and set trigger
+                    options.onStart.render(url, $container, null);
+                    setTimeout(function(){
+                        $container.trigger("ss.onStartEnd");
+                    }, options.onStart.duration);
 
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.5.2/jquery.smoothState.js"
-                 data-name="0.5.2"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.5.2">0.5.2</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.5.1/jquery.smoothState.js"
-                 data-name="0.5.1"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.5.1">0.5.1</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.5.0/jquery.smoothState.js"
-                 data-name="0.5.0"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.5.0">0.5.0</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.4.1/jquery.smoothState.js"
-                 data-name="0.4.1"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.4.1">0.4.1</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.4.0/jquery.smoothState.js"
-                 data-name="0.4.0"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.4.0">0.4.0</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.3.1/jquery.smoothState.js"
-                 data-name="0.3.1"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.3.1">0.3.1</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.3.0/jquery.smoothState.js"
-                 data-name="0.3.0"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.3.0">0.3.0</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.2.1/jquery.smoothState.js"
-                 data-name="0.2.1"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.2.1">0.2.1</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.2.0/jquery.smoothState.js"
-                 data-name="0.2.0"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.2.0">0.2.0</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.1.2/jquery.smoothState.js"
-                 data-name="0.1.2"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.1.2">0.1.2</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.1.1/jquery.smoothState.js"
-                 data-name="0.1.1"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.1.1">0.1.1</a>
-            </div> <!-- /.select-menu-item -->
-            <div class="select-menu-item js-navigation-item ">
-              <span class="select-menu-item-icon octicon octicon-check"></span>
-              <a href="/weblinc/jquery.smoothState.js/tree/0.1.0/jquery.smoothState.js"
-                 data-name="0.1.0"
-                 data-skip-pjax="true"
-                 rel="nofollow"
-                 class="js-navigation-open select-menu-item-text css-truncate-target"
-                 title="0.1.0">0.1.0</a>
-            </div> <!-- /.select-menu-item -->
-        </div>
+                    // Start checking for the status of content
+                    responses[cache[url].status]();
 
-        <div class="select-menu-no-results">Nothing to show</div>
-      </div> <!-- /.select-menu-list -->
+                },
 
-    </div> <!-- /.select-menu-modal -->
-  </div> <!-- /.select-menu-modal-holder -->
-</div> <!-- /.select-menu -->
+                /** Updates the contents from cache[url] */
+                updateContent = function (url) {
+                    // If the content has been requested and is done:
+                    var containerId = "#" + $container.prop("id"),
+                        $content    = cache[url] ? utility.getContentById(containerId, cache[url].html) : null;
 
-  <div class="button-group right">
-    <a href="/weblinc/jquery.smoothState.js/find/master"
-          class="js-show-file-finder minibutton empty-icon tooltipped tooltipped-s"
-          data-pjax
-          data-hotkey="t"
-          aria-label="Quickly jump between files">
-      <span class="octicon octicon-list-unordered"></span>
-    </a>
-    <button aria-label="Copy file path to clipboard" class="js-zeroclipboard minibutton zeroclipboard-button" data-copied-hint="Copied!" type="button"><span class="octicon octicon-clippy"></span></button>
-  </div>
+                    if($content) {
+                        document.title = cache[url].title;
+                        $container.data("smoothState").href = url;
+                        
+                        // Call the onEnd callback and set trigger
+                        options.onEnd.render(url, $container, $content);
 
-  <div class="breadcrumb js-zeroclipboard-target">
-    <span class='repo-root js-repo-root'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/weblinc/jquery.smoothState.js" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">jquery.smoothState.js</span></a></span></span><span class="separator">/</span><strong class="final-path">jquery.smoothState.js</strong>
-  </div>
-</div>
+                        $container.one("ss.onEndEnd", function(){
+                            options.callback(url, $container, $content);
+                        });
 
+                        setTimeout(function(){
+                            $container.trigger("ss.onEndEnd");
+                        }, options.onEnd.duration);
 
-  <div class="commit file-history-tease">
-    <div class="file-history-tease-header">
-        <img alt="Roland Schütz" class="avatar" data-user="735982" height="24" src="https://avatars1.githubusercontent.com/u/735982?v=3&amp;s=48" width="24" />
-        <span class="author"><a href="/rolandschuetz" rel="contributor">rolandschuetz</a></span>
-        <time datetime="2014-10-10T13:59:15Z" is="relative-time">Oct 10, 2014</time>
-        <div class="commit-title">
-            <a href="/weblinc/jquery.smoothState.js/commit/325e87b31f05543bbb4a902c41dac80b926c56e0" class="message" data-pjax="true" title="More lightweight redrawing.
-I could not find any szenario in which this solution isn&#39;t sufficient. But I and many others (see issues) run into problem with the old solution, which requires two full repaints.">More lightweight redrawing.</a>
-        </div>
-    </div>
+                    } else if (!$content && options.development && consl) {
+                        // Throw warning to help debug in development mode
+                        consl.warn("No element with an id of " + containerId + " in response from " + url + " in " + cache);
+                    } else {
+                        // No content availble to update with, aborting...
+                        window.location = url;
+                    }
+                },
 
-    <div class="participation">
-      <p class="quickstat">
-        <a href="#blob_contributors_box" rel="facebox">
-          <strong>8</strong>
-           contributors
-        </a>
-      </p>
-          <a class="avatar-link tooltipped tooltipped-s" aria-label="miguel-perez" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=miguel-perez"><img alt="Miguel Ángel Pérez" class="avatar" data-user="1682551" height="20" src="https://avatars1.githubusercontent.com/u/1682551?v=3&amp;s=40" width="20" /></a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="rolandschuetz" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=rolandschuetz"><img alt="Roland Schütz" class="avatar" data-user="735982" height="20" src="https://avatars3.githubusercontent.com/u/735982?v=3&amp;s=40" width="20" /></a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="LPodolski" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=LPodolski"><img alt="Lukasz Podolski" class="avatar" data-user="3105999" height="20" src="https://avatars0.githubusercontent.com/u/3105999?v=3&amp;s=40" width="20" /></a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="LuminusDev" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=LuminusDev"><img alt="LuminusDev" class="avatar" data-user="6111623" height="20" src="https://avatars2.githubusercontent.com/u/6111623?v=3&amp;s=40" width="20" /></a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="jbellsey" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=jbellsey"><img alt="Jeff Bellsey" class="avatar" data-user="1831399" height="20" src="https://avatars0.githubusercontent.com/u/1831399?v=3&amp;s=40" width="20" /></a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="phpMagpie" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=phpMagpie"><img alt="Paul Gardner" class="avatar" data-user="1027681" height="20" src="https://avatars0.githubusercontent.com/u/1027681?v=3&amp;s=40" width="20" /></a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="RainLoop" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=RainLoop"><img alt="RainLoop Team" class="avatar" data-user="5530092" height="20" src="https://avatars1.githubusercontent.com/u/5530092?v=3&amp;s=40" width="20" /></a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="geldmacher" href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js?author=geldmacher"><img alt="Dennis Geldmacher" class="avatar" data-user="1763101" height="20" src="https://avatars1.githubusercontent.com/u/1763101?v=3&amp;s=40" width="20" /></a>
+                /**
+                 * Fetches the contents of a url and stores it in the "cache" varible
+                 * @param   {string}    url
+                 * 
+                 */
+                fetch = function (url) {
 
+                    // Don't fetch we have the content already
+                    if(cache.hasOwnProperty(url)) {
+                        return;
+                    }
 
-    </div>
-    <div id="blob_contributors_box" style="display:none">
-      <h2 class="facebox-header">Users who have contributed to this file</h2>
-      <ul class="facebox-user-list">
-          <li class="facebox-user-list-item">
-            <img alt="Miguel Ángel Pérez" data-user="1682551" height="24" src="https://avatars3.githubusercontent.com/u/1682551?v=3&amp;s=48" width="24" />
-            <a href="/miguel-perez">miguel-perez</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="Roland Schütz" data-user="735982" height="24" src="https://avatars1.githubusercontent.com/u/735982?v=3&amp;s=48" width="24" />
-            <a href="/rolandschuetz">rolandschuetz</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="Lukasz Podolski" data-user="3105999" height="24" src="https://avatars2.githubusercontent.com/u/3105999?v=3&amp;s=48" width="24" />
-            <a href="/LPodolski">LPodolski</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="LuminusDev" data-user="6111623" height="24" src="https://avatars0.githubusercontent.com/u/6111623?v=3&amp;s=48" width="24" />
-            <a href="/LuminusDev">LuminusDev</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="Jeff Bellsey" data-user="1831399" height="24" src="https://avatars2.githubusercontent.com/u/1831399?v=3&amp;s=48" width="24" />
-            <a href="/jbellsey">jbellsey</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="Paul Gardner" data-user="1027681" height="24" src="https://avatars2.githubusercontent.com/u/1027681?v=3&amp;s=48" width="24" />
-            <a href="/phpMagpie">phpMagpie</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="RainLoop Team" data-user="5530092" height="24" src="https://avatars3.githubusercontent.com/u/5530092?v=3&amp;s=48" width="24" />
-            <a href="/RainLoop">RainLoop</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="Dennis Geldmacher" data-user="1763101" height="24" src="https://avatars3.githubusercontent.com/u/1763101?v=3&amp;s=48" width="24" />
-            <a href="/geldmacher">geldmacher</a>
-          </li>
-      </ul>
-    </div>
-  </div>
+                    cache = utility.clearIfOverCapacity(cache, options.pageCacheSize);
+                    
+                    cache[url] = { status: "fetching" };
 
-<div class="file-box">
-  <div class="file">
-    <div class="meta clearfix">
-      <div class="info file-name">
-          <span>583 lines (487 sloc)</span>
-          <span class="meta-divider"></span>
-        <span>24.458 kb</span>
-      </div>
-      <div class="actions">
-        <div class="button-group">
-          <a href="/weblinc/jquery.smoothState.js/raw/master/jquery.smoothState.js" class="minibutton " id="raw-url">Raw</a>
-            <a href="/weblinc/jquery.smoothState.js/blame/master/jquery.smoothState.js" class="minibutton js-update-url-with-hash">Blame</a>
-          <a href="/weblinc/jquery.smoothState.js/commits/master/jquery.smoothState.js" class="minibutton " rel="nofollow">History</a>
-        </div><!-- /.button-group -->
+                    var requestUrl  = options.alterRequestUrl(url) || url,
+                        request     = $.ajax(requestUrl);
 
-          <a class="octicon-button tooltipped tooltipped-nw js-conduit-openfile-check"
-             href="http://mac.github.com"
-             data-url="github-mac://openRepo/https://github.com/weblinc/jquery.smoothState.js?branch=master&amp;filepath=jquery.smoothState.js"
-             aria-label="Open this file in GitHub for Mac"
-             data-failed-title="Your version of GitHub for Mac is too old to open this file. Try checking for updates.">
-              <span class="octicon octicon-device-desktop"></span>
-          </a>
+                    // Store contents in cache variable if successful
+                    request.success(function (html) {
+                        // Clear cache varible if it"s getting too big
+                        utility.storePageIn(cache, url, html);
+                        $container.data("smoothState").cache = cache;
+                    });
 
-              <a class="octicon-button tooltipped tooltipped-n js-update-url-with-hash"
-                 aria-label="Clicking this button will fork this project so you can edit the file"
-                 href="/weblinc/jquery.smoothState.js/edit/master/jquery.smoothState.js"
-                 data-method="post" rel="nofollow"><span class="octicon octicon-pencil"></span></a>
+                    // Mark as error
+                    request.error(function () {
+                        cache[url].status = "error";
+                    });
+                },
+                /**
+                 * Binds to the hover event of a link, used for prefetching content
+                 *
+                 * @param   {object}    event
+                 * 
+                 */
+                hoverAnchor = function (event) {
+                    var $anchor = $(event.currentTarget),
+                        url     = $anchor.prop("href");
+                    if (utility.shouldLoad($anchor, options.blacklist)) {
+                        event.stopPropagation();
+                        fetch(url);
+                    }
+                },
 
-            <a class="octicon-button danger tooltipped tooltipped-s"
-               href="/weblinc/jquery.smoothState.js/delete/master/jquery.smoothState.js"
-               aria-label="Fork this project and delete file"
-               data-method="post" data-test-id="delete-blob-file" rel="nofollow">
-          <span class="octicon octicon-trashcan"></span>
-        </a>
-      </div><!-- /.actions -->
-    </div>
-    
+                /**
+                 * Binds to the click event of a link, used to show the content
+                 *
+                 * @param   {object}    event
+                 * 
+                 */
+                clickAnchor = function (event) {
+                    var $anchor     = $(event.currentTarget),
+                        url         = $anchor.prop("href");
 
-  <div class="blob-wrapper data type-javascript">
-      <table class="highlight tab-size-8 js-file-line-container">
-      <tr>
-        <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="LC1" class="blob-code js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="LC2" class="blob-code js-file-line"><span class="pl-c"> * smoothState.js is a jQuery plugin to stop page load jank.</span></td>
-      </tr>
-      <tr>
-        <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="LC3" class="blob-code js-file-line"><span class="pl-c"> *</span></td>
-      </tr>
-      <tr>
-        <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="LC4" class="blob-code js-file-line"><span class="pl-c"> * This jQuery plugin progressively enhances page loads to </span></td>
-      </tr>
-      <tr>
-        <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="LC5" class="blob-code js-file-line"><span class="pl-c"> * behave more like a single-page application.</span></td>
-      </tr>
-      <tr>
-        <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="LC6" class="blob-code js-file-line"><span class="pl-c"> *</span></td>
-      </tr>
-      <tr>
-        <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code js-file-line"><span class="pl-c"> * @author  Miguel Ángel Pérez   reachme@miguel-perez.com</span></td>
-      </tr>
-      <tr>
-        <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="LC8" class="blob-code js-file-line"><span class="pl-c"> * @see     https://github.com/miguel-perez/jquery.smoothState.js</span></td>
-      </tr>
-      <tr>
-        <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="LC9" class="blob-code js-file-line"><span class="pl-c"> * </span></td>
-      </tr>
-      <tr>
-        <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="LC10" class="blob-code js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="LC11" class="blob-code js-file-line">;(<span class="pl-st">function</span> ( <span class="pl-vpf">$</span>, <span class="pl-vpf">window</span>, <span class="pl-vpf">document</span>, <span class="pl-vpf">undefined</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code js-file-line">    <span class="pl-s1"><span class="pl-pds">&quot;</span>use strict<span class="pl-pds">&quot;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="LC13" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="LC14" class="blob-code js-file-line">    <span class="pl-c">/** Abort plugin if browser does not suppost pushState */</span></td>
-      </tr>
-      <tr>
-        <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code js-file-line">    <span class="pl-k">if</span>(<span class="pl-k">!</span>history.pushState) {</td>
-      </tr>
-      <tr>
-        <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code js-file-line">        <span class="pl-c">// setup a dummy fn, but don&#39;t intercept on link clicks</span></td>
-      </tr>
-      <tr>
-        <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code js-file-line">        <span class="pl-s3">$.fn</span>.<span class="pl-en">smoothState</span> <span class="pl-k">=</span> <span class="pl-st">function</span>() { <span class="pl-k">return</span> <span class="pl-v">this</span>; };</td>
-      </tr>
-      <tr>
-        <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="LC18" class="blob-code js-file-line">        $.fn.smoothState.<span class="pl-sc">options</span> <span class="pl-k">=</span> {};</td>
-      </tr>
-      <tr>
-        <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="LC19" class="blob-code js-file-line">        <span class="pl-k">return</span>;</td>
-      </tr>
-      <tr>
-        <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="LC20" class="blob-code js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="LC21" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="LC22" class="blob-code js-file-line">    <span class="pl-c">/** Abort if smoothstate is already present **/</span></td>
-      </tr>
-      <tr>
-        <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="LC23" class="blob-code js-file-line">    <span class="pl-k">if</span>($.fn.smoothState) { <span class="pl-k">return</span>; }</td>
-      </tr>
-      <tr>
-        <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="LC24" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="LC25" class="blob-code js-file-line">    <span class="pl-s">var</span></td>
-      </tr>
-      <tr>
-        <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="LC26" class="blob-code js-file-line">        <span class="pl-c">/** Used later to scroll page to the top */</span></td>
-      </tr>
-      <tr>
-        <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="LC27" class="blob-code js-file-line">        $body       <span class="pl-k">=</span> $(<span class="pl-s1"><span class="pl-pds">&quot;</span>html, body<span class="pl-pds">&quot;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code js-file-line">        </td>
-      </tr>
-      <tr>
-        <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code js-file-line">        <span class="pl-c">/** Used in development mode to console out useful warnings */</span></td>
-      </tr>
-      <tr>
-        <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code js-file-line">        consl       <span class="pl-k">=</span> (<span class="pl-s3">window</span>.<span class="pl-en">console</span> <span class="pl-k">||</span> <span class="pl-c1">false</span>),</td>
-      </tr>
-      <tr>
-        <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
-        <td id="LC31" class="blob-code js-file-line">        </td>
-      </tr>
-      <tr>
-        <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code js-file-line">        <span class="pl-c">/** Plugin default options, will be exposed as $fn.smoothState.options */</span></td>
-      </tr>
-      <tr>
-        <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code js-file-line">        defaults    <span class="pl-k">=</span> {</td>
-      </tr>
-      <tr>
-        <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code js-file-line">            <span class="pl-c">/** jquery element string to specify which anchors smoothstate should bind to */</span></td>
-      </tr>
-      <tr>
-        <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code js-file-line">            anchors <span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>a<span class="pl-pds">&quot;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
-        <td id="LC37" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
-        <td id="LC38" class="blob-code js-file-line">            <span class="pl-c">/** If set to true, smoothState will prefetch a link&#39;s contents on hover */</span></td>
-      </tr>
-      <tr>
-        <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code js-file-line">            prefetch <span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code js-file-line">            <span class="pl-c">/** A selecor that deinfes with links should be ignored by smoothState */</span></td>
-      </tr>
-      <tr>
-        <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code js-file-line">            blacklist <span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>.no-smoothstate, [target]<span class="pl-pds">&quot;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code js-file-line">            <span class="pl-c">/** If set to true, smoothState will log useful debug information instead of aborting */</span></td>
-      </tr>
-      <tr>
-        <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code js-file-line">            development <span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code js-file-line">            <span class="pl-c">/** The number of pages smoothState will try to store in memory and not request again */</span></td>
-      </tr>
-      <tr>
-        <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code js-file-line">            pageCacheSize <span class="pl-k">:</span> <span class="pl-c1">0</span>,</td>
-      </tr>
-      <tr>
-        <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
-        <td id="LC49" class="blob-code js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code js-file-line">            <span class="pl-c">/** A function that can be used to alter urls before they are used to request content */</span></td>
-      </tr>
-      <tr>
-        <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code js-file-line">            <span class="pl-en">alterRequestUrl</span> : <span class="pl-st">function</span> (<span class="pl-vpf">url</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code js-file-line">                <span class="pl-k">return</span> url;</td>
-      </tr>
-      <tr>
-        <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code js-file-line">            </td>
-      </tr>
-      <tr>
-        <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code js-file-line">            <span class="pl-c">/** Run when a link has been activated */</span></td>
-      </tr>
-      <tr>
-        <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code js-file-line">            onStart <span class="pl-k">:</span> {</td>
-      </tr>
-      <tr>
-        <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code js-file-line">                duration<span class="pl-k">:</span> <span class="pl-c1">0</span>,</td>
-      </tr>
-      <tr>
-        <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code js-file-line">                <span class="pl-en">render</span>: <span class="pl-st">function</span> (<span class="pl-vpf">url</span>, <span class="pl-vpf">$container</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code js-file-line">                    $body.scrollTop(<span class="pl-c1">0</span>);</td>
-      </tr>
-      <tr>
-        <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code js-file-line">            <span class="pl-c">/** Run if the page request is still pending and onStart has finished animating */</span></td>
-      </tr>
-      <tr>
-        <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code js-file-line">            onProgress <span class="pl-k">:</span> {</td>
-      </tr>
-      <tr>
-        <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code js-file-line">                duration<span class="pl-k">:</span> <span class="pl-c1">0</span>,</td>
-      </tr>
-      <tr>
-        <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code js-file-line">                <span class="pl-en">render</span>: <span class="pl-st">function</span> (<span class="pl-vpf">url</span>, <span class="pl-vpf">$container</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
-        <td id="LC67" class="blob-code js-file-line">                    $body.css(<span class="pl-s1"><span class="pl-pds">&quot;</span>cursor<span class="pl-pds">&quot;</span></span>, <span class="pl-s1"><span class="pl-pds">&quot;</span>wait<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code js-file-line">                    $body.<span class="pl-s3">find</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>a<span class="pl-pds">&quot;</span></span>).css(<span class="pl-s1"><span class="pl-pds">&quot;</span>cursor<span class="pl-pds">&quot;</span></span>, <span class="pl-s1"><span class="pl-pds">&quot;</span>wait<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code js-file-line">            <span class="pl-c">/** Run when requested content is ready to be injected into the page  */</span></td>
-      </tr>
-      <tr>
-        <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code js-file-line">            onEnd <span class="pl-k">:</span> {</td>
-      </tr>
-      <tr>
-        <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code js-file-line">                duration<span class="pl-k">:</span> <span class="pl-c1">0</span>,</td>
-      </tr>
-      <tr>
-        <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code js-file-line">                <span class="pl-en">render</span>: <span class="pl-st">function</span> (<span class="pl-vpf">url</span>, <span class="pl-vpf">$container</span>, <span class="pl-vpf">$content</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code js-file-line">                    $body.css(<span class="pl-s1"><span class="pl-pds">&quot;</span>cursor<span class="pl-pds">&quot;</span></span>, <span class="pl-s1"><span class="pl-pds">&quot;</span>auto<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code js-file-line">                    $body.<span class="pl-s3">find</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>a<span class="pl-pds">&quot;</span></span>).css(<span class="pl-s1"><span class="pl-pds">&quot;</span>cursor<span class="pl-pds">&quot;</span></span>, <span class="pl-s1"><span class="pl-pds">&quot;</span>auto<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code js-file-line">                    $container.html($content);</td>
-      </tr>
-      <tr>
-        <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
-        <td id="LC80" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
-        <td id="LC82" class="blob-code js-file-line">            <span class="pl-c">/** Run when content has been injected and all animations are complete  */</span></td>
-      </tr>
-      <tr>
-        <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code js-file-line">            <span class="pl-en">callback</span> : <span class="pl-st">function</span>(<span class="pl-vpf">url</span>, <span class="pl-vpf">$container</span>, <span class="pl-vpf">$content</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
-        <td id="LC84" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
-        <td id="LC86" class="blob-code js-file-line">        },</td>
-      </tr>
-      <tr>
-        <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code js-file-line">        </td>
-      </tr>
-      <tr>
-        <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code js-file-line">        <span class="pl-c">/** Utility functions that are decoupled from SmoothState */</span></td>
-      </tr>
-      <tr>
-        <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code js-file-line">        utility     <span class="pl-k">=</span> {</td>
-      </tr>
-      <tr>
-        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
-        <td id="LC90" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
-        <td id="LC91" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
-        <td id="LC92" class="blob-code js-file-line"><span class="pl-c">             * Checks to see if the url is external</span></td>
-      </tr>
-      <tr>
-        <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
-        <td id="LC93" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    url - url being evaluated</span></td>
-      </tr>
-      <tr>
-        <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
-        <td id="LC94" class="blob-code js-file-line"><span class="pl-c">             * @see     http://stackoverflow.com/questions/6238351/fastest-way-to-detect-external-urls</span></td>
-      </tr>
-      <tr>
-        <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
-        <td id="LC95" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
-        <td id="LC96" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
-        <td id="LC97" class="blob-code js-file-line">            <span class="pl-en">isExternal</span>: <span class="pl-st">function</span> (<span class="pl-vpf">url</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
-        <td id="LC98" class="blob-code js-file-line">                <span class="pl-s">var</span> match <span class="pl-k">=</span> url.<span class="pl-s3">match</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-k">^</span>(<span class="pl-c1">[<span class="pl-k">^</span>:<span class="pl-cce">\/</span>?#]</span><span class="pl-k">+</span>:)<span class="pl-k">?</span>(?:<span class="pl-cce">\/\/</span>(<span class="pl-c1">[<span class="pl-k">^</span><span class="pl-cce">\/</span>?#]</span><span class="pl-k">*</span>))<span class="pl-k">?</span>(<span class="pl-c1">[<span class="pl-k">^</span>?#]</span><span class="pl-k">+</span>)<span class="pl-k">?</span>(<span class="pl-cce">\?</span><span class="pl-c1">[<span class="pl-k">^</span>#]</span><span class="pl-k">*</span>)<span class="pl-k">?</span>(#<span class="pl-c1">.</span><span class="pl-k">*</span>)<span class="pl-k">?</span><span class="pl-pds">/</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
-        <td id="LC99" class="blob-code js-file-line">                <span class="pl-k">if</span> (<span class="pl-k">typeof</span> match[<span class="pl-c1">1</span>] <span class="pl-k">===</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>string<span class="pl-pds">&quot;</span></span> <span class="pl-k">&amp;&amp;</span> match[<span class="pl-c1">1</span>].<span class="pl-sc">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> match[<span class="pl-c1">1</span>].<span class="pl-s3">toLowerCase</span>() <span class="pl-k">!==</span> <span class="pl-s3">window</span>.<span class="pl-sc">location</span>.<span class="pl-sc">protocol</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
-        <td id="LC100" class="blob-code js-file-line">                    <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
-        <td id="LC101" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
-        <td id="LC102" class="blob-code js-file-line">                <span class="pl-k">if</span> (<span class="pl-k">typeof</span> match[<span class="pl-c1">2</span>] <span class="pl-k">===</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>string<span class="pl-pds">&quot;</span></span> <span class="pl-k">&amp;&amp;</span> match[<span class="pl-c1">2</span>].<span class="pl-sc">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> match[<span class="pl-c1">2</span>].<span class="pl-s3">replace</span>(<span class="pl-k">new</span> <span class="pl-en">RegExp</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>:(<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> {<span class="pl-s1"><span class="pl-pds">&quot;</span>http:<span class="pl-pds">&quot;</span></span><span class="pl-k">:</span> <span class="pl-c1">80</span>, <span class="pl-s1"><span class="pl-pds">&quot;</span>https:<span class="pl-pds">&quot;</span></span><span class="pl-k">:</span> <span class="pl-c1">443</span>}[<span class="pl-s3">window</span>.<span class="pl-sc">location</span>.<span class="pl-sc">protocol</span>] <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>)?$<span class="pl-pds">&quot;</span></span>), <span class="pl-s1"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>) <span class="pl-k">!==</span> <span class="pl-s3">window</span>.<span class="pl-sc">location</span>.<span class="pl-sc">host</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
-        <td id="LC103" class="blob-code js-file-line">                    <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
-        <td id="LC104" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
-        <td id="LC105" class="blob-code js-file-line">                <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
-        <td id="LC106" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
-        <td id="LC107" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
-        <td id="LC108" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
-        <td id="LC109" class="blob-code js-file-line"><span class="pl-c">             * Checks to see if the url is an internal hash</span></td>
-      </tr>
-      <tr>
-        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
-        <td id="LC110" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    url - url being evaluated</span></td>
-      </tr>
-      <tr>
-        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
-        <td id="LC111" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
-        <td id="LC112" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
-        <td id="LC113" class="blob-code js-file-line">            <span class="pl-en">isHash</span>: <span class="pl-st">function</span> (<span class="pl-vpf">url</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
-        <td id="LC114" class="blob-code js-file-line">                <span class="pl-s">var</span> hasPathname <span class="pl-k">=</span> (url.<span class="pl-s3">indexOf</span>(<span class="pl-s3">window</span>.<span class="pl-sc">location</span>.<span class="pl-sc">pathname</span>) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) <span class="pl-k">?</span> true <span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
-        <td id="LC115" class="blob-code js-file-line">                    hasHash <span class="pl-k">=</span> (url.<span class="pl-s3">indexOf</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>#<span class="pl-pds">&quot;</span></span>) <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) <span class="pl-k">?</span> true <span class="pl-k">:</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
-        <td id="LC116" class="blob-code js-file-line">                <span class="pl-k">return</span> (hasPathname <span class="pl-k">&amp;&amp;</span> hasHash) <span class="pl-k">?</span> true <span class="pl-k">:</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
-        <td id="LC117" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
-        <td id="LC118" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
-        <td id="LC119" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
-        <td id="LC120" class="blob-code js-file-line"><span class="pl-c">             * Checks to see if we should be loading this URL</span></td>
-      </tr>
-      <tr>
-        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
-        <td id="LC121" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    url - url being evaluated</span></td>
-      </tr>
-      <tr>
-        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
-        <td id="LC122" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    blacklist - jquery selector</span></td>
-      </tr>
-      <tr>
-        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
-        <td id="LC123" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
-        <td id="LC124" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
-        <td id="LC125" class="blob-code js-file-line">            <span class="pl-en">shouldLoad</span>: <span class="pl-st">function</span> (<span class="pl-vpf">$anchor</span>, <span class="pl-vpf">blacklist</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
-        <td id="LC126" class="blob-code js-file-line">                <span class="pl-s">var</span> url <span class="pl-k">=</span> $anchor.prop(<span class="pl-s1"><span class="pl-pds">&quot;</span>href<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
-        <td id="LC127" class="blob-code js-file-line">                <span class="pl-c">// URL will only be loaded if it&quot;s not an external link, hash, or blacklisted</span></td>
-      </tr>
-      <tr>
-        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
-        <td id="LC128" class="blob-code js-file-line">                <span class="pl-k">return</span> (<span class="pl-k">!</span>utility.isExternal(url) <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span>utility.isHash(url) <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span>$anchor.is(blacklist));</td>
-      </tr>
-      <tr>
-        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
-        <td id="LC129" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
-        <td id="LC130" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
-        <td id="LC131" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
-        <td id="LC132" class="blob-code js-file-line"><span class="pl-c">             * Prevents jQuery from stripping elements from $(html)</span></td>
-      </tr>
-      <tr>
-        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
-        <td id="LC133" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    url - url being evaluated</span></td>
-      </tr>
-      <tr>
-        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
-        <td id="LC134" class="blob-code js-file-line"><span class="pl-c">             * @author  Ben Alman   http://benalman.com/</span></td>
-      </tr>
-      <tr>
-        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
-        <td id="LC135" class="blob-code js-file-line"><span class="pl-c">             * @see     https://gist.github.com/cowboy/742952</span></td>
-      </tr>
-      <tr>
-        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
-        <td id="LC136" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
-        <td id="LC137" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
-        <td id="LC138" class="blob-code js-file-line">            <span class="pl-en">htmlDoc</span>: <span class="pl-st">function</span> (<span class="pl-vpf">html</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
-        <td id="LC139" class="blob-code js-file-line">                <span class="pl-s">var</span> parent,</td>
-      </tr>
-      <tr>
-        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
-        <td id="LC140" class="blob-code js-file-line">                    elems       <span class="pl-k">=</span> $(),</td>
-      </tr>
-      <tr>
-        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
-        <td id="LC141" class="blob-code js-file-line">                    matchTag    <span class="pl-k">=</span><span class="pl-sr"> <span class="pl-pds">/</span>&lt;(<span class="pl-cce">\/</span><span class="pl-k">?</span>)(html<span class="pl-k">|</span>head<span class="pl-k">|</span>body<span class="pl-k">|</span>title<span class="pl-k">|</span>base<span class="pl-k">|</span>meta)(<span class="pl-c1">\s</span><span class="pl-k">+</span><span class="pl-c1">[<span class="pl-k">^</span>&gt;]</span><span class="pl-k">*</span>)<span class="pl-k">?</span>&gt;<span class="pl-pds">/</span>ig</span>,</td>
-      </tr>
-      <tr>
-        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
-        <td id="LC142" class="blob-code js-file-line">                    prefix      <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>ss<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> <span class="pl-s3">Math</span>.<span class="pl-s3">round</span>(<span class="pl-s3">Math</span>.<span class="pl-s3">random</span>() <span class="pl-k">*</span> <span class="pl-c1">100000</span>),</td>
-      </tr>
-      <tr>
-        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
-        <td id="LC143" class="blob-code js-file-line">                    htmlParsed  <span class="pl-k">=</span> html.<span class="pl-s3">replace</span>(matchTag, <span class="pl-st">function</span>(<span class="pl-vpf">tag</span>, <span class="pl-vpf">slash</span>, <span class="pl-vpf">name</span>, <span class="pl-vpf">attrs</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
-        <td id="LC144" class="blob-code js-file-line">                        <span class="pl-s">var</span> obj <span class="pl-k">=</span> {};</td>
-      </tr>
-      <tr>
-        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
-        <td id="LC145" class="blob-code js-file-line">                        <span class="pl-k">if</span> (<span class="pl-k">!</span>slash) {</td>
-      </tr>
-      <tr>
-        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
-        <td id="LC146" class="blob-code js-file-line">                            $.merge(elems, $(<span class="pl-s1"><span class="pl-pds">&quot;</span>&lt;<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> name <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>/&gt;<span class="pl-pds">&quot;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
-        <td id="LC147" class="blob-code js-file-line">                            <span class="pl-k">if</span> (attrs) {</td>
-      </tr>
-      <tr>
-        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
-        <td id="LC148" class="blob-code js-file-line">                                $.each($(<span class="pl-s1"><span class="pl-pds">&quot;</span>&lt;div<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> attrs <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>/&gt;<span class="pl-pds">&quot;</span></span>)[<span class="pl-c1">0</span>].<span class="pl-sc">attributes</span>, <span class="pl-st">function</span>(<span class="pl-vpf">i</span>, <span class="pl-vpf">attr</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
-        <td id="LC149" class="blob-code js-file-line">                                    obj[attr.<span class="pl-sc">name</span>] <span class="pl-k">=</span> attr.<span class="pl-sc">value</span>;</td>
-      </tr>
-      <tr>
-        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
-        <td id="LC150" class="blob-code js-file-line">                                });</td>
-      </tr>
-      <tr>
-        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
-        <td id="LC151" class="blob-code js-file-line">                            }</td>
-      </tr>
-      <tr>
-        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
-        <td id="LC152" class="blob-code js-file-line">                            elems.eq(<span class="pl-k">-</span><span class="pl-c1">1</span>).attr(obj);</td>
-      </tr>
-      <tr>
-        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
-        <td id="LC153" class="blob-code js-file-line">                        }</td>
-      </tr>
-      <tr>
-        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
-        <td id="LC154" class="blob-code js-file-line">                        <span class="pl-k">return</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>&lt;<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> slash <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>div<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> (slash <span class="pl-k">?</span> <span class="pl-s1"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span> <span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">&quot;</span> id=&#39;<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> prefix <span class="pl-k">+</span> (elems.<span class="pl-sc">length</span> <span class="pl-k">-</span> <span class="pl-c1">1</span>) <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>&#39;<span class="pl-pds">&quot;</span></span>) <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>&gt;<span class="pl-pds">&quot;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
-        <td id="LC155" class="blob-code js-file-line">                    });</td>
-      </tr>
-      <tr>
-        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
-        <td id="LC156" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
-        <td id="LC157" class="blob-code js-file-line">                <span class="pl-c">// If no placeholder elements were necessary, just return normal</span></td>
-      </tr>
-      <tr>
-        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
-        <td id="LC158" class="blob-code js-file-line">                <span class="pl-c">// jQuery-parsed HTML.</span></td>
-      </tr>
-      <tr>
-        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
-        <td id="LC159" class="blob-code js-file-line">                <span class="pl-k">if</span> (<span class="pl-k">!</span>elems.<span class="pl-sc">length</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
-        <td id="LC160" class="blob-code js-file-line">                    <span class="pl-k">return</span> $(html);</td>
-      </tr>
-      <tr>
-        <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
-        <td id="LC161" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L162" class="blob-num js-line-number" data-line-number="162"></td>
-        <td id="LC162" class="blob-code js-file-line">                <span class="pl-c">// Create parent node if it hasn&#39;t been created yet.</span></td>
-      </tr>
-      <tr>
-        <td id="L163" class="blob-num js-line-number" data-line-number="163"></td>
-        <td id="LC163" class="blob-code js-file-line">                <span class="pl-k">if</span> (<span class="pl-k">!</span>parent) {</td>
-      </tr>
-      <tr>
-        <td id="L164" class="blob-num js-line-number" data-line-number="164"></td>
-        <td id="LC164" class="blob-code js-file-line">                    parent <span class="pl-k">=</span> $(<span class="pl-s1"><span class="pl-pds">&quot;</span>&lt;div/&gt;<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L165" class="blob-num js-line-number" data-line-number="165"></td>
-        <td id="LC165" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L166" class="blob-num js-line-number" data-line-number="166"></td>
-        <td id="LC166" class="blob-code js-file-line">                <span class="pl-c">// Create the parent node and append the parsed, place-held HTML.</span></td>
-      </tr>
-      <tr>
-        <td id="L167" class="blob-num js-line-number" data-line-number="167"></td>
-        <td id="LC167" class="blob-code js-file-line">                parent.html(htmlParsed);</td>
-      </tr>
-      <tr>
-        <td id="L168" class="blob-num js-line-number" data-line-number="168"></td>
-        <td id="LC168" class="blob-code js-file-line">                </td>
-      </tr>
-      <tr>
-        <td id="L169" class="blob-num js-line-number" data-line-number="169"></td>
-        <td id="LC169" class="blob-code js-file-line">                <span class="pl-c">// Replace each placeholder element with its intended element.</span></td>
-      </tr>
-      <tr>
-        <td id="L170" class="blob-num js-line-number" data-line-number="170"></td>
-        <td id="LC170" class="blob-code js-file-line">                $.each(elems, <span class="pl-st">function</span>(<span class="pl-vpf">i</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L171" class="blob-num js-line-number" data-line-number="171"></td>
-        <td id="LC171" class="blob-code js-file-line">                    <span class="pl-s">var</span> elem <span class="pl-k">=</span> parent.<span class="pl-s3">find</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>#<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> prefix <span class="pl-k">+</span> i).before(elems[i]);</td>
-      </tr>
-      <tr>
-        <td id="L172" class="blob-num js-line-number" data-line-number="172"></td>
-        <td id="LC172" class="blob-code js-file-line">                    elems.eq(i).html(elem.contents());</td>
-      </tr>
-      <tr>
-        <td id="L173" class="blob-num js-line-number" data-line-number="173"></td>
-        <td id="LC173" class="blob-code js-file-line">                    elem.<span class="pl-s3">remove</span>();</td>
-      </tr>
-      <tr>
-        <td id="L174" class="blob-num js-line-number" data-line-number="174"></td>
-        <td id="LC174" class="blob-code js-file-line">                });</td>
-      </tr>
-      <tr>
-        <td id="L175" class="blob-num js-line-number" data-line-number="175"></td>
-        <td id="LC175" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L176" class="blob-num js-line-number" data-line-number="176"></td>
-        <td id="LC176" class="blob-code js-file-line">                <span class="pl-k">return</span> parent.children().unwrap();</td>
-      </tr>
-      <tr>
-        <td id="L177" class="blob-num js-line-number" data-line-number="177"></td>
-        <td id="LC177" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L178" class="blob-num js-line-number" data-line-number="178"></td>
-        <td id="LC178" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L179" class="blob-num js-line-number" data-line-number="179"></td>
-        <td id="LC179" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L180" class="blob-num js-line-number" data-line-number="180"></td>
-        <td id="LC180" class="blob-code js-file-line"><span class="pl-c">             * Resets an object if it has too many properties</span></td>
-      </tr>
-      <tr>
-        <td id="L181" class="blob-num js-line-number" data-line-number="181"></td>
-        <td id="LC181" class="blob-code js-file-line"><span class="pl-c">             *</span></td>
-      </tr>
-      <tr>
-        <td id="L182" class="blob-num js-line-number" data-line-number="182"></td>
-        <td id="LC182" class="blob-code js-file-line"><span class="pl-c">             * This is used to clear the &quot;cache&quot; object that stores</span></td>
-      </tr>
-      <tr>
-        <td id="L183" class="blob-num js-line-number" data-line-number="183"></td>
-        <td id="LC183" class="blob-code js-file-line"><span class="pl-c">             * all of the html. This would prevent the client from</span></td>
-      </tr>
-      <tr>
-        <td id="L184" class="blob-num js-line-number" data-line-number="184"></td>
-        <td id="LC184" class="blob-code js-file-line"><span class="pl-c">             * running out of memory and allow the user to hit the </span></td>
-      </tr>
-      <tr>
-        <td id="L185" class="blob-num js-line-number" data-line-number="185"></td>
-        <td id="LC185" class="blob-code js-file-line"><span class="pl-c">             * server for a fresh copy of the content.</span></td>
-      </tr>
-      <tr>
-        <td id="L186" class="blob-num js-line-number" data-line-number="186"></td>
-        <td id="LC186" class="blob-code js-file-line"><span class="pl-c">             *</span></td>
-      </tr>
-      <tr>
-        <td id="L187" class="blob-num js-line-number" data-line-number="187"></td>
-        <td id="LC187" class="blob-code js-file-line"><span class="pl-c">             * @param   {object}    obj</span></td>
-      </tr>
-      <tr>
-        <td id="L188" class="blob-num js-line-number" data-line-number="188"></td>
-        <td id="LC188" class="blob-code js-file-line"><span class="pl-c">             * @param   {number}    cap</span></td>
-      </tr>
-      <tr>
-        <td id="L189" class="blob-num js-line-number" data-line-number="189"></td>
-        <td id="LC189" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L190" class="blob-num js-line-number" data-line-number="190"></td>
-        <td id="LC190" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L191" class="blob-num js-line-number" data-line-number="191"></td>
-        <td id="LC191" class="blob-code js-file-line">            <span class="pl-en">clearIfOverCapacity</span>: <span class="pl-st">function</span> (<span class="pl-vpf">obj</span>, <span class="pl-vpf">cap</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L192" class="blob-num js-line-number" data-line-number="192"></td>
-        <td id="LC192" class="blob-code js-file-line">                <span class="pl-c">// Polyfill Object.keys if it doesn&#39;t exist</span></td>
-      </tr>
-      <tr>
-        <td id="L193" class="blob-num js-line-number" data-line-number="193"></td>
-        <td id="LC193" class="blob-code js-file-line">                <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-s3">Object</span>.keys) {</td>
-      </tr>
-      <tr>
-        <td id="L194" class="blob-num js-line-number" data-line-number="194"></td>
-        <td id="LC194" class="blob-code js-file-line">                    <span class="pl-s3">Object</span>.<span class="pl-en">keys</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">obj</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L195" class="blob-num js-line-number" data-line-number="195"></td>
-        <td id="LC195" class="blob-code js-file-line">                        <span class="pl-s">var</span> keys <span class="pl-k">=</span> [],</td>
-      </tr>
-      <tr>
-        <td id="L196" class="blob-num js-line-number" data-line-number="196"></td>
-        <td id="LC196" class="blob-code js-file-line">                            k;</td>
-      </tr>
-      <tr>
-        <td id="L197" class="blob-num js-line-number" data-line-number="197"></td>
-        <td id="LC197" class="blob-code js-file-line">                        <span class="pl-k">for</span> (k <span class="pl-k">in</span> obj) {</td>
-      </tr>
-      <tr>
-        <td id="L198" class="blob-num js-line-number" data-line-number="198"></td>
-        <td id="LC198" class="blob-code js-file-line">                            <span class="pl-k">if</span> (<span class="pl-s3">Object</span>.<span class="pl-sc">prototype</span>.hasOwnProperty.<span class="pl-s3">call</span>(obj, k)) {</td>
-      </tr>
-      <tr>
-        <td id="L199" class="blob-num js-line-number" data-line-number="199"></td>
-        <td id="LC199" class="blob-code js-file-line">                                keys.<span class="pl-s3">push</span>(k);</td>
-      </tr>
-      <tr>
-        <td id="L200" class="blob-num js-line-number" data-line-number="200"></td>
-        <td id="LC200" class="blob-code js-file-line">                            }</td>
-      </tr>
-      <tr>
-        <td id="L201" class="blob-num js-line-number" data-line-number="201"></td>
-        <td id="LC201" class="blob-code js-file-line">                        }</td>
-      </tr>
-      <tr>
-        <td id="L202" class="blob-num js-line-number" data-line-number="202"></td>
-        <td id="LC202" class="blob-code js-file-line">                        <span class="pl-k">return</span> keys;</td>
-      </tr>
-      <tr>
-        <td id="L203" class="blob-num js-line-number" data-line-number="203"></td>
-        <td id="LC203" class="blob-code js-file-line">                    };</td>
-      </tr>
-      <tr>
-        <td id="L204" class="blob-num js-line-number" data-line-number="204"></td>
-        <td id="LC204" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L205" class="blob-num js-line-number" data-line-number="205"></td>
-        <td id="LC205" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L206" class="blob-num js-line-number" data-line-number="206"></td>
-        <td id="LC206" class="blob-code js-file-line">                <span class="pl-k">if</span> (<span class="pl-s3">Object</span>.keys(obj).<span class="pl-sc">length</span> <span class="pl-k">&gt;</span> cap) {</td>
-      </tr>
-      <tr>
-        <td id="L207" class="blob-num js-line-number" data-line-number="207"></td>
-        <td id="LC207" class="blob-code js-file-line">                    obj <span class="pl-k">=</span> {};</td>
-      </tr>
-      <tr>
-        <td id="L208" class="blob-num js-line-number" data-line-number="208"></td>
-        <td id="LC208" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L209" class="blob-num js-line-number" data-line-number="209"></td>
-        <td id="LC209" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L210" class="blob-num js-line-number" data-line-number="210"></td>
-        <td id="LC210" class="blob-code js-file-line">                <span class="pl-k">return</span> obj;</td>
-      </tr>
-      <tr>
-        <td id="L211" class="blob-num js-line-number" data-line-number="211"></td>
-        <td id="LC211" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L212" class="blob-num js-line-number" data-line-number="212"></td>
-        <td id="LC212" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L213" class="blob-num js-line-number" data-line-number="213"></td>
-        <td id="LC213" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L214" class="blob-num js-line-number" data-line-number="214"></td>
-        <td id="LC214" class="blob-code js-file-line"><span class="pl-c">             * Finds the inner content of an element, by an ID, from a jQuery object</span></td>
-      </tr>
-      <tr>
-        <td id="L215" class="blob-num js-line-number" data-line-number="215"></td>
-        <td id="LC215" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    id</span></td>
-      </tr>
-      <tr>
-        <td id="L216" class="blob-num js-line-number" data-line-number="216"></td>
-        <td id="LC216" class="blob-code js-file-line"><span class="pl-c">             * @param   {object}    $html</span></td>
-      </tr>
-      <tr>
-        <td id="L217" class="blob-num js-line-number" data-line-number="217"></td>
-        <td id="LC217" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L218" class="blob-num js-line-number" data-line-number="218"></td>
-        <td id="LC218" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L219" class="blob-num js-line-number" data-line-number="219"></td>
-        <td id="LC219" class="blob-code js-file-line">            <span class="pl-en">getContentById</span>: <span class="pl-st">function</span> (<span class="pl-vpf">id</span>, <span class="pl-vpf">$html</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L220" class="blob-num js-line-number" data-line-number="220"></td>
-        <td id="LC220" class="blob-code js-file-line">                $html <span class="pl-k">=</span> ($html <span class="pl-k">instanceof</span> jQuery) <span class="pl-k">?</span> $html <span class="pl-k">:</span> utility.htmlDoc($html);</td>
-      </tr>
-      <tr>
-        <td id="L221" class="blob-num js-line-number" data-line-number="221"></td>
-        <td id="LC221" class="blob-code js-file-line">                <span class="pl-s">var</span> $insideElem         <span class="pl-k">=</span> $html.<span class="pl-s3">find</span>(id),</td>
-      </tr>
-      <tr>
-        <td id="L222" class="blob-num js-line-number" data-line-number="222"></td>
-        <td id="LC222" class="blob-code js-file-line">                    updatedContainer    <span class="pl-k">=</span> ($insideElem.<span class="pl-sc">length</span>) <span class="pl-k">?</span> $.trim($insideElem.html()) <span class="pl-k">:</span> $html.filter(id).html(),</td>
-      </tr>
-      <tr>
-        <td id="L223" class="blob-num js-line-number" data-line-number="223"></td>
-        <td id="LC223" class="blob-code js-file-line">                    newContent          <span class="pl-k">=</span> (updatedContainer.<span class="pl-sc">length</span>) <span class="pl-k">?</span> $(updatedContainer) <span class="pl-k">:</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L224" class="blob-num js-line-number" data-line-number="224"></td>
-        <td id="LC224" class="blob-code js-file-line">                <span class="pl-k">return</span> newContent;</td>
-      </tr>
-      <tr>
-        <td id="L225" class="blob-num js-line-number" data-line-number="225"></td>
-        <td id="LC225" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L226" class="blob-num js-line-number" data-line-number="226"></td>
-        <td id="LC226" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L227" class="blob-num js-line-number" data-line-number="227"></td>
-        <td id="LC227" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L228" class="blob-num js-line-number" data-line-number="228"></td>
-        <td id="LC228" class="blob-code js-file-line"><span class="pl-c">             * Stores html content as jquery object in given object</span></td>
-      </tr>
-      <tr>
-        <td id="L229" class="blob-num js-line-number" data-line-number="229"></td>
-        <td id="LC229" class="blob-code js-file-line"><span class="pl-c">             * @param   {object}    object - object contents will be stored into</span></td>
-      </tr>
-      <tr>
-        <td id="L230" class="blob-num js-line-number" data-line-number="230"></td>
-        <td id="LC230" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    url - url to be used as the prop</span></td>
-      </tr>
-      <tr>
-        <td id="L231" class="blob-num js-line-number" data-line-number="231"></td>
-        <td id="LC231" class="blob-code js-file-line"><span class="pl-c">             * @param   {jquery}    html - contents to store</span></td>
-      </tr>
-      <tr>
-        <td id="L232" class="blob-num js-line-number" data-line-number="232"></td>
-        <td id="LC232" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L233" class="blob-num js-line-number" data-line-number="233"></td>
-        <td id="LC233" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L234" class="blob-num js-line-number" data-line-number="234"></td>
-        <td id="LC234" class="blob-code js-file-line">            <span class="pl-en">storePageIn</span>: <span class="pl-st">function</span> (<span class="pl-vpf">object</span>, <span class="pl-vpf">url</span>, <span class="pl-vpf">$html</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L235" class="blob-num js-line-number" data-line-number="235"></td>
-        <td id="LC235" class="blob-code js-file-line">                $html <span class="pl-k">=</span> ($html <span class="pl-k">instanceof</span> jQuery) <span class="pl-k">?</span> $html <span class="pl-k">:</span> utility.htmlDoc($html);</td>
-      </tr>
-      <tr>
-        <td id="L236" class="blob-num js-line-number" data-line-number="236"></td>
-        <td id="LC236" class="blob-code js-file-line">                object[url] <span class="pl-k">=</span> { <span class="pl-c">// Content is indexed by the url</span></td>
-      </tr>
-      <tr>
-        <td id="L237" class="blob-num js-line-number" data-line-number="237"></td>
-        <td id="LC237" class="blob-code js-file-line">                    status<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>loaded<span class="pl-pds">&quot;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L238" class="blob-num js-line-number" data-line-number="238"></td>
-        <td id="LC238" class="blob-code js-file-line">                    title<span class="pl-k">:</span> $html.<span class="pl-s3">find</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>title<span class="pl-pds">&quot;</span></span>).<span class="pl-sc">text</span>(), <span class="pl-c">// Stores the title of the page</span></td>
-      </tr>
-      <tr>
-        <td id="L239" class="blob-num js-line-number" data-line-number="239"></td>
-        <td id="LC239" class="blob-code js-file-line">                    html<span class="pl-k">:</span> $html <span class="pl-c">// Stores the contents of the page</span></td>
-      </tr>
-      <tr>
-        <td id="L240" class="blob-num js-line-number" data-line-number="240"></td>
-        <td id="LC240" class="blob-code js-file-line">                };</td>
-      </tr>
-      <tr>
-        <td id="L241" class="blob-num js-line-number" data-line-number="241"></td>
-        <td id="LC241" class="blob-code js-file-line">                <span class="pl-k">return</span> object;</td>
-      </tr>
-      <tr>
-        <td id="L242" class="blob-num js-line-number" data-line-number="242"></td>
-        <td id="LC242" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L243" class="blob-num js-line-number" data-line-number="243"></td>
-        <td id="LC243" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L244" class="blob-num js-line-number" data-line-number="244"></td>
-        <td id="LC244" class="blob-code js-file-line">            <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L245" class="blob-num js-line-number" data-line-number="245"></td>
-        <td id="LC245" class="blob-code js-file-line"><span class="pl-c">             * Triggers an &quot;allanimationend&quot; event when all animations are complete</span></td>
-      </tr>
-      <tr>
-        <td id="L246" class="blob-num js-line-number" data-line-number="246"></td>
-        <td id="LC246" class="blob-code js-file-line"><span class="pl-c">             * @param   {object}    $element - jQuery object that should trigger event</span></td>
-      </tr>
-      <tr>
-        <td id="L247" class="blob-num js-line-number" data-line-number="247"></td>
-        <td id="LC247" class="blob-code js-file-line"><span class="pl-c">             * @param   {string}    resetOn - which other events to trigger allanimationend on</span></td>
-      </tr>
-      <tr>
-        <td id="L248" class="blob-num js-line-number" data-line-number="248"></td>
-        <td id="LC248" class="blob-code js-file-line"><span class="pl-c">             * </span></td>
-      </tr>
-      <tr>
-        <td id="L249" class="blob-num js-line-number" data-line-number="249"></td>
-        <td id="LC249" class="blob-code js-file-line"><span class="pl-c">             */</span></td>
-      </tr>
-      <tr>
-        <td id="L250" class="blob-num js-line-number" data-line-number="250"></td>
-        <td id="LC250" class="blob-code js-file-line">            <span class="pl-en">triggerAllAnimationEndEvent</span>: <span class="pl-st">function</span> (<span class="pl-vpf">$element</span>, <span class="pl-vpf">resetOn</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L251" class="blob-num js-line-number" data-line-number="251"></td>
-        <td id="LC251" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L252" class="blob-num js-line-number" data-line-number="252"></td>
-        <td id="LC252" class="blob-code js-file-line">                resetOn <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">&quot;</span> <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> resetOn <span class="pl-k">||</span> <span class="pl-s1"><span class="pl-pds">&quot;</span><span class="pl-pds">&quot;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L253" class="blob-num js-line-number" data-line-number="253"></td>
-        <td id="LC253" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L254" class="blob-num js-line-number" data-line-number="254"></td>
-        <td id="LC254" class="blob-code js-file-line">                <span class="pl-s">var</span> animationCount      <span class="pl-k">=</span> <span class="pl-c1">0</span>,</td>
-      </tr>
-      <tr>
-        <td id="L255" class="blob-num js-line-number" data-line-number="255"></td>
-        <td id="LC255" class="blob-code js-file-line">                    animationstart      <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>animationstart webkitAnimationStart oanimationstart MSAnimationStart<span class="pl-pds">&quot;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L256" class="blob-num js-line-number" data-line-number="256"></td>
-        <td id="LC256" class="blob-code js-file-line">                    animationend        <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>animationend webkitAnimationEnd oanimationend MSAnimationEnd<span class="pl-pds">&quot;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L257" class="blob-num js-line-number" data-line-number="257"></td>
-        <td id="LC257" class="blob-code js-file-line">                    eventname           <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>allanimationend<span class="pl-pds">&quot;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L258" class="blob-num js-line-number" data-line-number="258"></td>
-        <td id="LC258" class="blob-code js-file-line">                    <span class="pl-en">onAnimationStart</span>    <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">e</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L259" class="blob-num js-line-number" data-line-number="259"></td>
-        <td id="LC259" class="blob-code js-file-line">                        <span class="pl-k">if</span> ($(e.delegateTarget).is($element)) {</td>
-      </tr>
-      <tr>
-        <td id="L260" class="blob-num js-line-number" data-line-number="260"></td>
-        <td id="LC260" class="blob-code js-file-line">                            e.stopPropagation();</td>
-      </tr>
-      <tr>
-        <td id="L261" class="blob-num js-line-number" data-line-number="261"></td>
-        <td id="LC261" class="blob-code js-file-line">                            animationCount <span class="pl-k">++</span>;</td>
-      </tr>
-      <tr>
-        <td id="L262" class="blob-num js-line-number" data-line-number="262"></td>
-        <td id="LC262" class="blob-code js-file-line">                        }</td>
-      </tr>
-      <tr>
-        <td id="L263" class="blob-num js-line-number" data-line-number="263"></td>
-        <td id="LC263" class="blob-code js-file-line">                    },</td>
-      </tr>
-      <tr>
-        <td id="L264" class="blob-num js-line-number" data-line-number="264"></td>
-        <td id="LC264" class="blob-code js-file-line">                    <span class="pl-en">onAnimationEnd</span>      <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">e</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L265" class="blob-num js-line-number" data-line-number="265"></td>
-        <td id="LC265" class="blob-code js-file-line">                        <span class="pl-k">if</span> ($(e.delegateTarget).is($element)) {</td>
-      </tr>
-      <tr>
-        <td id="L266" class="blob-num js-line-number" data-line-number="266"></td>
-        <td id="LC266" class="blob-code js-file-line">                            e.stopPropagation();</td>
-      </tr>
-      <tr>
-        <td id="L267" class="blob-num js-line-number" data-line-number="267"></td>
-        <td id="LC267" class="blob-code js-file-line">                            animationCount <span class="pl-k">--</span>;</td>
-      </tr>
-      <tr>
-        <td id="L268" class="blob-num js-line-number" data-line-number="268"></td>
-        <td id="LC268" class="blob-code js-file-line">                            <span class="pl-k">if</span>(animationCount <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L269" class="blob-num js-line-number" data-line-number="269"></td>
-        <td id="LC269" class="blob-code js-file-line">                                $element.trigger(eventname);</td>
-      </tr>
-      <tr>
-        <td id="L270" class="blob-num js-line-number" data-line-number="270"></td>
-        <td id="LC270" class="blob-code js-file-line">                            }</td>
-      </tr>
-      <tr>
-        <td id="L271" class="blob-num js-line-number" data-line-number="271"></td>
-        <td id="LC271" class="blob-code js-file-line">                        }</td>
-      </tr>
-      <tr>
-        <td id="L272" class="blob-num js-line-number" data-line-number="272"></td>
-        <td id="LC272" class="blob-code js-file-line">                    };</td>
-      </tr>
-      <tr>
-        <td id="L273" class="blob-num js-line-number" data-line-number="273"></td>
-        <td id="LC273" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L274" class="blob-num js-line-number" data-line-number="274"></td>
-        <td id="LC274" class="blob-code js-file-line">                $element.on(animationstart, onAnimationStart);</td>
-      </tr>
-      <tr>
-        <td id="L275" class="blob-num js-line-number" data-line-number="275"></td>
-        <td id="LC275" class="blob-code js-file-line">                $element.on(animationend, onAnimationEnd);</td>
-      </tr>
-      <tr>
-        <td id="L276" class="blob-num js-line-number" data-line-number="276"></td>
-        <td id="LC276" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L277" class="blob-num js-line-number" data-line-number="277"></td>
-        <td id="LC277" class="blob-code js-file-line">                $element.on(<span class="pl-s1"><span class="pl-pds">&quot;</span>allanimationend<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> resetOn, <span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L278" class="blob-num js-line-number" data-line-number="278"></td>
-        <td id="LC278" class="blob-code js-file-line">                    animationCount <span class="pl-k">=</span> <span class="pl-c1">0</span>;</td>
-      </tr>
-      <tr>
-        <td id="L279" class="blob-num js-line-number" data-line-number="279"></td>
-        <td id="LC279" class="blob-code js-file-line">                    utility.redraw($element);</td>
-      </tr>
-      <tr>
-        <td id="L280" class="blob-num js-line-number" data-line-number="280"></td>
-        <td id="LC280" class="blob-code js-file-line">                });</td>
-      </tr>
-      <tr>
-        <td id="L281" class="blob-num js-line-number" data-line-number="281"></td>
-        <td id="LC281" class="blob-code js-file-line">            },</td>
-      </tr>
-      <tr>
-        <td id="L282" class="blob-num js-line-number" data-line-number="282"></td>
-        <td id="LC282" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L283" class="blob-num js-line-number" data-line-number="283"></td>
-        <td id="LC283" class="blob-code js-file-line">            <span class="pl-c">/** Forces browser to redraw elements */</span></td>
-      </tr>
-      <tr>
-        <td id="L284" class="blob-num js-line-number" data-line-number="284"></td>
-        <td id="LC284" class="blob-code js-file-line">            <span class="pl-en">redraw</span>: <span class="pl-st">function</span> (<span class="pl-vpf">$element</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L285" class="blob-num js-line-number" data-line-number="285"></td>
-        <td id="LC285" class="blob-code js-file-line">                $element.<span class="pl-sc">height</span>();</td>
-      </tr>
-      <tr>
-        <td id="L286" class="blob-num js-line-number" data-line-number="286"></td>
-        <td id="LC286" class="blob-code js-file-line">                <span class="pl-c">//setTimeout(function(){$element.height(&quot;100%&quot;);}, 0);</span></td>
-      </tr>
-      <tr>
-        <td id="L287" class="blob-num js-line-number" data-line-number="287"></td>
-        <td id="LC287" class="blob-code js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L288" class="blob-num js-line-number" data-line-number="288"></td>
-        <td id="LC288" class="blob-code js-file-line">        }, <span class="pl-c">// eo utility</span></td>
-      </tr>
-      <tr>
-        <td id="L289" class="blob-num js-line-number" data-line-number="289"></td>
-        <td id="LC289" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L290" class="blob-num js-line-number" data-line-number="290"></td>
-        <td id="LC290" class="blob-code js-file-line">        <span class="pl-c">/** Handles the popstate event, like when the user hits &quot;back&quot; */</span></td>
-      </tr>
-      <tr>
-        <td id="L291" class="blob-num js-line-number" data-line-number="291"></td>
-        <td id="LC291" class="blob-code js-file-line">        <span class="pl-en">onPopState</span> <span class="pl-k">=</span> <span class="pl-st">function</span> ( <span class="pl-vpf">e</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L292" class="blob-num js-line-number" data-line-number="292"></td>
-        <td id="LC292" class="blob-code js-file-line">            <span class="pl-k">if</span>(e.state <span class="pl-k">!==</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L293" class="blob-num js-line-number" data-line-number="293"></td>
-        <td id="LC293" class="blob-code js-file-line">                <span class="pl-s">var</span> url     <span class="pl-k">=</span> <span class="pl-s3">window</span>.<span class="pl-sc">location</span>.<span class="pl-sc">href</span>,</td>
-      </tr>
-      <tr>
-        <td id="L294" class="blob-num js-line-number" data-line-number="294"></td>
-        <td id="LC294" class="blob-code js-file-line">                    $page   <span class="pl-k">=</span> $(<span class="pl-s1"><span class="pl-pds">&quot;</span>#<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> e.state.<span class="pl-sc">id</span>),</td>
-      </tr>
-      <tr>
-        <td id="L295" class="blob-num js-line-number" data-line-number="295"></td>
-        <td id="LC295" class="blob-code js-file-line">                    page    <span class="pl-k">=</span> $page.<span class="pl-sc">data</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>smoothState<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L296" class="blob-num js-line-number" data-line-number="296"></td>
-        <td id="LC296" class="blob-code js-file-line">                </td>
-      </tr>
-      <tr>
-        <td id="L297" class="blob-num js-line-number" data-line-number="297"></td>
-        <td id="LC297" class="blob-code js-file-line">                <span class="pl-k">if</span>(page.<span class="pl-sc">href</span> <span class="pl-k">!==</span> url <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span>utility.isHash(url)) {</td>
-      </tr>
-      <tr>
-        <td id="L298" class="blob-num js-line-number" data-line-number="298"></td>
-        <td id="LC298" class="blob-code js-file-line">                    page.<span class="pl-s3">load</span>(url, <span class="pl-c1">true</span>);</td>
-      </tr>
-      <tr>
-        <td id="L299" class="blob-num js-line-number" data-line-number="299"></td>
-        <td id="LC299" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L300" class="blob-num js-line-number" data-line-number="300"></td>
-        <td id="LC300" class="blob-code js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L301" class="blob-num js-line-number" data-line-number="301"></td>
-        <td id="LC301" class="blob-code js-file-line">        },</td>
-      </tr>
-      <tr>
-        <td id="L302" class="blob-num js-line-number" data-line-number="302"></td>
-        <td id="LC302" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L303" class="blob-num js-line-number" data-line-number="303"></td>
-        <td id="LC303" class="blob-code js-file-line">        <span class="pl-c">/** Constructor function */</span></td>
-      </tr>
-      <tr>
-        <td id="L304" class="blob-num js-line-number" data-line-number="304"></td>
-        <td id="LC304" class="blob-code js-file-line">        <span class="pl-en">SmoothState</span> <span class="pl-k">=</span> <span class="pl-st">function</span> ( <span class="pl-vpf">element</span>, <span class="pl-vpf">options</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L305" class="blob-num js-line-number" data-line-number="305"></td>
-        <td id="LC305" class="blob-code js-file-line">            <span class="pl-s">var</span></td>
-      </tr>
-      <tr>
-        <td id="L306" class="blob-num js-line-number" data-line-number="306"></td>
-        <td id="LC306" class="blob-code js-file-line">                <span class="pl-c">/** Container element smoothState is run on */</span></td>
-      </tr>
-      <tr>
-        <td id="L307" class="blob-num js-line-number" data-line-number="307"></td>
-        <td id="LC307" class="blob-code js-file-line">                $container  <span class="pl-k">=</span> $(element),</td>
-      </tr>
-      <tr>
-        <td id="L308" class="blob-num js-line-number" data-line-number="308"></td>
-        <td id="LC308" class="blob-code js-file-line">                </td>
-      </tr>
-      <tr>
-        <td id="L309" class="blob-num js-line-number" data-line-number="309"></td>
-        <td id="LC309" class="blob-code js-file-line">                <span class="pl-c">/** Variable that stores pages after they are requested */</span></td>
-      </tr>
-      <tr>
-        <td id="L310" class="blob-num js-line-number" data-line-number="310"></td>
-        <td id="LC310" class="blob-code js-file-line">                cache       <span class="pl-k">=</span> {},</td>
-      </tr>
-      <tr>
-        <td id="L311" class="blob-num js-line-number" data-line-number="311"></td>
-        <td id="LC311" class="blob-code js-file-line">                </td>
-      </tr>
-      <tr>
-        <td id="L312" class="blob-num js-line-number" data-line-number="312"></td>
-        <td id="LC312" class="blob-code js-file-line">                <span class="pl-c">/** Url of the content that is currently displayed */</span></td>
-      </tr>
-      <tr>
-        <td id="L313" class="blob-num js-line-number" data-line-number="313"></td>
-        <td id="LC313" class="blob-code js-file-line">                currentHref <span class="pl-k">=</span> <span class="pl-s3">window</span>.<span class="pl-sc">location</span>.<span class="pl-sc">href</span>,</td>
-      </tr>
-      <tr>
-        <td id="L314" class="blob-num js-line-number" data-line-number="314"></td>
-        <td id="LC314" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L315" class="blob-num js-line-number" data-line-number="315"></td>
-        <td id="LC315" class="blob-code js-file-line">                <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L316" class="blob-num js-line-number" data-line-number="316"></td>
-        <td id="LC316" class="blob-code js-file-line"><span class="pl-c">                 * Loads the contents of a url into our container </span></td>
-      </tr>
-      <tr>
-        <td id="L317" class="blob-num js-line-number" data-line-number="317"></td>
-        <td id="LC317" class="blob-code js-file-line"><span class="pl-c">                 *</span></td>
-      </tr>
-      <tr>
-        <td id="L318" class="blob-num js-line-number" data-line-number="318"></td>
-        <td id="LC318" class="blob-code js-file-line"><span class="pl-c">                 * @param   {string}    url</span></td>
-      </tr>
-      <tr>
-        <td id="L319" class="blob-num js-line-number" data-line-number="319"></td>
-        <td id="LC319" class="blob-code js-file-line"><span class="pl-c">                 * @param   {bool}      isPopped - used to determine if whe should</span></td>
-      </tr>
-      <tr>
-        <td id="L320" class="blob-num js-line-number" data-line-number="320"></td>
-        <td id="LC320" class="blob-code js-file-line"><span class="pl-c">                 *                      add a new item into the history object</span></td>
-      </tr>
-      <tr>
-        <td id="L321" class="blob-num js-line-number" data-line-number="321"></td>
-        <td id="LC321" class="blob-code js-file-line"><span class="pl-c">                 * </span></td>
-      </tr>
-      <tr>
-        <td id="L322" class="blob-num js-line-number" data-line-number="322"></td>
-        <td id="LC322" class="blob-code js-file-line"><span class="pl-c">                 */</span></td>
-      </tr>
-      <tr>
-        <td id="L323" class="blob-num js-line-number" data-line-number="323"></td>
-        <td id="LC323" class="blob-code js-file-line">                <span class="pl-en">load</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">url</span>, <span class="pl-vpf">isPopped</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L324" class="blob-num js-line-number" data-line-number="324"></td>
-        <td id="LC324" class="blob-code js-file-line">                    </td>
-      </tr>
-      <tr>
-        <td id="L325" class="blob-num js-line-number" data-line-number="325"></td>
-        <td id="LC325" class="blob-code js-file-line">                    <span class="pl-c">/** Makes this an optional variable by setting a default */</span></td>
-      </tr>
-      <tr>
-        <td id="L326" class="blob-num js-line-number" data-line-number="326"></td>
-        <td id="LC326" class="blob-code js-file-line">                    isPopped <span class="pl-k">=</span> isPopped <span class="pl-k">||</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L327" class="blob-num js-line-number" data-line-number="327"></td>
-        <td id="LC327" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L328" class="blob-num js-line-number" data-line-number="328"></td>
-        <td id="LC328" class="blob-code js-file-line">                    <span class="pl-s">var</span></td>
-      </tr>
-      <tr>
-        <td id="L329" class="blob-num js-line-number" data-line-number="329"></td>
-        <td id="LC329" class="blob-code js-file-line">                        <span class="pl-c">/** Used to check if the onProgress function has been run */</span></td>
-      </tr>
-      <tr>
-        <td id="L330" class="blob-num js-line-number" data-line-number="330"></td>
-        <td id="LC330" class="blob-code js-file-line">                        hasRunCallback  <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L331" class="blob-num js-line-number" data-line-number="331"></td>
-        <td id="LC331" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L332" class="blob-num js-line-number" data-line-number="332"></td>
-        <td id="LC332" class="blob-code js-file-line">                        callbBackEnded  <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L333" class="blob-num js-line-number" data-line-number="333"></td>
-        <td id="LC333" class="blob-code js-file-line">                        </td>
-      </tr>
-      <tr>
-        <td id="L334" class="blob-num js-line-number" data-line-number="334"></td>
-        <td id="LC334" class="blob-code js-file-line">                        <span class="pl-c">/** List of responses for the states of the page request */</span></td>
-      </tr>
-      <tr>
-        <td id="L335" class="blob-num js-line-number" data-line-number="335"></td>
-        <td id="LC335" class="blob-code js-file-line">                        responses       <span class="pl-k">=</span> {</td>
-      </tr>
-      <tr>
-        <td id="L336" class="blob-num js-line-number" data-line-number="336"></td>
-        <td id="LC336" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L337" class="blob-num js-line-number" data-line-number="337"></td>
-        <td id="LC337" class="blob-code js-file-line">                            <span class="pl-c">/** Page is ready, update the content */</span></td>
-      </tr>
-      <tr>
-        <td id="L338" class="blob-num js-line-number" data-line-number="338"></td>
-        <td id="LC338" class="blob-code js-file-line">                            <span class="pl-en">loaded</span>: <span class="pl-st">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L339" class="blob-num js-line-number" data-line-number="339"></td>
-        <td id="LC339" class="blob-code js-file-line">                                <span class="pl-s">var</span> eventName <span class="pl-k">=</span> hasRunCallback <span class="pl-k">?</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onProgressEnd<span class="pl-pds">&quot;</span></span> <span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onStartEnd<span class="pl-pds">&quot;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L340" class="blob-num js-line-number" data-line-number="340"></td>
-        <td id="LC340" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L341" class="blob-num js-line-number" data-line-number="341"></td>
-        <td id="LC341" class="blob-code js-file-line">                                <span class="pl-k">if</span>(<span class="pl-k">!</span>callbBackEnded <span class="pl-k">||</span> <span class="pl-k">!</span>hasRunCallback) {</td>
-      </tr>
-      <tr>
-        <td id="L342" class="blob-num js-line-number" data-line-number="342"></td>
-        <td id="LC342" class="blob-code js-file-line">                                    $container.one(eventName, <span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L343" class="blob-num js-line-number" data-line-number="343"></td>
-        <td id="LC343" class="blob-code js-file-line">                                        updateContent(url);</td>
-      </tr>
-      <tr>
-        <td id="L344" class="blob-num js-line-number" data-line-number="344"></td>
-        <td id="LC344" class="blob-code js-file-line">                                    });</td>
-      </tr>
-      <tr>
-        <td id="L345" class="blob-num js-line-number" data-line-number="345"></td>
-        <td id="LC345" class="blob-code js-file-line">                                } <span class="pl-k">else</span> <span class="pl-k">if</span>(callbBackEnded) {</td>
-      </tr>
-      <tr>
-        <td id="L346" class="blob-num js-line-number" data-line-number="346"></td>
-        <td id="LC346" class="blob-code js-file-line">                                    updateContent(url);</td>
-      </tr>
-      <tr>
-        <td id="L347" class="blob-num js-line-number" data-line-number="347"></td>
-        <td id="LC347" class="blob-code js-file-line">                                }</td>
-      </tr>
-      <tr>
-        <td id="L348" class="blob-num js-line-number" data-line-number="348"></td>
-        <td id="LC348" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L349" class="blob-num js-line-number" data-line-number="349"></td>
-        <td id="LC349" class="blob-code js-file-line">                                <span class="pl-k">if</span>(<span class="pl-k">!</span>isPopped) {</td>
-      </tr>
-      <tr>
-        <td id="L350" class="blob-num js-line-number" data-line-number="350"></td>
-        <td id="LC350" class="blob-code js-file-line">                                    <span class="pl-s3">window</span>.<span class="pl-sc">history</span>.pushState({ id<span class="pl-k">:</span> $container.prop(<span class="pl-s1"><span class="pl-pds">&quot;</span>id<span class="pl-pds">&quot;</span></span>) }, cache[url].<span class="pl-sc">title</span>, url);</td>
-      </tr>
-      <tr>
-        <td id="L351" class="blob-num js-line-number" data-line-number="351"></td>
-        <td id="LC351" class="blob-code js-file-line">                                }</td>
-      </tr>
-      <tr>
-        <td id="L352" class="blob-num js-line-number" data-line-number="352"></td>
-        <td id="LC352" class="blob-code js-file-line">                            },</td>
-      </tr>
-      <tr>
-        <td id="L353" class="blob-num js-line-number" data-line-number="353"></td>
-        <td id="LC353" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L354" class="blob-num js-line-number" data-line-number="354"></td>
-        <td id="LC354" class="blob-code js-file-line">                            <span class="pl-c">/** Loading, wait 10 ms and check again */</span></td>
-      </tr>
-      <tr>
-        <td id="L355" class="blob-num js-line-number" data-line-number="355"></td>
-        <td id="LC355" class="blob-code js-file-line">                            <span class="pl-en">fetching</span>: <span class="pl-st">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L356" class="blob-num js-line-number" data-line-number="356"></td>
-        <td id="LC356" class="blob-code js-file-line">                                </td>
-      </tr>
-      <tr>
-        <td id="L357" class="blob-num js-line-number" data-line-number="357"></td>
-        <td id="LC357" class="blob-code js-file-line">                                <span class="pl-k">if</span>(<span class="pl-k">!</span>hasRunCallback) {</td>
-      </tr>
-      <tr>
-        <td id="L358" class="blob-num js-line-number" data-line-number="358"></td>
-        <td id="LC358" class="blob-code js-file-line">                                    </td>
-      </tr>
-      <tr>
-        <td id="L359" class="blob-num js-line-number" data-line-number="359"></td>
-        <td id="LC359" class="blob-code js-file-line">                                    hasRunCallback <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L360" class="blob-num js-line-number" data-line-number="360"></td>
-        <td id="LC360" class="blob-code js-file-line">                                    </td>
-      </tr>
-      <tr>
-        <td id="L361" class="blob-num js-line-number" data-line-number="361"></td>
-        <td id="LC361" class="blob-code js-file-line">                                    <span class="pl-c">// Run the onProgress callback and set trigger</span></td>
-      </tr>
-      <tr>
-        <td id="L362" class="blob-num js-line-number" data-line-number="362"></td>
-        <td id="LC362" class="blob-code js-file-line">                                    $container.one(<span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onStartEnd<span class="pl-pds">&quot;</span></span>, <span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L363" class="blob-num js-line-number" data-line-number="363"></td>
-        <td id="LC363" class="blob-code js-file-line">                                        options.onProgress.render(url, $container, <span class="pl-c1">null</span>);</td>
-      </tr>
-      <tr>
-        <td id="L364" class="blob-num js-line-number" data-line-number="364"></td>
-        <td id="LC364" class="blob-code js-file-line">                                        </td>
-      </tr>
-      <tr>
-        <td id="L365" class="blob-num js-line-number" data-line-number="365"></td>
-        <td id="LC365" class="blob-code js-file-line">                                        <span class="pl-s3">setTimeout</span>(<span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L366" class="blob-num js-line-number" data-line-number="366"></td>
-        <td id="LC366" class="blob-code js-file-line">                                            $container.trigger(<span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onProgressEnd<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L367" class="blob-num js-line-number" data-line-number="367"></td>
-        <td id="LC367" class="blob-code js-file-line">                                            callbBackEnded <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L368" class="blob-num js-line-number" data-line-number="368"></td>
-        <td id="LC368" class="blob-code js-file-line">                                        }, options.onStart.duration);</td>
-      </tr>
-      <tr>
-        <td id="L369" class="blob-num js-line-number" data-line-number="369"></td>
-        <td id="LC369" class="blob-code js-file-line">                                    </td>
-      </tr>
-      <tr>
-        <td id="L370" class="blob-num js-line-number" data-line-number="370"></td>
-        <td id="LC370" class="blob-code js-file-line">                                    });</td>
-      </tr>
-      <tr>
-        <td id="L371" class="blob-num js-line-number" data-line-number="371"></td>
-        <td id="LC371" class="blob-code js-file-line">                                }</td>
-      </tr>
-      <tr>
-        <td id="L372" class="blob-num js-line-number" data-line-number="372"></td>
-        <td id="LC372" class="blob-code js-file-line">                                </td>
-      </tr>
-      <tr>
-        <td id="L373" class="blob-num js-line-number" data-line-number="373"></td>
-        <td id="LC373" class="blob-code js-file-line">                                <span class="pl-s3">setTimeout</span>(<span class="pl-st">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L374" class="blob-num js-line-number" data-line-number="374"></td>
-        <td id="LC374" class="blob-code js-file-line">                                    <span class="pl-c">// Might of been canceled, better check!</span></td>
-      </tr>
-      <tr>
-        <td id="L375" class="blob-num js-line-number" data-line-number="375"></td>
-        <td id="LC375" class="blob-code js-file-line">                                    <span class="pl-k">if</span>(cache.hasOwnProperty(url)){</td>
-      </tr>
-      <tr>
-        <td id="L376" class="blob-num js-line-number" data-line-number="376"></td>
-        <td id="LC376" class="blob-code js-file-line">                                        responses[cache[url].<span class="pl-sc">status</span>]();</td>
-      </tr>
-      <tr>
-        <td id="L377" class="blob-num js-line-number" data-line-number="377"></td>
-        <td id="LC377" class="blob-code js-file-line">                                    }</td>
-      </tr>
-      <tr>
-        <td id="L378" class="blob-num js-line-number" data-line-number="378"></td>
-        <td id="LC378" class="blob-code js-file-line">                                }, <span class="pl-c1">10</span>);</td>
-      </tr>
-      <tr>
-        <td id="L379" class="blob-num js-line-number" data-line-number="379"></td>
-        <td id="LC379" class="blob-code js-file-line">                            },</td>
-      </tr>
-      <tr>
-        <td id="L380" class="blob-num js-line-number" data-line-number="380"></td>
-        <td id="LC380" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L381" class="blob-num js-line-number" data-line-number="381"></td>
-        <td id="LC381" class="blob-code js-file-line">                            <span class="pl-c">/** Error, abort and redirect */</span></td>
-      </tr>
-      <tr>
-        <td id="L382" class="blob-num js-line-number" data-line-number="382"></td>
-        <td id="LC382" class="blob-code js-file-line">                            <span class="pl-en">error</span>: <span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L383" class="blob-num js-line-number" data-line-number="383"></td>
-        <td id="LC383" class="blob-code js-file-line">                                <span class="pl-s3">window</span>.<span class="pl-sc">location</span> <span class="pl-k">=</span> url;</td>
-      </tr>
-      <tr>
-        <td id="L384" class="blob-num js-line-number" data-line-number="384"></td>
-        <td id="LC384" class="blob-code js-file-line">                            }</td>
-      </tr>
-      <tr>
-        <td id="L385" class="blob-num js-line-number" data-line-number="385"></td>
-        <td id="LC385" class="blob-code js-file-line">                        };</td>
-      </tr>
-      <tr>
-        <td id="L386" class="blob-num js-line-number" data-line-number="386"></td>
-        <td id="LC386" class="blob-code js-file-line">                    </td>
-      </tr>
-      <tr>
-        <td id="L387" class="blob-num js-line-number" data-line-number="387"></td>
-        <td id="LC387" class="blob-code js-file-line">                    <span class="pl-k">if</span> (<span class="pl-k">!</span>cache.hasOwnProperty(url)) {</td>
-      </tr>
-      <tr>
-        <td id="L388" class="blob-num js-line-number" data-line-number="388"></td>
-        <td id="LC388" class="blob-code js-file-line">                        fetch(url);</td>
-      </tr>
-      <tr>
-        <td id="L389" class="blob-num js-line-number" data-line-number="389"></td>
-        <td id="LC389" class="blob-code js-file-line">                    }</td>
-      </tr>
-      <tr>
-        <td id="L390" class="blob-num js-line-number" data-line-number="390"></td>
-        <td id="LC390" class="blob-code js-file-line">                    </td>
-      </tr>
-      <tr>
-        <td id="L391" class="blob-num js-line-number" data-line-number="391"></td>
-        <td id="LC391" class="blob-code js-file-line">                    <span class="pl-c">// Run the onStart callback and set trigger</span></td>
-      </tr>
-      <tr>
-        <td id="L392" class="blob-num js-line-number" data-line-number="392"></td>
-        <td id="LC392" class="blob-code js-file-line">                    options.onStart.render(url, $container, <span class="pl-c1">null</span>);</td>
-      </tr>
-      <tr>
-        <td id="L393" class="blob-num js-line-number" data-line-number="393"></td>
-        <td id="LC393" class="blob-code js-file-line">                    <span class="pl-s3">setTimeout</span>(<span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L394" class="blob-num js-line-number" data-line-number="394"></td>
-        <td id="LC394" class="blob-code js-file-line">                        $container.trigger(<span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onStartEnd<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L395" class="blob-num js-line-number" data-line-number="395"></td>
-        <td id="LC395" class="blob-code js-file-line">                    }, options.onStart.duration);</td>
-      </tr>
-      <tr>
-        <td id="L396" class="blob-num js-line-number" data-line-number="396"></td>
-        <td id="LC396" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L397" class="blob-num js-line-number" data-line-number="397"></td>
-        <td id="LC397" class="blob-code js-file-line">                    <span class="pl-c">// Start checking for the status of content</span></td>
-      </tr>
-      <tr>
-        <td id="L398" class="blob-num js-line-number" data-line-number="398"></td>
-        <td id="LC398" class="blob-code js-file-line">                    responses[cache[url].<span class="pl-sc">status</span>]();</td>
-      </tr>
-      <tr>
-        <td id="L399" class="blob-num js-line-number" data-line-number="399"></td>
-        <td id="LC399" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L400" class="blob-num js-line-number" data-line-number="400"></td>
-        <td id="LC400" class="blob-code js-file-line">                },</td>
-      </tr>
-      <tr>
-        <td id="L401" class="blob-num js-line-number" data-line-number="401"></td>
-        <td id="LC401" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L402" class="blob-num js-line-number" data-line-number="402"></td>
-        <td id="LC402" class="blob-code js-file-line">                <span class="pl-c">/** Updates the contents from cache[url] */</span></td>
-      </tr>
-      <tr>
-        <td id="L403" class="blob-num js-line-number" data-line-number="403"></td>
-        <td id="LC403" class="blob-code js-file-line">                <span class="pl-en">updateContent</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">url</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L404" class="blob-num js-line-number" data-line-number="404"></td>
-        <td id="LC404" class="blob-code js-file-line">                    <span class="pl-c">// If the content has been requested and is done:</span></td>
-      </tr>
-      <tr>
-        <td id="L405" class="blob-num js-line-number" data-line-number="405"></td>
-        <td id="LC405" class="blob-code js-file-line">                    <span class="pl-s">var</span> containerId <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>#<span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> $container.prop(<span class="pl-s1"><span class="pl-pds">&quot;</span>id<span class="pl-pds">&quot;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L406" class="blob-num js-line-number" data-line-number="406"></td>
-        <td id="LC406" class="blob-code js-file-line">                        $content    <span class="pl-k">=</span> cache[url] <span class="pl-k">?</span> utility.getContentById(containerId, cache[url].html) <span class="pl-k">:</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L407" class="blob-num js-line-number" data-line-number="407"></td>
-        <td id="LC407" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L408" class="blob-num js-line-number" data-line-number="408"></td>
-        <td id="LC408" class="blob-code js-file-line">                    <span class="pl-k">if</span>($content) {</td>
-      </tr>
-      <tr>
-        <td id="L409" class="blob-num js-line-number" data-line-number="409"></td>
-        <td id="LC409" class="blob-code js-file-line">                        <span class="pl-s3">document</span>.<span class="pl-sc">title</span> <span class="pl-k">=</span> cache[url].<span class="pl-sc">title</span>;</td>
-      </tr>
-      <tr>
-        <td id="L410" class="blob-num js-line-number" data-line-number="410"></td>
-        <td id="LC410" class="blob-code js-file-line">                        $container.<span class="pl-sc">data</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>smoothState<span class="pl-pds">&quot;</span></span>).<span class="pl-sc">href</span> <span class="pl-k">=</span> url;</td>
-      </tr>
-      <tr>
-        <td id="L411" class="blob-num js-line-number" data-line-number="411"></td>
-        <td id="LC411" class="blob-code js-file-line">                        </td>
-      </tr>
-      <tr>
-        <td id="L412" class="blob-num js-line-number" data-line-number="412"></td>
-        <td id="LC412" class="blob-code js-file-line">                        <span class="pl-c">// Call the onEnd callback and set trigger</span></td>
-      </tr>
-      <tr>
-        <td id="L413" class="blob-num js-line-number" data-line-number="413"></td>
-        <td id="LC413" class="blob-code js-file-line">                        options.onEnd.render(url, $container, $content);</td>
-      </tr>
-      <tr>
-        <td id="L414" class="blob-num js-line-number" data-line-number="414"></td>
-        <td id="LC414" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L415" class="blob-num js-line-number" data-line-number="415"></td>
-        <td id="LC415" class="blob-code js-file-line">                        $container.one(<span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onEndEnd<span class="pl-pds">&quot;</span></span>, <span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L416" class="blob-num js-line-number" data-line-number="416"></td>
-        <td id="LC416" class="blob-code js-file-line">                            options.callback(url, $container, $content);</td>
-      </tr>
-      <tr>
-        <td id="L417" class="blob-num js-line-number" data-line-number="417"></td>
-        <td id="LC417" class="blob-code js-file-line">                        });</td>
-      </tr>
-      <tr>
-        <td id="L418" class="blob-num js-line-number" data-line-number="418"></td>
-        <td id="LC418" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L419" class="blob-num js-line-number" data-line-number="419"></td>
-        <td id="LC419" class="blob-code js-file-line">                        <span class="pl-s3">setTimeout</span>(<span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L420" class="blob-num js-line-number" data-line-number="420"></td>
-        <td id="LC420" class="blob-code js-file-line">                            $container.trigger(<span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onEndEnd<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L421" class="blob-num js-line-number" data-line-number="421"></td>
-        <td id="LC421" class="blob-code js-file-line">                        }, options.onEnd.duration);</td>
-      </tr>
-      <tr>
-        <td id="L422" class="blob-num js-line-number" data-line-number="422"></td>
-        <td id="LC422" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L423" class="blob-num js-line-number" data-line-number="423"></td>
-        <td id="LC423" class="blob-code js-file-line">                    } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-k">!</span>$content <span class="pl-k">&amp;&amp;</span> options.development <span class="pl-k">&amp;&amp;</span> consl) {</td>
-      </tr>
-      <tr>
-        <td id="L424" class="blob-num js-line-number" data-line-number="424"></td>
-        <td id="LC424" class="blob-code js-file-line">                        <span class="pl-c">// Throw warning to help debug in development mode</span></td>
-      </tr>
-      <tr>
-        <td id="L425" class="blob-num js-line-number" data-line-number="425"></td>
-        <td id="LC425" class="blob-code js-file-line">                        consl<span class="pl-s3">.warn</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>No element with an id of <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> containerId <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span> in response from <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> url <span class="pl-k">+</span> <span class="pl-s1"><span class="pl-pds">&quot;</span> in <span class="pl-pds">&quot;</span></span> <span class="pl-k">+</span> cache);</td>
-      </tr>
-      <tr>
-        <td id="L426" class="blob-num js-line-number" data-line-number="426"></td>
-        <td id="LC426" class="blob-code js-file-line">                    } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L427" class="blob-num js-line-number" data-line-number="427"></td>
-        <td id="LC427" class="blob-code js-file-line">                        <span class="pl-c">// No content availble to update with, aborting...</span></td>
-      </tr>
-      <tr>
-        <td id="L428" class="blob-num js-line-number" data-line-number="428"></td>
-        <td id="LC428" class="blob-code js-file-line">                        <span class="pl-s3">window</span>.<span class="pl-sc">location</span> <span class="pl-k">=</span> url;</td>
-      </tr>
-      <tr>
-        <td id="L429" class="blob-num js-line-number" data-line-number="429"></td>
-        <td id="LC429" class="blob-code js-file-line">                    }</td>
-      </tr>
-      <tr>
-        <td id="L430" class="blob-num js-line-number" data-line-number="430"></td>
-        <td id="LC430" class="blob-code js-file-line">                },</td>
-      </tr>
-      <tr>
-        <td id="L431" class="blob-num js-line-number" data-line-number="431"></td>
-        <td id="LC431" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L432" class="blob-num js-line-number" data-line-number="432"></td>
-        <td id="LC432" class="blob-code js-file-line">                <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L433" class="blob-num js-line-number" data-line-number="433"></td>
-        <td id="LC433" class="blob-code js-file-line"><span class="pl-c">                 * Fetches the contents of a url and stores it in the &quot;cache&quot; varible</span></td>
-      </tr>
-      <tr>
-        <td id="L434" class="blob-num js-line-number" data-line-number="434"></td>
-        <td id="LC434" class="blob-code js-file-line"><span class="pl-c">                 * @param   {string}    url</span></td>
-      </tr>
-      <tr>
-        <td id="L435" class="blob-num js-line-number" data-line-number="435"></td>
-        <td id="LC435" class="blob-code js-file-line"><span class="pl-c">                 * </span></td>
-      </tr>
-      <tr>
-        <td id="L436" class="blob-num js-line-number" data-line-number="436"></td>
-        <td id="LC436" class="blob-code js-file-line"><span class="pl-c">                 */</span></td>
-      </tr>
-      <tr>
-        <td id="L437" class="blob-num js-line-number" data-line-number="437"></td>
-        <td id="LC437" class="blob-code js-file-line">                <span class="pl-en">fetch</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">url</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L438" class="blob-num js-line-number" data-line-number="438"></td>
-        <td id="LC438" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L439" class="blob-num js-line-number" data-line-number="439"></td>
-        <td id="LC439" class="blob-code js-file-line">                    <span class="pl-c">// Don&#39;t fetch we have the content already</span></td>
-      </tr>
-      <tr>
-        <td id="L440" class="blob-num js-line-number" data-line-number="440"></td>
-        <td id="LC440" class="blob-code js-file-line">                    <span class="pl-k">if</span>(cache.hasOwnProperty(url)) {</td>
-      </tr>
-      <tr>
-        <td id="L441" class="blob-num js-line-number" data-line-number="441"></td>
-        <td id="LC441" class="blob-code js-file-line">                        <span class="pl-k">return</span>;</td>
-      </tr>
-      <tr>
-        <td id="L442" class="blob-num js-line-number" data-line-number="442"></td>
-        <td id="LC442" class="blob-code js-file-line">                    }</td>
-      </tr>
-      <tr>
-        <td id="L443" class="blob-num js-line-number" data-line-number="443"></td>
-        <td id="LC443" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L444" class="blob-num js-line-number" data-line-number="444"></td>
-        <td id="LC444" class="blob-code js-file-line">                    cache <span class="pl-k">=</span> utility.clearIfOverCapacity(cache, options.pageCacheSize);</td>
-      </tr>
-      <tr>
-        <td id="L445" class="blob-num js-line-number" data-line-number="445"></td>
-        <td id="LC445" class="blob-code js-file-line">                    </td>
-      </tr>
-      <tr>
-        <td id="L446" class="blob-num js-line-number" data-line-number="446"></td>
-        <td id="LC446" class="blob-code js-file-line">                    cache[url] <span class="pl-k">=</span> { status<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>fetching<span class="pl-pds">&quot;</span></span> };</td>
-      </tr>
-      <tr>
-        <td id="L447" class="blob-num js-line-number" data-line-number="447"></td>
-        <td id="LC447" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L448" class="blob-num js-line-number" data-line-number="448"></td>
-        <td id="LC448" class="blob-code js-file-line">                    <span class="pl-s">var</span> requestUrl  <span class="pl-k">=</span> options.alterRequestUrl(url) <span class="pl-k">||</span> url,</td>
-      </tr>
-      <tr>
-        <td id="L449" class="blob-num js-line-number" data-line-number="449"></td>
-        <td id="LC449" class="blob-code js-file-line">                        request     <span class="pl-k">=</span> $.ajax(requestUrl);</td>
-      </tr>
-      <tr>
-        <td id="L450" class="blob-num js-line-number" data-line-number="450"></td>
-        <td id="LC450" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L451" class="blob-num js-line-number" data-line-number="451"></td>
-        <td id="LC451" class="blob-code js-file-line">                    <span class="pl-c">// Store contents in cache variable if successful</span></td>
-      </tr>
-      <tr>
-        <td id="L452" class="blob-num js-line-number" data-line-number="452"></td>
-        <td id="LC452" class="blob-code js-file-line">                    request.success(<span class="pl-st">function</span> (<span class="pl-vpf">html</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L453" class="blob-num js-line-number" data-line-number="453"></td>
-        <td id="LC453" class="blob-code js-file-line">                        <span class="pl-c">// Clear cache varible if it&quot;s getting too big</span></td>
-      </tr>
-      <tr>
-        <td id="L454" class="blob-num js-line-number" data-line-number="454"></td>
-        <td id="LC454" class="blob-code js-file-line">                        utility.storePageIn(cache, url, html);</td>
-      </tr>
-      <tr>
-        <td id="L455" class="blob-num js-line-number" data-line-number="455"></td>
-        <td id="LC455" class="blob-code js-file-line">                        $container.<span class="pl-sc">data</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>smoothState<span class="pl-pds">&quot;</span></span>).cache <span class="pl-k">=</span> cache;</td>
-      </tr>
-      <tr>
-        <td id="L456" class="blob-num js-line-number" data-line-number="456"></td>
-        <td id="LC456" class="blob-code js-file-line">                    });</td>
-      </tr>
-      <tr>
-        <td id="L457" class="blob-num js-line-number" data-line-number="457"></td>
-        <td id="LC457" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L458" class="blob-num js-line-number" data-line-number="458"></td>
-        <td id="LC458" class="blob-code js-file-line">                    <span class="pl-c">// Mark as error</span></td>
-      </tr>
-      <tr>
-        <td id="L459" class="blob-num js-line-number" data-line-number="459"></td>
-        <td id="LC459" class="blob-code js-file-line">                    request<span class="pl-s3">.error</span>(<span class="pl-st">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L460" class="blob-num js-line-number" data-line-number="460"></td>
-        <td id="LC460" class="blob-code js-file-line">                        cache[url].<span class="pl-sc">status</span> <span class="pl-k">=</span> <span class="pl-s1"><span class="pl-pds">&quot;</span>error<span class="pl-pds">&quot;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L461" class="blob-num js-line-number" data-line-number="461"></td>
-        <td id="LC461" class="blob-code js-file-line">                    });</td>
-      </tr>
-      <tr>
-        <td id="L462" class="blob-num js-line-number" data-line-number="462"></td>
-        <td id="LC462" class="blob-code js-file-line">                },</td>
-      </tr>
-      <tr>
-        <td id="L463" class="blob-num js-line-number" data-line-number="463"></td>
-        <td id="LC463" class="blob-code js-file-line">                <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L464" class="blob-num js-line-number" data-line-number="464"></td>
-        <td id="LC464" class="blob-code js-file-line"><span class="pl-c">                 * Binds to the hover event of a link, used for prefetching content</span></td>
-      </tr>
-      <tr>
-        <td id="L465" class="blob-num js-line-number" data-line-number="465"></td>
-        <td id="LC465" class="blob-code js-file-line"><span class="pl-c">                 *</span></td>
-      </tr>
-      <tr>
-        <td id="L466" class="blob-num js-line-number" data-line-number="466"></td>
-        <td id="LC466" class="blob-code js-file-line"><span class="pl-c">                 * @param   {object}    event</span></td>
-      </tr>
-      <tr>
-        <td id="L467" class="blob-num js-line-number" data-line-number="467"></td>
-        <td id="LC467" class="blob-code js-file-line"><span class="pl-c">                 * </span></td>
-      </tr>
-      <tr>
-        <td id="L468" class="blob-num js-line-number" data-line-number="468"></td>
-        <td id="LC468" class="blob-code js-file-line"><span class="pl-c">                 */</span></td>
-      </tr>
-      <tr>
-        <td id="L469" class="blob-num js-line-number" data-line-number="469"></td>
-        <td id="LC469" class="blob-code js-file-line">                <span class="pl-en">hoverAnchor</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">event</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L470" class="blob-num js-line-number" data-line-number="470"></td>
-        <td id="LC470" class="blob-code js-file-line">                    <span class="pl-s">var</span> $anchor <span class="pl-k">=</span> $(<span class="pl-s3">event</span>.currentTarget),</td>
-      </tr>
-      <tr>
-        <td id="L471" class="blob-num js-line-number" data-line-number="471"></td>
-        <td id="LC471" class="blob-code js-file-line">                        url     <span class="pl-k">=</span> $anchor.prop(<span class="pl-s1"><span class="pl-pds">&quot;</span>href<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L472" class="blob-num js-line-number" data-line-number="472"></td>
-        <td id="LC472" class="blob-code js-file-line">                    <span class="pl-k">if</span> (utility.shouldLoad($anchor, options.blacklist)) {</td>
-      </tr>
-      <tr>
-        <td id="L473" class="blob-num js-line-number" data-line-number="473"></td>
-        <td id="LC473" class="blob-code js-file-line">                        <span class="pl-s3">event</span>.stopPropagation();</td>
-      </tr>
-      <tr>
-        <td id="L474" class="blob-num js-line-number" data-line-number="474"></td>
-        <td id="LC474" class="blob-code js-file-line">                        fetch(url);</td>
-      </tr>
-      <tr>
-        <td id="L475" class="blob-num js-line-number" data-line-number="475"></td>
-        <td id="LC475" class="blob-code js-file-line">                    }</td>
-      </tr>
-      <tr>
-        <td id="L476" class="blob-num js-line-number" data-line-number="476"></td>
-        <td id="LC476" class="blob-code js-file-line">                },</td>
-      </tr>
-      <tr>
-        <td id="L477" class="blob-num js-line-number" data-line-number="477"></td>
-        <td id="LC477" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L478" class="blob-num js-line-number" data-line-number="478"></td>
-        <td id="LC478" class="blob-code js-file-line">                <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L479" class="blob-num js-line-number" data-line-number="479"></td>
-        <td id="LC479" class="blob-code js-file-line"><span class="pl-c">                 * Binds to the click event of a link, used to show the content</span></td>
-      </tr>
-      <tr>
-        <td id="L480" class="blob-num js-line-number" data-line-number="480"></td>
-        <td id="LC480" class="blob-code js-file-line"><span class="pl-c">                 *</span></td>
-      </tr>
-      <tr>
-        <td id="L481" class="blob-num js-line-number" data-line-number="481"></td>
-        <td id="LC481" class="blob-code js-file-line"><span class="pl-c">                 * @param   {object}    event</span></td>
-      </tr>
-      <tr>
-        <td id="L482" class="blob-num js-line-number" data-line-number="482"></td>
-        <td id="LC482" class="blob-code js-file-line"><span class="pl-c">                 * </span></td>
-      </tr>
-      <tr>
-        <td id="L483" class="blob-num js-line-number" data-line-number="483"></td>
-        <td id="LC483" class="blob-code js-file-line"><span class="pl-c">                 */</span></td>
-      </tr>
-      <tr>
-        <td id="L484" class="blob-num js-line-number" data-line-number="484"></td>
-        <td id="LC484" class="blob-code js-file-line">                <span class="pl-en">clickAnchor</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">event</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L485" class="blob-num js-line-number" data-line-number="485"></td>
-        <td id="LC485" class="blob-code js-file-line">                    <span class="pl-s">var</span> $anchor     <span class="pl-k">=</span> $(<span class="pl-s3">event</span>.currentTarget),</td>
-      </tr>
-      <tr>
-        <td id="L486" class="blob-num js-line-number" data-line-number="486"></td>
-        <td id="LC486" class="blob-code js-file-line">                        url         <span class="pl-k">=</span> $anchor.prop(<span class="pl-s1"><span class="pl-pds">&quot;</span>href<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L487" class="blob-num js-line-number" data-line-number="487"></td>
-        <td id="LC487" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L488" class="blob-num js-line-number" data-line-number="488"></td>
-        <td id="LC488" class="blob-code js-file-line">                    <span class="pl-c">// Ctrl (or Cmd) + click must open a new tab</span></td>
-      </tr>
-      <tr>
-        <td id="L489" class="blob-num js-line-number" data-line-number="489"></td>
-        <td id="LC489" class="blob-code js-file-line">                    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-s3">event</span>.metaKey <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-s3">event</span>.ctrlKey <span class="pl-k">&amp;&amp;</span> utility.shouldLoad($anchor, options.blacklist)) {</td>
-      </tr>
-      <tr>
-        <td id="L490" class="blob-num js-line-number" data-line-number="490"></td>
-        <td id="LC490" class="blob-code js-file-line">                        <span class="pl-c">// stopPropagation so that event doesn&#39;t fire on parent containers.</span></td>
-      </tr>
-      <tr>
-        <td id="L491" class="blob-num js-line-number" data-line-number="491"></td>
-        <td id="LC491" class="blob-code js-file-line">                        <span class="pl-s3">event</span>.stopPropagation();</td>
-      </tr>
-      <tr>
-        <td id="L492" class="blob-num js-line-number" data-line-number="492"></td>
-        <td id="LC492" class="blob-code js-file-line">                        <span class="pl-s3">event</span>.preventDefault();</td>
-      </tr>
-      <tr>
-        <td id="L493" class="blob-num js-line-number" data-line-number="493"></td>
-        <td id="LC493" class="blob-code js-file-line">                        <span class="pl-s3">load</span>(url);</td>
-      </tr>
-      <tr>
-        <td id="L494" class="blob-num js-line-number" data-line-number="494"></td>
-        <td id="LC494" class="blob-code js-file-line">                    }</td>
-      </tr>
-      <tr>
-        <td id="L495" class="blob-num js-line-number" data-line-number="495"></td>
-        <td id="LC495" class="blob-code js-file-line">                },</td>
-      </tr>
-      <tr>
-        <td id="L496" class="blob-num js-line-number" data-line-number="496"></td>
-        <td id="LC496" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L497" class="blob-num js-line-number" data-line-number="497"></td>
-        <td id="LC497" class="blob-code js-file-line">                <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L498" class="blob-num js-line-number" data-line-number="498"></td>
-        <td id="LC498" class="blob-code js-file-line"><span class="pl-c">                 * Binds all events and inits functionality</span></td>
-      </tr>
-      <tr>
-        <td id="L499" class="blob-num js-line-number" data-line-number="499"></td>
-        <td id="LC499" class="blob-code js-file-line"><span class="pl-c">                 *</span></td>
-      </tr>
-      <tr>
-        <td id="L500" class="blob-num js-line-number" data-line-number="500"></td>
-        <td id="LC500" class="blob-code js-file-line"><span class="pl-c">                 * @param   {object}    event</span></td>
-      </tr>
-      <tr>
-        <td id="L501" class="blob-num js-line-number" data-line-number="501"></td>
-        <td id="LC501" class="blob-code js-file-line"><span class="pl-c">                 * </span></td>
-      </tr>
-      <tr>
-        <td id="L502" class="blob-num js-line-number" data-line-number="502"></td>
-        <td id="LC502" class="blob-code js-file-line"><span class="pl-c">                 */</span></td>
-      </tr>
-      <tr>
-        <td id="L503" class="blob-num js-line-number" data-line-number="503"></td>
-        <td id="LC503" class="blob-code js-file-line">                <span class="pl-en">bindEventHandlers</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">$element</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L504" class="blob-num js-line-number" data-line-number="504"></td>
-        <td id="LC504" class="blob-code js-file-line">                    <span class="pl-c">//@todo: Handle form submissions</span></td>
-      </tr>
-      <tr>
-        <td id="L505" class="blob-num js-line-number" data-line-number="505"></td>
-        <td id="LC505" class="blob-code js-file-line">                    $element.on(<span class="pl-s1"><span class="pl-pds">&quot;</span>click<span class="pl-pds">&quot;</span></span>, options.<span class="pl-sc">anchors</span>, clickAnchor);</td>
-      </tr>
-      <tr>
-        <td id="L506" class="blob-num js-line-number" data-line-number="506"></td>
-        <td id="LC506" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L507" class="blob-num js-line-number" data-line-number="507"></td>
-        <td id="LC507" class="blob-code js-file-line">                    <span class="pl-k">if</span> (options.prefetch) {</td>
-      </tr>
-      <tr>
-        <td id="L508" class="blob-num js-line-number" data-line-number="508"></td>
-        <td id="LC508" class="blob-code js-file-line">                        $element.on(<span class="pl-s1"><span class="pl-pds">&quot;</span>mouseover touchstart<span class="pl-pds">&quot;</span></span>, options.<span class="pl-sc">anchors</span>, hoverAnchor);</td>
-      </tr>
-      <tr>
-        <td id="L509" class="blob-num js-line-number" data-line-number="509"></td>
-        <td id="LC509" class="blob-code js-file-line">                    }</td>
-      </tr>
-      <tr>
-        <td id="L510" class="blob-num js-line-number" data-line-number="510"></td>
-        <td id="LC510" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L511" class="blob-num js-line-number" data-line-number="511"></td>
-        <td id="LC511" class="blob-code js-file-line">                },</td>
-      </tr>
-      <tr>
-        <td id="L512" class="blob-num js-line-number" data-line-number="512"></td>
-        <td id="LC512" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L513" class="blob-num js-line-number" data-line-number="513"></td>
-        <td id="LC513" class="blob-code js-file-line">                <span class="pl-c">/** Used to restart css animations with a class */</span></td>
-      </tr>
-      <tr>
-        <td id="L514" class="blob-num js-line-number" data-line-number="514"></td>
-        <td id="LC514" class="blob-code js-file-line">                <span class="pl-en">toggleAnimationClass</span> <span class="pl-k">=</span> <span class="pl-st">function</span> (<span class="pl-vpf">classname</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L515" class="blob-num js-line-number" data-line-number="515"></td>
-        <td id="LC515" class="blob-code js-file-line">                    <span class="pl-s">var</span> classes <span class="pl-k">=</span> $container.addClass(classname).prop(<span class="pl-s1"><span class="pl-pds">&quot;</span>class<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L516" class="blob-num js-line-number" data-line-number="516"></td>
-        <td id="LC516" class="blob-code js-file-line">                    </td>
-      </tr>
-      <tr>
-        <td id="L517" class="blob-num js-line-number" data-line-number="517"></td>
-        <td id="LC517" class="blob-code js-file-line">                    $container.removeClass(classes);</td>
-      </tr>
-      <tr>
-        <td id="L518" class="blob-num js-line-number" data-line-number="518"></td>
-        <td id="LC518" class="blob-code js-file-line">                    </td>
-      </tr>
-      <tr>
-        <td id="L519" class="blob-num js-line-number" data-line-number="519"></td>
-        <td id="LC519" class="blob-code js-file-line">                    <span class="pl-s3">setTimeout</span>(<span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L520" class="blob-num js-line-number" data-line-number="520"></td>
-        <td id="LC520" class="blob-code js-file-line">                        $container.addClass(classes);</td>
-      </tr>
-      <tr>
-        <td id="L521" class="blob-num js-line-number" data-line-number="521"></td>
-        <td id="LC521" class="blob-code js-file-line">                    },<span class="pl-c1">0</span>);</td>
-      </tr>
-      <tr>
-        <td id="L522" class="blob-num js-line-number" data-line-number="522"></td>
-        <td id="LC522" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L523" class="blob-num js-line-number" data-line-number="523"></td>
-        <td id="LC523" class="blob-code js-file-line">                    $container.one(<span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onStartEnd ss.onProgressEnd ss.onEndEnd<span class="pl-pds">&quot;</span></span>, <span class="pl-st">function</span>(){</td>
-      </tr>
-      <tr>
-        <td id="L524" class="blob-num js-line-number" data-line-number="524"></td>
-        <td id="LC524" class="blob-code js-file-line">                        $container.removeClass(classname);</td>
-      </tr>
-      <tr>
-        <td id="L525" class="blob-num js-line-number" data-line-number="525"></td>
-        <td id="LC525" class="blob-code js-file-line">                    });</td>
-      </tr>
-      <tr>
-        <td id="L526" class="blob-num js-line-number" data-line-number="526"></td>
-        <td id="LC526" class="blob-code js-file-line">                    </td>
-      </tr>
-      <tr>
-        <td id="L527" class="blob-num js-line-number" data-line-number="527"></td>
-        <td id="LC527" class="blob-code js-file-line">                };</td>
-      </tr>
-      <tr>
-        <td id="L528" class="blob-num js-line-number" data-line-number="528"></td>
-        <td id="LC528" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L529" class="blob-num js-line-number" data-line-number="529"></td>
-        <td id="LC529" class="blob-code js-file-line">            <span class="pl-c">/** Merge defaults and global options into current configuration */</span></td>
-      </tr>
-      <tr>
-        <td id="L530" class="blob-num js-line-number" data-line-number="530"></td>
-        <td id="LC530" class="blob-code js-file-line">            options <span class="pl-k">=</span> $.extend( {}, $.fn.smoothState.<span class="pl-sc">options</span>, options );</td>
-      </tr>
-      <tr>
-        <td id="L531" class="blob-num js-line-number" data-line-number="531"></td>
-        <td id="LC531" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L532" class="blob-num js-line-number" data-line-number="532"></td>
-        <td id="LC532" class="blob-code js-file-line">            <span class="pl-c">/** Sets a default state */</span></td>
-      </tr>
-      <tr>
-        <td id="L533" class="blob-num js-line-number" data-line-number="533"></td>
-        <td id="LC533" class="blob-code js-file-line">            <span class="pl-k">if</span>(<span class="pl-s3">window</span>.<span class="pl-sc">history</span>.state <span class="pl-k">===</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L534" class="blob-num js-line-number" data-line-number="534"></td>
-        <td id="LC534" class="blob-code js-file-line">                <span class="pl-s3">window</span>.<span class="pl-sc">history</span>.replaceState({ id<span class="pl-k">:</span> $container.prop(<span class="pl-s1"><span class="pl-pds">&quot;</span>id<span class="pl-pds">&quot;</span></span>) }, <span class="pl-s3">document</span>.<span class="pl-sc">title</span>, currentHref);</td>
-      </tr>
-      <tr>
-        <td id="L535" class="blob-num js-line-number" data-line-number="535"></td>
-        <td id="LC535" class="blob-code js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L536" class="blob-num js-line-number" data-line-number="536"></td>
-        <td id="LC536" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L537" class="blob-num js-line-number" data-line-number="537"></td>
-        <td id="LC537" class="blob-code js-file-line">            <span class="pl-c">/** Stores the current page in cache variable */</span></td>
-      </tr>
-      <tr>
-        <td id="L538" class="blob-num js-line-number" data-line-number="538"></td>
-        <td id="LC538" class="blob-code js-file-line">            utility.storePageIn(cache, currentHref, <span class="pl-s3">document</span>.<span class="pl-sc">documentElement</span>.outerHTML);</td>
-      </tr>
-      <tr>
-        <td id="L539" class="blob-num js-line-number" data-line-number="539"></td>
-        <td id="LC539" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L540" class="blob-num js-line-number" data-line-number="540"></td>
-        <td id="LC540" class="blob-code js-file-line">            <span class="pl-c">/** Bind all of the event handlers on the container, not anchors */</span></td>
-      </tr>
-      <tr>
-        <td id="L541" class="blob-num js-line-number" data-line-number="541"></td>
-        <td id="LC541" class="blob-code js-file-line">            utility.triggerAllAnimationEndEvent($container, <span class="pl-s1"><span class="pl-pds">&quot;</span>ss.onStartEnd ss.onProgressEnd ss.onEndEnd<span class="pl-pds">&quot;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L542" class="blob-num js-line-number" data-line-number="542"></td>
-        <td id="LC542" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L543" class="blob-num js-line-number" data-line-number="543"></td>
-        <td id="LC543" class="blob-code js-file-line">            <span class="pl-c">/** Bind all of the event handlers on the container, not anchors */</span></td>
-      </tr>
-      <tr>
-        <td id="L544" class="blob-num js-line-number" data-line-number="544"></td>
-        <td id="LC544" class="blob-code js-file-line">            bindEventHandlers($container);</td>
-      </tr>
-      <tr>
-        <td id="L545" class="blob-num js-line-number" data-line-number="545"></td>
-        <td id="LC545" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L546" class="blob-num js-line-number" data-line-number="546"></td>
-        <td id="LC546" class="blob-code js-file-line">            <span class="pl-c">/** Public methods */</span></td>
-      </tr>
-      <tr>
-        <td id="L547" class="blob-num js-line-number" data-line-number="547"></td>
-        <td id="LC547" class="blob-code js-file-line">            <span class="pl-k">return</span> {</td>
-      </tr>
-      <tr>
-        <td id="L548" class="blob-num js-line-number" data-line-number="548"></td>
-        <td id="LC548" class="blob-code js-file-line">                href<span class="pl-k">:</span> currentHref,</td>
-      </tr>
-      <tr>
-        <td id="L549" class="blob-num js-line-number" data-line-number="549"></td>
-        <td id="LC549" class="blob-code js-file-line">                cache<span class="pl-k">:</span> cache,</td>
-      </tr>
-      <tr>
-        <td id="L550" class="blob-num js-line-number" data-line-number="550"></td>
-        <td id="LC550" class="blob-code js-file-line">                load<span class="pl-k">:</span> load,</td>
-      </tr>
-      <tr>
-        <td id="L551" class="blob-num js-line-number" data-line-number="551"></td>
-        <td id="LC551" class="blob-code js-file-line">                fetch<span class="pl-k">:</span> fetch,</td>
-      </tr>
-      <tr>
-        <td id="L552" class="blob-num js-line-number" data-line-number="552"></td>
-        <td id="LC552" class="blob-code js-file-line">                toggleAnimationClass<span class="pl-k">:</span> toggleAnimationClass</td>
-      </tr>
-      <tr>
-        <td id="L553" class="blob-num js-line-number" data-line-number="553"></td>
-        <td id="LC553" class="blob-code js-file-line">            };</td>
-      </tr>
-      <tr>
-        <td id="L554" class="blob-num js-line-number" data-line-number="554"></td>
-        <td id="LC554" class="blob-code js-file-line">        },</td>
-      </tr>
-      <tr>
-        <td id="L555" class="blob-num js-line-number" data-line-number="555"></td>
-        <td id="LC555" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L556" class="blob-num js-line-number" data-line-number="556"></td>
-        <td id="LC556" class="blob-code js-file-line">        <span class="pl-c">/** Returns elements with SmoothState attached to it */</span></td>
-      </tr>
-      <tr>
-        <td id="L557" class="blob-num js-line-number" data-line-number="557"></td>
-        <td id="LC557" class="blob-code js-file-line">        <span class="pl-en">declareSmoothState</span> <span class="pl-k">=</span> <span class="pl-st">function</span> ( <span class="pl-vpf">options</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L558" class="blob-num js-line-number" data-line-number="558"></td>
-        <td id="LC558" class="blob-code js-file-line">            <span class="pl-k">return</span> <span class="pl-v">this</span>.each(<span class="pl-st">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L559" class="blob-num js-line-number" data-line-number="559"></td>
-        <td id="LC559" class="blob-code js-file-line">                <span class="pl-c">// Checks to make sure the smoothState element has an id and isn&#39;t already bound</span></td>
-      </tr>
-      <tr>
-        <td id="L560" class="blob-num js-line-number" data-line-number="560"></td>
-        <td id="LC560" class="blob-code js-file-line">                <span class="pl-k">if</span>(<span class="pl-v">this</span>.<span class="pl-sc">id</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span>$.<span class="pl-sc">data</span>(<span class="pl-v">this</span>, <span class="pl-s1"><span class="pl-pds">&quot;</span>smoothState<span class="pl-pds">&quot;</span></span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L561" class="blob-num js-line-number" data-line-number="561"></td>
-        <td id="LC561" class="blob-code js-file-line">                    <span class="pl-c">// Makes public methods available via $(&quot;element&quot;).data(&quot;smoothState&quot;);</span></td>
-      </tr>
-      <tr>
-        <td id="L562" class="blob-num js-line-number" data-line-number="562"></td>
-        <td id="LC562" class="blob-code js-file-line">                    $.<span class="pl-sc">data</span>(<span class="pl-v">this</span>, <span class="pl-s1"><span class="pl-pds">&quot;</span>smoothState<span class="pl-pds">&quot;</span></span>, <span class="pl-k">new</span> <span class="pl-en">SmoothState</span>(<span class="pl-v">this</span>, options));</td>
-      </tr>
-      <tr>
-        <td id="L563" class="blob-num js-line-number" data-line-number="563"></td>
-        <td id="LC563" class="blob-code js-file-line">                } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-v">this</span>.<span class="pl-sc">id</span> <span class="pl-k">&amp;&amp;</span> consl) {</td>
-      </tr>
-      <tr>
-        <td id="L564" class="blob-num js-line-number" data-line-number="564"></td>
-        <td id="LC564" class="blob-code js-file-line">                    <span class="pl-c">// Throw warning if in development mode</span></td>
-      </tr>
-      <tr>
-        <td id="L565" class="blob-num js-line-number" data-line-number="565"></td>
-        <td id="LC565" class="blob-code js-file-line">                    consl<span class="pl-s3">.warn</span>(<span class="pl-s1"><span class="pl-pds">&quot;</span>Every smoothState container needs an id but the following one does not have one:<span class="pl-pds">&quot;</span></span>, <span class="pl-v">this</span>);</td>
-      </tr>
-      <tr>
-        <td id="L566" class="blob-num js-line-number" data-line-number="566"></td>
-        <td id="LC566" class="blob-code js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L567" class="blob-num js-line-number" data-line-number="567"></td>
-        <td id="LC567" class="blob-code js-file-line">            });</td>
-      </tr>
-      <tr>
-        <td id="L568" class="blob-num js-line-number" data-line-number="568"></td>
-        <td id="LC568" class="blob-code js-file-line">        };</td>
-      </tr>
-      <tr>
-        <td id="L569" class="blob-num js-line-number" data-line-number="569"></td>
-        <td id="LC569" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L570" class="blob-num js-line-number" data-line-number="570"></td>
-        <td id="LC570" class="blob-code js-file-line">    <span class="pl-c">/** Sets the popstate function */</span></td>
-      </tr>
-      <tr>
-        <td id="L571" class="blob-num js-line-number" data-line-number="571"></td>
-        <td id="LC571" class="blob-code js-file-line">    <span class="pl-s3">window</span>.onpopstate <span class="pl-k">=</span> onPopState;</td>
-      </tr>
-      <tr>
-        <td id="L572" class="blob-num js-line-number" data-line-number="572"></td>
-        <td id="LC572" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L573" class="blob-num js-line-number" data-line-number="573"></td>
-        <td id="LC573" class="blob-code js-file-line">    <span class="pl-c">/** Makes utility functions public for unit tests */</span></td>
-      </tr>
-      <tr>
-        <td id="L574" class="blob-num js-line-number" data-line-number="574"></td>
-        <td id="LC574" class="blob-code js-file-line">    $.smoothStateUtility <span class="pl-k">=</span> utility;</td>
-      </tr>
-      <tr>
-        <td id="L575" class="blob-num js-line-number" data-line-number="575"></td>
-        <td id="LC575" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L576" class="blob-num js-line-number" data-line-number="576"></td>
-        <td id="LC576" class="blob-code js-file-line">    <span class="pl-c">/** Defines the smoothState plugin */</span></td>
-      </tr>
-      <tr>
-        <td id="L577" class="blob-num js-line-number" data-line-number="577"></td>
-        <td id="LC577" class="blob-code js-file-line">    $.fn.smoothState <span class="pl-k">=</span> declareSmoothState;</td>
-      </tr>
-      <tr>
-        <td id="L578" class="blob-num js-line-number" data-line-number="578"></td>
-        <td id="LC578" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L579" class="blob-num js-line-number" data-line-number="579"></td>
-        <td id="LC579" class="blob-code js-file-line">    <span class="pl-c">/* expose the default options */</span></td>
-      </tr>
-      <tr>
-        <td id="L580" class="blob-num js-line-number" data-line-number="580"></td>
-        <td id="LC580" class="blob-code js-file-line">    $.fn.smoothState.<span class="pl-sc">options</span> <span class="pl-k">=</span> defaults;</td>
-      </tr>
-      <tr>
-        <td id="L581" class="blob-num js-line-number" data-line-number="581"></td>
-        <td id="LC581" class="blob-code js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L582" class="blob-num js-line-number" data-line-number="582"></td>
-        <td id="LC582" class="blob-code js-file-line">})(jQuery, <span class="pl-s3">window</span>, <span class="pl-s3">document</span>);</td>
-      </tr>
-</table>
+                    // Ctrl (or Cmd) + click must open a new tab
+                    if (!event.metaKey && !event.ctrlKey && utility.shouldLoad($anchor, options.blacklist)) {
+                        // stopPropagation so that event doesn't fire on parent containers.
+                        event.stopPropagation();
+                        event.preventDefault();
+                        load(url);
+                    }
+                },
 
-  </div>
+                /**
+                 * Binds all events and inits functionality
+                 *
+                 * @param   {object}    event
+                 * 
+                 */
+                bindEventHandlers = function ($element) {
+                    //@todo: Handle form submissions
+                    $element.on("click", options.anchors, clickAnchor);
 
-  </div>
-</div>
+                    if (options.prefetch) {
+                        $element.on("mouseover touchstart", options.anchors, hoverAnchor);
+                    }
 
-<a href="#jump-to-line" rel="facebox[.linejump]" data-hotkey="l" style="display:none">Jump to Line</a>
-<div id="jump-to-line" style="display:none">
-  <form accept-charset="UTF-8" class="js-jump-to-line-form">
-    <input class="linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" autofocus>
-    <button type="submit" class="button">Go</button>
-  </form>
-</div>
+                },
 
-        </div>
+                /** Used to restart css animations with a class */
+                toggleAnimationClass = function (classname) {
+                    var classes = $container.addClass(classname).prop("class");
+                    
+                    $container.removeClass(classes);
+                    
+                    setTimeout(function(){
+                        $container.addClass(classes);
+                    },0);
 
-      </div><!-- /.repo-container -->
-      <div class="modal-backdrop"></div>
-    </div><!-- /.container -->
-  </div><!-- /.site -->
+                    $container.one("ss.onStartEnd ss.onProgressEnd ss.onEndEnd", function(){
+                        $container.removeClass(classname);
+                    });
+                    
+                };
 
+            /** Merge defaults and global options into current configuration */
+            options = $.extend( {}, $.fn.smoothState.options, options );
 
-    </div><!-- /.wrapper -->
+            /** Sets a default state */
+            if(window.history.state === null) {
+                window.history.replaceState({ id: $container.prop("id") }, document.title, currentHref);
+            }
 
-      <div class="container">
-  <div class="site-footer" role="contentinfo">
-    <ul class="site-footer-links right">
-      <li><a href="https://status.github.com/">Status</a></li>
-      <li><a href="https://developer.github.com">API</a></li>
-      <li><a href="http://training.github.com">Training</a></li>
-      <li><a href="http://shop.github.com">Shop</a></li>
-      <li><a href="/blog">Blog</a></li>
-      <li><a href="/about">About</a></li>
+            /** Stores the current page in cache variable */
+            utility.storePageIn(cache, currentHref, document.documentElement.outerHTML);
 
-    </ul>
+            /** Bind all of the event handlers on the container, not anchors */
+            utility.triggerAllAnimationEndEvent($container, "ss.onStartEnd ss.onProgressEnd ss.onEndEnd");
 
-    <a href="/" aria-label="Homepage">
-      <span class="mega-octicon octicon-mark-github" title="GitHub"></span>
-    </a>
+            /** Bind all of the event handlers on the container, not anchors */
+            bindEventHandlers($container);
 
-    <ul class="site-footer-links">
-      <li>&copy; 2015 <span title="0.05721s from github-fe129-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
-        <li><a href="/site/terms">Terms</a></li>
-        <li><a href="/site/privacy">Privacy</a></li>
-        <li><a href="/security">Security</a></li>
-        <li><a href="/contact">Contact</a></li>
-    </ul>
-  </div><!-- /.site-footer -->
-</div><!-- /.container -->
+            /** Public methods */
+            return {
+                href: currentHref,
+                cache: cache,
+                load: load,
+                fetch: fetch,
+                toggleAnimationClass: toggleAnimationClass
+            };
+        },
 
+        /** Returns elements with SmoothState attached to it */
+        declareSmoothState = function ( options ) {
+            return this.each(function () {
+                // Checks to make sure the smoothState element has an id and isn't already bound
+                if(this.id && !$.data(this, "smoothState")) {
+                    // Makes public methods available via $("element").data("smoothState");
+                    $.data(this, "smoothState", new SmoothState(this, options));
+                } else if (!this.id && consl) {
+                    // Throw warning if in development mode
+                    consl.warn("Every smoothState container needs an id but the following one does not have one:", this);
+                }
+            });
+        };
 
-    <div class="fullscreen-overlay js-fullscreen-overlay" id="fullscreen_overlay">
-  <div class="fullscreen-container js-suggester-container">
-    <div class="textarea-wrap">
-      <textarea name="fullscreen-contents" id="fullscreen-contents" class="fullscreen-contents js-fullscreen-contents" placeholder=""></textarea>
-      <div class="suggester-container">
-        <div class="suggester fullscreen-suggester js-suggester js-navigation-container"></div>
-      </div>
-    </div>
-  </div>
-  <div class="fullscreen-sidebar">
-    <a href="#" class="exit-fullscreen js-exit-fullscreen tooltipped tooltipped-w" aria-label="Exit Zen Mode">
-      <span class="mega-octicon octicon-screen-normal"></span>
-    </a>
-    <a href="#" class="theme-switcher js-theme-switcher tooltipped tooltipped-w"
-      aria-label="Switch themes">
-      <span class="octicon octicon-color-mode"></span>
-    </a>
-  </div>
-</div>
+    /** Sets the popstate function */
+    window.onpopstate = onPopState;
 
+    /** Makes utility functions public for unit tests */
+    $.smoothStateUtility = utility;
 
+    /** Defines the smoothState plugin */
+    $.fn.smoothState = declareSmoothState;
 
-    <div id="ajax-error-message" class="flash flash-error">
-      <span class="octicon octicon-alert"></span>
-      <a href="#" class="octicon octicon-x flash-close js-ajax-error-dismiss" aria-label="Dismiss error"></a>
-      Something went wrong with that request. Please try again.
-    </div>
+    /* expose the default options */
+    $.fn.smoothState.options = defaults;
 
-
-      <script crossorigin="anonymous" src="https://assets-cdn.github.com/assets/frameworks-af95b05cb14b7a29b0457c26b4a1d24151f4a47842c8e74bd556622f347b9d3d.js" type="text/javascript"></script>
-      <script async="async" crossorigin="anonymous" src="https://assets-cdn.github.com/assets/github-095c6fbcc5976c22018626149d313ec01de23839bd4f1e04be845664c06f00c4.js" type="text/javascript"></script>
-      
-      
-  </body>
-</html>
-
+})(jQuery, window, document);

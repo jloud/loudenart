@@ -273,3 +273,24 @@ module.exports = function(grunt) {
           //echo '<a class="lbox" href="#">'.$img.'</a>';
           $counter++;
         }
+
+         // $('a[href*=#]:not([href=#])').click(function() {
+  //   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+  //     var target = $(this.hash);
+  //     target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+  //     if (target.length) {
+  //       $('html,body').animate({
+  //         scrollTop: target.offset().top
+  //       }, 1000);
+  //       return false;
+  //     }
+  //   }
+  // });
+
+  //box-shadow: inset 0 0 0 5px $grey;
+  // a:after {
+  //   opacity: 1;
+  //   background: transparentize(#000,0.35);
+  //   // box-shadow: inset 0 0 0 20px $blue;
+  //   -webkit-transform: rotateX(0deg);
+  // }

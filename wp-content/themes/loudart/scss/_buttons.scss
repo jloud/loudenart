@@ -307,3 +307,51 @@
     }
   }
 }
+
+.arrow-holder {
+  width: 100%;
+  position: absolute;
+  bottom: 80px;
+  left: 0;
+  z-index: 10;
+}
+
+.arrow-down {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  padding: 19px;
+  display: block;
+  background: rgba(255,255,255,0.4);
+  border: 2px solid transparent;
+  transition: border-color 0.5s ease, background 0.5s ease;
+  border-radius: 50%;
+  cursor: pointer;
+  span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    &:after {
+      @include arrow-down;
+      content: "";
+      width: 100%;
+      height: 100%;
+      margin: auto;
+      display: block;
+      position: relative;
+      transition: color 0.5s ease;
+    }
+  }
+  &:hover {
+    background: transparent;
+    border-color: $blue;
+    span {
+      border-color: $blue;
+      color: $blue;
+      @include bounce;
+      &:after {
+        border-color: $blue;
+      }
+    }
+  }
+}

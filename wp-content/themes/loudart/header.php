@@ -28,4 +28,5 @@
 	</head>
 	<body <?php body_class(); ?>>
 
-		<div id="wrapper" class="wrapper">
+		<div id="wrapper">
+      <div id="site-container">

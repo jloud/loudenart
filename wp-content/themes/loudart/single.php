@@ -1,67 +1,53 @@
-<?php get_header(); ?>
+<?php
+global $post;
+get_header();
 
-	<main role="main">
-	<!-- section -->
-	<section>
+$attachments = new Attachments( 'attachments' );
+$counter = 1;
 
-	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
+?>
 
-		<!-- article -->
-		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	<nav class="chapter-target chapter-holder web-single">
+		<?php code_nav(); ?>
+	</nav>
 
-			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-				</a>
+	<main id="main-content" class="main-holder single-post" role="main">
+	<div class="container">
+		<section class="work-single">
+
+		<article id="post-<?php the_ID(); ?>" class="page-section">
+			
+		<?php if (have_posts()): while (have_posts()) : the_post(); 
+
+			if( $attachments->exist() ) : ?>
+				<div class="single-sub-header">
+			  	<h2><span class="outer"><span class="inner"><?php the_title(); ?></span></span></h2>
+				</div>
+		  	<ul class="work-thumbs">
+
+		    <?php while( $attachments->get() ) : ?>
+		      <li class="thumbs pic-<?php echo $counter; ?>"><?php echo $attachments->image( 'full' ); ?></li>
+		    <?php
+			    $counter++;
+			    endwhile;
+		    ?>
+		      <li class="grid-sizer"></li>
+		  	</ul>
+		  	<div class="work-description"><?php the_content(); ?></div>
 			<?php endif; ?>
-			<!-- /post thumbnail -->
-
-			<!-- post title -->
-			<h1>
-				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>"><?php the_title(); ?></a>
-			</h1>
-			<!-- /post title -->
-
-			<!-- post details -->
-			<span class="date"><?php the_time('F j, Y'); ?> <?php the_time('g:i a'); ?></span>
-			<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
-			<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
-			<!-- /post details -->
-
-			<?php the_content(); // Dynamic Content ?>
-
-			<?php the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-
-			<p><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></p>
-
-			<p><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></p>
-
-			<?php edit_post_link(); // Always handy to have Edit Post Links available ?>
-
-			<?php comments_template(); ?>
 
 		</article>
-		<!-- /article -->
 
-	<?php endwhile; ?>
+		<?php endwhile; ?>
 
-	<?php else: ?>
+		<?php else: ?>
 
-		<!-- article -->
-		<article>
+			<article>
+				<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+			</article>
 
-			<h1><?php _e( 'Sorry, nothing to display.', 'html5blank' ); ?></h1>
+		<?php endif; ?>
 
-		</article>
-		<!-- /article -->
-
-	<?php endif; ?>
-
-	</section>
-	<!-- /section -->
-	</main>
-
-<?php get_sidebar(); ?>
+		</section>
 
 <?php get_footer(); ?>

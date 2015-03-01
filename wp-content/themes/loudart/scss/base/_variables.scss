@@ -2,25 +2,46 @@
 
 $serif: 'Droid Serif', serif;
 $serif2: 'Neuton', serif;
-
 $sans: 'Nunito', sans-serif;
+// $sans2: 'Open Sans', sans-serif;
+$sans2: Alegreya Sans SC;
 
-$sans2: 'Open Sans', sans-serif;
-
-$grey: lighten(#000,70%);
-$grey-dark: #444;
-$grey: #1e1e1e;
-$blue: #3061a5;
-
-@mixin vertical-align {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
+@mixin section-header() {
+  font-family: $sans2;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
+
+
+
+// colors
+
+$grey: lighten(#000,70%);
+$grey-dark: #1e1e1e;
+$grey: #383838;
+$grey-light: #d3d3d3;
+$blue: #3061a5;
+$red: #743D37;
+$red-light: transparentize($red, 0.5);
+
+
+// measurements
+
+$footer-height: 100px;
+$thumb-height: 280px;
+$body-border: 30px;
+$icon-height: 120px;
+$border-width: 15px;
+
 $break-small: 320px;
+$break-mid-small: 600px;
 $break-medium: 768px;
 $break-large: 1024px;
+
+$skew: 3deg;
 
 @mixin respond-to($media) {
   @if $media == phone {
@@ -43,6 +64,12 @@ $break-large: 1024px;
 
 }
 
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 @mixin rightEnd {
   -webkit-animation: rightEnd 0.3s;
   @keyframes rightEnd {
@@ -56,6 +83,12 @@ $break-large: 1024px;
       left: 0;
     }
   }
+}
+
+@mixin clear {
+  content: '';
+  display: block;
+  clear: both;
 }
 
 @mixin maintain-ratio($ratio: 1 1) {
@@ -83,4 +116,114 @@ $break-large: 1024px;
   }
 }
 
+@mixin bounce() {
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  @-webkit-keyframes bounce {
+    0% {
+      opacity: 0;
+      -webkit-transform: translate3d(0,-15px,0);
+    }
+    20% {
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 5px, 0);
+    }
+  }
+  -webkit-animation-name: bounce;
+  -webkit-transform-origin: center bottom;
+  -webkit-animation-timing-function: linear;
+}
 
+@mixin rotating() {
+  @-webkit-keyframes rotating {
+    0% { 
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: rotating;
+  -webkit-animation-timing-function: linear;
+  //-webkit-animation: rotating 1.3s linear infinite;
+}
+
+@mixin page-fade() {
+  @-webkit-keyframes page-fade {
+    0% { 
+      opacity: 0;
+      -webkit-transform: translate3d(0, 40px, 0);
+    }
+    100% {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+    }
+  }
+  -webkit-animation-duration: 1s;
+  -webkit-animation-timing-function: ease;
+  -webkit-animation-name: page-fade;
+}
+
+@mixin arrow-down {
+  border: 2px solid #000;
+  border-top: 0; border-left: 0;
+  transform: rotate(45deg);
+}
+
+@mixin logo {
+  .jl-icon {
+    width: $icon-height;
+    height: $icon-height;
+    margin: auto;
+    position: relative;
+    font-family: $sans2;
+    font-weight: 300;
+    font-size: 6.5rem;
+    color: $blue;
+    line-height: $icon-height;
+    text-align: center;
+    float: none;
+    clear: both;
+    &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      border: 12px solid $grey-light;
+      border-radius: 50%;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.35);
+    }
+    &:before {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 16px solid $blue;
+      border-radius: 50%;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.35);
+    }
+    span {
+      position: relative;
+      left: 3px;
+    }
+  }
+}

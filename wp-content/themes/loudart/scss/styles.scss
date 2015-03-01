@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 @import "susy";
 
 $susy: (
@@ -8,6 +10,8 @@ $susy: (
 
 @import "base/variables";
 
+@import "base/footer";
+
 @import "menu";
 
 @import "lightGallery";
@@ -16,6 +20,8 @@ $susy: (
 
 @import "base/globals";
 
+@import "landing";
+
 @import "ill/general";
 
 @import "coder/general";
@@ -23,3 +29,4 @@ $susy: (
 @import "buttons";
 
 @import "preloader";
+
