@@ -23,15 +23,15 @@
 }
 
 .single-sub-header {
-  margin: 0 0 2% 30px;
+  margin: 0 0 30px 30px;
   position: relative;
   h2 {
     width: 50%;
     margin: 0;
     @include section-header;
-    color: #fff;
+    color: $grey-light;
     span {
-      border-color: #fff;
+      border-color: $grey-light;
     }
   }
   p {
@@ -65,7 +65,7 @@
   }
   article {
     margin: 0;
-    padding-top: 0;
+    padding-top: 30px;;
   }
 }
 
@@ -94,7 +94,7 @@
       padding: 10px;
     }
     .grid-sizer {
-      width: 300px;
+      width: 50%;
     }
   }
 }
@@ -116,7 +116,7 @@
 }
 
 .web-single.chapter-holder {
-  right: 0;
+  right: $border-width - 1;
   opacity: 1;
   li.chapter-link a {
     opacity: 1;

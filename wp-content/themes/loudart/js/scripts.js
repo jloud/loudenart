@@ -31,10 +31,12 @@
     function getUrlClass(u){
       a = u.replace(/\/$/, '');
       a = a.substr(a.lastIndexOf('/') + 1);
+      if(a === 'loudenart' || a === 'louden.io'){
+        a = 'home';
+      }
       // console.log(a);
       return 'page-'+a;
     }
-
 
     $(window).on("resize", function () {
       windowWidth = $(window).innerWidth();
@@ -75,8 +77,7 @@
     /* Preload Fade Ins */
     //////////////////////
 
-    
-
+  
     var content = $wrapper.smoothState({
       prefetch: true,
       pageCacheSize: 4,
@@ -90,7 +91,7 @@
         }
       },
       onEnd: {
-        duration: 0, // Duration of the animations, if any.
+        duration: 0,
         render: function (url, $container, $content) {
 
           var urlClass = getUrlClass(url);
@@ -136,7 +137,6 @@
         animController.scrollTo(id);
       }
     });
-
 
     if($('.work-thumbs').length){
       var isoContainer = document.querySelector('.work-thumbs');
