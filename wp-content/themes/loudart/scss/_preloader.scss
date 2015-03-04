@@ -26,13 +26,50 @@
     right: 100%;
     top: 0;
   }
-  @include logo;
   .jl-icon {
+    width: $icon-height;
+    height: $icon-height;
+    margin: auto;
+    position: relative;
+    font-family: $sans2;
+    font-weight: 300;
+    font-size: 5rem;
+    color: $blue;
+    line-height: $icon-height;
+    text-align: center;
+    float: none;
+    clear: both;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
     @include vertical-align;
-    &:after {
+    &:before, &:after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      border-radius: 50%;
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,0.35);
       @include rotating;
+    }
+    &:before {
+      border: 5px solid $blue;
       border-right-color: #fff;
-      z-index: -1;
+      z-index: 10;
+      -webkit-animation-duration: 2s;
+    }
+    &:after {
+      border: 20px solid $grey-light;
+      border-right-color: #fff;
+      box-shadow: 1px 1px 2px rgba(0,0,0,0.35);
+      -webkit-animation-duration: 3s;
+    }
+    & > span {
+      position: relative;
+      left: 3px;
+      z-index: 10;
     }
   }
 }

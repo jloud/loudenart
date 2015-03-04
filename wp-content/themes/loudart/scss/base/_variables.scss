@@ -6,6 +6,10 @@ $sans: 'Nunito', sans-serif;
 // $sans2: 'Open Sans', sans-serif;
 $sans2: Alegreya Sans SC;
 
+$title-code: 'Alegreya Sans SC', Helvetica, sans-serif;
+$text-code: 'Roboto Slab', serif;
+
+
 @mixin section-header() {
   font-family: $sans2;
   font-weight: 700;

@@ -125,7 +125,7 @@
       new ScrollScene({triggerElement: ".work"})
         .setClassToggle(".chapter-target", "active")
         .addTo(animController)
-      new ScrollScene({triggerElement: ".header-holder", duration: windowHeight * 2})
+      new ScrollScene({triggerElement: ".web-landing", duration: windowHeight * 2})
         .setTween(TweenMax.from(".landing-bg", 1, {top: "-25%", ease: Linear.easeNone}))
         .addTo(parController)
     }
@@ -164,8 +164,10 @@
       });
     }
 
-    
-
+    $('.landing-holder').css({
+      'background-image':
+        '-webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.95), rgba(211, 211, 211, 0.85))'
+    });
     
 
       //   scrollActions = function(target) {

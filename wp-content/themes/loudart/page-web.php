@@ -12,12 +12,12 @@
 
 ?>
 	
-	<div id="landing" class="header-holder">
+	<div id="landing" class="web-landing">
 		<header>
 		<div class="holder">
-			<h1><span class="text-name"><span>Jim</span><br /><span class="last-name">Louden</span></span></h1><br />
+			<h1 class="web-header"><span class="text-name"><span>Jim</span><br /><span class="last-name">Louden</span></span></h1><br />
 			<p>frontend developer</p>
-			<nav class="main-nav"><?php code_nav(); ?></nav>
+			<nav class="web-main-nav"><?php code_nav(); ?></nav>
 		</div>
 		</header>
 		<div class="arrow-holder"><a href="#work" class="arrow-down"><span></span></a></div>

@@ -25,6 +25,7 @@
     padding-right: 7%;
     text-align: left;
     font-size: 2rem;
+    font: normal 300 1.8rem/1.6 $text-code;
   }
   @include respond-to(tablet){
     padding-bottom: 18%;

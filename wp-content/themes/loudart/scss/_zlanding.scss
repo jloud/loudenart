@@ -3,9 +3,22 @@
   height: 100vh;
   margin-top: -$border-width;
   position: relative;
-  background-image: url(imgs/strip.png);
   @include respond-to(tablet){
     margin-top: -$border-width * 2;
+  }
+  h1 {
+    margin: 0 0 -30px;
+    letter-spacing: 0.1em;
+    text-align: center;
+    display: block;
+    color: $grey;
+    font-size: 4rem;
+    font: normal 300 4rem/1 $title-code;
+    & > span {
+      padding: 40px;
+      display: inline-block;
+      color: $blue;
+    }
   }
 }
 
@@ -23,6 +36,12 @@
   position: relative;
   text-align: center;
   @include vertical-align;
+  & > div {
+    padding: 50px 40px;
+    display: inline-block;
+    // background: transparentize(#fff, 0.7);
+    // box-shadow: inset 1px 1px 1px #000;
+  }
   &:after {
     @include clear;
   }
@@ -31,7 +50,8 @@
     margin: 20px 0;
   }
   @include respond-to(tablet){
-    margin: 0 auto;
+    width: 600px;
+    margin: 0 auto 0;
     padding: 0;
     position: relative;
     .icon-holder {
@@ -42,42 +62,33 @@
     }
   }
 }
-  h1.landing-header {
-    margin: 0;
-    padding: 10px;
-    text-align: center;
-    display: block;
-    color: $grey-dark;
-    font: normal 700 3rem/1 $title-code;
-    letter-spacing: 0.1em;
-    span {
-      display: inline-block;
-      border-color: $blue;
-    }
-    .double-rules span {
-      padding: 10px 20px;
-      color: $blue;
-    }
-  }
   .landing-link {
-    min-width: 100px;
-    padding: 30px;
+    min-width: 160px;
+    margin: 3px 1.5px;
+    padding: 10px 30px;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: $blue;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.35);
-    display: block;
-    font: normal 300 4rem/0.9 $text-code;
+    display: inline-block;
+    font: normal 300 6rem/0.9 $sans2;
     transition: color 0.5s ease, text-shadow 0.5s ease;
+    transform: skewX($skew + 8);
     span {
       display: inline-block;
       transition: transform 0.5s ease;
+      transform: skewX(-($skew + 8));
+    }
+    &.web {
+      border-right: 3px solid $blue;
+    }
+    &.art {
+      border-left: 3px solid $blue;
     }
     &:hover {
-      color: $grey-dark;
       text-shadow: 0 0 0 rgba(0,0,0,0);
       span {
-        transform: scale(1.1, 1.1);
+        transform: scale(1.1, 1.1) skewX(-($skew + 8));
       }
     }
   }
@@ -100,7 +111,6 @@
     font-weight: 700;
     position: relative;
     display: block;
-    text-transform: uppercase;
   }
   span {
     width: 100%;
