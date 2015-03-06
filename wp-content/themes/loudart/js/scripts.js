@@ -151,6 +151,11 @@
       });
     }
 
+    $('.landing-holder').css({
+      'background-image':
+        '-webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.8), rgba(211, 211, 211, 0.75))'
+    });
+
     if($('.artwork-holder').length){
       var isoContainer = document.querySelector('.artwork-holder');
       var iso;
@@ -164,11 +169,37 @@
       });
     }
 
-    $('.landing-holder').css({
-      'background-image':
-        '-webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.95), rgba(211, 211, 211, 0.85))'
-    });
-    
+    // LIGHTBOX
+
+    var lgoptions = {
+        mode      : 'slide',  // Type of transition between images. Either 'slide' or 'fade'.
+        cssEasing : 'ease',   // Value for CSS "transition-timing-function".
+        easing    : 'linear', //'for jquery animation',//
+        speed     : 600,      // Transition duration (in ms).
+        preload   : 3,    //number of preload slides. will exicute only after the current slide is fully loaded. ex:// you
+        selector        : '.art-lb',  // Custom selector property insted of just child.
+        mobileSrc         : false, // If "data-responsive-src" attr. should be used for mobiles.
+        mobileSrcMaxWidth : 640,   // Max screen resolution for alternative images to be loaded for.
+        swipeThreshold    : 50,    // How far user must swipe for the next/prev image (in px).
+        enableTouch       : true,  // Enables touch support
+        enableDrag        : true,  // Enables desktop mouse drag support
+    }
+
+    $('.artwork-holder').lightGallery(lgoptions);
+
+    // WORK
+
+    // $('.work-thumbs').isotope({
+    //   itemSelector: 'li',
+    //   masonry: {
+    //     columnWidth: '.grid-sizer'
+    //   }
+    // });
+
+    // paceOptions = {
+    //   restartOnPushState: false
+    // }
+      
 
       //   scrollActions = function(target) {
       //     $('.page, .chapters li').removeClass('active');
@@ -290,36 +321,7 @@
       //   });
 
       
-      //   // LIGHTBOX
-
-      //   var lgoptions = {
-      //       mode      : 'slide',  // Type of transition between images. Either 'slide' or 'fade'.
-      //       cssEasing : 'ease',   // Value for CSS "transition-timing-function".
-      //       easing    : 'linear', //'for jquery animation',//
-      //       speed     : 600,      // Transition duration (in ms).
-      //       preload   : 3,    //number of preload slides. will exicute only after the current slide is fully loaded. ex:// you
-      //       selector        : '.img-holder',  // Custom selector property insted of just child.
-      //       mobileSrc         : false, // If "data-responsive-src" attr. should be used for mobiles.
-      //       mobileSrcMaxWidth : 640,   // Max screen resolution for alternative images to be loaded for.
-      //       swipeThreshold    : 50,    // How far user must swipe for the next/prev image (in px).
-      //       enableTouch       : true,  // Enables touch support
-      //       enableDrag        : true,  // Enables desktop mouse drag support
-      //   }
-
-      //   $('#content').lightGallery(lgoptions);
-
-      //   // WORK
-
-      //   $('.work-thumbs').isotope({
-      //     itemSelector: 'li',
-      //     masonry: {
-      //       columnWidth: '.grid-sizer'
-      //     }
-      //   });
-
-      // paceOptions = {
-      //   restartOnPushState: false
-      // }
+     
 
   });
 	

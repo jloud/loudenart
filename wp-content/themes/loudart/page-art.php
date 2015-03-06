@@ -12,9 +12,9 @@
     <section id="introduction" class="introduction page active">
       <div class="title-holder">
         <h1>
-        Jim Louden
-        <span class="pp"><span class="double-rules"><span>Pen <span class="fix">&</span> Pencil</span></span></span>
-        Illustration
+        <span class="text-piece">Jim Louden</span>
+        <span class="double-rules"><span>Pen <span class="fix">&</span> Pencil</span></span>
+        <span class="text-piece bottom">Illustration</span>
         </h1>
       </div>
   
@@ -36,11 +36,11 @@
       $imgNumber = count($aImgs[0]);
       $counter = 1;
 
-      echo '<h2 id="'.$pTitle.'" class="'.$pTitle.'-rule clear-row art-img"><span>'.get_the_title().'</span></h2>';
+      echo '<h2 id="'.$pTitle.'" class="'.$pTitle.'-rule header-clear art-img"><span class="double-rules"><span>'.get_the_title().'</span></span></h2>';
 
       foreach($aImgs[0] as $img) {
         $src = (string) reset(simplexml_import_dom(DOMDocument::loadHTML($img))->xpath("//img/@src"));
-        echo '<li class="'.$pTitle.' art-holder-'.$counter.' art-img" data-src="'.$src.'" data-sub-html="'.get_the_title().'" ><a href="#">'.$img.'</a></li>';
+        echo '<li class="'.$pTitle.' art-holder-'.$counter.' art-img art-lb" data-src="'.$src.'" data-sub-html="'.get_the_title().'" ><a href="#">'.$img.'</a></li>';
         $counter++;
       }
 

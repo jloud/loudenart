@@ -6,14 +6,13 @@ $sans: 'Nunito', sans-serif;
 // $sans2: 'Open Sans', sans-serif;
 $sans2: Alegreya Sans SC;
 
+$title-art: 'Droid Serif', serif;
 $title-code: 'Alegreya Sans SC', Helvetica, sans-serif;
+$text-art: 'Roboto Slab', serif;
 $text-code: 'Roboto Slab', serif;
 
-
 @mixin section-header() {
-  font-family: $sans2;
-  font-weight: 700;
-  font-size: 1.5rem;
+  font: normal 700 1.5rem/1.4 $title-code;
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -127,7 +126,7 @@ $skew: 3deg;
   @-webkit-keyframes bounce {
     0% {
       opacity: 0;
-      -webkit-transform: translate3d(0,-15px,0);
+      -webkit-transform: translate3d(0,-10px,0);
     }
     20% {
       opacity: 1;
@@ -140,7 +139,7 @@ $skew: 3deg;
     }
     100% {
       opacity: 0;
-      -webkit-transform: translate3d(0, 5px, 0);
+      -webkit-transform: translate3d(0, 10px, 0);
     }
   }
   -webkit-animation-name: bounce;
@@ -169,11 +168,11 @@ $skew: 3deg;
   @-webkit-keyframes page-fade {
     0% { 
       opacity: 0;
-      -webkit-transform: translate3d(0, 40px, 0);
+      // -webkit-transform: translate3d(0, 40px, 0);
     }
     100% {
       opacity: 1;
-      -webkit-transform: translate3d(0, 0, 0);
+      // -webkit-transform: translate3d(0, 0, 0);
     }
   }
   -webkit-animation-duration: 1s;
@@ -185,6 +184,16 @@ $skew: 3deg;
   border: 2px solid #000;
   border-top: 0; border-left: 0;
   transform: rotate(45deg);
+  box-sizing: border-box;
+}
+
+@mixin arrow-icon($rot){
+  display: inline-block;
+  font-family: 'Arrow';
+  font-size: 17px;
+  content: "\e600";
+  transform: rotate($rot);
+  position: relative;
 }
 
 @mixin logo {

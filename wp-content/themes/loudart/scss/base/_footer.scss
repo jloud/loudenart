@@ -1,21 +1,25 @@
-.footer {
-  width: 100%;
+footer {
+  width: 83%;
   height: $footer-height;
-  margin: 0 auto;
-  padding: 0 4% 0;
+  margin-right: 17%;
+  padding: 0 5%;
   position: absolute;
   bottom: 0;
   background: $grey-dark;
-  color: #fff;
-  font-family: $sans2;
-  line-height: 100px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.5rem;
-  vertical-align: middle;
-  letter-spacing: 0.1em;
-  z-index: 20;
+  line-height: 90px;
   border-top: 1px solid rgba(255,255,255,0.1);
+  z-index: 20;
+}
+
+.footer {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  font: normal 300 1.5rem/1.4 $text-code;
+  color: #fff;
+  vertical-align: middle;
+  text-align: center;
+  display: inline-block;
   a {
     color: $grey-light;
     font-weight: 300;
@@ -26,6 +30,7 @@
   }
   li {
     display: inline-block;
+    text-align: center;
     &:first-child a {
       padding-left: 0;
     }
@@ -36,6 +41,24 @@
     }
     &:last-child:after {
       display: none;
+    }
+    &.email-link {
+      margin-bottom: 10px;
+      display: block;
+      &:after {
+        content: "";
+        padding: 0;
+      }
+    }
+  }
+  @include respond-to($break-mid-small){
+    text-align: left;
+    li.email-link {
+      display: inline-block;
+      &:after {
+        content: "\2022";
+        padding: 0 10px 0 14px;
+      }
     }
   }
 }

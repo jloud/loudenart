@@ -20,7 +20,7 @@
 			<nav class="web-main-nav"><?php code_nav(); ?></nav>
 		</div>
 		</header>
-		<div class="arrow-holder"><a href="#work" class="arrow-down"><span></span></a></div>
+		<div class="arrow-holder"><a href="#work" class="arrow-down"><span>&#xe600;</span></a></div>
 		<div class="landing-bg"></div>
 	</div>
 

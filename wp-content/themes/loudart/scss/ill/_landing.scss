@@ -8,40 +8,42 @@
     @include vertical-align;
   }
   h1 {
-    font-family: $sans2;
-    font-weight: 300;
-    font-size: 3rem;
+    font: normal 400 4.5rem/1 $title-art;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
     color: $grey-dark;
+    .double-rules {
+      margin-top: 20px;
+      border-color: $grey-dark;
+      border-bottom: 0;
+      & > span {
+        color: $grey-dark;
+        padding: 10px 20px;
+        border-color: $grey-dark;
+        border-bottom: 0;
+        .fix {
+          padding: 0;
+          font-size: 0.6em;
+          position: relative;
+          bottom: 5px;
+        }
+      }
+    }
+    .text-piece {
+      padding: 20px 0;
+      display: block;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      &.bottom {
+        padding-top: 0;
+      }
+    }
     span {
       margin: 0;
       &.name, &.ill {
         display: block;
         font-size: 3.2rem;
       }
-    }
-    // @include respond-to(tablet){
-    //   font-size: 5.7rem;
-    // }
-  }
-  .pp {
-    margin: 20px 0;
-    display: block;
-    font-family: $serif;
-    font-size: 4.5rem;
-    span {
-      border-color: $grey-dark;
-    }
-    .double-rules > span {
-      padding: 10px 20px;
-    }
-    .fix {
-      padding: 0;
-      font-size: 0.6em;
-      position: relative;
-      bottom: 5px;
     }
   }
   .front-email {
@@ -59,17 +61,23 @@
 
 .page-art {
   .arrow-down {
-    &:hover {
-      border-color: $grey-dark;
-      span:after {
-        border-color: $grey-dark;
-      }
-    }
-    a {
-      color: $grey-dark;
+    background: transparentize($grey-dark,0.5);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    span:after {
+      color: #fff;
     }
     span:after {
+      @include arrow-icon(0deg);
+      text-align: center;
+      transition: color 0.5s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+    &:hover {
+      background: transparent;
       border-color: $grey-dark;
+      span:after {
+        color: $grey-dark;
+      }
     }
   }
 }

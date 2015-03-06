@@ -4,7 +4,7 @@ html {
   min-height: 100%;
   position: relative;
   font-size: 62.5%;
-  // background: #000; 
+  background: $grey-dark; 
 }
 
 body {
@@ -16,6 +16,8 @@ body {
   color: #000;
   font-size: inherit;
   transition: border-color 0.5s ease;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ul {
@@ -25,11 +27,8 @@ ul {
   }
 }
 
-a {
-  color: #000;
-  &:hover {
-    color: #000;
-  }
+img {
+  max-width: 100%;
 }
 
 button {
@@ -37,9 +36,27 @@ button {
   background: transparent;
 }
 
+::-webkit-selection {
+  background: $blue;
+  color: #fff;
+  text-shadow: none;
+}
+
+a {
+  text-decoration: none;
+  &:hover, &:active, &:focus {
+    outline: 0;
+  }
+}
+
+section, div,
+*:after,
+*:before {
+  box-sizing: border-box;
+}
+
 .blur {     
-  -webkit-filter: blur(7px);     
-  //filter: blur(7px);      
+  -webkit-filter: blur(7px);
 }
 
 #wrapper {
@@ -54,6 +71,7 @@ button {
   opacity: 1;
   border: $border-width solid $grey-dark;
   border-bottom: 0;
+  transition: border-width 0.5s ease;
   .lightGallery & {
     -webkit-filter: blur(7px);   
   }

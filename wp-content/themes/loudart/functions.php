@@ -123,7 +123,8 @@ function custom_wp_nav_menu($var) {
     'foot',
     'web-link',
     'art-link',
-    'home-link'
+    'home-link',
+    'email-link'
   ) ) : '';
 }
 add_filter('nav_menu_css_class', 'custom_wp_nav_menu');

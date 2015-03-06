@@ -15,8 +15,8 @@ $animate-distance: 50px;
 
 .art-img {
   width: 23%;
-  margin: 0 1%;
-  padding: 2%;
+  margin: 0;
+  padding: 0;
   display: block;
   text-align: center;
   img {
@@ -55,9 +55,19 @@ $animate-distance: 50px;
   }
 }
 
-.clear-row {
+.header-clear {
   width: 100%;
-  height: 10px;
+  height: 50px;
+  margin: 30px auto;
+  font: normal 700 2rem/1 $title-art;
+  color: $grey-dark;
+  span {
+    border-color: $grey-dark;
+    color: $grey-dark;
+  }
+  .double-rules > span {
+    padding: 5px;
+  }
 }
 
 .heavy-pen-work {
