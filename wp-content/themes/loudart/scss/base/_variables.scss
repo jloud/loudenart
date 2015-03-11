@@ -148,7 +148,7 @@ $skew: 3deg;
 }
 
 @mixin rotating() {
-  @-webkit-keyframes rotating {
+  @keyframes rotating {
     0% { 
       transform: rotate(0deg);
     }
@@ -156,28 +156,31 @@ $skew: 3deg;
       transform: rotate(360deg);
     }
   }
-  -webkit-animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  -webkit-animation-iteration-count: infinite;
-  -webkit-animation-name: rotating;
-  -webkit-animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-name: rotating;
+  animation-timing-function: linear;
   //-webkit-animation: rotating 1.3s linear infinite;
 }
 
 @mixin page-fade() {
-  @-webkit-keyframes page-fade {
+  @keyframes page-fade {
     0% { 
       opacity: 0;
-      // -webkit-transform: translate3d(0, 40px, 0);
     }
     100% {
       opacity: 1;
-      // -webkit-transform: translate3d(0, 0, 0);
     }
   }
-  -webkit-animation-duration: 1s;
-  -webkit-animation-timing-function: ease;
-  -webkit-animation-name: page-fade;
+  animation-duration: 2s;
+  animation-timing-function: ease;
+  animation-name: page-fade;
+}
+
+.is-exiting {
+  @include page-fade();
+  animation-direction: alternate-reverse;
 }
 
 @mixin arrow-down {

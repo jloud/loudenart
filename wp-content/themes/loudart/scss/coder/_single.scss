@@ -1,7 +1,9 @@
 .single {
-  background: $grey-dark url(imgs/strip.gif) fixed;
+  background: $grey-dark url(imgs/strip.png);
+  backface-visibility: hidden;
   #wrapper {
     background: $grey-dark;
+    backface-visibility: hidden;
   }
 }
 
@@ -58,7 +60,8 @@
     max-width: 100%;
     margin: auto;
     padding-bottom: 12%;
-    background: $grey-dark url(imgs/strip.png) fixed;
+    background: $grey-dark url(imgs/strip.png);
+    backface-visibility: hidden;
     &:after {
       @include clear;
     }

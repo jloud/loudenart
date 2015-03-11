@@ -1,6 +1,6 @@
 .skills {
   padding-bottom: 8%;
-  background: $grey-light url(imgs/strip.png) fixed;
+  background: $grey-light url(imgs/strip.png);
   .holder {
     @include container;
     max-width: 1000px;

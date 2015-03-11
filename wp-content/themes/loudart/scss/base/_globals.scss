@@ -49,9 +49,7 @@ a {
   }
 }
 
-section, div,
-*:after,
-*:before {
+section, div, *:after, *:before {
   box-sizing: border-box;
 }
 
@@ -67,16 +65,27 @@ section, div,
   overflow-y: hidden;
   padding-bottom: $footer-height;
   position: relative;
-  transition: opacity 1s ease;
   opacity: 1;
   border: $border-width solid $grey-dark;
   border-bottom: 0;
-  transition: border-width 0.5s ease;
+  transition: border-width 0.5s ease, opacity 0.25s ease;
   .lightGallery & {
     -webkit-filter: blur(7px);   
   }
   @include respond-to(tablet){
     border-width: $border-width * 2;
+  }
+  &.is-exiting {
+    opacity: 0 !important;
+  }
+}
+
+#site-container {
+  position: relative;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+  &.page-show {
+    opacity: 1 !important;
   }
 }
 

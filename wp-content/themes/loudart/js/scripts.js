@@ -1,23 +1,27 @@
 (function($, undefined) {
 
-  var isFired = false;
-  var oldReady = jQuery.fn.ready;
+  var isFired = false,
+      oldReady = jQuery.fn.ready;
+
   $(function() {
-      isFired = true;
-      $(document).ready();
+    isFired = true;
+    $(document).ready();
   });
+
   jQuery.fn.ready = function(fn) {
-      if(fn === undefined) {
-          $(document).trigger('_is_ready');
-          return;
-      }
-      if(isFired) {
-          window.setTimeout(fn, 1);
-      }
-      $(document).bind('_is_ready', fn);
+    if(fn === undefined) {
+      $(document).trigger('_is_ready');
+      return;
+    }
+    if(isFired) {
+      window.setTimeout(fn, 1);
+    }
+    $(document).bind('_is_ready', fn);
   };
 
 	$(function () {
+
+    isFired = true;
 
     var windowWidth = $(window).innerWidth(),
         windowHeight = $(window).innerHeight();
@@ -38,7 +42,7 @@
       return 'page-'+a;
     }
 
-    $(window).on("resize", function () {
+    $(window).on('resize', function () {
       windowWidth = $(window).innerWidth();
       windowHeight = $(window).innerHeight();
     }); 
@@ -77,17 +81,16 @@
     /* Preload Fade Ins */
     //////////////////////
 
+    $('#site-container').addClass('page-show');
   
     var content = $wrapper.smoothState({
       prefetch: true,
       pageCacheSize: 4,
       onStart: {
-        duration: 250, // Duration of our animation
+        duration: 1000, 
         render: function (url, $container) {
-          content.toggleAnimationClass('is-exiting');
-          $body.animate({
-              scrollTop: 0
-          });
+          // content.toggleAnimationClass('is-exiting');
+          $('#site-container').removeClass('page-show');
         }
       },
       onEnd: {
@@ -98,20 +101,21 @@
 
           $container.html($content);
           $container.removeClass();
-          
+
           if(urlClass.length){
             $container.addClass(urlClass);
           } else {
             $container.addClass('default');
           }
-
-          // if(urlClass === 'web'){
-          //   webFunctions();
-          // } 
-          // Trigger document.ready and window.load
+          $body.scrollTop(0);
           $(document).ready();
           $(window).trigger('load');
         }
+      },
+      callback: function(url, $container, $content){
+        $(function(){
+          // setTimeout(function(){}, 400)
+        });
       }
     }).data('smoothState');
 

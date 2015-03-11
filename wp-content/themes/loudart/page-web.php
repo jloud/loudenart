@@ -20,13 +20,15 @@
 			<nav class="web-main-nav"><?php code_nav(); ?></nav>
 		</div>
 		</header>
-		<div class="arrow-holder"><a href="#work" class="arrow-down"><span>&#xe600;</span></a></div>
+		<div class="arrow-holder"><a href="#work" class="arrow-down"><span></span></a></div>
 		<div class="landing-bg"></div>
 	</div>
 
 	<nav class="chapter-target chapter-holder">
 		<?php code_nav(); ?>
 	</nav>
+
+
 
 	<main id="main-content" class="main-holder web" role="main">
 		<div class="container">
@@ -39,7 +41,7 @@
 						$url = $thumb['0'];
 
 						if ( has_post_thumbnail() ) {
-							echo '<div class="thumbnails '.$post->post_name.'">
+							echo '<div class="web-thumbnails '.$post->post_name.'">
 								<a href="'.get_permalink().'"><img src="'.$url.'" />
 								<span class="subtitle-box">
 								<span class="subtitle-plane"><span>See the work</span></span>
