@@ -2,11 +2,10 @@
 
 @import "skills";
 
-#wrapper.web {
-  border-color: $grey-dark;
-  background: $grey-dark;
-  .contact, .footer {
-    background: $grey-dark;
+#wrapper.page-web {
+  footer {
+    width: 85%;
+    padding-right: 15%;
   }
 }
 
@@ -335,7 +334,7 @@ nav.web-main-nav {
   opacity: 1;
   transition: right 0.5s ease, opacity 0.75s ease;
   right: -15%;
-  background: $grey-dark;
+  background: #000;
   ul {
     @include vertical-align;
     min-height: 410px;

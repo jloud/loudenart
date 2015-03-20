@@ -5,6 +5,10 @@
     background: $grey-dark;
     backface-visibility: hidden;
   }
+  footer {
+    width: 85%;
+    padding-right: 15%;
+  }
 }
 
 .single-header-holder {
@@ -25,8 +29,8 @@
 }
 
 .single-sub-header {
-  margin: 0 0 30px 30px;
   position: relative;
+  margin-bottom: 10px;
   h2 {
     width: 50%;
     margin: 0;
@@ -53,38 +57,37 @@
 
 .main-holder.single-post {
   margin-top: 0;
+  padding-right: 15%;
   .container {
     transform: none;
   }
   .work-single {
     max-width: 100%;
     margin: auto;
-    padding-bottom: 12%;
+    padding: 20px 20px 12%;
     background: $grey-dark url(imgs/strip.png);
     backface-visibility: hidden;
     &:after {
       @include clear;
     }
   }
-  article {
-    margin: 0;
-    padding-top: 30px;;
-  }
 }
 
 .work-thumbs {
-  width: 80%;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
   .thumbs {
     width: 100%;
-    padding: 5px;
     display: inline-block;
     text-align: center;
     float: left;
     img {
       width: 100%;
       height: auto;
+    }
+    span {
+      padding: 10px;
+      display: inline-block;
     }
   }
   .grid-sizer {
@@ -94,7 +97,6 @@
   @include respond-to(tablet){
     .thumbs {
       width: 50%;
-      padding: 10px;
     }
     .grid-sizer {
       width: 50%;
@@ -119,7 +121,7 @@
 }
 
 .web-single.chapter-holder {
-  right: $border-width - 1;
+  right: 0;
   opacity: 1;
   li.chapter-link a {
     opacity: 1;

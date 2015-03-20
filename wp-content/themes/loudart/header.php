@@ -26,6 +26,6 @@
     </script>
 
 	</head>
-	<body <?php body_class(); ?>>
+	<body>
 		<div id="wrapper">
       <div id="site-container">

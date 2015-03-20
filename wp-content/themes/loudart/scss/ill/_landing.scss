@@ -1,13 +1,13 @@
 .introduction {
   padding: 20px;
   position: relative;
-  margin-top: -$border-width;
   h1 {
+    margin: 0;
     font: normal 400 4.5rem/1 $title-art;
     text-align: center;
     color: $grey-dark;
     .double-rules {
-      margin-top: 20px;
+      margin-top: 10px;
       border-color: $grey-dark;
       border-bottom: 0;
       & > span {
@@ -24,7 +24,7 @@
       }
     }
     .text-piece {
-      padding: 20px 0;
+      padding: 20px 0 10px;
       display: block;
       font-size: 2.5rem;
       text-transform: uppercase;
@@ -50,6 +50,5 @@
     top: 20px;
   }
   @include respond-to($break-mid-small){
-    margin-top: -$border-width * 2;
   }
 }

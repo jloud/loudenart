@@ -91,7 +91,6 @@
       onStart: {
         duration: 1000, 
         render: function (url, $container) {
-          // content.toggleAnimationClass('is-exiting');
           $('#site-container').removeClass('page-show');
         }
       },
