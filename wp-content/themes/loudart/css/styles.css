@@ -1605,7 +1605,7 @@ a img.aligncenter {
   height: auto;
   margin-top: -7%;
   margin-bottom: -100px;
-  padding: 5% 15% 23% 0;
+  padding: 5% 0 23% 0;
   background: #1e1e1e;
   position: relative;
   top: -30px;
@@ -2819,7 +2819,7 @@ div.clear {
 }
 
 /* line 6, ../scss/coder/_general.scss */
-#wrapper.page-web footer {
+#wrapper.page-web footer, #wrapper.web-single footer {
   width: 85%;
   padding-right: 15%;
 }
@@ -3391,34 +3391,35 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
   position: relative;
+  left: 1px;
   text-align: center;
   -webkit-transition: color 0.5s ease;
      -moz-transition: color 0.5s ease;
           transition: color 0.5s ease;
   -webkit-font-smoothing: antialiased;
 }
-/* line 421, ../scss/coder/_general.scss */
+/* line 422, ../scss/coder/_general.scss */
 .chapter-holder.active {
   right: 0;
 }
-/* line 423, ../scss/coder/_general.scss */
+/* line 424, ../scss/coder/_general.scss */
 .chapter-holder.active li a {
   opacity: 1;
 }
 @media only screen and (min-width: 600px) {
-  /* line 429, ../scss/coder/_general.scss */
+  /* line 430, ../scss/coder/_general.scss */
   .chapter-holder .chapter-link a {
     -webkit-transform: rotate(0deg);
        -moz-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  /* line 433, ../scss/coder/_general.scss */
+  /* line 434, ../scss/coder/_general.scss */
   .chapter-holder .chapter-link:hover a, .chapter-holder .scroll-top:hover a {
     color: #3061a5;
     border-color: #3061a5;
   }
-  /* line 436, ../scss/coder/_general.scss */
+  /* line 437, ../scss/coder/_general.scss */
   .chapter-holder .chapter-link:hover a:after, .chapter-holder .scroll-top:hover a:after {
     color: #3061a5;
   }

@@ -33,7 +33,6 @@ $counter = 1;
 		    ?>
 		      <li class="grid-sizer"></li>
 		  	</ul>
-		  	<div class="work-description"><?php the_content(); ?></div>
 			<?php endif; ?>
 
 		</article>
