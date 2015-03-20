@@ -41,6 +41,12 @@
       return 'page-'+a;
     }
 
+    function detectIOS() {
+      if(navigator.userAgent.match(/(iPad|iPhone|iPod)/g)){
+        return true;
+      }
+    }
+
     $(window).on('resize', function () {
       windowWidth = $(window).innerWidth();
       windowHeight = $(window).innerHeight();
@@ -143,6 +149,9 @@
       'background-image':
         '-webkit-linear-gradient(60deg, rgba(120, 181, 255, 0.5), rgba(120, 242, 255, 0.5))'
       });
+      if(detectIOS()){
+        $('#landing').css({'height': getWindowHeight()});
+      }
       new ScrollScene({triggerElement: "#landing", duration: windowHeight * 2})
         .setTween(TweenMax.from(".box", 1, {top: "-45%", ease: Linear.easeNone}))
         .addTo(parController)
