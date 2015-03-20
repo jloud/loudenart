@@ -31,6 +31,10 @@ img {
   max-width: 100%;
 }
 
+input, textarea {
+  border-radius: none;
+}
+
 button {
   border: 0;
   background: transparent;
