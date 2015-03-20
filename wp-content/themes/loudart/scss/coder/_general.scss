@@ -412,7 +412,6 @@ nav.web-main-nav {
       transition: border 0.5s ease;
       &:after {
         @include arrow-icon(180deg);
-        left: 1px;
         text-align: center;
         transition: color 0.5s ease;
         -webkit-font-smoothing: antialiased;

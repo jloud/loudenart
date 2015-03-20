@@ -36,7 +36,7 @@
       a = u.replace(/\/$/, '');
       a = a.substr(a.lastIndexOf('/') + 1);
       if(a === 'loudenart' || a === 'louden.io'){
-        a = 'home';
+        a = 'page-home';
       } else if ($('#main-content').hasClass('single-post')){
         a = 'web-single ' + 'page-' + a;
       } else {
@@ -44,12 +44,6 @@
       }
       return a;
     }
-
-    var newUrl = document.URL;
-
-    newUrl = newUrl.lastIndexOf('l');
-
-    console.log(newUrl);
 
     function detectIOS() {
       if(navigator.userAgent.match(/(iPad|iPhone|iPod)/g)){
@@ -151,6 +145,10 @@
         e.preventDefault();
         animController.scrollTo(id);
       }
+    });
+
+    $('.scroll-top').on('click', function (e) {
+      animController.scrollTo(0);
     });
 
     if($('.page-home').length){

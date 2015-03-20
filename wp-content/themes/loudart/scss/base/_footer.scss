@@ -12,7 +12,7 @@ footer {
   width: 92%;
   height: 100%;
   margin: 0 4%;
-  padding: 0;
+  padding: 20px 0 0;
   border-top: 1px solid rgba(255,255,255,0.1);
   font: normal 300 1.5rem/1.4 $text-code;
   color: #fff;
@@ -52,7 +52,7 @@ footer {
     }
   }
   @include respond-to($break-mid-small){
-    // padding: 0;
+    padding: 0;
     text-align: left;
     line-height: 90px;
     li.email-link {
