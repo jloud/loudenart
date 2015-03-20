@@ -66,9 +66,6 @@
       TweenMax.to(window, 1.5, {scrollTo: {y: target}, ease: Quint.easeInOut});
     });
 
-    
-
-
     $wrapper.removeClass().addClass(pageClass);
 
     if($wrapper.hasClass('page-web')){

@@ -8,8 +8,8 @@
         <h1 class="landing-header" ><span class="double-rules"><span>Jim Louden</span></span></h1>
         <a class="landing-link art" href="<?php echo get_bloginfo('url'); ?>/art"><span>Artwork</span></a>
       </div>
-      <button class="landing-button"><a href="#contact">Contact me<span></span></a></button>
     </div>
+    <button class="landing-button"><a href="#contact">Contact me<span></span></a></button>
   </div>
   <div class="landing-home-bg"></div>
 </main>
