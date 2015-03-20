@@ -17,13 +17,11 @@
         <span class="text-piece bottom">Illustration</span>
         </h1>
       </div>
-  
-      <div class="arrow-holder"><a href="#heavy-pen-work" class="arrow-down"><span></span></a></div>
-      
+      <!-- <div class="arrow-holder"><a href="#heavy-pen-work" class="arrow-down"><span></span></a></div> -->
     </section>
+
     <section id="artwork">
       <ul class="artwork-holder">
-      <li class="grid-sizer"></li>
     <?php while ($ill_query -> have_posts()) : $ill_query -> the_post();
 
       remove_filter ('the_content', 'wpautop');
@@ -36,7 +34,7 @@
       $imgNumber = count($aImgs[0]);
       $counter = 1;
 
-      echo '<h2 id="'.$pTitle.'" class="'.$pTitle.'-rule header-clear art-img"><span class="double-rules"><span>'.get_the_title().'</span></span></h2>';
+      echo '<h2 id="'.$pTitle.'" class="'.$pTitle.'-rule header-clear art-img"><span>'.get_the_title().'</span></h2>';
 
       foreach($aImgs[0] as $img) {
         $src = (string) reset(simplexml_import_dom(DOMDocument::loadHTML($img))->xpath("//img/@src"));

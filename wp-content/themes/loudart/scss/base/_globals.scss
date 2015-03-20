@@ -66,14 +66,15 @@ section, div, *:after, *:before {
   padding-bottom: $footer-height;
   position: relative;
   opacity: 1;
-  border: $border-width solid $grey-dark;
+  background: $grey-dark;
+  // border: $border-width solid $grey-dark;
   border-bottom: 0;
   transition: border-width 0.5s ease, opacity 0.25s ease;
   .lightGallery & {
     -webkit-filter: blur(7px);   
   }
   @include respond-to(tablet){
-    border-width: $border-width * 2;
+    // border-width: $border-width * 2;
   }
   &.is-exiting {
     opacity: 0 !important;

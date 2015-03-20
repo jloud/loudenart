@@ -54,6 +54,7 @@
     position: absolute;
     top: 0;
     background: url('imgs/coder_land.jpg') no-repeat center 20% / cover;
+    filter: blur(2px);
   }
   .pace-done & {
     @include page-fade();
@@ -163,11 +164,9 @@ nav.web-main-nav {
   transform: skewY($skew);
   background: $grey-dark;
   z-index: 10;
-  h2, .holder {
-    transform: skewY(-$skew);
-  }
   h2 {
-    margin-left: 0 !important;
+    margin-left: 25px !important;
+    transform: skewY(-$skew);
   }
   .holder {
     @include container;
@@ -207,14 +206,51 @@ nav.web-main-nav {
     transition: box-shadow 0.65s ease;
   }
   img {
-    width: 70%;
+    width: 60%;
     height: auto;
     margin: auto;
     vertical-align: middle;
     opacity: 0.75;
+    transform: skewY(-$skew);
   }
-  &.hotp img {
-    width: 80%;
+  .thumb-bg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    z-index: -1;
+    background: no-repeat center / cover;
+    transform: skewY(-$skew);
+    opacity: 0.05;
+  }
+  &.hotp {
+    .thumb-bg {
+      background-image: url(imgs/house-bg.jpg);
+    }
+  }
+  &.ef {
+    .thumb-bg {
+      background-image: url(imgs/ef-bg.jpg);
+    }
+  }
+  &.vi {
+    .thumb-bg {
+      background-image: url(imgs/vicara-bg.jpg);
+    }
+  }
+  &.thread {
+    .thumb-bg {
+      background-image: url(imgs/thread-bg.jpg);
+    }
+  }
+  &.tp {
+    img {
+      width: 40%;
+    }
+    .thumb-bg {
+      background-image: url(imgs/tp-bg.jpg);
+    }
   }
   @include respond-to($break-mid-small){
     @include gallery(6);
@@ -232,7 +268,7 @@ nav.web-main-nav {
       }
       .subtitle-box {
         opacity: 1;
-        transform: rotateX(-90deg);
+        transform: skewY(-$skew) rotateX(-90deg);
       }
     }
   }
@@ -255,13 +291,14 @@ nav.web-main-nav {
   opacity: 0;
   text-align: center;
   transform-style: preserve-3d;
+  transform: skewY(-$skew);
   transition: transform 0.35s ease-out, opacity 0.35s ease;
   transform-origin: 25px 25px -25px;
   @include respond-to($break-mid-small){
     top: 6%;
   }
   @include respond-to(tablet){
-    top: 14%;
+    top: 18%;
   }
 }
   .subtitle-plane {

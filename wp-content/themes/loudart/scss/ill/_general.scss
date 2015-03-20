@@ -2,9 +2,35 @@
 
 @import "artwork";
 
-.content {
-  overflow: hidden;
-  background: url('imgs/bg.gif');
+.page-art {
+  border: $border-width solid $grey-dark;
+  .content {
+    overflow: hidden;
+    background: url('imgs/bg.gif');
+  }
+  .arrow-down {
+    background: transparentize($grey-dark,0.5);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    span:after {
+      color: #fff;
+    }
+    span:after {
+      @include arrow-icon(0deg);
+      text-align: center;
+      transition: color 0.5s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+    &:hover {
+      background: transparent;
+      border-color: $grey-dark;
+      span:after {
+        color: $grey-dark;
+      }
+    }
+  }
+  .contact  {
+    padding-right: 0;
+  }
 }
 
 .clear-row {
@@ -17,8 +43,5 @@
     border-top: 1px solid $grey-dark;
     border-bottom: 0;
     color: $grey-dark;
-  }
-  &.heavy-pen-work-rule {
-    margin-top: 0;
   }
 }

@@ -8,6 +8,7 @@ h2 {
   @include section-header();
   color: $blue;
   margin-left: -20px;
+  -webkit-backface-visibility: hidden;
   span {
     border: 1px solid $blue;
     border-left: 0; border-right: 0;

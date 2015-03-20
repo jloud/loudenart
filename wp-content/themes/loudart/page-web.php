@@ -45,7 +45,7 @@
 								<a href="'.get_permalink().'"><img src="'.$url.'" />
 								<span class="subtitle-box">
 								<span class="subtitle-plane"><span>See the work</span></span>
-								</span></span></a></div>';
+								</span></span><div class="thumb-bg"></div></a></div>';
 						} 
 					endwhile;
 				?> 

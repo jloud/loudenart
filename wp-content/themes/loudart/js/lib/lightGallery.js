@@ -138,7 +138,7 @@
                 }, 50);
             },
             structure: function() {
-                $('body').append('<div id="lightGallery-outer" class="' + settings.addClass + '"><div id="lightGallery-Gallery"><div id="lightGallery-slider"></div><a id="lightGallery-close" class="close"><span></span><span></span></a></div></div>').addClass('lightGallery');
+                $('body').append('<div id="lightGallery-outer" class="' + settings.addClass + '"><div id="lightGallery-Gallery"><div id="lightGallery-slider"></div><a id="lightGallery-close" class="close"><span></span></a></div></div>').addClass('lightGallery');
                 $galleryCont = $('#lightGallery-outer');
                 $gallery = $('#lightGallery-Gallery');
                 if (settings.showAfterLoad === true) {
@@ -523,7 +523,7 @@
             slideTo: function() {
                 var $this = this;
                 if (settings.controls === true && $children.length > 1) {
-                    $gallery.append('<div id="lightGallery-action" class="button-holder"><a id="lightGallery-prev" class="icon-button prev"><span class="arrow-text">Previous</span><span class="arrow"></span></a><a id="lightGallery-next" class="icon-button next"><span class="arrow"></span><span class="arrow-text">Next</span></a></div>');
+                    $gallery.append('<div id="lightGallery-action" class="button-holder"><a id="lightGallery-prev" class="icon-button prev"><span class="arrow"></span></a><a id="lightGallery-next" class="icon-button next"><span class="arrow"></span></a></div>');
                     $prev = $gallery.find('#lightGallery-prev');
                     $next = $gallery.find('#lightGallery-next');
                     $prev.bind('click', function() {

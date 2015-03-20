@@ -1,88 +1,55 @@
 $animate-distance: 50px;
 
-#artwork {
-  padding: 0 4%;
+.artwork-holder {
+  width: 90%;
+  margin: 0 auto 15%;
+  padding: 0;
 }
-  .artwork-holder {
-    width: 100%;
-    margin-bottom: 15%;
-    padding: 0;
-  }
-  .art-holder {
-    width: 100%;
-    clear: both;
-  }
+
+.art-holder {
+  width: 100%;
+  clear: both;
+}
 
 .art-img {
-  width: 23%;
+  width: 50%;
   margin: 0;
   padding: 0;
   display: block;
   text-align: center;
+  a {
+    display: block;
+    transition: box-shadow 0.5s ease;
+    box-sizing: border-box;
+    border: 3px solid transparent;
+    transition: border-color 0.5s ease;
+  }
   img {
     width: 100%;
     max-width: none;
     margin: 0 auto;
   }
   &.heavy-pen-work {
-    width: 48%;
-    img {
-      width: 80%;
-    }
+    width: 50%;
   }
-  &.pen-pencil-faces, &.inked-cities {
-    width: 48%;
-    img {
-      width: 60%;
+  @include respond-to($break-mid-small){
+    width: 23%;
+    &.inked-cities {
+      width: 50%;
     }
-  }
-  &.inked-cities {
-    width: 48%;
-    img {
-      width: 90%;
-    }
-  }
-  &.pen-drawings {
-    // width: 20%;
-    img {
-      // width: 90%;
-    }
-  }
-  &.pencil-color {
-    img {
-      width: 70%;
+    &:hover a {
+      border: 3px solid $grey-dark;
     }
   }
 }
 
-.header-clear {
+.inked-cities {
   width: 100%;
-  height: 50px;
-  margin: 30px auto;
-  font: normal 700 2rem/1 $title-art;
-  color: $grey-dark;
-  span {
-    border-color: $grey-dark;
-    color: $grey-dark;
-  }
-  .double-rules > span {
-    padding: 5px;
-  }
-}
-
-.heavy-pen-work {
-  &.art-holder-1 {
-    text-align: right;
-  }
-  &.art-holder-2 {
-    text-align: left;
-  }
 }
 
 .loose-pen-work {
   &.art-holder-1 {
-    width: 35%;
-    padding: 0 3%;
+    width: 50%;
   }
 }
 
@@ -93,25 +60,35 @@ $animate-distance: 50px;
 }
 
 .pencil-color {
-  width: 48%;
   &.art-holder-1 {
-    width: 100%;
-    img {
-      width: 70%;
-    }
+    width: 50%;
   }
 }
 
 .room-sims {
-  width: 48%;
-  img {
-    width: 80%;
-  }
   &.art-holder-1 {
-    width: 100%;
-    img {
-      width: 70%;
-    }
+    width: 50%;
+  }
+}
+
+.header-clear {
+  width: 100%;
+  min-height: 50px;
+  margin: 40px auto;
+  font: normal 300 2rem/50px $title-art;
+  letter-spacing: 0;
+  color: #fff;
+  text-transform: none;
+  span {
+    height: 100%;
+    padding: 0 30px;
+    border: 0;
+    display: inline-block;
+    vertical-align: middle;
+    background: $grey-dark;
+  }
+  @include respond-to($break-mid-small){
+    width: 50%;
   }
 }
 

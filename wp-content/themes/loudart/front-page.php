@@ -11,6 +11,7 @@
       <button class="landing-button"><a href="#contact">Contact me<span></span></a></button>
     </div>
   </div>
+  <div class="landing-home-bg"></div>
 </main>
 
 <?php get_footer(); ?>

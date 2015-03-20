@@ -38,7 +38,6 @@
       if(a === 'loudenart' || a === 'louden.io'){
         a = 'home';
       }
-      // console.log(a);
       return 'page-'+a;
     }
 
@@ -142,6 +141,16 @@
       }
     });
 
+    if($('.page-home').length){
+      $('.landing-holder').css({
+      'background-image':
+        '-webkit-linear-gradient(60deg, rgba(120, 181, 255, 0.5), rgba(120, 242, 255, 0.5))'
+      });
+      new ScrollScene({triggerElement: "#landing", duration: windowHeight * 2})
+        .setTween(TweenMax.from(".box", 1, {top: "-45%", ease: Linear.easeNone}))
+        .addTo(parController)
+    }
+
     if($('.work-thumbs').length){
       var isoContainer = document.querySelector('.work-thumbs');
       var iso;
@@ -154,11 +163,6 @@
         });
       });
     }
-
-    $('.landing-holder').css({
-      'background-image':
-        '-webkit-linear-gradient(-45deg, rgba(255, 255, 255, 0.8), rgba(211, 211, 211, 0.75))'
-    });
 
     if($('.artwork-holder').length){
       var isoContainer = document.querySelector('.artwork-holder');
@@ -181,6 +185,7 @@
         easing    : 'linear', //'for jquery animation',//
         speed     : 600,      // Transition duration (in ms).
         preload   : 3,    //number of preload slides. will exicute only after the current slide is fully loaded. ex:// you
+        thumbnail : false,
         selector        : '.art-lb',  // Custom selector property insted of just child.
         mobileSrc         : false, // If "data-responsive-src" attr. should be used for mobiles.
         mobileSrcMaxWidth : 640,   // Max screen resolution for alternative images to be loaded for.
