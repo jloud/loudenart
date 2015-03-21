@@ -21,7 +21,7 @@
 		</div>
 		</header>
 		<div class="arrow-holder"><a href="#work" class="arrow-down"><span></span></a></div>
-		<div class="landing-bg"></div>
+		<div class="landing-bg bgParallax"></div>
 	</div>
 
 	<nav class="chapter-target chapter-holder">

@@ -11,7 +11,7 @@
     </div>
     <button class="landing-button"><a href="#contact">Contact me<span></span></a></button>
   </div>
-  <div class="landing-home-bg"></div>
+  <div class="landing-home-bg bgParallax"></div>
 </main>
 
 <?php get_footer(); ?>

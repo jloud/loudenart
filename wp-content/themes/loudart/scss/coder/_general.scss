@@ -52,8 +52,10 @@
     height: 120%;
     position: absolute;
     top: 0;
-    background: url('imgs/coder_land.jpg') no-repeat center 20% / cover;
-    filter: blur(2px);
+    background: url('imgs/coder_land_mob.jpg') no-repeat center 20% / cover;
+    @include respond-to($break-mid-small){
+      background-image: url('imgs/coder_land.jpg');
+    }
   }
   .pace-done & {
     @include page-fade();
