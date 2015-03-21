@@ -3952,7 +3952,7 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   -moz-box-sizing: border-box;
   /* Firefox 1 - 28 */
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.95);
+  background: transparent;
   position: relative;
   top: 50%;
   -webkit-transform: translateY(-50%);
@@ -3961,7 +3961,7 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
           transform: translateY(-50%);
 }
 /* line 47, ../scss/_preloader.scss */
-.jl-icon:before, .jl-icon:after {
+.jl-icon:before {
   content: "";
   width: 100%;
   height: 100%;
@@ -4024,531 +4024,523 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
 /* line 59, ../scss/_preloader.scss */
 .jl-icon:before {
   border: 5px solid #3061a5;
-  border-right-color: #fff;
+  border-right-color: #1e1e1e;
   z-index: 10;
   -webkit-animation-duration: 2s;
 }
 /* line 65, ../scss/_preloader.scss */
-.jl-icon:after {
-  border: 20px solid #d3d3d3;
-  border-right-color: #fff;
-  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
-          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
-  -webkit-animation-duration: 3s;
-}
-/* line 71, ../scss/_preloader.scss */
 .jl-icon > span {
   position: relative;
   left: 3px;
   z-index: 10;
 }
 
-/* line 78, ../scss/_preloader.scss */
+/* line 72, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="0%"]:after {
   right: -200px;
 }
 
-/* line 79, ../scss/_preloader.scss */
+/* line 73, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="1%"]:after {
   right: -198.14px;
 }
 
-/* line 80, ../scss/_preloader.scss */
+/* line 74, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="2%"]:after {
   right: -196.28px;
 }
 
-/* line 81, ../scss/_preloader.scss */
+/* line 75, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="3%"]:after {
   right: -194.42px;
 }
 
-/* line 82, ../scss/_preloader.scss */
+/* line 76, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="4%"]:after {
   right: -192.56px;
 }
 
-/* line 83, ../scss/_preloader.scss */
+/* line 77, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="5%"]:after {
   right: -190.7px;
 }
 
-/* line 84, ../scss/_preloader.scss */
+/* line 78, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="6%"]:after {
   right: -188.84px;
 }
 
-/* line 85, ../scss/_preloader.scss */
+/* line 79, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="7%"]:after {
   right: -186.98px;
 }
 
-/* line 86, ../scss/_preloader.scss */
+/* line 80, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="8%"]:after {
   right: -185.12px;
 }
 
-/* line 87, ../scss/_preloader.scss */
+/* line 81, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="9%"]:after {
   right: -183.26px;
 }
 
-/* line 88, ../scss/_preloader.scss */
+/* line 82, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="10%"]:after {
   right: -181.4px;
 }
 
-/* line 89, ../scss/_preloader.scss */
+/* line 83, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="11%"]:after {
   right: -179.54px;
 }
 
-/* line 90, ../scss/_preloader.scss */
+/* line 84, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="12%"]:after {
   right: -177.68px;
 }
 
-/* line 91, ../scss/_preloader.scss */
+/* line 85, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="13%"]:after {
   right: -175.82px;
 }
 
-/* line 92, ../scss/_preloader.scss */
+/* line 86, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="14%"]:after {
   right: -173.96px;
 }
 
-/* line 93, ../scss/_preloader.scss */
+/* line 87, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="15%"]:after {
   right: -172.1px;
 }
 
-/* line 94, ../scss/_preloader.scss */
+/* line 88, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="16%"]:after {
   right: -170.24px;
 }
 
-/* line 95, ../scss/_preloader.scss */
+/* line 89, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="17%"]:after {
   right: -168.38px;
 }
 
-/* line 96, ../scss/_preloader.scss */
+/* line 90, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="18%"]:after {
   right: -166.52px;
 }
 
-/* line 97, ../scss/_preloader.scss */
+/* line 91, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="19%"]:after {
   right: -164.66px;
 }
 
-/* line 98, ../scss/_preloader.scss */
+/* line 92, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="20%"]:after {
   right: -162.8px;
 }
 
-/* line 99, ../scss/_preloader.scss */
+/* line 93, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="21%"]:after {
   right: -160.94px;
 }
 
-/* line 100, ../scss/_preloader.scss */
+/* line 94, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="22%"]:after {
   right: -159.08px;
 }
 
-/* line 101, ../scss/_preloader.scss */
+/* line 95, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="23%"]:after {
   right: -157.22px;
 }
 
-/* line 102, ../scss/_preloader.scss */
+/* line 96, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="24%"]:after {
   right: -155.36px;
 }
 
-/* line 103, ../scss/_preloader.scss */
+/* line 97, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="25%"]:after {
   right: -153.5px;
 }
 
-/* line 104, ../scss/_preloader.scss */
+/* line 98, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="26%"]:after {
   right: -151.64px;
 }
 
-/* line 105, ../scss/_preloader.scss */
+/* line 99, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="27%"]:after {
   right: -149.78px;
 }
 
-/* line 106, ../scss/_preloader.scss */
+/* line 100, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="28%"]:after {
   right: -147.92px;
 }
 
-/* line 107, ../scss/_preloader.scss */
+/* line 101, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="29%"]:after {
   right: -146.06px;
 }
 
-/* line 108, ../scss/_preloader.scss */
+/* line 102, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="30%"]:after {
   right: -144.2px;
 }
 
-/* line 109, ../scss/_preloader.scss */
+/* line 103, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="31%"]:after {
   right: -142.34px;
 }
 
-/* line 110, ../scss/_preloader.scss */
+/* line 104, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="32%"]:after {
   right: -140.48px;
 }
 
-/* line 111, ../scss/_preloader.scss */
+/* line 105, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="33%"]:after {
   right: -138.62px;
 }
 
-/* line 112, ../scss/_preloader.scss */
+/* line 106, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="34%"]:after {
   right: -136.76px;
 }
 
-/* line 113, ../scss/_preloader.scss */
+/* line 107, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="35%"]:after {
   right: -134.9px;
 }
 
-/* line 114, ../scss/_preloader.scss */
+/* line 108, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="36%"]:after {
   right: -133.04px;
 }
 
-/* line 115, ../scss/_preloader.scss */
+/* line 109, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="37%"]:after {
   right: -131.18px;
 }
 
-/* line 116, ../scss/_preloader.scss */
+/* line 110, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="38%"]:after {
   right: -129.32px;
 }
 
-/* line 117, ../scss/_preloader.scss */
+/* line 111, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="39%"]:after {
   right: -127.46px;
 }
 
-/* line 118, ../scss/_preloader.scss */
+/* line 112, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="40%"]:after {
   right: -125.6px;
 }
 
-/* line 119, ../scss/_preloader.scss */
+/* line 113, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="41%"]:after {
   right: -123.74px;
 }
 
-/* line 120, ../scss/_preloader.scss */
+/* line 114, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="42%"]:after {
   right: -121.88px;
 }
 
-/* line 121, ../scss/_preloader.scss */
+/* line 115, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="43%"]:after {
   right: -120.02px;
 }
 
-/* line 122, ../scss/_preloader.scss */
+/* line 116, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="44%"]:after {
   right: -118.16px;
 }
 
-/* line 123, ../scss/_preloader.scss */
+/* line 117, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="45%"]:after {
   right: -116.3px;
 }
 
-/* line 124, ../scss/_preloader.scss */
+/* line 118, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="46%"]:after {
   right: -114.44px;
 }
 
-/* line 125, ../scss/_preloader.scss */
+/* line 119, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="47%"]:after {
   right: -112.58px;
 }
 
-/* line 126, ../scss/_preloader.scss */
+/* line 120, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="48%"]:after {
   right: -110.72px;
 }
 
-/* line 127, ../scss/_preloader.scss */
+/* line 121, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="49%"]:after {
   right: -108.86px;
 }
 
-/* line 128, ../scss/_preloader.scss */
+/* line 122, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="50%"]:after {
   right: -107px;
 }
 
-/* line 129, ../scss/_preloader.scss */
+/* line 123, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="51%"]:after {
   right: -105.14px;
 }
 
-/* line 130, ../scss/_preloader.scss */
+/* line 124, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="52%"]:after {
   right: -103.28px;
 }
 
-/* line 131, ../scss/_preloader.scss */
+/* line 125, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="53%"]:after {
   right: -101.42px;
 }
 
-/* line 132, ../scss/_preloader.scss */
+/* line 126, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="54%"]:after {
   right: -99.56px;
 }
 
-/* line 133, ../scss/_preloader.scss */
+/* line 127, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="55%"]:after {
   right: -97.7px;
 }
 
-/* line 134, ../scss/_preloader.scss */
+/* line 128, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="56%"]:after {
   right: -95.84px;
 }
 
-/* line 135, ../scss/_preloader.scss */
+/* line 129, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="57%"]:after {
   right: -93.98px;
 }
 
-/* line 136, ../scss/_preloader.scss */
+/* line 130, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="58%"]:after {
   right: -92.12px;
 }
 
-/* line 137, ../scss/_preloader.scss */
+/* line 131, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="59%"]:after {
   right: -90.26px;
 }
 
-/* line 138, ../scss/_preloader.scss */
+/* line 132, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="60%"]:after {
   right: -88.4px;
 }
 
-/* line 139, ../scss/_preloader.scss */
+/* line 133, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="61%"]:after {
   right: -86.54px;
 }
 
-/* line 140, ../scss/_preloader.scss */
+/* line 134, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="62%"]:after {
   right: -84.68px;
 }
 
-/* line 141, ../scss/_preloader.scss */
+/* line 135, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="63%"]:after {
   right: -82.82px;
 }
 
-/* line 142, ../scss/_preloader.scss */
+/* line 136, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="64%"]:after {
   right: -80.96px;
 }
 
-/* line 143, ../scss/_preloader.scss */
+/* line 137, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="65%"]:after {
   right: -79.1px;
 }
 
-/* line 144, ../scss/_preloader.scss */
+/* line 138, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="66%"]:after {
   right: -77.24px;
 }
 
-/* line 145, ../scss/_preloader.scss */
+/* line 139, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="67%"]:after {
   right: -75.38px;
 }
 
-/* line 146, ../scss/_preloader.scss */
+/* line 140, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="68%"]:after {
   right: -73.52px;
 }
 
-/* line 147, ../scss/_preloader.scss */
+/* line 141, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="69%"]:after {
   right: -71.66px;
 }
 
-/* line 148, ../scss/_preloader.scss */
+/* line 142, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="70%"]:after {
   right: -69.8px;
 }
 
-/* line 149, ../scss/_preloader.scss */
+/* line 143, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="71%"]:after {
   right: -67.94px;
 }
 
-/* line 150, ../scss/_preloader.scss */
+/* line 144, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="72%"]:after {
   right: -66.08px;
 }
 
-/* line 151, ../scss/_preloader.scss */
+/* line 145, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="73%"]:after {
   right: -64.22px;
 }
 
-/* line 152, ../scss/_preloader.scss */
+/* line 146, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="74%"]:after {
   right: -62.36px;
 }
 
-/* line 153, ../scss/_preloader.scss */
+/* line 147, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="75%"]:after {
   right: -60.5px;
 }
 
-/* line 154, ../scss/_preloader.scss */
+/* line 148, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="76%"]:after {
   right: -58.64px;
 }
 
-/* line 155, ../scss/_preloader.scss */
+/* line 149, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="77%"]:after {
   right: -56.78px;
 }
 
-/* line 156, ../scss/_preloader.scss */
+/* line 150, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="78%"]:after {
   right: -54.92px;
 }
 
-/* line 157, ../scss/_preloader.scss */
+/* line 151, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="79%"]:after {
   right: -53.06px;
 }
 
-/* line 158, ../scss/_preloader.scss */
+/* line 152, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="80%"]:after {
   right: -51.2px;
 }
 
-/* line 159, ../scss/_preloader.scss */
+/* line 153, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="81%"]:after {
   right: -49.34px;
 }
 
-/* line 160, ../scss/_preloader.scss */
+/* line 154, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="82%"]:after {
   right: -47.48px;
 }
 
-/* line 161, ../scss/_preloader.scss */
+/* line 155, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="83%"]:after {
   right: -45.62px;
 }
 
-/* line 162, ../scss/_preloader.scss */
+/* line 156, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="84%"]:after {
   right: -43.76px;
 }
 
-/* line 163, ../scss/_preloader.scss */
+/* line 157, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="85%"]:after {
   right: -41.9px;
 }
 
-/* line 164, ../scss/_preloader.scss */
+/* line 158, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="86%"]:after {
   right: -40.04px;
 }
 
-/* line 165, ../scss/_preloader.scss */
+/* line 159, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="87%"]:after {
   right: -38.18px;
 }
 
-/* line 166, ../scss/_preloader.scss */
+/* line 160, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="88%"]:after {
   right: -36.32px;
 }
 
-/* line 167, ../scss/_preloader.scss */
+/* line 161, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="89%"]:after {
   right: -34.46px;
 }
 
-/* line 168, ../scss/_preloader.scss */
+/* line 162, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="90%"]:after {
   right: -32.6px;
 }
 
-/* line 169, ../scss/_preloader.scss */
+/* line 163, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="91%"]:after {
   right: -30.74px;
 }
 
-/* line 170, ../scss/_preloader.scss */
+/* line 164, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="92%"]:after {
   right: -28.88px;
 }
 
-/* line 171, ../scss/_preloader.scss */
+/* line 165, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="93%"]:after {
   right: -27.02px;
 }
 
-/* line 172, ../scss/_preloader.scss */
+/* line 166, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="94%"]:after {
   right: -25.16px;
 }
 
-/* line 173, ../scss/_preloader.scss */
+/* line 167, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="95%"]:after {
   right: -23.3px;
 }
 
-/* line 174, ../scss/_preloader.scss */
+/* line 168, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="96%"]:after {
   right: -21.44px;
 }
 
-/* line 175, ../scss/_preloader.scss */
+/* line 169, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="97%"]:after {
   right: -19.58px;
 }
 
-/* line 176, ../scss/_preloader.scss */
+/* line 170, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="98%"]:after {
   right: -17.72px;
 }
 
-/* line 177, ../scss/_preloader.scss */
+/* line 171, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="99%"]:after {
   right: -15.86px;
 }
 
-/* line 178, ../scss/_preloader.scss */
+/* line 172, ../scss/_preloader.scss */
 .pace .pace-progress[data-progress-text="100%"]:after {
   right: -14px;
 }
 
-/* line 180, ../scss/_preloader.scss */
+/* line 174, ../scss/_preloader.scss */
 .pace .pace-activity {
   position: absolute;
   width: 100%;
@@ -4556,19 +4548,19 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   z-index: 2001;
 }
 
-/* line 187, ../scss/_preloader.scss */
+/* line 181, ../scss/_preloader.scss */
 .pace.pace-inactive {
   opacity: 0;
   z-index: -100;
 }
 
-/* line 192, ../scss/_preloader.scss */
+/* line 186, ../scss/_preloader.scss */
 .pace-running {
   -webkit-transition-delay: 2s;
      -moz-transition-delay: 2s;
           transition-delay: 2s;
 }
-/* line 194, ../scss/_preloader.scss */
-.pace-running .wrapper {
-  opacity: 0;
+/* line 188, ../scss/_preloader.scss */
+.pace-running #wrapper {
+  opacity: 0.1;
 }

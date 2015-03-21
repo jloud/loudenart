@@ -39,6 +39,8 @@
         a = 'page-home';
       } else if ($('#main-content').hasClass('single-post')){
         a = 'web-single ' + 'page-' + a;
+      } else if ($('#main-content').hasClass('web')){
+        a = 'page-web';
       } else {
         a = 'page-' + a;
       }
@@ -102,19 +104,26 @@
         duration: 0,
         render: function (url, $container, $content) {
 
-          var urlClass = getUrlClass(url);
+          var urlClass = getUrlClass(url),
+              urlHash;
 
           $container.html($content);
           $container.removeClass();
 
-          if(urlClass.length){
+          if(urlClass){
             $container.addClass(urlClass);
           } else {
             $container.addClass('default');
           }
+
           $body.scrollTop(0);
           $(document).ready();
           $(window).trigger('load');
+
+          if (url.indexOf('#') !== -1) {
+            urlHash = url.replace(/#/gi, ',#').split(',')[1];
+            animController.scrollTo(urlHash);
+          }
         }
       },
       callback: function(url, $container, $content){
@@ -140,10 +149,13 @@
     }
 
     $('a[href*=#]:not([href=#])').on('click', function (e) {
-      var id = $(this).attr('href');
-      if ($(id).length > 0) {
+      var id = $(this).attr('href'),
+          urlHash = id.replace(/#/gi, ',#').split(',')[1];
+
+      //console.log(id);
+      if ($(urlHash).length > 0) {
         e.preventDefault();
-        animController.scrollTo(id);
+        animController.scrollTo(urlHash);
       }
     });
 
@@ -154,7 +166,7 @@
     if($('.page-home').length){
       $('.landing-holder').css({
       'background-image':
-        '-webkit-linear-gradient(60deg, rgba(120, 181, 255, 0.5), rgba(120, 242, 255, 0.5))'
+        '-webkit-linear-gradient(60deg, rgba(145, 182, 226, 0.7), rgba(186, 186, 186, 0.7))'
       });
       if(detectIOS()){
         $('#landing').css({'height': getWindowHeight()});
@@ -209,188 +221,6 @@
 
     $('.artwork-holder').lightGallery(lgoptions);
 
-    // WORK
-
-    // $('.work-thumbs').isotope({
-    //   itemSelector: 'li',
-    //   masonry: {
-    //     columnWidth: '.grid-sizer'
-    //   }
-    // });
-
-    // paceOptions = {
-    //   restartOnPushState: false
-    // }
-      
-
-      //   scrollActions = function(target) {
-      //     $('.page, .chapters li').removeClass('active');
-      //     target.addClass('active');
-      //     $('.chapters').find('.'+target.attr('id')).addClass('active');
-      //     //contArt.scrollTo(target);
-      //   }
-
-      //   pageControls = function(el){
-      //     var $currId = $('#content').find('.active'),
-      //         $nextId = $currId.next(),
-      //         $prevId = $currId.prev(),
-      //         dir = el.attr('id').split('-').pop(),
-      //         $target = el,
-      //         id;
-
-      //     if (dir === 'prev'){
-      //       if ($currId.is(':first-child')) {
-      //         id = $currId.attr('id');
-      //         return false;
-      //       } else {
-      //         scrollActions($prevId);
-      //         id = $prevId.attr('id');
-      //       }
-      //     } else if (dir === 'next'){
-      //       if ($currId.is(':last-child')) {
-      //         $currId.addClass('rightEnd2');
-      //         setTimeout(function() {
-      //           $currId.removeClass('rightEnd2');
-      //         }, 400);
-      //         id = $currId.attr('id');
-      //         return false;
-      //       } else {
-      //         scrollActions($nextId);
-      //         id = $nextId.attr('id'); 
-      //       }
-      //     } else {
-      //       scrollActions(el);
-      //       id = $target.attr('id'); 
-      //     }
-      //     if (id.length > 0) {
-      //       if (window.history && window.history.pushState) {
-      //         if(id === 'introduction') {
-      //           $('body').addClass('page-intro');
-      //           history.pushState("", document.title, window.location.pathname);
-      //         } else if(id === 'contact'){
-      //           $('body').addClass('page-contact');
-      //           history.pushState("", document.title, '#'+id);
-      //         } else {
-      //           $('body').removeClass('page-intro page-contact');
-      //           history.pushState("", document.title, '#'+id);
-      //         }
-      //       }
-      //     }
-      //   }
-
-      //   $(window).load(function(){
-      //     var hash = location.hash.replace('#','');
-
-      //     if(hash === 'introduction'){
-      //       $('body').addClass('page-intro');
-      //       return false;
-      //     } else if(hash === 'contact'){
-      //       $('body').addClass('page-contact');
-      //       return false;
-      //     } else if (hash != ''){
-      //        $('body').removeClass('page-intro page-contact');
-      //        $currId = $('#'+hash);
-      //        scrollActions($currId);
-      //     } else {
-      //       $('body').addClass('page-intro');
-      //       return false;
-      //     }
-      //     if ($currId == undefined){
-      //       $currId = $('#introduction');
-      //     }
-      //   }); 
-
-      //   $(window).on('resize', function () {
-      //     $currId = $('#content').find('.active');
-      //     //contArt.scrollTo($currId);
-      //     scrollActions($currId);
-      //   });
-
-
-      //   // MENU
-
-      //   var $menuBut = $('#menu-button'),
-      //       $menuOverlay = $('div.menu-overlay');
-      //       //closeBttn = overlay.querySelector( 'button.overlay-close' );
-
-      //   $menuBut.on("click", function() {
-      //     $(this).toggleClass('open');
-      //     $('#wrapper').toggleClass('blur');
-      //     $menuOverlay.toggleClass('open');
-      //   });
-
-      //   $('#nav-list a').on("click", function() {
-      //     $menuOverlay.removeClass('open');
-      //     $('#wrapper').removeClass('blur');
-      //   });
-
-      //   $('.icon-button').on('click', function (e) {
-      //     pageControls($(this));
-      //   });
-
-      //   $('#button-intro').on("click", function (e) {
-      //     firstId = $('.content').find(':first-child').next('section').attr('id');
-      //     pageControls($('#heavy-pen-work'));
-      //     console.log(firstId);
-      //   });
-
-      //   $('#nav-list li a, #chapters a').on("click", function (e) {
-      //     e.preventDefault();
-      //     var hrefId = $(this).attr('href');
-      //     if (hrefId != undefined){
-      //       pageControls($(hrefId));
-      //     }
-      //   });
-
-      
-     
-
   });
-	
-// })(jQuery, this);
-
-//var snapoptions = {
-        //   $menu: false,
-        //   menuSelector: 'a',
-        //   panelSelector: '.page',
-        //   namespace: '',
-        //   onSnapStart: function($target){
-        //     // $('.page').removeClass('active-custom');
-        //     // $target.addClass('active-custom');
-        //     console.log('this snapped');
-            
-        //   },
-        //   onSnapFinish: function($target){},
-        //   onActivate: function(){},
-        //   directionThreshold: 50,
-        //   slideSpeed: 800,
-        //   easing: 'easeInOutCubic',
-        //   keyboardNavigation: {
-        //     enabled: false,
-        //     nextPanelKey: 40,
-        //     previousPanelKey: 38,
-        //     wrapAround: true
-        //   },
-        //   strictContainerSelection: false
-        // };
-
-        // $('#content').panelSnap(snapoptions);
-
-    //         if($('body').hasClass('artpage')){
-    //   animController = new ScrollMagic({vertical: false});
-    //   animController.scrollTo(function(target) {
-    //     var eleWidth = $('.artwork-holder').first().width(),
-    //         newTarget = target - ((windowWidth/2) - (eleWidth/2));
-    //     if(target === 0){
-    //       newTarget = 0;
-    //     }   
-    //     TweenMax.to(window, 1.2, {scrollTo: {x: newTarget}, ease: Quint.easeOut});
-    //   });
-
-    //   new ScrollScene({ triggerElement: $('#content'), duration: '10000px'})
-    //     .setTween(parallaxtween)
-    //     .addTo(animController);
-    // }
-
 
 })(jQuery);
