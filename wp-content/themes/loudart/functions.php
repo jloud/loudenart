@@ -91,6 +91,30 @@ function code_nav()
   );
 }
 
+function code_single_nav()
+{
+  wp_nav_menu(
+  array(
+    'theme_location'  => '',
+    'menu'            => 'code-single',
+    'container'       => 'nav',
+    'container_class' => 'chapter-holder',
+    'container_id'    => '',
+    'menu_class'      => '',
+    'menu_id'         => '',
+    'echo'            => true,
+    'fallback_cb'     => '',
+    'before'          => '',
+    'after'           => '',
+    'link_before'     => '',
+    'link_after'      => '',
+    'items_wrap'      => '<ul>%3$s</ul>',
+    'depth'           => 0,
+    'walker'          => ''
+    )
+  );
+}
+
 function footer_nav()
 {
   wp_nav_menu(

@@ -8,7 +8,7 @@ $counter = 1;
 ?>
 
 	<nav class="chapter-target chapter-holder web-single">
-		<?php code_nav(); ?>
+		<?php code_single_nav(); ?>
 	</nav>
 
 	<main id="main-content" class="main-holder single-post" role="main">

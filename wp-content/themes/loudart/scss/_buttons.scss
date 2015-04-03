@@ -276,7 +276,7 @@
 .arrow-holder {
   width: 100%;
   position: absolute;
-  bottom: 80px;
+  bottom: -120px;
   left: 0;
   z-index: 10;
 }
@@ -307,14 +307,16 @@
       color: $grey-dark;
     }
   }
-  &:hover {
-    background: transparent;
-    border-color: $blue;
-    span {
+  @include respond-to($break-mid-small){
+    &:hover {
+      background: transparent;
       border-color: $blue;
-      @include bounce;
-      &:after {
-        color: $blue;
+      span {
+        border-color: $blue;
+        @include bounce;
+        &:after {
+          color: $blue;
+        }
       }
     }
   }

@@ -98,6 +98,10 @@ section, div, *:after, *:before {
   opacity: 0.2;
 }
 
+.vert-align {
+  @include vertical-align;
+}
+
 div.clear {
   clear: both;
 }

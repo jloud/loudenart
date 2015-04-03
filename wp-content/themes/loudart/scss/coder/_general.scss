@@ -11,40 +11,19 @@
 
 .web-landing {
   height: 100vh;
+  min-height: 480px;
   position: relative;
   background: $grey;
   header {
     margin: auto;
     color: #ffffff;
     text-align: center;
-    @include vertical-align;
-    top: 40%;
+    position: relative;
     z-index: 10;
     &:after {
       content: '';
       clear: both;
       display: block;
-    }
-  }
-  .holder {
-    margin: 0;
-    padding: 3px;
-    display: inline-block;
-    position: relative;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.5);
-    border-left: 0; border-right: 0;
-    z-index: 10;
-    p {
-      margin: 0;
-      padding: 5px 0 50px;
-      text-align: center;
-      font: normal 300 2.5rem/1.2 $text-code;
-      color: #fff;
-      text-shadow: -1px 1px 5px #000;
-      span:after {
-        content: "\a";
-      }
     }
   }
   .landing-bg {
@@ -61,6 +40,37 @@
     @include page-fade();
   }
 }
+  .web-landing-box {
+    margin: 0;
+    padding: 3px;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-left: 0; border-right: 0;
+    z-index: 10;
+    transition: top 0.5s ease;
+    p {
+      margin: 0;
+      padding: 5px 0 50px;
+      text-align: center;
+      font: normal 300 2.5rem/1.2 $text-code;
+      color: #fff;
+      text-shadow: -1px 1px 5px #000;
+      span:after {
+        content: "\a";
+      }
+    }
+    &.parFix {
+      top: 130px;
+      @include respond-to($break-mid-small){
+        top: 190px;
+      }
+      @include respond-to(tablet){
+        top: 230px;
+      }
+    }
+  }
 
 h1.web-header {
   width: 100%;
@@ -173,6 +183,7 @@ nav.web-main-nav {
     @include container;
     margin-top: 5%;
     padding: 0 5%;
+    transform: skewY(-($skew * 2));
     &:after {
       content: '';
       display: block;
@@ -212,17 +223,17 @@ nav.web-main-nav {
     margin: auto;
     vertical-align: middle;
     opacity: 0.75;
-    transform: skewY(-$skew);
+    transform: skewY($skew);
   }
   .thumb-bg {
     width: 100%;
-    height: 100%;
+    height: 110%;
     position: absolute;
-    top: -20px;
+    top: -5px;
     left: 0;
     z-index: -1;
     background: no-repeat center / cover;
-    transform: skewY(-$skew);
+    transform: skewY($skew);
     opacity: 0.05;
   }
   &.hotp {
@@ -269,7 +280,7 @@ nav.web-main-nav {
       }
       .subtitle-box {
         opacity: 1;
-        transform: skewY(-$skew) rotateX(-90deg);
+        transform: skewY($skew) rotateX(-90deg);
       }
     }
   }
@@ -299,7 +310,7 @@ nav.web-main-nav {
     top: 6%;
   }
   @include respond-to(tablet){
-    top: 18%;
+    top: 8%;
   }
 }
   .subtitle-plane {
@@ -332,6 +343,7 @@ nav.web-main-nav {
   position: fixed;
   backface-visibility: hidden;
   top: 0;
+  bottom: 0;
   z-index: 40;
   opacity: 1;
   transition: right 0.5s ease, opacity 0.75s ease;
@@ -420,7 +432,7 @@ nav.web-main-nav {
       }
     }
   }
-  &.active {
+  &.active, &.mobile {
     right: 0;
     li a {
       // top: 0;

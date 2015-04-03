@@ -110,9 +110,17 @@
              * @param   {string}    url - url being evaluated
              * 
              */
-            isHash: function (url) {
-                var hasPathname = (url.indexOf(window.location.pathname) > 0) ? true : false,
-                    hasHash = (url.indexOf("#") > 0) ? true : false;
+            isHash: function (url, prev) {
+               prev = prev || window.location.pathname;
+               var hasPathname = (url.indexOf(prev) >= 0) ? true : false,
+                   pathEnd = url.slice(url.indexOf(prev) + prev.length),
+                   hasHash = (url.indexOf("#") > 0) ? true : false;
+
+                if (pathEnd !== '' && pathEnd.indexOf('#') !== 0) {
+                  // If we go from / to /something#new hasPathname is true.
+                  return false;
+                }
+
                 return (hasPathname && hasHash) ? true : false;
             },
 
@@ -294,7 +302,7 @@
                     $page   = $("#" + e.state.id),
                     page    = $page.data("smoothState");
                 
-                if(page.href !== url && !utility.isHash(url)) {
+                if(page.href !== url && !utility.isHash(url, page.href)) {
                     page.load(url, true);
                 }
             }

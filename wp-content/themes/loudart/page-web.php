@@ -13,14 +13,14 @@
 ?>
 	
 	<div id="landing" class="web-landing">
-		<header>
-		<div class="holder">
+		<header class="forParallax">
+		<div class="web-landing-box">
 			<h1 class="web-header"><span class="text-name"><span>Jim</span><br /><span class="last-name">Louden</span></span></h1><br />
 			<p>frontend developer</p>
 			<nav class="web-main-nav"><?php code_nav(); ?></nav>
+			<div class="arrow-holder"><a href="#work" class="arrow-down no-smoothstate"><span></span></a></div>
 		</div>
 		</header>
-		<div class="arrow-holder"><a href="#work" class="arrow-down"><span></span></a></div>
 		<div class="landing-bg bgParallax"></div>
 	</div>
 
