@@ -33,18 +33,29 @@
   &:after {
     @include clear;
   }
+  &.vert-align {
+    padding-top: 0;
+    padding-bottom: 100px;
+  }
   .icon-holder {
     width: 100%;
     margin: 20px 0;
   }
   @include respond-to($break-mid-small){
     padding-top: 35%;
+    &.vert-align {
+      padding-top: 0;
+      padding-bottom: 150px;
+    }
   }
   @include respond-to(tablet){
     margin: 0 auto;
     padding: 0;
     padding-top: 30%;
     position: relative;
+    &.vert-align {
+      padding-top: 0;
+    }
     .icon-holder {
       width: 100%;
       position: absolute;
@@ -54,6 +65,9 @@
   }
   @include respond-to(desktop){
     padding-top: 300px;
+    &.vert-align {
+      padding-top: 0;
+    }
   }
 }
   .landing-header {
@@ -110,8 +124,8 @@
   width: 100%;
   text-align: center;
   position: absolute;
-  bottom: 14%;
-  z-index: 10;
+  bottom: 16%;
+  z-index: 100;
   a {
     color: $grey;
     font-size: 1.5rem;
@@ -136,7 +150,7 @@
   @include respond-to($break-mid-small){
   }
   @include respond-to(tablet){
-    bottom: 15%;
+    bottom: 18%;
     span {
       height: 0;
       opacity: 0;

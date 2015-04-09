@@ -1,4 +1,3 @@
-					<section id="contact" class="contact page-section">
 						<div class="holder">
 							<h2 class="header-footer"><span class="outer"><span class="inner">Contact</span></span></h2>
 							<div class="about-me">
@@ -6,11 +5,9 @@
 							</div>
 							<?php include (TEMPLATEPATH.'/cust-email-form.php'); ?>
 						</div><!-- holder -->
-					</section>
-				</main><!-- main-holder -->
+					</section><!-- #contact -->
 				<footer>
-						<?php footer_nav(); ?>
-						<!-- <span>&#169;</span>2015 Jim Louden <a href="">Web</a> <a href="">Art</a> -->
+					<?php footer_nav(); ?>
 				</footer>
 			</div><!-- site-container -->
 			<script>

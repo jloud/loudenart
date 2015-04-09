@@ -10,17 +10,17 @@ $susy: (
 
 @import "base/variables";
 
-@import "base/footer";
+@import "base/form";
 
 @import "menu";
 
 @import "lightGallery";
 
-@import "base/base";
-
-@import "base/globals";
-
 @import "landing";
+
+@import "base/general";
+
+@import "home/general";
 
 @import "ill/general";
 

@@ -6,6 +6,7 @@ $attachments = new Attachments( 'attachments' );
 $counter = 1;
 
 ?>
+	<div id="site-container" class="page-web-single">
 
 	<nav class="chapter-target chapter-holder web-single">
 		<?php code_single_nav(); ?>
@@ -47,6 +48,10 @@ $counter = 1;
 
 		<?php endif; ?>
 
-		</section>
+		</section><!-- .work-single -->
+		</div><!-- .container -->
+		</main>
+
+		<section id="contact" class="contact page-section">
 
 <?php get_footer(); ?>

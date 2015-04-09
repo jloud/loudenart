@@ -67,11 +67,10 @@ section, div, *:after, *:before {
   min-height: 100%;
   margin: 0;
   overflow-y: hidden;
-  padding-bottom: $footer-height;
+  // padding-bottom: $footer-height;
   position: relative;
   opacity: 1;
   background: $grey-dark;
-  // border: $border-width solid $grey-dark;
   border-bottom: 0;
   transition: border-width 0.5s ease, opacity 0.25s ease;
   .lightGallery & {
@@ -89,6 +88,7 @@ section, div, *:after, *:before {
   position: relative;
   transition: opacity 0.5s ease;
   opacity: 0;
+  padding-bottom: $footer-height;
   &.page-show {
     opacity: 1 !important;
   }
@@ -108,4 +108,52 @@ div.clear {
 
 .rightEnd2 {
   @include rightEnd;
+}
+
+.clear:before,
+.clear:after {
+  content:' ';
+  display:table;
+}
+.clear:after {
+  clear:both;
+}
+.clear {
+  *zoom:1;
+}
+
+h2 {
+  @include section-header();
+  margin-left: -20px;
+  -webkit-backface-visibility: hidden;
+  span {
+    border: 1px solid $grey-dark;
+    border-left: 0; border-right: 0;
+  }
+}
+
+.double-rules {
+  padding: 3px;
+  display: inline-block;
+  border: 1px solid $blue;
+  border-left: 0; border-right: 0;
+  color: $blue;
+  & > span {
+    padding: 10px 40px 10px 10px;
+    display: inline-block;
+    border: 1px solid $blue;
+    border-left: 0; border-right: 0;
+  }
+}
+
+.outer, .inner {
+  display: inline-block;
+  border: 1px solid $grey-dark;
+  border-left: 0; border-right: 0;
+}
+.outer {
+  padding: 3px;
+}
+.inner {
+  padding: 10px 40px 10px 10px;
 }

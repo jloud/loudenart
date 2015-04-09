@@ -11,6 +11,8 @@
   $skills_post = get_page_by_title('skills', OBJECT, 'post');
 
 ?>
+
+	<div id="site-container" class="page-web">
 	
 	<div id="landing" class="web-landing">
 		<header class="forParallax">
@@ -27,8 +29,6 @@
 	<nav class="chapter-target chapter-holder">
 		<?php code_nav(); ?>
 	</nav>
-
-
 
 	<main id="main-content" class="main-holder web" role="main">
 		<div class="container">
@@ -58,5 +58,8 @@
 				</div>
 			</section>
 		</div><!-- container -->
+		</main>
+
+		<section id="contact" class="contact page-section">
 
 <?php get_footer(); ?>
