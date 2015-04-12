@@ -8,7 +8,7 @@
           <h1 class="landing-header" ><span class="double-rules"><span>Jim Louden</span></span></h1>
           <a class="landing-link art" href="<?php echo get_bloginfo('url'); ?>/art"><span>Artwork</span></a>
         </div>
-        <button class="landing-button"><a href="#contact">Contact me<span></span></a></button>
+        <button class="landing-button"><a href="#contact" class="no-smoothstate">Contact me<span></span></a></button>
       </div>
     </div>
     <div class="landing-home-bg bgParallax"></div>

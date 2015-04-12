@@ -127,6 +127,8 @@
 
   function homeHome() {
     if(!detectTab()) {
+      animController = new ScrollMagic();
+      animControl();
       // bgParallax();
       //forParallax('#landing', '.box');
     } else {
