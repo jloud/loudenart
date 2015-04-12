@@ -75,9 +75,9 @@ $animate-distance: 50px;
   width: 100%;
   min-height: 50px;
   margin: 40px auto;
-  font: normal 300 2rem/50px $title-art;
-  letter-spacing: 0;
-  color: #fff;
+  font: normal 300 1.75rem/50px $title-art;
+  letter-spacing: 0.1em;
+  color: $grey-dark;
   text-transform: none;
   span {
     height: 100%;
@@ -85,7 +85,9 @@ $animate-distance: 50px;
     border: 0;
     display: inline-block;
     vertical-align: middle;
-    background: $grey-dark;
+    border: 1px solid $grey-dark;
+    text-transform: uppercase;
+    // background: $grey-dark;
   }
   @include respond-to($break-mid-small){
     width: 50%;

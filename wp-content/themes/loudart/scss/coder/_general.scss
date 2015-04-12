@@ -2,6 +2,8 @@
 
 @import "skills";
 
+@import "contact";
+
 #wrapper.page-web, #wrapper.web-single {
   footer {
     width: 85%;
@@ -14,6 +16,7 @@
   min-height: 480px;
   position: relative;
   background: $grey;
+  text-align: center;
   header {
     margin: auto;
     color: #ffffff;
@@ -28,8 +31,8 @@
   }
   .landing-bg {
     width: 100%;
-    height: 120%;
-    position: absolute;
+    height: 100%;
+    position: fixed;
     top: 0;
     background: url('imgs/coder_land_mob.jpg') no-repeat center 20% / cover;
     @include respond-to($break-mid-small){
@@ -40,11 +43,15 @@
     @include page-fade();
   }
 }
+
+  .web-box-content {
+    @include vertical-align;
+  }
+
   .web-landing-box {
     margin: 0;
     padding: 3px;
     display: inline-block;
-    position: relative;
     text-align: center;
     border: 1px solid rgba(255,255,255,0.5);
     border-left: 0; border-right: 0;
@@ -61,16 +68,8 @@
         content: "\a";
       }
     }
-    &.parFix {
-      top: 130px;
-      @include respond-to($break-mid-small){
-        top: 190px;
-      }
-      @include respond-to(tablet){
-        top: 230px;
-      }
-    }
   }
+
 
 h1.web-header {
   width: 100%;
@@ -176,8 +175,12 @@ nav.web-main-nav {
   background: $grey-dark;
   z-index: 10;
   h2 {
-    margin-left: 25px !important;
+    margin-left: 10px !important;
     transform: skewY(-$skew);
+    color: $blue;
+    .outer, .inner {
+      border-color: $blue;
+    }
   }
   .holder {
     @include container;

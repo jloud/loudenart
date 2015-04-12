@@ -4,8 +4,16 @@
 
 .page-art {
   border: $border-width solid $grey-dark;
+  z-index: 10;
   .content {
     overflow: hidden;
+  }
+  .landing-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
     background: url('imgs/bg.gif');
   }
   .arrow-down {
@@ -28,8 +36,8 @@
       }
     }
   }
-  .contact  {
-    padding-right: 0;
+  footer, .contact  {
+    background: transparent;
   }
 }
 

@@ -171,7 +171,7 @@
       position: absolute;
       top: 24px;
       left: 0;
-      background: transparentize(#fff, 0.5);
+      background: darken(#fff, 20%);
       transition: background-color 0.5s ease;
     }
     &:before {
@@ -275,8 +275,8 @@
 
 .arrow-holder {
   width: 100%;
-  position: absolute;
-  bottom: -120px;
+  position: relative;
+  bottom: -30px;
   left: 0;
   z-index: 10;
 }

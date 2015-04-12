@@ -1,6 +1,34 @@
 .page-web, .page-web-single {
-
   .contact {
+    padding-right: 15%;
     background: $grey-dark;
+  }
+  .header-footer {
+    color: $blue;
+    .outer, .inner {
+      border-color: $blue;
+    }
+  }
+  .about-me {
+    color: $grey-light;
+  }
+  .contact-form {
+    background: $grey;
+  }
+  .submit-button {
+    &:hover {
+      color: #fff;
+      box-shadow: inset 0 0 0 70px #000;
+    }
+  }
+  footer {
+    width: 85%;
+    padding-right: 15%;
+  }
+  .footer {    
+    border-color: $grey;
+    a {
+      color: $grey-light;
+    }
   }
 }

@@ -9,6 +9,7 @@
   ?>
 
   <div id="site-container" class="page-art">
+    <div class="landing-bg"></div>
     <main id="content" class="content">
       <section id="introduction" class="introduction page active">
         <div class="title-holder">

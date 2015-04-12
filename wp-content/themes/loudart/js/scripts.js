@@ -77,16 +77,17 @@
   function bgParallax(){
     var wh = getWindowHeight();
     new ScrollScene({triggerElement: $wrapper, duration: wh * 2})
-    .setTween(TweenMax.from('.bgParallax', 1, {top: "-15%", ease: Linear.easeNone}))
+    .setTween(TweenMax.from('.bgParallax', 1, {top: "-45%", ease: Linear.easeNone}))
     .addTo(parController)
   }
 
-  function forParallax(tr,el) {
-    var wh = getWindowHeight();
-    new ScrollScene({triggerElement: tr, duration: wh * 2})
-      .setTween(TweenMax.from(el, 1, {top: '-25%', ease: Linear.easeNone}))
-      .addTo(parController)
-  }
+  // function forParallax(tr,el) {
+  //   var wh = getWindowHeight();
+  //   console.log(wh);
+  //   new ScrollScene({triggerElement: tr, duration: wh * 2})
+  //     .setTween(TweenMax.from(el, 1, {top: '-70%', ease: Linear.easeNone}))
+  //     .addTo(parController)
+  // }
 
   function chapterLinks() {
     new ScrollScene({triggerElement: '.work'})
@@ -126,8 +127,8 @@
 
   function homeHome() {
     if(!detectTab()) {
-      bgParallax();
-      forParallax('#landing', '.box');
+      // bgParallax();
+      //forParallax('#landing', '.box');
     } else {
       $('.forParallax').addClass('vert-align');
     }
@@ -149,8 +150,8 @@
       animController = new ScrollMagic();
       chapterLinks();
       animControl();
-      bgParallax();
-      forParallax('#landing', '.forParallax');
+      //bgParallax();
+      // forParallax('#landing', '.forParallax');
     } else {
       $('.chapter-holder').addClass('mobile');
       $('.forParallax').addClass('vert-align');
