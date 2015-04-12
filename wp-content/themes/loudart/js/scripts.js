@@ -137,9 +137,13 @@
       $('#landing').css({ 'height': getWindowHeight() });
     }
 
+    if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
+     //Do Firefox-related activities
+    }
+
     $('.landing-holder').css({
     'background-image':
-      '-webkit-linear-gradient(60deg, rgba(145, 182, 226, 0.7), rgba(186, 186, 186, 0.7))'
+      'linear-gradient(60deg, rgba(145, 182, 226, 0.7), rgba(186, 186, 186, 0.7))'
     });
   }
 
