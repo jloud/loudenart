@@ -435,12 +435,15 @@ nav.web-main-nav {
       }
     }
   }
-  &.active, &.mobile {
+  &.active {
     right: 0;
     li a {
       // top: 0;
       opacity: 1;
     }
+  }
+  &.mobile {
+
   }
   @include respond-to($break-mid-small){
     .chapter-link a {
@@ -454,6 +457,9 @@ nav.web-main-nav {
           color: $blue;
         }
       }
+    }
+    &.mobile {
+      right: 0;
     }
   }
   @for $i from 1 through 4 {

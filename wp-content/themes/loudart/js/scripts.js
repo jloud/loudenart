@@ -129,8 +129,6 @@
     if(!detectTab()) {
       animController = new ScrollMagic();
       animControl();
-      // bgParallax();
-      //forParallax('#landing', '.box');
     } else {
       $('.forParallax').addClass('vert-align');
     }
@@ -152,8 +150,6 @@
       animController = new ScrollMagic();
       chapterLinks();
       animControl();
-      //bgParallax();
-      // forParallax('#landing', '.forParallax');
     } else {
       $('.chapter-holder').addClass('mobile');
       $('.forParallax').addClass('vert-align');

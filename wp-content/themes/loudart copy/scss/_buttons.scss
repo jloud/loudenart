@@ -1,0 +1,323 @@
+.menu-button {
+  width: 40px;
+  height: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  transform: rotate(0deg);
+  transition: all .75s ease-in-out;
+  cursor: pointer;
+  z-index: 9999;
+  a {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  span {
+    width: 100%;
+    height: 2px;
+    display: block;
+    position: absolute;
+    background: #000;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: all .25s ease-in-out;
+  }
+  span:nth-child(1) {
+    top: 0px;
+  }
+  span:nth-child(2), span:nth-child(3) {
+    top: 10px;
+  }
+  span:nth-child(4) {
+    top: 20px;
+  }
+  &.open span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+    opacity: 0;
+  }
+  &.open span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+  &.open span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  &.open span:nth-child(4) {
+    width: 0%;
+    top: 18px;
+    left: 50%;
+    opacity: 0;
+  }
+  .lightGallery & {
+    opacity: 0;
+  }
+}
+
+#lightGallery-action.button-holder {
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  position: absolute;
+  left: 0;
+  bottom: 20px;
+  z-index: 300;
+  .icon-button {
+    width: 50px;
+    height: 50px;
+    display: block;
+    background: transparentize($grey-dark, 0.5);
+    border: 2px solid transparent;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 100;
+    box-sizing: content-box;
+    cursor: pointer;
+    transition: border-color 0.5s ease;
+    &.next {
+      text-align: right;
+      top: 0;
+      right: 20px;
+      .arrow {
+        left: 0;
+        transform: rotate(-90deg);
+        &:before {
+          top: 2px;
+        }
+      }
+    }
+    &.prev {
+      text-align: left;
+      top: 0;
+      left: 20px;
+      .arrow {
+        right: 0;
+        transform: rotate(90deg);
+        &:before {
+          top: 2px;
+        }
+      }
+    }
+    .arrow {
+      height: 100%;
+      display: block;
+      text-align: center;
+      &:before {
+        @include arrow-icon(0deg);
+        width: 100%;
+        line-height: 50px;
+        vertical-align: middle;
+        transition: color 0.5s ease;
+        color: transparentize(#fff,0.5);
+      }
+    }
+    @include respond-to($break-mid-small){
+      &:hover {
+        border-color: $blue;
+        .arrow {
+          &:before {
+            color: $blue;
+          }
+        }
+      }
+      &.next:hover {
+        .arrow-text{
+          right: 5px;
+          opacity: 1;
+        }
+      }
+      &.prev:hover {
+        .arrow-text {
+          left: -30px;
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .page-intro & {
+    bottom: -100px;
+  }
+  .page-contact & {
+    .icon-button.next {
+      display: none;
+    }
+  }
+}
+
+#lightGallery-close {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: transparentize($grey-dark, 0.5);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  transition: background-color 0.5s ease, transform 0.75s ease;
+  span {
+    width: 70%;
+    height: 70%;
+    margin: auto;
+    display: block;
+    position: relative;
+    &:before, &:after {
+      content: "";
+      width: 100%;
+      height: 2px;
+      display: block;
+      position: absolute;
+      top: 24px;
+      left: 0;
+      background: darken(#fff, 20%);
+      transition: background-color 0.5s ease;
+    }
+    &:before {
+      transform: rotate(45deg);
+    }
+    &:after {
+      transform: rotate(-45deg);
+    }
+  }
+  &:hover {
+    transform: rotate(180deg);
+    background: transparentize($grey-dark, 0.15);
+    span:before, span:after {
+      background: $blue;
+    }
+  }
+}
+
+#nav-holder .menu-close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+  a {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    background: transparent;
+  }
+  span {
+    width: 40px;
+    height: 1px;
+    display: block;
+    position: absolute;
+    top: 20px;
+    background: #000;
+    opacity: 1;
+    transform: rotate(0deg);
+    transition: all .25s ease-in-out;
+  }
+  span:nth-child(1) {
+    transform: rotate(45deg);
+  }
+  span:nth-child(2) {
+    transform: rotate(-45deg);
+  }
+}
+
+.chapters {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  text-align: center;
+  li {
+    //width: 40px;
+    width: 5%;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    &:before {
+      content: '';
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: -0.25em;
+    }
+    a {
+      width: 100%;
+      height: 100%;
+      display: inline-block;
+      &:hover {
+        .marker {
+          height: 20px;
+        }
+      }
+    }
+  }
+  .marker {
+    height: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    border-left: 2px solid #000;
+    transition: height 0.5s ease;
+  }
+  li.active {
+    a:hover .marker {
+      height: inherit;
+    }
+    .marker {
+      height: 40px;
+    }
+  }
+}
+
+.arrow-holder {
+  width: 100%;
+  position: relative;
+  bottom: -30px;
+  left: 0;
+  z-index: 10;
+}
+
+.arrow-down {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto;
+  display: block;
+  background: rgba(255,255,255,0.3);
+  border: 2px solid transparent;
+  transition: border-color 0.5s ease, background 0.5s ease;
+  border-radius: 50%;
+  cursor: pointer;
+  box-sizing: border-box;
+  span {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+    &:after {
+      @include arrow-icon(0deg);
+      margin: auto;
+      position: relative;
+      transition: color 0.5s ease;
+      line-height: 60px;
+      vertical-align: middle;
+      color: $grey-dark;
+    }
+  }
+  @include respond-to($break-mid-small){
+    &:hover {
+      background: transparent;
+      border-color: $blue;
+      span {
+        border-color: $blue;
+        @include bounce;
+        &:after {
+          color: $blue;
+        }
+      }
+    }
+  }
+}
