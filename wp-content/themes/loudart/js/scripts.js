@@ -137,10 +137,6 @@
       $('#landing').css({ 'height': getWindowHeight() });
     }
 
-    if(navigator.userAgent.toLowerCase().indexOf('firefox') > -1) {
-     //Do Firefox-related activities
-    }
-
     $('.landing-holder').css({
     'background-image':
       'linear-gradient(60deg, rgba(145, 182, 226, 0.7), rgba(186, 186, 186, 0.7))'
@@ -155,8 +151,12 @@
       chapterLinks();
       animControl();
     } else {
+      animController = new ScrollMagic();
       $('.chapter-holder').addClass('mobile');
       $('.forParallax').addClass('vert-align');
+      new ScrollScene({triggerElement: '.work'})
+      .setClassToggle('.chapter-target', 'active')
+      .addTo(animController)
     }
   }
 
@@ -179,6 +179,30 @@
         });
       });
     }
+  }
+
+  function artHome() {
+    var isoContainer = document.querySelector('.artwork-holder'),
+        iso,
+        currWinWidth = getWindowWidth();
+
+    if(currWinWidth > 600) {
+      imagesLoaded(isoContainer, function(){
+        iso = new Isotope(isoContainer, {
+          itemSelector: '.art-img',
+          masonry: {
+            columnWidth: '.art-grid-sizer'
+          }
+        });
+      });
+    }
+    var lgoptions = {
+      speed             : 600,
+      preload           : 3,
+      thumbnail         : false,
+      selector          : '.art-lb'
+    }
+    $('.artwork-holder').lightGallery(lgoptions);
   }
 
   function smoothState() {
@@ -224,7 +248,9 @@
 
     $('#site-container').addClass('page-show');
 
-    smoothState();
+    if (currWinWidth > 700) {
+      smoothState();
+    }
 
      var urlClass,
          urlHash,
@@ -242,29 +268,10 @@
       webHome();
     }
 
-
     if( $('.artwork-holder').length ){
-      var isoContainer = document.querySelector('.artwork-holder'),
-          iso;
-
-      if(currWinWidth > 600) {
-        imagesLoaded(isoContainer, function(){
-          iso = new Isotope(isoContainer, {
-            itemSelector: '.art-img',
-            masonry: {
-              columnWidth: '.art-grid-sizer'
-            }
-          });
-        });
-      }
-      var lgoptions = {
-        speed             : 600,
-        preload           : 3,
-        thumbnail         : false,
-        selector          : '.art-lb'
-      }
-      $('.artwork-holder').lightGallery(lgoptions);
+      artHome();
     }
+
   });
 
 })(jQuery);
