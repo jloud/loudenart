@@ -2283,6 +2283,9 @@ footer {
   .work-thumbs .thumbs {
     width: 50%;
   }
+  .work-thumbs .post-hotp.pic-12 {
+    width: 100%;
+  }
   .work-thumbs .grid-sizer {
     width: 50%;
   }
