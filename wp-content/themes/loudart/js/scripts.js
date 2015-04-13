@@ -247,7 +247,7 @@
       var isoContainer = document.querySelector('.artwork-holder'),
           iso;
 
-      if(!detectTab()) {
+      if(currWinWidth > 600) {
         imagesLoaded(isoContainer, function(){
           iso = new Isotope(isoContainer, {
             itemSelector: '.art-img',
