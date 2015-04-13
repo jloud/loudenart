@@ -27,7 +27,7 @@ $counter = 1;
 		  	<ul class="work-thumbs">
 
 		    <?php while( $attachments->get() ) : ?>
-		      <li class="thumbs pic-<?php echo $counter; ?>"><span><?php echo $attachments->image( 'full' ); ?></span></li>
+		      <li class="thumbs post-<?php echo $post->post_name; ?> pic-<?php echo $counter; ?>"><span><?php echo $attachments->image( 'full' ); ?></span></li>
 		    <?php
 			    $counter++;
 			    endwhile;
