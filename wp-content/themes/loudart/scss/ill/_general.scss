@@ -15,6 +15,7 @@
     top: 0;
     left: 0;
     background: url('imgs/bg.gif');
+    z-index: -1;
   }
   .arrow-down {
     background: transparentize($grey-dark,0.5);
