@@ -1647,9 +1647,6 @@ h2 span {
   display: block;
   clear: both;
 }
-.contact.page-section .header-footer {
-  margin-left: -15px;
-}
 .contact.page-section .about-me, .contact.page-section .contact-form {
   width: 100%;
   float: left;
@@ -1662,9 +1659,6 @@ h2 span {
   text-align: left;
 }
 @media only screen and (min-width: 600px) {
-  .contact.page-section .header-footer {
-    margin-left: -20px;
-  }
   .contact.page-section .about-me {
     margin-bottom: 0;
   }

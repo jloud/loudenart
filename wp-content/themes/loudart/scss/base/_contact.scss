@@ -15,9 +15,6 @@
     max-width: 1000px;
     transform: skewY(-$skew);
   }
-  .header-footer {
-    margin-left: -15px;
-  }
   .about-me, .contact-form {
     @include span(12);
   }
@@ -28,9 +25,6 @@
     text-align: left;
   }
   @include respond-to($break-mid-small){
-    .header-footer {
-      margin-left: -20px;
-    }
     .about-me {
       margin-bottom: 0;
     }
