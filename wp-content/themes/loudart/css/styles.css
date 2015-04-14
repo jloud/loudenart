@@ -2282,10 +2282,10 @@ footer {
   .work-thumbs .thumbs {
     width: 50%;
   }
-  .work-thumbs .post-hotp.pic-12 {
+  .work-thumbs .post-hotp.pic-12, .work-thumbs .post-tp.pic-5, .work-thumbs .post-tp.pic-10 {
     width: 100%;
   }
-  .work-thumbs .post-hotp.pic-12 img {
+  .work-thumbs .post-hotp.pic-12 img, .work-thumbs .post-tp.pic-5 img, .work-thumbs .post-tp.pic-10 img {
     width: 75%;
   }
   .work-thumbs .grid-sizer {
