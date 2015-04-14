@@ -2365,7 +2365,7 @@ footer {
   clear: both;
 }
 .skills h2 {
-  margin: 5% 0 5% -10px;
+  margin: 5% 0 5%;
   position: relative;
   border-color: #743D37;
   z-index: 10;
