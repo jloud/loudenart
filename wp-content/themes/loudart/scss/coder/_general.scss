@@ -139,9 +139,6 @@ nav.web-main-nav {
 .main-holder.web {
   margin: 0;
   position: relative;
-  h2 {
-    margin-left: -20px;
-  }
   .container {
     position: relative;
     border-left: 0; border-right: 0;
@@ -175,8 +172,9 @@ nav.web-main-nav {
   background: $grey-dark;
   z-index: 10;
   h2 {
-    margin-left: 10px !important;
+    margin-left: 5%;
     transform: skewY(-$skew);
+    clear: both;
     color: $blue;
     .outer, .inner {
       border-color: $blue;

@@ -124,7 +124,6 @@ div.clear {
 
 h2 {
   @include section-header();
-  margin-left: -20px;
   -webkit-backface-visibility: hidden;
   span {
     border: 1px solid $grey-dark;
