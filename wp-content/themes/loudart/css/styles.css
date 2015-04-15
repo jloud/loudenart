@@ -2971,7 +2971,6 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   -webkit-backface-visibility: hidden;
      -moz-backface-visibility: hidden;
           backface-visibility: hidden;
-  top: 0;
   bottom: 0;
   z-index: 40;
   opacity: 1;
