@@ -19,7 +19,6 @@
           <span class="text-piece bottom">Illustration</span>
           </h1>
         </div>
-        <!-- <div class="arrow-holder"><a href="#heavy-pen-work" class="arrow-down"><span></span></a></div> -->
       </section>
 
       <section id="artwork">
@@ -56,4 +55,4 @@
 
     <section id="contact" class="contact page-section">
 
-<?php get_footer(); ?>
+<?php get_footer('art'); ?>

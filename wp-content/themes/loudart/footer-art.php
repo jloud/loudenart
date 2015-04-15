@@ -1,8 +1,5 @@
 						<div class="holder">
 							<h2 class="header-footer"><span class="outer"><span class="inner">Contact</span></span></h2>
-							<div class="about-me">
-							<p>I'm a front-end web developer and occasional illustrator based on the East coast.</p>
-							</div>
 							<?php include (TEMPLATEPATH.'/cust-email-form.php'); ?>
 						</div><!-- holder -->
 					</section><!-- #contact -->

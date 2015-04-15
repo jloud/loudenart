@@ -2176,6 +2176,17 @@ footer {
 .page-art .contact {
   border-top: 1px solid rgba(30, 30, 30, 0.75);
 }
+.page-art .contact .holder {
+  max-width: 700px;
+  padding: 0;
+  margin: auto;
+}
+.page-art .contact .contact-form {
+  width: 100%;
+}
+.page-art .contact .contact-form input, .page-art .contact .contact-form textarea {
+  margin: auto;
+}
 .page-art .header-footer {
   color: #1e1e1e;
 }
