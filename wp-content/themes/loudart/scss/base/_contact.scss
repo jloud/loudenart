@@ -1,4 +1,4 @@
-.contact.page-section {
+.contact {
   width: 100%;
   height: auto;
   margin-top: -2%;
@@ -6,6 +6,7 @@
   padding: 5% 0 23% 0;
   position: relative;
   top: -30px;
+  background: $grey-dark;
   z-index: 20;
   transform: skewY($skew);
   .holder {
@@ -18,15 +19,30 @@
   .about-me, .contact-form {
     @include span(12);
   }
+  .header-footer {
+    color: $blue;
+    .outer, .inner {
+      border-color: $blue;
+    }
+  }
   .about-me {
     padding-right: 7%;
     font: normal 300 1.6rem/1.7 $text-code;
-    // color: $grey-light;
     text-align: left;
+    color: $grey-light;
+  }
+  .contact-form {
+    background: $grey;
   }
   @include respond-to($break-mid-small){
     .about-me {
       margin-bottom: 0;
+    }
+    .submit-button {
+      &:hover {
+        color: #fff;
+        box-shadow: inset 0 0 0 70px #000;
+      }
     }
   }
   @include respond-to(tablet){
@@ -36,3 +52,11 @@
     }
   }
 }
+
+.footer {    
+  border-color: $grey !important;
+  a {
+    color: $grey-light !important;
+  }
+}
+

@@ -1,3 +1,9 @@
+.page-home {
+  .contact-form input, .contact-form textarea {
+    max-width: none;
+  }
+}
+
 .footer {
   width: 92%;
   height: 100%;
@@ -52,17 +58,6 @@
         padding: 0 10px 0 14px;
       }
     }
-  }
-}
-
-.page-home {
-  .contact {
-    background: $blue-grey;
-    color: $grey-dark;
-  }
-  footer {
-    color: $grey-dark;
-    background: $blue-grey;
   }
 }
 

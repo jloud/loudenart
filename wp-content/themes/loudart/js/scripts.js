@@ -101,7 +101,7 @@
         currUrl = document.URL;
 
     animController.scrollTo(function(target) {
-      TweenMax.to(window, 1.5, {scrollTo: {y: target}, ease: Quint.easeInOut});
+      TweenMax.to(window, 1, {scrollTo: {y: target}, ease: Cubic.easeInOut});
     });
 
     $('.scroll-top').on('click', function (e) {
@@ -137,10 +137,10 @@
       $('#landing').css({ 'height': getWindowHeight() });
     }
 
-    $('.landing-holder').css({
-    'background-image':
-      'linear-gradient(60deg, rgba(145, 182, 226, 0.7), rgba(186, 186, 186, 0.7))'
-    });
+    // $('.landing-holder').css({
+    // 'background-image':
+    //   'linear-gradient(60deg, rgba(145, 182, 226, 0.7), rgba(186, 186, 186, 0.7))'
+    // });
   }
 
   function webHome() {

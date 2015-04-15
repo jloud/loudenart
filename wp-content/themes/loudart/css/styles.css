@@ -1616,7 +1616,7 @@ h2 span {
   padding: 10px 40px 10px 10px;
 }
 
-.contact.page-section {
+.contact {
   width: 100%;
   height: auto;
   margin-top: -2%;
@@ -1624,13 +1624,14 @@ h2 span {
   padding: 5% 0 23% 0;
   position: relative;
   top: -30px;
+  background: #1e1e1e;
   z-index: 20;
   -webkit-transform: skewY(3deg);
      -moz-transform: skewY(3deg);
       -ms-transform: skewY(3deg);
           transform: skewY(3deg);
 }
-.contact.page-section .holder {
+.contact .holder {
   padding: 0 5% 4%;
   position: relative;
   max-width: 100%;
@@ -1642,35 +1643,61 @@ h2 span {
       -ms-transform: skewY(-3deg);
           transform: skewY(-3deg);
 }
-.contact.page-section .holder:after {
+.contact .holder:after {
   content: " ";
   display: block;
   clear: both;
 }
-.contact.page-section .about-me, .contact.page-section .contact-form {
+.contact .about-me, .contact .contact-form {
   width: 100%;
   float: left;
   margin-left: 0;
   margin-right: 0;
 }
-.contact.page-section .about-me {
+.contact .header-footer {
+  color: #3061a5;
+}
+.contact .header-footer .outer, .contact .header-footer .inner {
+  border-color: #3061a5;
+}
+.contact .about-me {
   padding-right: 7%;
   font: normal 300 1.6rem/1.7 "Roboto Slab", serif;
   text-align: left;
+  color: #d3d3d3;
+}
+.contact .contact-form {
+  background: #383838;
 }
 @media only screen and (min-width: 600px) {
-  .contact.page-section .about-me {
+  .contact .about-me {
     margin-bottom: 0;
+  }
+  .contact .submit-button:hover {
+    color: #fff;
+    -webkit-box-shadow: inset 0 0 0 70px #000;
+            box-shadow: inset 0 0 0 70px #000;
   }
 }
 @media only screen and (min-width: 769px) {
-  .contact.page-section {
+  .contact {
     padding-bottom: 18%;
   }
-  .contact.page-section .about-me, .contact.page-section .contact-form {
+  .contact .about-me, .contact .contact-form {
     width: 50%;
     float: left;
   }
+}
+
+.footer {
+  border-color: #383838 !important;
+}
+.footer a {
+  color: #d3d3d3 !important;
+}
+
+.page-home .contact-form input, .page-home .contact-form textarea {
+  max-width: none;
 }
 
 .footer {
@@ -1734,15 +1761,6 @@ h2 span {
   }
 }
 
-.page-home .contact {
-  background: #a8bdd6;
-  color: #1e1e1e;
-}
-.page-home footer {
-  color: #1e1e1e;
-  background: #a8bdd6;
-}
-
 footer {
   width: 100%;
   height: 100px;
@@ -1759,7 +1777,7 @@ footer {
   height: 100vh;
   min-height: 480px;
   position: relative;
-  background: #fff;
+  background: #1e1e1e;
 }
 
 .landing-holder {
@@ -1829,17 +1847,17 @@ footer {
   padding: 10px;
   text-align: center;
   display: block;
-  color: #1e1e1e;
+  color: #fff;
   font: normal 700 3rem/1 "Alegreya Sans SC", Helvetica, sans-serif;
   letter-spacing: 0.1em;
 }
 .landing-header span {
   display: inline-block;
-  border-color: #1e1e1e;
+  border-color: #3061a5;
 }
 .landing-header .double-rules span {
   padding: 10px 20px;
-  color: #1e1e1e;
+  color: #3061a5;
 }
 
 .landing-link {
@@ -1849,7 +1867,7 @@ footer {
   font: normal 100 4rem/0.9 "Roboto Slab", serif;
   text-transform: uppercase;
   letter-spacing: 0.1em;
-  color: #1e1e1e;
+  color: #fff;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.35);
   -webkit-transition: color 0.5s ease, text-shadow 0.5s ease;
      -moz-transition: color 0.5s ease, text-shadow 0.5s ease;
@@ -1895,17 +1913,17 @@ footer {
   letter-spacing: 0.1em;
   font-weight: 700;
   position: relative;
-  display: block;
+  display: inline-block;
   text-transform: uppercase;
+  -webkit-transition: color 0.5s ease;
+     -moz-transition: color 0.5s ease;
+          transition: color 0.5s ease;
 }
 .landing-button span {
   width: 100%;
   height: 100%;
   display: block;
   position: absolute;
-  -webkit-transition: color 0.5s ease, height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
-     -moz-transition: color 0.5s ease, height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
-          transition: color 0.5s ease, height 0.5s ease, opacity 0.5s ease, margin 0.5s ease;
 }
 .landing-button span:after {
   display: inline-block;
@@ -1919,22 +1937,22 @@ footer {
   position: relative;
   margin: 10px auto 0;
   color: #383838;
+  -webkit-transition: opacity 0.5s ease, margin 0.5s ease;
+     -moz-transition: opacity 0.5s ease, margin 0.5s ease;
+          transition: opacity 0.5s ease, margin 0.5s ease;
 }
-@media only screen and (min-width: 769px) {
-  .landing-button span {
-    height: 0;
+@media only screen and (min-width: 600px) {
+  .landing-button span:after {
+    margin: 0 auto 0;
     opacity: 0;
   }
   .landing-button a:hover {
     color: #3061a5;
     text-shadow: none;
   }
-  .landing-button a:hover span {
-    height: 30px;
-    margin-top: 0;
-    opacity: 1;
-  }
   .landing-button a:hover span:after {
+    margin-top: 10px;
+    opacity: 1;
     color: #3061a5;
   }
 }
@@ -2006,28 +2024,30 @@ footer {
 .art-img {
   width: 50%;
   margin: 0;
-  padding: 0;
   display: block;
   text-align: center;
   float: left;
 }
 .art-img a {
+  margin: 10px;
+  padding: 5px;
   display: block;
   -webkit-transition: -webkit-box-shadow 0.5s ease;
      -moz-transition: box-shadow 0.5s ease;
           transition: box-shadow 0.5s ease;
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -webkit-box-sizing: content-box;
+     -moz-box-sizing: content-box;
+          box-sizing: content-box;
   border: 0px solid transparent;
-  -webkit-transition: border-color 0.5s ease;
-     -moz-transition: border-color 0.5s ease;
-          transition: border-color 0.5s ease;
+  background: #fff;
 }
 .art-img img {
   width: 100%;
   max-width: none;
   margin: 0 auto;
+  -webkit-transition: opacity 0.5s ease;
+     -moz-transition: opacity 0.5s ease;
+          transition: opacity 0.5s ease;
 }
 .art-img.heavy-pen-work {
   width: 50%;
@@ -2040,8 +2060,8 @@ footer {
   .art-img.inked-cities {
     width: 50%;
   }
-  .art-img:hover a {
-    border: 3px solid #1e1e1e;
+  .art-img:hover a img {
+    opacity: 0.3;
   }
 }
 
@@ -2115,7 +2135,7 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
-  background: url("imgs/bg.gif");
+  background: url("imgs/strip-wh.gif");
   z-index: -1;
 }
 .page-art .arrow-down {
@@ -2152,6 +2172,27 @@ footer {
 }
 .page-art footer, .page-art .contact {
   background: transparent;
+}
+.page-art .contact {
+  border-top: 1px solid rgba(30, 30, 30, 0.75);
+}
+.page-art .header-footer {
+  color: #1e1e1e;
+}
+.page-art .header-footer .outer, .page-art .header-footer .inner {
+  border-color: #1e1e1e;
+}
+.page-art .about-me {
+  color: #1e1e1e;
+}
+.page-art .contact-form {
+  background: transparent;
+}
+.page-art .footer {
+  border-color: #1e1e1e !important;
+}
+.page-art .footer a {
+  color: #1e1e1e !important;
 }
 
 .clear-row {
@@ -2517,38 +2558,6 @@ footer {
   }
 }
 
-.page-web .contact, .page-web-single .contact {
-  padding-right: 15%;
-  background: #1e1e1e;
-}
-.page-web .header-footer, .page-web-single .header-footer {
-  color: #3061a5;
-}
-.page-web .header-footer .outer, .page-web .header-footer .inner, .page-web-single .header-footer .outer, .page-web-single .header-footer .inner {
-  border-color: #3061a5;
-}
-.page-web .about-me, .page-web-single .about-me {
-  color: #d3d3d3;
-}
-.page-web .contact-form, .page-web-single .contact-form {
-  background: #383838;
-}
-.page-web .submit-button:hover, .page-web-single .submit-button:hover {
-  color: #fff;
-  -webkit-box-shadow: inset 0 0 0 70px #000;
-          box-shadow: inset 0 0 0 70px #000;
-}
-.page-web footer, .page-web-single footer {
-  width: 85%;
-  padding-right: 15%;
-}
-.page-web .footer, .page-web-single .footer {
-  border-color: #383838;
-}
-.page-web .footer a, .page-web-single .footer a {
-  color: #d3d3d3;
-}
-
 #wrapper.page-web footer, #wrapper.web-single footer {
   width: 85%;
   padding-right: 15%;
@@ -2724,21 +2733,6 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   padding-top: 3%;
   padding-right: 15%;
   position: relative;
-}
-.main-holder.web:after {
-  content: '';
-  width: 100%;
-  height: 100px;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: rgba(48, 97, 165, 0.4);
-  -webkit-transform: skewY(-3deg);
-     -moz-transform: skewY(-3deg);
-      -ms-transform: skewY(-3deg);
-          transform: skewY(-3deg);
-  z-index: 5;
 }
 
 .work {
@@ -2959,6 +2953,14 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   -webkit-transition: color 0.5s ease, background 0.5s ease;
      -moz-transition: color 0.5s ease, background 0.5s ease;
           transition: color 0.5s ease, background 0.5s ease;
+}
+
+.page-web .contact, .page-web-single .contact {
+  padding-right: 15%;
+}
+.page-web footer, .page-web-single footer {
+  width: 85%;
+  padding-right: 15%;
 }
 
 .chapter-holder {

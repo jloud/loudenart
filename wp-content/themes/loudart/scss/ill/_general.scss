@@ -14,7 +14,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background: url('imgs/bg.gif');
+    background: url('imgs/strip-wh.gif');
     z-index: -1;
   }
   .arrow-down {
@@ -39,6 +39,27 @@
   }
   footer, .contact  {
     background: transparent;
+  }
+  .contact {
+    border-top: 1px solid transparentize($grey-dark, 0.25);
+  }
+  .header-footer {
+    color: $grey-dark;
+    .outer, .inner {
+      border-color: $grey-dark;
+    }
+  }
+  .about-me {
+    color: $grey-dark;
+  }
+  .contact-form {
+    background: transparent;
+  }
+  .footer {    
+    border-color: $grey-dark !important;
+    a {
+      color: $grey-dark !important;
+    }
   }
 }
 
