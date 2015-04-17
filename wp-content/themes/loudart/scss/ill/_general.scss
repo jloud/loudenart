@@ -6,7 +6,8 @@
   border: $border-width solid $grey-dark;
   z-index: 10;
   .content {
-    overflow: hidden;
+    max-width: 1000px;
+    margin: auto;
   }
   .landing-bg {
     width: 100%;
@@ -41,6 +42,9 @@
     background: transparent;
   }
   .contact {
+    width: 92%;
+    margin: 0 4%;
+    padding: 4% 0;
     border-top: 1px solid transparentize($grey-dark, 0.25);
     .holder {
       max-width: 700px;

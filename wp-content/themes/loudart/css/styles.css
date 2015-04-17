@@ -1613,7 +1613,7 @@ h2 span {
 }
 
 .inner {
-  padding: 10px 40px 10px 10px;
+  padding: 10px 20px;
 }
 
 .contact {
@@ -2029,7 +2029,7 @@ footer {
   float: left;
 }
 .art-img a {
-  margin: 10px;
+  margin: 5px 10px 5px;
   padding: 5px;
   display: block;
   -webkit-transition: -webkit-box-shadow 0.5s ease;
@@ -2054,7 +2054,6 @@ footer {
 }
 @media only screen and (min-width: 600px) {
   .art-img {
-    width: 23%;
     float: none;
   }
   .art-img.inked-cities {
@@ -2097,29 +2096,25 @@ footer {
 .header-clear {
   width: 100%;
   min-height: 50px;
-  margin: 40px auto;
-  font: normal 300 1.75rem/50px "Droid Serif", serif;
+  margin: 40px auto 20px;
+  font: normal 300 1.75rem/2 "Droid Serif", serif;
   letter-spacing: 0.1em;
   color: #1e1e1e;
   text-transform: none;
 }
 .header-clear span {
   height: 100%;
-  padding: 0 30px;
+  padding: 0 15px;
   border: 0;
   display: inline-block;
   vertical-align: middle;
-  border: 1px solid #1e1e1e;
+  border-top: 1px solid #1e1e1e;
   text-transform: uppercase;
-}
-@media only screen and (min-width: 600px) {
-  .header-clear {
-    width: 50%;
-  }
 }
 
 .art-grid-sizer {
-  width: 25%;
+  width: 50%;
+  clear: both;
 }
 
 .page-art {
@@ -2127,7 +2122,8 @@ footer {
   z-index: 10;
 }
 .page-art .content {
-  overflow: hidden;
+  max-width: 1000px;
+  margin: auto;
 }
 .page-art .landing-bg {
   width: 100%;
@@ -2174,6 +2170,9 @@ footer {
   background: transparent;
 }
 .page-art .contact {
+  width: 92%;
+  margin: 0 4%;
+  padding: 4% 0;
   border-top: 1px solid rgba(30, 30, 30, 0.75);
 }
 .page-art .contact .holder {
@@ -2401,6 +2400,7 @@ footer {
   }
 }
 .skills {
+  margin-top: -4%;
   padding-bottom: 8%;
   background: #d3d3d3 url(imgs/strip.png);
 }
@@ -2578,11 +2578,11 @@ footer {
   height: 100vh;
   min-height: 480px;
   position: relative;
-  background: #383838;
+  background: #193356;
   text-align: center;
 }
 .web-landing header {
-  margin: auto;
+  margin: -20px auto 0;
   color: #ffffff;
   text-align: center;
   position: relative;
@@ -2598,12 +2598,12 @@ footer {
   height: 100%;
   position: absolute;
   top: 0;
-  background: url("imgs/coder_land_mob.jpg") no-repeat center 20%/cover;
+  opacity: 0.3;
+  background: url("imgs/strip.png");
 }
 @media only screen and (min-width: 600px) {
   .web-landing .landing-bg {
     position: fixed;
-    background-image: url("imgs/coder_land.jpg");
   }
 }
 .pace-done .web-landing {
@@ -2722,6 +2722,7 @@ nav.web-main-nav a {
 }
 nav.web-main-nav a:hover {
   color: #3061a5;
+  text-shadow: none;
 }
 nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   display: none;
@@ -2740,10 +2741,20 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
 }
 .main-holder.web .page-section {
   width: 100%;
-  margin-top: -4%;
   padding-top: 3%;
   padding-right: 15%;
   position: relative;
+  top: -15px;
+}
+@media only screen and (min-width: 600px) {
+  .main-holder.web .page-section {
+    top: -30px;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .main-holder.web .page-section {
+    top: -40px;
+  }
 }
 
 .work {
@@ -2884,8 +2895,8 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
     line-height: 170px;
   }
   .web-thumbnails:hover a {
-    -webkit-box-shadow: inset 0 0 0 20px #3061a5;
-            box-shadow: inset 0 0 0 20px #3061a5;
+    -webkit-box-shadow: inset 0 0 0 10px #3061a5;
+            box-shadow: inset 0 0 0 10px #3061a5;
     background: #000;
   }
   .web-thumbnails:hover img {

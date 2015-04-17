@@ -18,7 +18,7 @@ $animate-distance: 50px;
   text-align: center;
   float: left;
   a {
-    margin: 10px;
+    margin: 5px 10px 5px;
     padding: 5px;
     display: block;
     transition: box-shadow 0.5s ease;
@@ -36,7 +36,6 @@ $animate-distance: 50px;
     width: 50%;
   }
   @include respond-to($break-mid-small){
-    width: 23%;
     float: none;
     &.inked-cities {
       width: 50%;
@@ -88,26 +87,27 @@ $animate-distance: 50px;
 .header-clear {
   width: 100%;
   min-height: 50px;
-  margin: 40px auto;
-  font: normal 300 1.75rem/50px $title-art;
+  margin: 40px auto 20px;
+  font: normal 300 1.75rem/2 $title-art;
   letter-spacing: 0.1em;
   color: $grey-dark;
   text-transform: none;
   span {
     height: 100%;
-    padding: 0 30px;
+    padding: 0 15px;
     border: 0;
     display: inline-block;
     vertical-align: middle;
-    border: 1px solid $grey-dark;
+    border-top: 1px solid $grey-dark;
     text-transform: uppercase;
     // background: $grey-dark;
   }
-  @include respond-to($break-mid-small){
-    width: 50%;
-  }
+  // @include respond-to($break-mid-small){
+  //   width: 50%;
+  // }
 }
 
 .art-grid-sizer {
-  width: 25%;
+  width: 50%;
+  clear: both;
 }
