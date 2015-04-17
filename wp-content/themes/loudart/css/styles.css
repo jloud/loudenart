@@ -2578,7 +2578,7 @@ footer {
   height: 100vh;
   min-height: 480px;
   position: relative;
-  background: #193356;
+  background: #11223a;
   text-align: center;
 }
 .web-landing header {
@@ -2598,7 +2598,7 @@ footer {
   height: 100%;
   position: absolute;
   top: 0;
-  opacity: 0.3;
+  opacity: 1;
   background: url("imgs/strip.png");
 }
 @media only screen and (min-width: 600px) {

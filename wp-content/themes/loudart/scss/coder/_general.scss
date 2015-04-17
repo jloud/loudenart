@@ -13,7 +13,7 @@
   height: 100vh;
   min-height: 480px;
   position: relative;
-  background: darken($blue,20%);
+  background: darken($blue,27%);
   text-align: center;
   header {
     margin: -20px auto 0;
@@ -32,7 +32,7 @@
     height: 100%;
     position: absolute;
     top: 0;
-    opacity: 0.3;
+    opacity: 1;
     background: url('imgs/strip.png');
     @include respond-to($break-mid-small){
       position: fixed;
