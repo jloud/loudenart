@@ -10,13 +10,12 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
-    <script>
-      paceOptions = {
-        restartOnPushState: false
-      }
-    </script>
 		<?php wp_head(); ?>
 		<script>
+      paceOptions = {
+        restartOnPushState: false,
+        ajax: false
+      }
       // conditionizr.com
       // configure environment tests
       conditionizr.config({

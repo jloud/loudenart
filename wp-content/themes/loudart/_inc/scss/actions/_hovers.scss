@@ -1,0 +1,15 @@
+@include respond-to($break-mid-small){
+  .web-thumbnails:hover {
+    a {
+      background: #000;
+      transition: background-color 0.65s ease;
+    }
+    img {
+      opacity: 0.25;
+    }
+    .subtitle-box {
+      opacity: 1;
+      transform: skewY($skew) rotateX(-90deg);
+    }
+  }
+}

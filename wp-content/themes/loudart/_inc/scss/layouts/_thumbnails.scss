@@ -1,0 +1,124 @@
+.web-thumbnails {
+  width: 100%;
+  height: 180px;
+  margin: auto;
+  position: relative;
+  border: 5px solid $grey-dark;
+  cursor: pointer;
+  z-index: 999;
+  overflow: hidden;
+  a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    background: $grey;
+    text-align: center; 
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: 0;
+  }
+  img {
+    width: 60%;
+    height: auto;
+    margin: auto;
+    vertical-align: middle;
+    opacity: 0.75;
+    transform: skewY($skew);
+  }
+  .thumb-bg {
+    width: 100%;
+    height: 110%;
+    position: absolute;
+    top: -5px;
+    left: 0;
+    z-index: -1;
+    background: no-repeat center / cover;
+    transform: skewY($skew);
+    opacity: 0.05;
+  }
+  &.hotp {
+    .thumb-bg {
+      background-image: url(../_inc/imgs/house-bg.jpg);
+    }
+  }
+  &.ef {
+    .thumb-bg {
+      background-image: url(../_inc/imgs/ef-bg.jpg);
+    }
+  }
+  &.vi {
+    .thumb-bg {
+      background-image: url(../_inc/imgs/vicara-bg.jpg);
+    }
+  }
+  &.thread {
+    .thumb-bg {
+      background-image: url(../_inc/imgs/thread-bg.jpg);
+    }
+  }
+  &.tp {
+    img {
+      width: 40%;
+    }
+    .thumb-bg {
+      background-image: url(../_inc/imgs/tp-bg.jpg);
+    }
+  }
+  &.heavy-pen-work {
+    img {
+      width: 40%;
+    }
+    .thumb-bg {
+      background-image: url(../_inc/imgs/pen-bg.jpg);
+    }
+  }
+  &.loose-pen-work {
+    img {
+      width: 40%;
+    }
+    .thumb-bg {
+      background-image: url(../_inc/imgs/pen-looser-bg.jpg);
+    }
+  }
+  &.pen-drawings {
+    img {
+      width: 40%;
+    }
+    .thumb-bg {
+      background-image: url(../_inc/imgs/pen-loose-bg.jpg);
+    }
+  }
+  &.pencil-color {
+    img {
+      width: 40%;
+    }
+    .thumb-bg {
+      background-image: url(../_inc/imgs/color-bg.jpg);
+    }
+  }
+  @include respond-to($break-mid-small){
+    @include gallery(6);
+    height: 170px;
+    a {
+      line-height: 170px;
+    }
+  }
+  @include respond-to(tablet){
+    height: 200px;
+    a {
+      line-height: 170px;
+    }
+  }
+  @include respond-to(desktop){}
+}
+
+.page-web, .page-web-single {
+  .contact {
+    padding-right: 15%;
+  }
+  footer {
+    width: 85%;
+    padding-right: 15%;
+  }
+}

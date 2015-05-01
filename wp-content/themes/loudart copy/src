@@ -1,0 +1,2319 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif|Nunito:400,300,700);
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot?1vzild");
+  src: url("fonts/icomoon.eot?#iefix1vzild") format("embedded-opentype"), url("fonts/icomoon.woff?1vzild") format("woff"), url("fonts/icomoon.ttf?1vzild") format("truetype"), url("fonts/icomoon.svg?1vzild#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 14, ../scss/_fonts.scss */
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* line 1, ../scss/_menu.scss */
+.menu-overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s, visibility 0s 0.5s;
+  z-index: 300;
+  font-size: 2.2rem;
+}
+/* line 13, ../scss/_menu.scss */
+.menu-overlay span {
+  font-size: 30px;
+}
+/* line 16, ../scss/_menu.scss */
+.menu-overlay h2 {
+  margin: 1px;
+  font-family: "Droid Serif", serif;
+  text-align: center;
+  font-weight: normal;
+  line-height: 1;
+}
+/* line 22, ../scss/_menu.scss */
+.menu-overlay h2 span {
+  font-family: "Nunito", sans-serif;
+  font-size: 1.5rem;
+}
+/* line 27, ../scss/_menu.scss */
+.menu-overlay nav {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/* line 31, ../scss/_menu.scss */
+.menu-overlay ul {
+  margin: 30px 0 !important;
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  display: inline-block;
+  position: relative;
+  transition: -webkit-transform 0.5s, opacity 0.5s;
+  transition: transform 0.5s, opacity 0.5s;
+}
+/* line 39, ../scss/_menu.scss */
+.menu-overlay ul li {
+  display: block;
+}
+/* line 42, ../scss/_menu.scss */
+.menu-overlay ul a {
+  height: 100%;
+  display: block;
+  color: #000;
+  transition: color 0.2s;
+  font-family: "Nunito", sans-serif;
+}
+/* line 50, ../scss/_menu.scss */
+.menu-overlay p {
+  margin: 0;
+  color: #000;
+  font-family: "Droid Serif", serif;
+}
+/* line 54, ../scss/_menu.scss */
+.menu-overlay p a {
+  display: inline-block;
+  box-sizing: content-box;
+  padding: 10px 20px;
+  border-top: 1px solid #000;
+  color: #000;
+}
+/* line 62, ../scss/_menu.scss */
+.menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.5s;
+}
+/* line 67, ../scss/_menu.scss */
+.menu-overlay.open nav ul {
+  opacity: 1;
+  -webkit-transform: rotateX(0deg);
+          transform: rotateX(0deg);
+  width: 100%;
+}
+
+/*clearfix*/
+/* line 2, ../scss/_lightGallery.scss */
+.group {
+  *zoom: 1;
+}
+
+/* line 5, ../scss/_lightGallery.scss */
+.group:before, .group:after {
+  display: table;
+  content: "";
+  line-height: 0;
+}
+
+/* line 10, ../scss/_lightGallery.scss */
+.group:after {
+  clear: both;
+}
+
+/*/clearfix*/
+/** /font-icons if you are not using font icons you can just remove this part/**/
+@font-face {
+  font-family: 'Slide-icons';
+  src: url("../fonts/Slide-icons.eot");
+}
+@font-face {
+  font-family: 'Slide-icons';
+  src: url(data:application/font-woff;charset=utf-8;base64,d09GRk9UVE8AAAWcAAsAAAAACSgAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABDRkYgAAABCAAAAm4AAAQxqzjSYEZGVE0AAAN4AAAAGgAAABxmWaSOR0RFRgAAA5QAAAAdAAAAIAAzAARPUy8yAAADtAAAAEsAAABgL/bcQGNtYXAAAAQAAAAAPQAAAVLgL/LNaGVhZAAABEAAAAAuAAAANv3vdhloaGVhAAAEcAAAAB4AAAAkBBD/5GhtdHgAAASQAAAAEgAAABIFOwBxbWF4cAAABKQAAAAGAAAABgAGUABuYW1lAAAErAAAAOEAAAGw7pftcnBvc3QAAAWQAAAADAAAACAAAwAAeJx9VE1oE1EQnpfsJutmSWNMQoUoWxB/qmIKnkKJWKvXQlOwhx5E7SEo9WCEHNKAJqVbn8RLzvEgKEUPCgoiIi3YHkWw2mO9CBb8O1SzurXjvLfrJiqEhXkzwzffm/nee8tAUYAxZuQvFs5PHi6cuzR1GVgAGORsM2D3Be1ehRtBbii7ddiZjyPnvmOE+QW7YRfVNNzpSQPE0vBwexqMtNIbh7Dg0KAHUrAL9sARyF6ZKpzKZDK0nMwMHHeXIXc54S7DHU109gPAZpnF5th1xiEkiANgsFpgNDATPB3ldlHZbNiNcBTZ/JNRZBPFZ0nE6mw/GT6MUC6tiPCgihA6Vkb8sXCNI35bGxRuTcYa4vqZIWlUP1sVoCx3Yyqd1gTNIUH4RhJ6rILAxw9yN/bwghVSt56rLoCyFY6gmy8kwENJwjYrlItPVauOuDWyhqDEzlKFIuvIIrAHfTJbr2uSWpgFOVvFHVDQc5dftK751P3CeyuNp8Uf/DL3tal5rFKLuiX2MxGdL00azJHKOWLcrZF3MmtZWhThNRWwx62XSYTF/d8Rc6sR2iFyNYS4MWNSzaeJA+RWfkqjCYBO5tV71bIkjTssUVe5bykrhrXqWqnZ1m9a6rfk61emfu+Px8iIA8zf/SrDNr4s8csd+Gbzn+mXOtWK3rPHkqbeGkuZuvNIGudo9wRdvDkald0Yj9HFy89vtvsgjw7/Pxm9Kf+SEfGj86HU/frlVn6RwgP7CLVRTZDCFZt6j99edcWGSPmz5h4BLO5d73bIzVL7OdTkc8j6O5MIdiPBkzcNnZ7zDvF/2OYkWvSFI78BSE0QpgAAeJxjYGBgZACCk535hiD6XIbUOhgNAD+3BfAAAHicY2BkYGDgA2IJBhBgYmAEQlYgZgHzGAAEgQA4AAAAeJxjYGZiYJzAwMrAwejDmMbAwOAOpb8ySDK0MDAwMbAyM8CBAILJEJDmmsLg8EDqAwPjg/8PGPQYHzAoNDAwMMIVKAAhIwATaAw5AHicY2BgYGaAYBkGRgYQ8AHyGMF8FgYDIM0BhEwgiQeyHxj+/wezpCAs+RcCjFBdYMDIxoDMHZEAAP1aCcoAAAB4nGNgZGBgAGLNvbqy8fw2Xxm4mRhA4FyG1DoE/f8BEwPjAyCXgwEsDQAB0gmnAAB4nGNgZGBgfPD/AYMeEwMDwz8GIAkUQQHMAG3nA/YAAAIAAAAAAAAAAgAAUQClACAAlgAAAABQAAAGAAB4nI2PMW7CQBBFn8FGIkQpo5RbIFHZsjciEhyAMg0SFwALrYS8kuEMOQLH4BgcgGPkAKnz7UxBkYKVVvPmz5/ZWeCZMwndSZjwZjwgozQeMuPLOJXnapyJv41HTJIXOZN0LOW17+p4wBNT4yGffBin8lyMM/HNeCT+Yc2BwI6aXHFLpOEI60PY1XnYxkbJnW7Kqs9PfWzZq9vhKfQPx1L3/6l/Nc9c6kLXy1/xrnGxOa1iu6+dL0q3dHevK/PzfJH7spLxkW03qrZSQ191eqHbi03dHkNsXFWUD835BcvqQqwAAAB4nGNgZsALAAB9AAQ=) format("woff"), url(data:application/x-font-ttf;charset=utf-8;base64,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) format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 27, ../scss/_lightGallery.scss */
+[data-icon]:before {
+  font-family: 'Slide-icons';
+  content: attr(data-icon);
+  speak: none;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/** / End of font-icons /**/
+/* line 43, ../scss/_lightGallery.scss */
+.lightGallery {
+  overflow: hidden !important;
+}
+
+/* line 46, ../scss/_lightGallery.scss */
+#lightGallery-Gallery img {
+  border: none !important;
+}
+
+/* line 49, ../scss/_lightGallery.scss */
+#lightGallery-outer {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999 !important;
+  overflow: hidden;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  opacity: 1;
+  transition: opacity 0.35s ease;
+  background: #0d0d0d;
+}
+
+/* line 68, ../scss/_lightGallery.scss */
+#lightGallery-outer .lightGallery-slide {
+  position: relative;
+}
+
+/*lightGallery starting effects*/
+/* line 72, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.opacity {
+  opacity: 1;
+  transition: opacity 1s ease 0s;
+  -moz-transition: opacity 1s ease 0s;
+  -webkit-transition: opacity 1s ease 0s;
+  -o-transition: opacity 1s ease 0s;
+  -ms-transition: opacity 1s ease 0s;
+}
+
+/* line 80, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.opacity .thumb_cont {
+  opacity: 1;
+}
+
+/* line 83, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.fadeM {
+  opacity: 0;
+  transition: opacity 0.5s ease 0s;
+  -moz-transition: opacity 0.5s ease 0s;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  -ms-transition: opacity 0.5s ease 0s;
+}
+
+/*lightGallery starting effects*/
+/*lightGallery core*/
+/* line 95, ../scss/_lightGallery.scss */
+#lightGallery-Gallery {
+  height: 100%;
+  opacity: 0;
+  width: 100%;
+  position: relative;
+  transition: opacity 1s ease 0s;
+  -moz-transition: opacity 1s ease 0s;
+  -webkit-transition: opacity 1s ease 0s;
+  -o-transition: opacity 1s ease 0s;
+  -ms-transition: opacity 1s ease 0s;
+}
+
+/**/
+/* line 107, ../scss/_lightGallery.scss */
+#lightGallery-slider {
+  height: 100%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  position: absolute;
+  white-space: nowrap;
+}
+
+/**/
+/* line 116, ../scss/_lightGallery.scss */
+#lightGallery-slider .lightGallery-slide {
+  background: url(../img/loading.gif) no-repeat scroll center center transparent;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 123, ../scss/_lightGallery.scss */
+#lightGallery-slider .lightGallery-slide.complete {
+  background-image: none;
+}
+
+/* line 126, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.showAfterLoad .lightGallery-slide > * {
+  opacity: 0;
+}
+
+/* line 129, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.showAfterLoad .lightGallery-slide.complete > * {
+  opacity: 1;
+}
+
+/* line 132, ../scss/_lightGallery.scss */
+#lightGallery-slider.slide .lightGallery-slide, #lightGallery-slider.useLeft .lightGallery-slide {
+  position: absolute;
+  opacity: 0.4;
+}
+
+/* line 136, ../scss/_lightGallery.scss */
+#lightGallery-slider.fadeM .lightGallery-slide {
+  position: absolute;
+  left: 0;
+  opacity: 0;
+}
+
+/* line 141, ../scss/_lightGallery.scss */
+#lightGallery-slider.animate .lightGallery-slide {
+  position: absolute;
+  left: 0;
+}
+
+/* line 145, ../scss/_lightGallery.scss */
+#lightGallery-slider.fadeM .current {
+  opacity: 1;
+  z-index: 9;
+}
+
+/* line 149, ../scss/_lightGallery.scss */
+#lightGallery-slider .lightGallery-slide:before {
+  content: "";
+  display: inline-block;
+  height: 50%;
+  width: 1px;
+  margin-right: -1px;
+}
+
+/* line 156, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.opacity .lightGallery-slide .object {
+  transform: scale3d(1, 1, 1);
+  -moz-transform: scale3d(1, 1, 1);
+  -ms-transform: scale3d(1, 1, 1);
+  -webkit-transform: scale3d(1, 1, 1);
+  -o-transform: scale3d(1, 1, 1);
+}
+
+/* line 163, ../scss/_lightGallery.scss */
+.lightGallery-slide .object {
+  transform: scale3d(0.5, 0.5, 0.5);
+  -moz-transform: scale3d(0.5, 0.5, 0.5);
+  -ms-transform: scale3d(0.5, 0.5, 0.5);
+  -webkit-transform: scale3d(0.5, 0.5, 0.5);
+  -o-transform: scale3d(0.5, 0.5, 0.5);
+  transition: -webkit-transform 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.5s ease 0s;
+  transition: transform 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.5s ease 0s;
+}
+
+/* line 175, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.fadeM .lightGallery-slide .object {
+  transform: scale3d(0.5, 0.5, 0.5);
+  -moz-transform: scale3d(0.5, 0.5, 0.5);
+  -ms-transform: scale3d(0.5, 0.5, 0.5);
+  -webkit-transform: scale3d(0.5, 0.5, 0.5);
+  -o-transform: scale3d(0.5, 0.5, 0.5);
+}
+
+/* line 182, ../scss/_lightGallery.scss */
+#lightGallery-slider.fadeM.on .current {
+  opacity: 1;
+  transition: opacity 0.5s ease 0s;
+  -moz-transition: opacity 0.5s ease 0s;
+  -webkit-transition: opacity 0.5s ease 0s;
+  -o-transition: opacity 0.5s ease 0s;
+  -ms-transition: opacity 0.5s ease 0s;
+}
+
+/* line 190, ../scss/_lightGallery.scss */
+#lightGallery-slider.fadeM .lightGallery-slide {
+  transition: opacity 0.4s ease 0s;
+  -moz-transition: opacity 0.4s ease 0s;
+  -webkit-transition: opacity 0.4s ease 0s;
+  -o-transition: opacity 0.4s ease 0s;
+  -ms-transition: opacity 0.4s ease 0s;
+}
+
+/* line 197, ../scss/_lightGallery.scss */
+#lightGallery-slider.slide .lightGallery-slide {
+  transform: translate3d(100%, 0px, 0px);
+  -moz-transform: translate3d(100%, 0px, 0px);
+  -ms-transform: translate3d(100%, 0px, 0px);
+  -webkit-transform: translate3d(100%, 0px, 0px);
+  -o-transform: translate3d(100%, 0px, 0px);
+}
+
+/* line 204, ../scss/_lightGallery.scss */
+#lightGallery-slider.slide.on .lightGallery-slide {
+  opacity: 0;
+}
+
+/* line 207, ../scss/_lightGallery.scss */
+#lightGallery-slider.slide .lightGallery-slide.current {
+  opacity: 1 !important;
+  transform: translate3d(0px, 0px, 0px) !important;
+  -moz-transform: translate3d(0px, 0px, 0px) !important;
+  -ms-transform: translate3d(0px, 0px, 0px) !important;
+  -webkit-transform: translate3d(0px, 0px, 0px) !important;
+  -o-transform: translate3d(0px, 0px, 0px) !important;
+}
+
+/* line 215, ../scss/_lightGallery.scss */
+#lightGallery-slider.slide .lightGallery-slide.prevSlide {
+  opacity: 0;
+  transform: translate3d(-100%, 0px, 0px);
+  -moz-transform: translate3d(-100%, 0px, 0px);
+  -ms-transform: translate3d(-100%, 0px, 0px);
+  -webkit-transform: translate3d(-100%, 0px, 0px);
+  -o-transform: translate3d(-100%, 0px, 0px);
+}
+
+/* line 223, ../scss/_lightGallery.scss */
+#lightGallery-slider.slide .lightGallery-slide.nextSlide {
+  opacity: 0;
+  transform: translate3d(100%, 0px, 0px);
+  -moz-transform: translate3d(100%, 0px, 0px);
+  -ms-transform: translate3d(100%, 0px, 0px);
+  -webkit-transform: translate3d(100%, 0px, 0px);
+  -o-transform: translate3d(100%, 0px, 0px);
+}
+
+/* line 231, ../scss/_lightGallery.scss */
+#lightGallery-slider.useLeft .lightGallery-slide {
+  left: 100%;
+}
+
+/* line 234, ../scss/_lightGallery.scss */
+#lightGallery-slider.useLeft.on .lightGallery-slide {
+  opacity: 0;
+}
+
+/* line 237, ../scss/_lightGallery.scss */
+#lightGallery-slider.useLeft .lightGallery-slide.current {
+  opacity: 1 !important;
+  left: 0% !important;
+}
+
+/* line 241, ../scss/_lightGallery.scss */
+#lightGallery-slider.useLeft .lightGallery-slide.prevSlide {
+  opacity: 0;
+  left: -100%;
+}
+
+/* line 245, ../scss/_lightGallery.scss */
+#lightGallery-slider.useLeft .lightGallery-slide.nextSlide {
+  opacity: 0;
+  left: 100%;
+}
+
+/* line 249, ../scss/_lightGallery.scss */
+#lightGallery-slider.slide.on .lightGallery-slide, #lightGallery-slider.slide.on .current, #lightGallery-slider.slide.on .prevSlide, #lightGallery-slider.slide.on .nextSlide {
+  transition: -webkit-transform 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 1s ease 0s;
+  transition: transform 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 1s ease 0s;
+}
+
+/* line 256, ../scss/_lightGallery.scss */
+#lightGallery-slider.speed .lightGallery-slide, #lightGallery-slider.speed .current, #lightGallery-slider.speed .prevSlide, #lightGallery-slider.speed .nextSlide {
+  transition-duration: inherit !important;
+  -moz-transition-duration: inherit !important;
+  -webkit-transition-duration: inherit !important;
+  -o-transition-duration: inherit !important;
+  -ms-transition-duration: inherit !important;
+}
+
+/* line 263, ../scss/_lightGallery.scss */
+#lightGallery-slider.timing .lightGallery-slide, #lightGallery-slider.timing .current, #lightGallery-slider.timing .prevSlide, #lightGallery-slider.timing .nextSlide {
+  transition-timing-function: inherit !important;
+  -moz-transition-timing-function: inherit !important;
+  -webkit-transition-timing-function: inherit !important;
+  -o-transition-timing-function: inherit !important;
+  -ms-transition-timing-function: inherit !important;
+}
+
+/* line 270, ../scss/_lightGallery.scss */
+#lightGallery-slider .lightGallery-slide img {
+  display: inline-block;
+  max-height: 100%;
+  max-width: 100%;
+  cursor: grab;
+  cursor: -webkit-grab;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* line 283, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb_inner {
+  transition: -webkit-transform 1s cubic-bezier(0, 0, 0.25, 1) 0s;
+  transition: transform 1s cubic-bezier(0, 0, 0.25, 1) 0s;
+}
+
+@-webkit-keyframes rightEnd {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes rightEnd {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@-webkit-keyframes leftEnd {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes leftEnd {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: 30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+/* line 334, ../scss/_lightGallery.scss */
+.lightGallery-slide .object.rightEnd {
+  -webkit-animation: rightEnd 0.3s;
+  animation: rightEnd 0.3s;
+  position: relative;
+}
+
+/* line 339, ../scss/_lightGallery.scss */
+.lightGallery-slide .object.leftEnd {
+  -webkit-animation: leftEnd 0.3s;
+  animation: leftEnd 0.3s;
+  position: relative;
+}
+
+/*lightGallery core*/
+/*action*/
+/* line 348, ../scss/_lightGallery.scss */
+#lightGallery-action {
+  bottom: 20px;
+  position: fixed;
+  left: 50%;
+  margin-left: -30px;
+  z-index: 9;
+  -webkit-backface-visibility: hidden;
+}
+
+/* line 356, ../scss/_lightGallery.scss */
+#lightGallery-action.hasThumb {
+  margin-left: -46px;
+}
+
+/* line 360, ../scss/_lightGallery.scss */
+#lightGallery-action a.disabled {
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  cursor: default;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.65) !important;
+}
+
+/* line 367, ../scss/_lightGallery.scss */
+#lightGallery-action a:hover, #lightGallery-action a:focus {
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+/* line 371, ../scss/_lightGallery.scss */
+#lightGallery-action a#lightGallery-prev:before, #lightGallery-action a#lightGallery-next:after {
+  left: 5px;
+  bottom: 3px;
+  position: absolute;
+}
+
+/* line 377, ../scss/_lightGallery.scss */
+#lightGallery-action a.cLthumb:after {
+  font-family: 'Slide-icons';
+  content: "\e01c";
+  left: 6px;
+  bottom: 4px;
+  font-size: 16px;
+  position: absolute;
+}
+
+/*action*/
+/*counter*/
+/* line 388, ../scss/_lightGallery.scss */
+#lightGallery_counter {
+  bottom: 52px;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  z-index: 9;
+  color: #FFFFFF;
+}
+
+/*lightGallery Thumb*/
+/* line 397, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #000000;
+  transition: max-height 0.4s ease-in-out;
+  z-index: 9;
+  max-height: 0;
+  opacity: 0;
+}
+
+/* line 414, ../scss/_lightGallery.scss */
+#lightGallery-Gallery.open .thumb_cont {
+  max-height: 350px;
+}
+
+/* line 417, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb_inner {
+  margin-left: -12px;
+  padding: 12px;
+  max-height: 290px;
+  overflow-y: auto;
+  box-sizing: content-box;
+}
+
+/* line 426, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb_info {
+  background-color: #333;
+  padding: 7px 20px;
+}
+
+/* line 430, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb_info .count {
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+/* line 435, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb_info .close {
+  color: #FFFFFF;
+  display: block;
+  float: right !important;
+  width: 28px;
+  position: relative;
+  height: 28px;
+  border-radius: 2px;
+  margin-top: -4px;
+  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.65);
+  transition: background-color 0.3s ease 0s;
+  z-index: 1090;
+  cursor: pointer;
+}
+
+/* line 454, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb_info .close i:after {
+  left: 6px;
+  position: absolute;
+  top: 4px;
+}
+
+/* line 460, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb_info .close:hover {
+  text-decoration: none;
+  background-color: #000;
+  background-color: black;
+}
+
+/* line 465, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb {
+  display: inline-block !important;
+  vertical-align: middle;
+  text-align: center;
+  *display: inline;
+  /* IE7 inline-block hack */
+  *zoom: 1;
+  margin-bottom: 4px;
+  height: 50px;
+  width: 50px;
+  opacity: 0.6;
+  filter: alpha(opacity=60);
+  overflow: hidden;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: border-color linear .2s, opacity linear .2s;
+}
+
+@media (min-width: 800px) {
+  /* line 488, ../scss/_lightGallery.scss */
+  #lightGallery-Gallery .thumb_cont .thumb {
+    width: 94px;
+    height: 94px;
+  }
+}
+/* line 493, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb > img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* line 497, ../scss/_lightGallery.scss */
+#lightGallery-Gallery .thumb_cont .thumb.active, #lightGallery-Gallery .thumb_cont .thumb:hover {
+  opacity: 1;
+  filter: alpha(opacity=100);
+  border-color: #ffffff;
+}
+
+/*lightGallery Thumb*/
+/*lightGallery Video*/
+/* line 505, ../scss/_lightGallery.scss */
+#lightGallery-slider .video_cont {
+  display: inline-block;
+  max-height: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  height: auto;
+  vertical-align: middle;
+}
+
+/* line 515, ../scss/_lightGallery.scss */
+#lightGallery-slider .video_cont {
+  background: none;
+  max-width: 1140px;
+  max-height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+/* line 524, ../scss/_lightGallery.scss */
+#lightGallery-slider .video {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* line 531, ../scss/_lightGallery.scss */
+#lightGallery-slider .video .object {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/*lightGallery Video*/
+/* line 541, ../scss/_lightGallery.scss */
+.customHtml {
+  background: none repeat scroll 0 0 black;
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-family: Arial, sans-serif;
+  height: 70px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 9;
+}
+
+/* line 553, ../scss/_lightGallery.scss */
+.customHtml p {
+  font-size: 14px;
+}
+
+/* line 556, ../scss/_lightGallery.scss */
+.customHtml > h4 {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+/* line 18, ../scss/styles.scss */
+#lightGallery-outer .lb-caption {
+  width: 50%;
+  height: auto;
+  margin: 0 0;
+  padding: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  color: #fff;
+  line-height: 1;
+  text-align: left;
+  font-family: "Droid Serif", serif;
+  font-weight: normal;
+  z-index: 200;
+  white-space: normal;
+}
+
+/* line 38, ../scss/styles.scss */
+#lightGallery-action {
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  margin-left: 0;
+}
+
+/* line 46, ../scss/styles.scss */
+#lightGallery-action a#lightGallery-prev {
+  left: 0;
+}
+/* line 49, ../scss/styles.scss */
+#lightGallery-action a#lightGallery-next {
+  right: 0;
+}
+
+/* line 54, ../scss/styles.scss */
+#lightGallery-Gallery.opacity .lightGallery-slide .object {
+  height: 80%;
+  -webkit-transform: scale3d(1, 1, 1);
+          transform: scale3d(1, 1, 1);
+}
+
+/* line 59, ../scss/styles.scss */
+#lightGallery-action a#lightGallery-prev:before {
+  content: " ";
+}
+
+/* line 63, ../scss/styles.scss */
+#lightGallery-action a#lightGallery-next:after {
+  content: " ";
+}
+
+/*! normalize.css v2.1.3 | MIT License | git.io/normalize */
+/* ==========================================================================
+   HTML5 display definitions
+   ========================================================================== */
+/**
+ * Correct `block` display not defined in IE 8/9.
+ */
+/* line 11, ../scss/_normalize.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * Correct `inline-block` display not defined in IE 8/9.
+ */
+/* line 30, ../scss/_normalize.scss */
+audio,
+canvas,
+video {
+  display: inline-block;
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+/* line 41, ../scss/_normalize.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9.
+ * Hide the `template` element in IE, Safari, and Firefox < 22.
+ */
+/* line 51, ../scss/_normalize.scss */
+[hidden],
+template {
+  display: none;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+/* line 66, ../scss/_normalize.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+/* line 76, ../scss/_normalize.scss */
+body {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Links
+   ========================================================================== */
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+/* line 88, ../scss/_normalize.scss */
+a {
+  background: transparent;
+}
+
+/**
+ * Address `outline` inconsistency between Chrome and other browsers.
+ */
+/* line 96, ../scss/_normalize.scss */
+a:focus {
+  outline: thin dotted;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+/* line 104, ../scss/_normalize.scss */
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 118, ../scss/_normalize.scss */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9, Safari 5, and Chrome.
+ */
+/* line 127, ../scss/_normalize.scss */
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 135, ../scss/_normalize.scss */
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari 5 and Chrome.
+ */
+/* line 144, ../scss/_normalize.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+/* line 152, ../scss/_normalize.scss */
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+/* line 162, ../scss/_normalize.scss */
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Correct font family set oddly in Safari 5 and Chrome.
+ */
+/* line 171, ../scss/_normalize.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, serif;
+  font-size: 1em;
+}
+
+/**
+ * Improve readability of pre-formatted text in all browsers.
+ */
+/* line 183, ../scss/_normalize.scss */
+pre {
+  white-space: pre-wrap;
+}
+
+/**
+ * Set consistent quote types.
+ */
+/* line 191, ../scss/_normalize.scss */
+q {
+  quotes: "\201C" "\201D" "\2018" "\2019";
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+/* line 199, ../scss/_normalize.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+/* line 207, ../scss/_normalize.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 215, ../scss/_normalize.scss */
+sup {
+  top: -0.5em;
+}
+
+/* line 219, ../scss/_normalize.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* ==========================================================================
+   Embedded content
+   ========================================================================== */
+/**
+ * Remove border when inside `a` element in IE 8/9.
+ */
+/* line 231, ../scss/_normalize.scss */
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow displayed oddly in IE 9.
+ */
+/* line 239, ../scss/_normalize.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   Figures
+   ========================================================================== */
+/**
+ * Address margin not present in IE 8/9 and Safari 5.
+ */
+/* line 251, ../scss/_normalize.scss */
+figure {
+  margin: 0;
+}
+
+/* ==========================================================================
+   Forms
+   ========================================================================== */
+/**
+ * Define consistent border, margin, and padding.
+ */
+/* line 263, ../scss/_normalize.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+/* line 274, ../scss/_normalize.scss */
+legend {
+  border: 0;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Correct font family not being inherited in all browsers.
+ * 2. Correct font size not being inherited in all browsers.
+ * 3. Address margins set differently in Firefox 4+, Safari 5, and Chrome.
+ */
+/* line 285, ../scss/_normalize.scss */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 2 */
+  margin: 0;
+  /* 3 */
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+/* line 299, ../scss/_normalize.scss */
+button,
+input {
+  line-height: normal;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Chrome, Safari 5+, and IE 8+.
+ * Correct `select` style inheritance in Firefox 4+ and Opera.
+ */
+/* line 311, ../scss/_normalize.scss */
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+/* line 324, ../scss/_normalize.scss */
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+  cursor: pointer;
+  /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+/* line 336, ../scss/_normalize.scss */
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+/* line 346, ../scss/_normalize.scss */
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+ *    (include `-moz` to future-proof).
+ */
+/* line 358, ../scss/_normalize.scss */
+input[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari 5 and Chrome
+ * on OS X.
+ */
+/* line 370, ../scss/_normalize.scss */
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+/* line 379, ../scss/_normalize.scss */
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+/* line 390, ../scss/_normalize.scss */
+textarea {
+  overflow: auto;
+  /* 1 */
+  vertical-align: top;
+  /* 2 */
+}
+
+/* ==========================================================================
+   Tables
+   ========================================================================== */
+/**
+ * Remove most spacing between table cells.
+ */
+/* line 403, ../scss/_normalize.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 1, ../scss/_base.scss */
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* html element 62.5% font-size for REM use */
+/* line 11, ../scss/_base.scss */
+html {
+  font-size: 62.5%;
+}
+
+/* line 14, ../scss/_base.scss */
+body {
+  font: 300 11px/1.4 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #444;
+}
+
+/* clear */
+/* line 19, ../scss/_base.scss */
+.clear:before,
+.clear:after {
+  content: ' ';
+  display: table;
+}
+
+/* line 25, ../scss/_base.scss */
+.clear:after {
+  clear: both;
+}
+
+/* line 28, ../scss/_base.scss */
+.clear {
+  *zoom: 1;
+}
+
+/* line 31, ../scss/_base.scss */
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
+
+/* line 35, ../scss/_base.scss */
+a {
+  color: #444;
+  text-decoration: none;
+}
+
+/* line 39, ../scss/_base.scss */
+a:hover {
+  color: #444;
+}
+
+/* line 42, ../scss/_base.scss */
+a:focus {
+  outline: 0;
+}
+
+/* line 45, ../scss/_base.scss */
+a:hover,
+a:active {
+  outline: 0;
+}
+
+/* line 49, ../scss/_base.scss */
+input:focus {
+  outline: 0;
+  border: 1px solid #04A4CC;
+}
+
+/*------------------------------------*\
+    STRUCTURE
+\*------------------------------------*/
+/* line 58, ../scss/_base.scss */
+body {
+  background: #ccc;
+}
+
+/* wrapper */
+/* header */
+/* logo */
+/* nav */
+/* sidebar */
+/* footer */
+/*------------------------------------*\
+    PAGES
+\*------------------------------------*/
+/*------------------------------------*\
+    IMAGES
+\*------------------------------------*/
+/*------------------------------------*\
+  TYPOGRAPHY
+\*------------------------------------*/
+/*------------------------------------*\
+    RESPONSIVE
+\*------------------------------------*/
+/*------------------------------------*\
+    MISC
+\*------------------------------------*/
+/* line 123, ../scss/_base.scss */
+::-moz-selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none;
+}
+::selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none;
+}
+
+/* line 128, ../scss/_base.scss */
+::-webkit-selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none;
+}
+
+/* line 133, ../scss/_base.scss */
+::-moz-selection {
+  background: #04A4CC;
+  color: #FFF;
+  text-shadow: none;
+}
+
+/*------------------------------------*\
+    WORDPRESS CORE
+\*------------------------------------*/
+/* line 143, ../scss/_base.scss */
+.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+/* line 146, ../scss/_base.scss */
+.aligncenter,
+div.aligncenter {
+  display: block;
+  margin: 5px auto 5px auto;
+}
+
+/* line 151, ../scss/_base.scss */
+.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+/* line 155, ../scss/_base.scss */
+.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+/* line 159, ../scss/_base.scss */
+a img.alignright {
+  float: right;
+  margin: 5px 0 20px 20px;
+}
+
+/* line 163, ../scss/_base.scss */
+a img.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+/* line 166, ../scss/_base.scss */
+a img.alignleft {
+  float: left;
+  margin: 5px 20px 20px 0;
+}
+
+/* line 170, ../scss/_base.scss */
+a img.aligncenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line 175, ../scss/_base.scss */
+.wp-caption {
+  background: #FFF;
+  border: 1px solid #F0F0F0;
+  max-width: 96%;
+  padding: 5px 3px 10px;
+  text-align: center;
+}
+
+/* line 182, ../scss/_base.scss */
+.wp-caption.alignnone {
+  margin: 5px 20px 20px 0;
+}
+
+/* line 185, ../scss/_base.scss */
+.wp-caption.alignleft {
+  margin: 5px 20px 20px 0;
+}
+
+/* line 188, ../scss/_base.scss */
+.wp-caption.alignright {
+  margin: 5px 0 20px 20px;
+}
+
+/* line 191, ../scss/_base.scss */
+.wp-caption img {
+  border: 0 none;
+  height: auto;
+  margin: 0;
+  max-width: 98.5%;
+  padding: 0;
+  width: auto;
+}
+
+/* line 199, ../scss/_base.scss */
+.wp-caption .wp-caption-text,
+.gallery-caption {
+  font-size: 11px;
+  line-height: 17px;
+  margin: 0;
+  padding: 0 4px 5px;
+}
+
+/*------------------------------------*\
+    PRINT
+\*------------------------------------*/
+@media print {
+  /* line 218, ../scss/_base.scss */
+  * {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* line 224, ../scss/_base.scss */
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  /* line 228, ../scss/_base.scss */
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  /* line 231, ../scss/_base.scss */
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  /* line 234, ../scss/_base.scss */
+  .ir a:after,
+  a[href^="javascript:"]:after,
+  a[href^="#"]:after {
+    content: "";
+  }
+
+  /* line 239, ../scss/_base.scss */
+  pre, blockquote {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  /* line 243, ../scss/_base.scss */
+  thead {
+    display: table-header-group;
+  }
+
+  /* line 246, ../scss/_base.scss */
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  /* line 249, ../scss/_base.scss */
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 0.5cm;
+  }
+  /* line 255, ../scss/_base.scss */
+  p,
+  h2,
+  h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* line 261, ../scss/_base.scss */
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+}
+/* line 1, ../scss/_globals.scss */
+html {
+  width: 100%;
+  min-height: 100%;
+  position: relative;
+}
+
+/* line 7, ../scss/_globals.scss */
+body {
+  height: 100%;
+  max-height: 100%;
+  font-family: "Nunito", sans-serif;
+  overflow-x: hidden;
+  color: #000;
+}
+
+/* line 15, ../scss/_globals.scss */
+ul {
+  list-style: none;
+}
+/* line 17, ../scss/_globals.scss */
+ul li {
+  padding: 0;
+}
+
+/* line 22, ../scss/_globals.scss */
+.blur {
+  -webkit-filter: blur(7px);
+}
+
+/* line 27, ../scss/_globals.scss */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  position: relative;
+}
+
+/* line 34, ../scss/_globals.scss */
+div.clear {
+  clear: both;
+}
+
+/* line 38, ../scss/_globals.scss */
+.rightEnd2 {
+  -webkit-animation: rightEnd 0.3s;
+}
+@-webkit-keyframes rightEnd2 {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+@keyframes rightEnd2 {
+  0% {
+    left: 0;
+  }
+  50% {
+    left: -30px;
+  }
+  100% {
+    left: 0;
+  }
+}
+/* line 1, ../scss/_front.scss */
+.content {
+  width: 7000px;
+  margin: 0 auto;
+  padding: 0;
+  white-space: nowrap;
+}
+
+/* line 8, ../scss/_front.scss */
+.header-holder {
+  padding: 20px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/* line 11, ../scss/_front.scss */
+.header-holder .logo-title {
+  padding: 30px;
+  display: block;
+}
+/* line 15, ../scss/_front.scss */
+.header-holder hr {
+  position: relative;
+  bottom: 80px;
+  border: 0;
+}
+/* line 21, ../scss/_front.scss */
+.header-holder h1 {
+  display: inline-block;
+  font-family: "Droid Serif", serif;
+  font-size: 3rem;
+}
+/* line 26, ../scss/_front.scss */
+.header-holder img {
+  width: 300px;
+  margin: auto;
+  padding: 10px;
+  display: block;
+}
+/* line 32, ../scss/_front.scss */
+.header-holder p {
+  margin: 10px 0;
+  padding-top: 20px;
+  text-align: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.15em;
+}
+/* line 39, ../scss/_front.scss */
+.header-holder p.front-email {
+  margin-top: 50px;
+  font-family: "Droid Serif", serif;
+  font-size: 1.5rem;
+}
+
+/* line 47, ../scss/_front.scss */
+.main-holder {
+  margin-top: 100px;
+}
+
+/* line 51, ../scss/_front.scss */
+.header {
+  width: 100%;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999;
+}
+
+/* line 60, ../scss/_front.scss */
+.page {
+  width: 100vw;
+  height: 100vh;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.25;
+  transition: opacity 0.5s ease;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+}
+/* line 70, ../scss/_front.scss */
+.page.active-custom {
+  opacity: 1;
+}
+/* line 73, ../scss/_front.scss */
+.page.active {
+  opacity: 1;
+}
+
+/* line 78, ../scss/_front.scss */
+.bg-parallax {
+  width: 7000px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 84, ../scss/_front.scss */
+.bg-parallax div {
+  width: 7000px;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: url("imgs/bg.gif");
+  background-position: fixed;
+}
+
+/* line 95, ../scss/_front.scss */
+.about {
+  height: 400px;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+/* line 98, ../scss/_front.scss */
+.about .photo {
+  width: 300px;
+  margin: 0 auto 20px;
+}
+/* line 102, ../scss/_front.scss */
+.about p {
+  max-width: 300px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+}
+/* line 107, ../scss/_front.scss */
+.about p:first-child {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #000;
+}
+/* line 112, ../scss/_front.scss */
+.about p.email {
+  font-family: "Droid Serif", serif;
+  font-size: 1.9rem;
+  letter-spacing: 0.1em;
+}
+
+/* line 1, ../scss/_artwork.scss */
+.artwork-holder.page {
+  width: 100vw;
+  height: 100vh;
+}
+/* line 4, ../scss/_artwork.scss */
+.artwork-holder.page .post-content {
+  height: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+/* line 9, ../scss/_artwork.scss */
+.artwork-holder.page h1.caption {
+  width: 50%;
+  height: auto;
+  margin: 0 0;
+  padding: 16px;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 2rem;
+  line-height: 1;
+  text-align: left;
+  font-family: "Droid Serif", serif;
+  font-weight: normal;
+  z-index: 200;
+  white-space: normal;
+}
+/* line 25, ../scss/_artwork.scss */
+.artwork-holder.page h1.caption span {
+  background: #fff;
+}
+
+/* line 31, ../scss/_artwork.scss */
+.artwork {
+  margin: auto;
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+      -ms-transform: translateY(-50%);
+          transform: translateY(-50%);
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+.artwork:after {
+  content: " ";
+  display: block;
+  clear: both;
+}
+/* line 35, ../scss/_artwork.scss */
+.artwork .img-holder {
+  margin-bottom: 20px;
+  position: relative;
+  transition: all 1s ease;
+  overflow: hidden;
+}
+/* line 40, ../scss/_artwork.scss */
+.artwork .img-holder img {
+  width: auto;
+  max-width: none;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+}
+/* line 47, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-1 {
+  top: 200px;
+}
+/* line 50, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-2 {
+  top: 400px;
+}
+/* line 53, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-3 {
+  top: 600px;
+}
+/* line 56, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-4 {
+  top: 800px;
+}
+/* line 59, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-5 {
+  top: 1000px;
+}
+/* line 62, ../scss/_artwork.scss */
+.artwork .img-holder.imgpic-6 {
+  top: 1200px;
+}
+/* line 65, ../scss/_artwork.scss */
+.active .artwork .img-holder {
+  top: 0 !important;
+}
+/* line 70, ../scss/_artwork.scss */
+.artwork.img2 .img-holder {
+  height: 100%;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+  margin-bottom: 0;
+}
+/* line 74, ../scss/_artwork.scss */
+.artwork.img2 .img-holder img {
+  width: 100%;
+  height: auto;
+}
+/* line 78, ../scss/_artwork.scss */
+.artwork.img2 .img-holder:last-child {
+  float: right;
+  margin-right: 0;
+}
+/* line 84, ../scss/_artwork.scss */
+.artwork.img3 .img-holder {
+  height: auto;
+  width: 32.20339%;
+  float: left;
+  margin-right: 1.69492%;
+}
+/* line 87, ../scss/_artwork.scss */
+.artwork.img3 .img-holder img {
+  width: 100%;
+  height: auto;
+}
+/* line 91, ../scss/_artwork.scss */
+.artwork.img3 .img-holder:nth-child(3), .artwork.img3 .img-holder:nth-child(4) {
+  float: right;
+  margin-right: 0;
+}
+/* line 97, ../scss/_artwork.scss */
+.artwork.img4 .img-holder {
+  height: 150px;
+  width: 49.15254%;
+  float: left;
+  margin-right: 1.69492%;
+}
+/* line 100, ../scss/_artwork.scss */
+.artwork.img4 .img-holder img {
+  width: 100%;
+  height: auto;
+}
+/* line 104, ../scss/_artwork.scss */
+.artwork.img4 .img-holder:nth-child(2), .artwork.img4 .img-holder:nth-child(4) {
+  float: right;
+  margin-right: 0;
+}
+/* line 109, ../scss/_artwork.scss */
+.artwork.img3 .img-holder:nth-child(3) {
+  float: none;
+  margin: auto;
+}
+/* line 114, ../scss/_artwork.scss */
+.artwork.img6 .img-holder, .artwork.img7 .img-holder {
+  width: 32.20339%;
+  float: left;
+  margin-right: 1.69492%;
+  height: 100px;
+}
+/* line 117, ../scss/_artwork.scss */
+.artwork.img6 .img-holder:nth-child(3), .artwork.img6 .img-holder:nth-child(6), .artwork.img7 .img-holder:nth-child(3), .artwork.img7 .img-holder:nth-child(6) {
+  float: right;
+  margin-right: 0;
+}
+@media only screen and (min-width: 769px) {
+  /* line 123, ../scss/_artwork.scss */
+  .artwork.img2 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img2:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 126, ../scss/_artwork.scss */
+  .artwork.img3 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img3:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 128, ../scss/_artwork.scss */
+  .artwork.img3 .img-holder {
+    height: auto;
+  }
+  /* line 132, ../scss/_artwork.scss */
+  .artwork.img4 {
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img4:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 134, ../scss/_artwork.scss */
+  .artwork.img4 .img-holder {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%;
+    height: auto;
+  }
+  /* line 139, ../scss/_artwork.scss */
+  .artwork.img6, .artwork.img7 {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img6:after, .artwork.img7:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+  /* line 141, ../scss/_artwork.scss */
+  .artwork.img6 .img-holder, .artwork.img7 .img-holder {
+    width: 23.72881%;
+    float: left;
+    margin-right: 1.69492%;
+    height: auto;
+  }
+  /* line 144, ../scss/_artwork.scss */
+  .artwork.img6 .img-holder:nth-child(3), .artwork.img6 .img-holder:nth-child(6), .artwork.img7 .img-holder:nth-child(3), .artwork.img7 .img-holder:nth-child(6) {
+    float: right;
+    margin-right: 0;
+  }
+  /* line 147, ../scss/_artwork.scss */
+  .artwork.img6 .img-holder img, .artwork.img7 .img-holder img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (max-height: 650px) {
+  /* line 156, ../scss/_artwork.scss */
+  .artwork.img2 {
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  /* line 12, ../../../../../../../../Users/TheBatman/.rvm/gems/ruby-2.1.0/gems/susy-2.1.3/sass/susy/output/support/_clearfix.scss */
+  .artwork.img2:after {
+    content: " ";
+    display: block;
+    clear: both;
+  }
+}
+
+/* line 1, ../scss/_buttons.scss */
+.nav-button {
+  width: 40px;
+  height: 20px;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: all .75s ease-in-out;
+  cursor: pointer;
+  z-index: 9999;
+}
+/* line 11, ../scss/_buttons.scss */
+.nav-button a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* line 16, ../scss/_buttons.scss */
+.nav-button span {
+  width: 100%;
+  height: 2px;
+  display: block;
+  position: absolute;
+  background: #000;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: all .25s ease-in-out;
+}
+/* line 27, ../scss/_buttons.scss */
+.nav-button span:nth-child(1) {
+  top: 0px;
+}
+/* line 30, ../scss/_buttons.scss */
+.nav-button span:nth-child(2), .nav-button span:nth-child(3) {
+  top: 10px;
+}
+/* line 33, ../scss/_buttons.scss */
+.nav-button span:nth-child(4) {
+  top: 20px;
+}
+/* line 36, ../scss/_buttons.scss */
+.nav-button.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%;
+  opacity: 0;
+}
+/* line 42, ../scss/_buttons.scss */
+.nav-button.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+/* line 45, ../scss/_buttons.scss */
+.nav-button.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+/* line 48, ../scss/_buttons.scss */
+.nav-button.open span:nth-child(4) {
+  width: 0%;
+  top: 18px;
+  left: 50%;
+  opacity: 0;
+}
+
+/* line 56, ../scss/_buttons.scss */
+.button-holder {
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  display: table;
+  left: 0;
+  bottom: 0;
+  z-index: 300;
+  transition: bottom 1s ease;
+}
+/* line 65, ../scss/_buttons.scss */
+.button-holder .icon-button {
+  width: 50%;
+  height: 100%;
+  padding: 0;
+  position: absolute;
+  font-size: 1.9rem;
+  cursor: pointer;
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 74, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow {
+  width: 90%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease;
+}
+/* line 81, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow:before {
+  content: '';
+  width: 30px;
+  height: 80px;
+  display: inline-block;
+  position: absolute;
+  transition: all 0.5s ease;
+  background: url("imgs/but_arrow.svg") no-repeat center center;
+}
+/* line 90, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow:after {
+  width: 93%;
+  height: 50%;
+  content: ' ';
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  border-top: 1px solid #000;
+}
+/* line 100, ../scss/_buttons.scss */
+.button-holder .icon-button .arrow-text {
+  margin: 0;
+  display: inline-block;
+  position: absolute;
+  line-height: 80px;
+  font-family: "Nunito", sans-serif;
+  font-weight: 300;
+  transition: all 0.5s ease;
+}
+/* line 109, ../scss/_buttons.scss */
+.button-holder .icon-button.next {
+  text-align: right;
+  top: 0;
+  right: 0;
+}
+/* line 113, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow {
+  left: 0;
+}
+/* line 115, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow:before {
+  right: 0;
+}
+/* line 118, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow:after {
+  left: 0;
+}
+/* line 122, ../scss/_buttons.scss */
+.button-holder .icon-button.next .arrow-text {
+  right: -100px;
+}
+/* line 126, ../scss/_buttons.scss */
+.button-holder .icon-button.prev {
+  text-align: left;
+  top: 0;
+  left: 0;
+}
+/* line 130, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow {
+  right: 0;
+}
+/* line 132, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow:before {
+  left: 0;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+/* line 136, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow:after {
+  right: 0;
+}
+/* line 140, ../scss/_buttons.scss */
+.button-holder .icon-button.prev .arrow-text {
+  left: -100px;
+}
+/* line 145, ../scss/_buttons.scss */
+.button-holder .icon-button.next:hover .arrow-text {
+  right: 110px;
+}
+/* line 148, ../scss/_buttons.scss */
+.button-holder .icon-button.next:hover .arrow {
+  left: -110px;
+}
+/* line 153, ../scss/_buttons.scss */
+.button-holder .icon-button.prev:hover .arrow-text {
+  left: 60px;
+}
+/* line 156, ../scss/_buttons.scss */
+.button-holder .icon-button.prev:hover .arrow {
+  right: -90px;
+}
+/* line 161, ../scss/_buttons.scss */
+.page-intro .button-holder {
+  bottom: -100px;
+}
+
+/* line 167, ../scss/_buttons.scss */
+#lightGallery-action .arrow {
+  width: 90%;
+  height: 100%;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  transition: all 0.5s ease;
+}
+/* line 174, ../scss/_buttons.scss */
+#lightGallery-action .arrow:before {
+  width: 30px;
+  height: 80px;
+  display: inline-block;
+  position: absolute;
+  transition: all 0.5s ease;
+  background: url("imgs/but_arrow-wh.svg") no-repeat center center;
+}
+/* line 183, ../scss/_buttons.scss */
+#lightGallery-action .arrow:after {
+  border-color: #fff;
+}
+/* line 186, ../scss/_buttons.scss */
+#lightGallery-action .arrow-text {
+  color: #fff;
+}
+
+/* line 191, ../scss/_buttons.scss */
+#lightGallery-close {
+  width: 40px;
+  height: 20px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+/* line 198, ../scss/_buttons.scss */
+#lightGallery-close a {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+/* line 203, ../scss/_buttons.scss */
+#lightGallery-close span {
+  width: 100%;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  background: #fff;
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: all .25s ease-in-out;
+}
+/* line 215, ../scss/_buttons.scss */
+#lightGallery-close span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+/* line 218, ../scss/_buttons.scss */
+#lightGallery-close span:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+/* line 223, ../scss/_buttons.scss */
+#nav-holder .menu-close {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+/* line 230, ../scss/_buttons.scss */
+#nav-holder .menu-close a {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  background: transparent;
+}
+/* line 239, ../scss/_buttons.scss */
+#nav-holder .menu-close span {
+  width: 40px;
+  height: 1px;
+  display: block;
+  position: absolute;
+  top: 20px;
+  background: #000;
+  opacity: 1;
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+  transition: all .25s ease-in-out;
+}
+/* line 250, ../scss/_buttons.scss */
+#nav-holder .menu-close span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+/* line 253, ../scss/_buttons.scss */
+#nav-holder .menu-close span:nth-child(2) {
+  -webkit-transform: rotate(-45deg);
+      -ms-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}

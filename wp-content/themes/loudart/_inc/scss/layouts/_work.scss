@@ -1,0 +1,34 @@
+.work {
+  padding-bottom: 100px;
+  transform: skewY($skew);
+  background: $grey-dark;
+  z-index: 10;
+  &.page-section {
+    width: 100%;
+    padding-top: 3%;
+    position: relative;
+    top: -15px;
+    @include respond-to($break-mid-small){
+      top: -30px;
+    }
+    @include respond-to(desktop){
+      top: -40px;
+    }
+  }
+}
+
+.work-holder {
+  max-width: 1000px;
+  margin: auto;
+  .holder {
+    @include container;
+    margin: 2% 0 8%;
+    padding: 0 5%;
+    transform: skewY(-($skew * 2));
+    &:after {
+      content: '';
+      display: block;
+      clear: both;
+    }
+  }
+}

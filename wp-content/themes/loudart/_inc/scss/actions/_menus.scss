@@ -1,0 +1,128 @@
+.chapter-holder {
+  width: 15%;
+  height: 100vh;
+  height: 100%;
+  position: fixed;
+  backface-visibility: hidden;
+  // top: 0;
+  bottom: 0;
+  z-index: 40;
+  opacity: 1;
+  transition: right 0.5s ease, opacity 0.75s ease;
+  right: -15%;
+  background: #000;
+  ul {
+    @include vertical-align;
+    min-height: 410px;
+    margin: 0;
+    padding: 0 10px;
+  }
+  a {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 5px 0;
+    display: inline-block;
+    position: relative;
+    top: -10px;
+    opacity: 1;
+    font: normal 300 1.7rem/1 $text-code;
+    color: $grey-light;
+    border-radius: 0;
+    transition:
+      color 0.5s ease,
+      top 0.5s ease,
+      opacity 0.25s ease-in,
+      border-radius 0.35s ease,
+      background 0.35s ease;
+  }
+  .chapter-link, .chapter-header {
+    height: 60px;
+    position: relative;
+    text-align: center;
+    &:first-child a {
+      top: 0;
+    }
+    &:last-child a {
+      margin-bottom: 0;
+    }
+  }
+  .chapter-header{
+    max-width: 80px;
+    margin: 0 auto 50px;
+    padding: 0;
+    a {
+      margin-bottom: 30px;
+      padding: 0;
+      box-sizing: content-box;
+      font: normal 700 4rem/70px $title-code;
+      border-bottom: 1px solid rgba(255,255,255,0.7);
+      vertical-align: middle;
+      &:after {
+        content: "";
+        width: 100%;
+        max-width: 73px;
+        height: 3px;
+        margin: auto;
+        display: block;
+        position: relative;
+        top: 5px;
+        border-bottom: 1px solid rgba(255,255,255,0.7);
+      }
+    }
+  }
+  .chapter-link {
+    a {
+      transform: rotate(90deg);
+    }
+  }
+  .scroll-top {
+    margin-top: 70%;
+    text-align: center;
+    a {
+      width: 30px;
+      margin: 0 auto;
+      display: block;
+      line-height: 0.4;
+      border-top: 2px solid $grey-light;
+      text-align: center;
+      transition: border 0.5s ease;
+      &:after {
+        @include arrow-icon(180deg);
+        text-align: center;
+        transition: color 0.5s ease;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+  &.active {
+    right: 0;
+    li a {
+      opacity: 1;
+    }
+  }
+  &.mobile {
+
+  }
+  @include respond-to($break-mid-small){
+    .chapter-link a {
+      transform: rotate(0deg);
+    }
+    .chapter-link:hover, .scroll-top:hover {
+      a {
+        color: $blue;
+        border-color: $blue;
+        &:after {
+          color: $blue;
+        }
+      }
+    }
+    &.mobile {
+      right: 0;
+    }
+  }
+  @for $i from 1 through 4 {
+    li.chapter-link:nth-child(#{$i}) a {
+     // transition-delay: (1s * $i)/4;
+    }
+  }
+}

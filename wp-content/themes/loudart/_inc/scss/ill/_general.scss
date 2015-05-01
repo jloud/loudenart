@@ -1,0 +1,92 @@
+@import "landing";
+
+@import "artwork";
+
+.page-art {
+  border: $border-width solid $grey-dark;
+  z-index: 10;
+  .content {
+    max-width: 1000px;
+    margin: auto;
+  }
+  .landing-bg {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: url('imgs/strip-wh.gif');
+    z-index: -1;
+  }
+  .arrow-down {
+    background: transparentize($grey-dark,0.5);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    span:after {
+      color: #fff;
+    }
+    span:after {
+      @include arrow-icon(0deg);
+      text-align: center;
+      transition: color 0.5s ease;
+      -webkit-font-smoothing: antialiased;
+    }
+    &:hover {
+      background: transparent;
+      border-color: $grey-dark;
+      span:after {
+        color: $grey-dark;
+      }
+    }
+  }
+  footer, .contact  {
+    background: transparent;
+  }
+  .contact {
+    width: 92%;
+    margin: 0 4%;
+    padding: 4% 0;
+    border-top: 1px solid transparentize($grey-dark, 0.25);
+    .holder {
+      max-width: 700px;
+      padding: 0;
+      margin: auto;
+    }
+    .contact-form {
+      width: 100%;
+    }
+    .contact-form input, .contact-form textarea {
+      margin: auto;
+    }
+  }
+  .header-footer {
+    color: $grey-dark;
+    .outer, .inner {
+      border-color: $grey-dark;
+    }
+  }
+  .about-me {
+    color: $grey-dark;
+  }
+  .contact-form {
+    background: transparent;
+  }
+  .footer {    
+    border-color: $grey-dark !important;
+    a {
+      color: $grey-dark !important;
+    }
+  }
+}
+
+.clear-row {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  text-align: center;
+  & > span {
+    padding: 10px 20%;
+    display: inline-block;
+    border-top: 1px solid $grey-dark;
+    border-bottom: 0;
+    color: $grey-dark;
+  }
+}

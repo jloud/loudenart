@@ -1,0 +1,10 @@
+.skills {
+  margin-top: -4%;
+  padding-bottom: 8%;
+  background: $grey-light url(../_inc/imgs/strip.png);
+  .holder {
+    @include container;
+    max-width: 1000px;
+    padding: 0 5% 12%;
+  }
+}

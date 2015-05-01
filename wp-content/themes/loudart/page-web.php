@@ -9,7 +9,6 @@
   $codemenu;
 
   $skills_post = get_page_by_title('skills', OBJECT, 'post');
-
 ?>
 
 	<div id="site-container" class="page-web">
@@ -32,31 +31,7 @@
 
 	<main id="main-content" class="main-holder web" role="main">
 		<div class="container">
-			<section id="work" class="work page-section">
-				<h2><span class="outer"><span class="inner">Selected work</span></span></h2>
-				<div class="holder">
-				<?php
-					while ($the_query -> have_posts()) : $the_query -> the_post();
-						$thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
-						$url = $thumb['0'];
-
-						if ( has_post_thumbnail() ) {
-							echo '<div class="web-thumbnails '.$post->post_name.'">
-								<a href="'.get_permalink().'"><img src="'.$url.'" />
-								<span class="subtitle-box">
-								<span class="subtitle-plane"><span>See the work</span></span>
-								</span></span><div class="thumb-bg"></div></a></div>';
-						} 
-					endwhile;
-				?> 
-				</div><!-- holder -->
-			</section><!-- work -->
-			<section id="skills" class="skills page-section">
-				<div class="holder">
-					<h2><span class="outer"><span class="inner"><?php echo $skills_post->post_title; ?></span></span></h2>
-					<?php echo $skills_post->post_content; ?>
-				</div>
-			</section>
+			
 		</div><!-- container -->
 		</main>
 

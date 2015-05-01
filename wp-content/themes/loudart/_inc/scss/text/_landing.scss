@@ -1,0 +1,17 @@
+.landing-header {
+  margin: 0;
+  padding: 10px;
+  text-align: center;
+  display: block;
+  color: #fff;
+  font: normal 700 3rem/1 $title-code;
+  letter-spacing: 0.1em;
+  span {
+    display: inline-block;
+    border-color: $blue;
+  }
+  .double-rules span {
+    padding: 10px 20px;
+    color: $blue;
+  }
+}

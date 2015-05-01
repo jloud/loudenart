@@ -1,0 +1,54 @@
+.introduction {
+  padding: 20px;
+  position: relative;
+  h1 {
+    margin: 0;
+    font: normal 400 4.5rem/1 $title-art;
+    text-align: center;
+    color: $grey-dark;
+    .double-rules {
+      margin-top: 10px;
+      border-color: $grey-dark;
+      border-bottom: 0;
+      & > span {
+        color: $grey-dark;
+        padding: 10px 20px;
+        border-color: $grey-dark;
+        border-bottom: 0;
+        .fix {
+          padding: 0;
+          font-size: 0.6em;
+          position: relative;
+          bottom: 5px;
+        }
+      }
+    }
+    .text-piece {
+      padding: 20px 0 10px;
+      display: block;
+      font-size: 2.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      &.bottom {
+        padding-top: 0;
+      }
+    }
+    span {
+      margin: 0;
+      &.name, &.ill {
+        display: block;
+        font-size: 3.2rem;
+      }
+    }
+  }
+  .front-email {
+    margin: 0;
+    font-family: $sans;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 20px;
+    top: 20px;
+  }
+  @include respond-to($break-mid-small){
+  }
+}
