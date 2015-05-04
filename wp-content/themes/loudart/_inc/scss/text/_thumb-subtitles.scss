@@ -1,55 +1,61 @@
-.subtitle-box {
-  width: 100%;
-  height: 40px;
-  display: inline-block;
-  position: absolute;
-  top: 6%;
-  left: 0;
-  opacity: 0;
-  text-align: center;
-  transform-style: preserve-3d;
-  transform: skewY(-$skew);
-  transition: transform 0.35s ease-out, opacity 0.35s ease;
-  @include respond-to($break-mid-small){
-    top: 6%;
-  }
-  @include respond-to(tablet){
-    top: 8%;
-  }
-}
-  .subtitle-plane {
-    width: 100%;
-    height: 40px;
-    display: inline-block;
-    position: absolute;
-    -webkit-transform: rotateX(90deg);
-    top: 0;
-    left: 0;
-    z-index: 1;
-    line-height: 2;
-    text-align: center;
-    -webkit-backface-visibility: hidden;
-    -webkit-transform-origin: 0 0;
-    span {
-      padding: 10px 20px;
-      background: $blue;
-      color: #000;
-      font-weight: 500;
-      transition: color 0.5s ease, background 0.5s ease;
-    }
-  }
+// .subtitle-box {
+//   width: 100%;
+//   height: 40px;
+//   display: inline-block;
+//   position: absolute;
+//   top: 6%;
+//   left: 0;
+//   opacity: 0;
+//   text-align: center;
+//   transform-style: preserve-3d;
+//   transform: skewY(-$skew);
+//   transition: transform 0.35s ease-out, opacity 0.35s ease;
+//   @include respond-to($break-mid-small){
+//     top: 6%;
+//   }
+//   @include respond-to(tablet){
+//     top: 8%;
+//   }
+// }
+//   .subtitle-plane {
+//     width: 100%;
+//     height: 40px;
+//     display: inline-block;
+//     position: absolute;
+//     -webkit-transform: rotateX(90deg);
+//     top: 0;
+//     left: 0;
+//     z-index: 1;
+//     line-height: 2;
+//     text-align: center;
+//     -webkit-backface-visibility: hidden;
+//     -webkit-transform-origin: 0 0;
+//     span {
+//       padding: 10px 20px;
+//       background: $blue;
+//       color: #000;
+//       font-weight: 500;
+//       transition: color 0.5s ease, background 0.5s ease;
+//     }
+//   }
 
-.thumb-title {
+.thumb-text {
   width: 100%;
   display: block;
   position: absolute;
   top: 8%;
   text-align: center;
   transform: skewY($skew);
-  font: normal 300 2rem/150px $text-code;
+  font: normal 300 1.9rem/150px $text-code;
   letter-spacing: 0.1em;
   text-align: center;
   color: $blue;
-  opacity: 1;
-  transition: opacity 0.35s ease;
+  opacity: 0;
+  &.action {
+    font-size: 1.7rem;
+  }
+  &.title {
+    opacity: 1;
+    color: $grey-light;
+  }
 }

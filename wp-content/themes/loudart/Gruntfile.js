@@ -7,7 +7,7 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          sassDir: 'scss',
+          sassDir: '_inc/scss',
           cssDir: 'css'
         }
       },
@@ -20,8 +20,11 @@ module.exports = function(grunt) {
     },
     watch: {
       css: {
-        files: '**/*.scss',
-        tasks: ['compass:dist']
+        files: '_inc/**/*.scss',
+        tasks: ['compass:dist'],
+        options: {
+          livereload: true,
+        }
       },
       autoprefixer: {
         files: ['css/styles.css'],

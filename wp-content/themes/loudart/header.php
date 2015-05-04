@@ -12,10 +12,10 @@
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 		<?php wp_head(); ?>
 		<script>
-      paceOptions = {
-        restartOnPushState: false,
-        ajax: false
-      }
+      // paceOptions = {
+      //   restartOnPushState: false,
+      //   ajax: false
+      // }
       // conditionizr.com
       // configure environment tests
       conditionizr.config({

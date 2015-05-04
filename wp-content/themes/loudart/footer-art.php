@@ -1,6 +1,6 @@
 						<div class="holder">
 							<h2 class="header-footer"><span class="outer"><span class="inner">Contact</span></span></h2>
-							<?php include (TEMPLATEPATH.'/cust-email-form.php'); ?>
+							<?php include (TEMPLATEPATH.'/_inc/php/email-form.php'); ?>
 						</div><!-- holder -->
 					</section><!-- #contact -->
 				<footer>

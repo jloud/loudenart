@@ -1,9 +1,19 @@
-						<div class="holder">
+						<?php
+							$uploads = wp_upload_dir();
+						?>		
+				
+						<div class="contact-holder">
 							<h2 class="header-footer"><span class="outer"><span class="inner">Contact</span></span></h2>
-							<div class="about-me">
-							<p>I'm a front-end web developer and occasional illustrator based on the East coast.</p>
+							<div class="web-contact info">
+								<p class="contact-info"><a href="mailto:jim@louden.io">jim@louden.io</a></p>
+								<p class="contact-info">559.999.1791</p>
 							</div>
-							<?php include (TEMPLATEPATH.'/cust-email-form.php'); ?>
+							<div class="web-contact resume">
+								<a class="no-smoothstate resume-circle" target="_blank" href="<?php echo esc_url( $uploads['baseurl'] ); ?>/2015/02/jim-louden_frontend-developer_resume.pdf">
+								<?php echo file_get_contents(get_template_directory_uri().'/_inc/imgs/icon-resume.svg'); ?>
+								<span class="resume-text">Resume</span>
+								</a>
+							</div>
 						</div><!-- holder -->
 					</section><!-- #contact -->
 				<footer>

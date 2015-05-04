@@ -9,22 +9,11 @@
   background: $grey-dark;
   z-index: 20;
   transform: skewY($skew);
-  .holder {
-    padding: 0 5% 4%;
-    position: relative;
-    @include container;
-    max-width: 1000px;
-    transform: skewY(-$skew);
-  }
+  
   .about-me, .contact-form {
     @include span(12);
   }
-  .header-footer {
-    color: $blue;
-    .outer, .inner {
-      border-color: $blue;
-    }
-  }
+  
   .about-me {
     padding-right: 7%;
     font: normal 300 1.6rem/1.7 $text-code;

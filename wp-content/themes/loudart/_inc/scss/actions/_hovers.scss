@@ -1,15 +1,61 @@
 @include respond-to($break-mid-small){
-  .web-thumbnails:hover {
+  .thumb-text {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .thumb-bg {
+    transition: transform 0.25s ease;
+  }
+
+  .web-thumbnails {
     a {
-      background: #000;
       transition: background-color 0.65s ease;
     }
-    img {
-      opacity: 0.25;
+  }
+
+  .web-thumbnails:hover {
+    a {
+      background: transparentize($grey-dark,0.3);
     }
     .subtitle-box {
       opacity: 1;
       transform: skewY($skew) rotateX(-90deg);
+    }
+    .thumb-text.title {
+      opacity: 0;
+      transform: skewY($skew) scale(0.8);
+    }
+    .thumb-text.action {
+      opacity: 1;
+      transform: skewY($skew) scale(1.2);
+    }
+    .thumb-bg {
+      transform: skewY($skew) scale(1.1);
+    }
+  }
+
+  .contact-info a {
+    transition: color 0.5s ease;
+    &:hover {
+      color: $blue;
+    }
+  }
+
+  .resume-circle {
+    transition: border-color 0.25s ease;
+    .resume-path {
+      transition: fill 0.5s ease;
+    }
+    .resume-text {
+      transition: color 0.5s ease;
+    }
+    &:hover {
+      border-color: $blue;
+      .resume-path {
+        fill: $blue;
+      }
+      .resume-text {
+        color: $blue;
+      }
     }
   }
 }

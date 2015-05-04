@@ -41,7 +41,7 @@ function louden_scripts()
     wp_enqueue_script('scrollsnap');
     wp_enqueue_script('smooth-state');
     wp_enqueue_script('utillls');
-    wp_enqueue_script('preloader');
+    // wp_enqueue_script('preloader');
     wp_enqueue_script('scripts');
   }
 }

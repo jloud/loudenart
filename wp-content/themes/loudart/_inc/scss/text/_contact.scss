@@ -1,0 +1,25 @@
+.resume-text, .contact-info {
+  color: $grey-light;
+  text-align: center;
+  font: normal 300 3rem/1 $text-code;
+  a {
+    color: $grey-light;
+  }
+}
+
+.info {
+  padding-top: 25px;
+}
+
+.resume-text {
+  padding-top: 10px;
+  font-size: 2.3rem;
+}
+
+.header-footer {
+  margin-bottom: 50px;
+  color: $blue;
+  .outer, .inner {
+    border-color: $blue;
+  }
+}

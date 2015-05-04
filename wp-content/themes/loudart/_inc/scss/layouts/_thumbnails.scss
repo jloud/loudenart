@@ -18,21 +18,12 @@
     cursor: pointer;
     box-shadow: 0;
   }
-  img {
-    width: 60%;
-    height: auto;
-    margin: auto;
-    vertical-align: middle;
-    opacity: 0.75;
-    transform: skewY($skew);
-  }
   .thumb-bg {
     width: 100%;
     height: 110%;
     position: absolute;
     top: -5px;
     left: 0;
-    z-index: -1;
     background: no-repeat center / cover;
     transform: skewY($skew);
     opacity: 0.05;

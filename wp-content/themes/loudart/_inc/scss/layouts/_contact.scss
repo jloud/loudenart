@@ -4,6 +4,21 @@
   }
 }
 
+.contact-holder {
+  padding: 0 5%;
+  position: relative;
+  @include container;
+  max-width: 1000px;
+  transform: skewY(-$skew);
+}
+  .web-contact {
+    @include span(12);
+    @include respond-to($break-mid-small){
+      @include span(6);
+    }
+  }
+
+
 .footer {
   width: 92%;
   height: 100%;

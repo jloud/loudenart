@@ -49,14 +49,13 @@
 
             $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full' );
             $url = $thumb['0'];
-    
-            if ( has_post_thumbnail() ) {
-              echo '<div class="web-thumbnails '.$post->post_name.'">
-                <a href="'.get_permalink().'"><img src="'.$url.'" />
-                <span class="subtitle-box">
-                <span class="subtitle-plane"><span>See the work</span></span>
-                </span></span><div class="thumb-bg"></div></a></div>';
-            } 
+            
+            echo '<div class="web-thumbnails '.$post->post_name.'">
+              <a href="'.get_permalink().'">
+              <span class="thumb-text title">'.get_the_title().'</span>
+              <span class="thumb-text action">See the work</span>
+              <div class="thumb-bg"></div>
+              </a></div>';
           endwhile;
         ?>
         </div><!-- holder -->
@@ -70,7 +69,8 @@
     
             echo '<div class="web-thumbnails '.$post->post_name.'">
               <a href="'.get_permalink().'">
-              <span class="thumb-title">See the work</span>
+              <span class="thumb-text title">'.get_the_title().'</span>
+              <span class="thumb-text action">See the work</span>
               <div class="thumb-bg"></div>
               </a></div>';
 
