@@ -4616,7 +4616,7 @@ footer {
     transition: border-color 0.25s ease;
   }
   /* line 45, ../_inc/scss/actions/_hovers.scss */
-  .resume-circle .resume-path {
+  .resume-circle .resume-fill {
     transition: fill 0.5s ease;
   }
   /* line 48, ../_inc/scss/actions/_hovers.scss */
@@ -4628,7 +4628,7 @@ footer {
     border-color: #3061a5;
   }
   /* line 53, ../_inc/scss/actions/_hovers.scss */
-  .resume-circle:hover .resume-path {
+  .resume-circle:hover .resume-fill {
     fill: #3061a5;
   }
   /* line 56, ../_inc/scss/actions/_hovers.scss */
