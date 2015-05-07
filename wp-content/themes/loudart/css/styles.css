@@ -2173,51 +2173,6 @@ h2 span {
   content: "\a";
 }
 
-/* line 99, ../_inc/scss/coder/_general.scss */
-nav.web-main-nav {
-  margin: 0;
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  border-left: 0;
-  border-right: 0;
-}
-/* line 103, ../_inc/scss/coder/_general.scss */
-nav.web-main-nav ul {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-/* line 109, ../_inc/scss/coder/_general.scss */
-nav.web-main-nav li {
-  margin: 5px 0;
-  display: inline-block;
-  text-align: center;
-}
-/* line 114, ../_inc/scss/coder/_general.scss */
-nav.web-main-nav a {
-  padding: 15px;
-  display: inline-block;
-  font-family: "Alegreya Sans SC", Helvetica, sans-serif;
-  font-weight: 700;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  line-height: 1;
-  cursor: pointer;
-  color: #fff;
-  text-shadow: -1px 1px 5px #000;
-  transition: color 0.5s ease;
-}
-/* line 127, ../_inc/scss/coder/_general.scss */
-nav.web-main-nav a:hover {
-  color: #3061a5;
-  text-shadow: none;
-}
-/* line 132, ../_inc/scss/coder/_general.scss */
-nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
-  display: none;
-}
-
 /* line 1, ../_inc/scss/_buttons.scss */
 .menu-button {
   width: 40px;
@@ -3703,12 +3658,19 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
 .single-sub-header h2 {
   margin-top: 0;
   color: #3061a5;
+  text-align: center;
 }
-/* line 36, ../_inc/scss/layouts/_single.scss */
+/* line 37, ../_inc/scss/layouts/_single.scss */
 .single-sub-header h2 span {
   border-color: #3061a5;
 }
-/* line 40, ../_inc/scss/layouts/_single.scss */
+@media only screen and (min-width: 600px) {
+  /* line 33, ../_inc/scss/layouts/_single.scss */
+  .single-sub-header h2 {
+    text-align: left;
+  }
+}
+/* line 44, ../_inc/scss/layouts/_single.scss */
 .single-sub-header p {
   width: 50%;
   margin: 0;
@@ -3717,20 +3679,20 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   left: 0;
   color: #fff;
 }
-/* line 48, ../_inc/scss/layouts/_single.scss */
+/* line 52, ../_inc/scss/layouts/_single.scss */
 .single-sub-header:after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* line 56, ../_inc/scss/layouts/_single.scss */
+/* line 60, ../_inc/scss/layouts/_single.scss */
 .main-holder.single-post .container {
   -webkit-transform: none;
       -ms-transform: none;
           transform: none;
 }
-/* line 59, ../_inc/scss/layouts/_single.scss */
+/* line 63, ../_inc/scss/layouts/_single.scss */
 .main-holder.single-post .work-single {
   max-width: 100%;
   margin: auto;
@@ -3739,75 +3701,75 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
 }
-/* line 65, ../_inc/scss/layouts/_single.scss */
+/* line 69, ../_inc/scss/layouts/_single.scss */
 .main-holder.single-post .work-single:after {
   content: '';
   display: block;
   clear: both;
 }
 @media only screen and (min-width: 600px) {
-  /* line 55, ../_inc/scss/layouts/_single.scss */
+  /* line 59, ../_inc/scss/layouts/_single.scss */
   .main-holder.single-post {
     padding-right: 15%;
   }
-  /* line 71, ../_inc/scss/layouts/_single.scss */
+  /* line 75, ../_inc/scss/layouts/_single.scss */
   .main-holder.single-post .work-single {
     padding-top: 40px;
   }
 }
 
-/* line 77, ../_inc/scss/layouts/_single.scss */
+/* line 81, ../_inc/scss/layouts/_single.scss */
 .work-thumbs {
   margin: 0;
   padding: 0;
 }
-/* line 80, ../_inc/scss/layouts/_single.scss */
+/* line 84, ../_inc/scss/layouts/_single.scss */
 .work-thumbs .thumbs {
   width: 100%;
   display: inline-block;
   text-align: center;
   float: left;
 }
-/* line 85, ../_inc/scss/layouts/_single.scss */
+/* line 89, ../_inc/scss/layouts/_single.scss */
 .work-thumbs .thumbs img {
   width: 100%;
   height: auto;
 }
-/* line 89, ../_inc/scss/layouts/_single.scss */
+/* line 93, ../_inc/scss/layouts/_single.scss */
 .work-thumbs .thumbs span {
   padding: 10px;
   display: inline-block;
 }
-/* line 94, ../_inc/scss/layouts/_single.scss */
+/* line 98, ../_inc/scss/layouts/_single.scss */
 .work-thumbs .grid-sizer {
   width: 100%;
   clear: both;
 }
 @media only screen and (min-width: 769px) {
-  /* line 99, ../_inc/scss/layouts/_single.scss */
+  /* line 103, ../_inc/scss/layouts/_single.scss */
   .work-thumbs .thumbs {
     width: 50%;
   }
-  /* line 102, ../_inc/scss/layouts/_single.scss */
+  /* line 106, ../_inc/scss/layouts/_single.scss */
   .work-thumbs .post-hotp.pic-12, .work-thumbs .post-tp.pic-5, .work-thumbs .post-tp.pic-10 {
     width: 100%;
   }
-  /* line 104, ../_inc/scss/layouts/_single.scss */
+  /* line 108, ../_inc/scss/layouts/_single.scss */
   .work-thumbs .post-hotp.pic-12 img, .work-thumbs .post-tp.pic-5 img, .work-thumbs .post-tp.pic-10 img {
     width: 75%;
   }
-  /* line 108, ../_inc/scss/layouts/_single.scss */
+  /* line 112, ../_inc/scss/layouts/_single.scss */
   .work-thumbs .grid-sizer {
     width: 50%;
   }
 }
 
-/* line 114, ../_inc/scss/layouts/_single.scss */
+/* line 118, ../_inc/scss/layouts/_single.scss */
 .work-description {
   margin-top: 30px;
   padding: 3% 6% 0;
 }
-/* line 117, ../_inc/scss/layouts/_single.scss */
+/* line 121, ../_inc/scss/layouts/_single.scss */
 .work-description p {
   width: 70%;
   margin: auto;
@@ -3820,44 +3782,44 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   text-transform: uppercase;
 }
 
-/* line 130, ../_inc/scss/layouts/_single.scss */
+/* line 134, ../_inc/scss/layouts/_single.scss */
 .chapter-holder.web-single {
   right: 0;
   opacity: 1;
 }
 
 @media only screen and (min-width: 600px) {
-  /* line 137, ../_inc/scss/layouts/_single.scss */
+  /* line 141, ../_inc/scss/layouts/_single.scss */
   .chapter-holder.web-single .chapter-link {
     height: 60px;
   }
 }
 @media only screen and (min-width: 769px) {
-  /* line 144, ../_inc/scss/layouts/_single.scss */
+  /* line 148, ../_inc/scss/layouts/_single.scss */
   .thumbs.pic-1 {
     width: 100%;
   }
-  /* line 146, ../_inc/scss/layouts/_single.scss */
+  /* line 150, ../_inc/scss/layouts/_single.scss */
   .thumbs.pic-1 img {
     width: 75%;
   }
 
-  /* line 151, ../_inc/scss/layouts/_single.scss */
+  /* line 155, ../_inc/scss/layouts/_single.scss */
   .page-ef .pic-4, .page-ef .pic-5 {
     width: 100%;
     margin-top: 30px;
   }
-  /* line 154, ../_inc/scss/layouts/_single.scss */
+  /* line 158, ../_inc/scss/layouts/_single.scss */
   .page-ef .pic-4 img, .page-ef .pic-5 img {
     width: 75%;
   }
 
-  /* line 160, ../_inc/scss/layouts/_single.scss */
+  /* line 164, ../_inc/scss/layouts/_single.scss */
   .page-tp .pic-6 {
     width: 100%;
     margin-top: 30px;
   }
-  /* line 163, ../_inc/scss/layouts/_single.scss */
+  /* line 167, ../_inc/scss/layouts/_single.scss */
   .page-tp .pic-6 img {
     width: 75%;
   }
@@ -3974,16 +3936,24 @@ footer {
 
 /* line 1, ../_inc/scss/text/_work.scss */
 .work h2 {
-  margin-left: 5%;
+  margin-bottom: 20px;
   clear: both;
   color: #3061a5;
   -webkit-transform: skewY(-3deg);
       -ms-transform: skewY(-3deg);
           transform: skewY(-3deg);
+  text-align: center;
 }
-/* line 6, ../_inc/scss/text/_work.scss */
+/* line 7, ../_inc/scss/text/_work.scss */
 .work h2 .outer, .work h2 .inner {
   border-color: #3061a5;
+}
+@media only screen and (min-width: 600px) {
+  /* line 1, ../_inc/scss/text/_work.scss */
+  .work h2 {
+    margin-left: 6%;
+    text-align: left;
+  }
 }
 
 /* line 1, ../_inc/scss/text/_thumb-subtitles.scss */
@@ -4038,29 +4008,37 @@ footer {
 .header-footer {
   margin-bottom: 50px;
   color: #3061a5;
+  text-align: center;
 }
-/* line 22, ../_inc/scss/text/_contact.scss */
+/* line 23, ../_inc/scss/text/_contact.scss */
 .header-footer .outer, .header-footer .inner {
   border-color: #3061a5;
+}
+@media only screen and (min-width: 600px) {
+  /* line 27, ../_inc/scss/text/_contact.scss */
+  .header-footer h2 {
+    text-align: left;
+  }
 }
 
 /* line 2, ../_inc/scss/text/_skills.scss */
 .skills h2 {
   margin: 40px 0 30px;
   border-color: #743D37;
+  text-align: center;
 }
-/* line 5, ../_inc/scss/text/_skills.scss */
+/* line 6, ../_inc/scss/text/_skills.scss */
 .skills h2 span {
   color: #743D37;
   border-color: #743D37;
 }
-/* line 10, ../_inc/scss/text/_skills.scss */
+/* line 11, ../_inc/scss/text/_skills.scss */
 .skills li {
   text-align: left;
   font: normal 300 1.3rem/1.2 "Roboto Slab", serif;
   color: #383838;
 }
-/* line 14, ../_inc/scss/text/_skills.scss */
+/* line 15, ../_inc/scss/text/_skills.scss */
 .skills li.list-head {
   font-weight: 700;
   font-size: 1.8rem;
@@ -4068,9 +4046,15 @@ footer {
   background: rgba(116, 61, 55, 0.5);
   color: #d3d3d3;
 }
-/* line 21, ../_inc/scss/text/_skills.scss */
+/* line 22, ../_inc/scss/text/_skills.scss */
 .skills li .sub-line {
   font-size: 1.3rem;
+}
+@media only screen and (min-width: 600px) {
+  /* line 27, ../_inc/scss/text/_skills.scss */
+  .skills h2 {
+    text-align: left;
+  }
 }
 
 /* line 1, ../_inc/scss/actions/_resume.scss */
@@ -4313,8 +4297,9 @@ footer {
   transition: right 0.5s ease, opacity 0.75s ease, transform 0.5s ease;
   right: -15%;
   background: #000;
+  box-shadow: 0 1px 5px 2px rgba(0, 0, 0, 0.5);
 }
-/* line 14, ../_inc/scss/actions/_menus.scss */
+/* line 15, ../_inc/scss/actions/_menus.scss */
 .chapter-holder a {
   display: inline-block;
   position: relative;
@@ -4324,13 +4309,13 @@ footer {
   border-radius: 0;
   transition: color 0.5s ease, top 0.5s ease, opacity 0.25s ease-in, border-radius 0.35s ease, background 0.35s ease;
 }
-/* line 29, ../_inc/scss/actions/_menus.scss */
+/* line 30, ../_inc/scss/actions/_menus.scss */
 .chapter-holder ul {
   margin: 0;
   padding: 0;
   text-align: center;
 }
-/* line 34, ../_inc/scss/actions/_menus.scss */
+/* line 35, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .chapter-link, .chapter-holder .chapter-header {
   height: 30px;
   padding: 0 10px;
@@ -4338,20 +4323,20 @@ footer {
   text-align: center;
   display: inline-block;
 }
-/* line 40, ../_inc/scss/actions/_menus.scss */
+/* line 41, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .chapter-link:first-child a, .chapter-holder .chapter-header:first-child a {
   top: 0;
 }
-/* line 43, ../_inc/scss/actions/_menus.scss */
+/* line 44, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .chapter-link:last-child a, .chapter-holder .chapter-header:last-child a {
   margin-bottom: 0;
 }
-/* line 47, ../_inc/scss/actions/_menus.scss */
+/* line 48, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .chapter-header {
   height: 30px;
   margin: 5px auto 0;
 }
-/* line 50, ../_inc/scss/actions/_menus.scss */
+/* line 51, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .chapter-header a {
   padding-right: 3px;
   position: relative;
@@ -4360,7 +4345,7 @@ footer {
   font: normal 700 3rem/30px "Alegreya Sans SC", Helvetica, sans-serif;
   border-right: 1px solid rgba(255, 255, 255, 0.7);
 }
-/* line 57, ../_inc/scss/actions/_menus.scss */
+/* line 58, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .chapter-header a:after {
   content: "";
   width: 3px;
@@ -4372,17 +4357,17 @@ footer {
   top: 3px;
   border-right: 1px solid rgba(255, 255, 255, 0.7);
 }
-/* line 70, ../_inc/scss/actions/_menus.scss */
+/* line 71, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .chapter-link {
   top: -4px;
 }
-/* line 73, ../_inc/scss/actions/_menus.scss */
+/* line 74, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .scroll-top {
   padding-left: 10px;
   display: inline-block;
   text-align: center;
 }
-/* line 77, ../_inc/scss/actions/_menus.scss */
+/* line 78, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .scroll-top a {
   width: 20px;
   margin: 0 auto;
@@ -4392,7 +4377,7 @@ footer {
   text-align: center;
   transition: border 0.5s ease;
 }
-/* line 85, ../_inc/scss/actions/_menus.scss */
+/* line 86, ../_inc/scss/actions/_menus.scss */
 .chapter-holder .scroll-top a:after {
   display: inline-block;
   font-family: 'Arrow';
@@ -4408,14 +4393,14 @@ footer {
   transition: color 0.5s ease;
   -webkit-font-smoothing: antialiased;
 }
-/* line 95, ../_inc/scss/actions/_menus.scss */
+/* line 96, ../_inc/scss/actions/_menus.scss */
 .chapter-holder.menu-active, .page-web-single .chapter-holder {
   right: 0;
   -webkit-transform: translate(0, 0);
       -ms-transform: translate(0, 0);
           transform: translate(0, 0);
 }
-/* line 98, ../_inc/scss/actions/_menus.scss */
+/* line 99, ../_inc/scss/actions/_menus.scss */
 .chapter-holder.menu-active li a, .page-web-single .chapter-holder li a {
   opacity: 1;
 }
@@ -4432,7 +4417,7 @@ footer {
     top: auto;
     left: auto;
   }
-  /* line 110, ../_inc/scss/actions/_menus.scss */
+  /* line 111, ../_inc/scss/actions/_menus.scss */
   .chapter-holder ul {
     position: relative;
     top: 50%;
@@ -4444,7 +4429,7 @@ footer {
     margin: 0;
     padding: 0;
   }
-  /* line 117, ../_inc/scss/actions/_menus.scss */
+  /* line 118, ../_inc/scss/actions/_menus.scss */
   .chapter-holder a {
     width: 100%;
     margin-bottom: 10px;
@@ -4457,7 +4442,7 @@ footer {
     color: #d3d3d3;
     border-radius: 0;
   }
-  /* line 129, ../_inc/scss/actions/_menus.scss */
+  /* line 130, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-link, .chapter-holder .chapter-header {
     height: 60px;
     padding: 0;
@@ -4465,21 +4450,21 @@ footer {
     display: block;
     text-align: center;
   }
-  /* line 135, ../_inc/scss/actions/_menus.scss */
+  /* line 136, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-link:first-child a, .chapter-holder .chapter-header:first-child a {
     top: 0;
   }
-  /* line 138, ../_inc/scss/actions/_menus.scss */
+  /* line 139, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-link:last-child a, .chapter-holder .chapter-header:last-child a {
     margin-bottom: 0;
   }
-  /* line 142, ../_inc/scss/actions/_menus.scss */
+  /* line 143, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-header {
     max-width: 80px;
     margin: 0 auto 50px;
     padding: 0;
   }
-  /* line 146, ../_inc/scss/actions/_menus.scss */
+  /* line 147, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-header a {
     margin-bottom: 30px;
     padding: 0;
@@ -4489,7 +4474,7 @@ footer {
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
     vertical-align: middle;
   }
-  /* line 154, ../_inc/scss/actions/_menus.scss */
+  /* line 155, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-header a:after {
     content: "";
     width: 100%;
@@ -4502,32 +4487,32 @@ footer {
     border-right: 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.7);
   }
-  /* line 168, ../_inc/scss/actions/_menus.scss */
+  /* line 169, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-link a {
     -webkit-transform: rotate(0deg);
         -ms-transform: rotate(0deg);
             transform: rotate(0deg);
   }
-  /* line 172, ../_inc/scss/actions/_menus.scss */
+  /* line 173, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-link:hover a, .chapter-holder .scroll-top:hover a {
     color: #3061a5;
     border-color: #3061a5;
   }
-  /* line 175, ../_inc/scss/actions/_menus.scss */
+  /* line 176, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .chapter-link:hover a:after, .chapter-holder .scroll-top:hover a:after {
     color: #3061a5;
   }
-  /* line 180, ../_inc/scss/actions/_menus.scss */
+  /* line 181, ../_inc/scss/actions/_menus.scss */
   .chapter-holder.mobile {
     right: 0;
   }
-  /* line 183, ../_inc/scss/actions/_menus.scss */
+  /* line 184, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .scroll-top {
     margin-top: 70%;
     padding-left: 0;
     text-align: center;
   }
-  /* line 187, ../_inc/scss/actions/_menus.scss */
+  /* line 188, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .scroll-top a {
     width: 30px;
     margin: 0 auto;
@@ -4537,7 +4522,7 @@ footer {
     text-align: center;
     transition: border 0.5s ease;
   }
-  /* line 195, ../_inc/scss/actions/_menus.scss */
+  /* line 196, ../_inc/scss/actions/_menus.scss */
   .chapter-holder .scroll-top a:after {
     display: inline-block;
     font-family: 'Arrow';

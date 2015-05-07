@@ -11,6 +11,7 @@
   transition: right 0.5s ease, opacity 0.75s ease, transform 0.5s ease;
   right: -15%;
   background: #000;
+  box-shadow: 0 1px 5px 2px rgba(0,0,0,0.5);
   a {
     // width: 100%;
     display: inline-block;

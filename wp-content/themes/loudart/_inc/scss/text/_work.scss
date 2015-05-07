@@ -1,9 +1,14 @@
 .work h2 {
-  margin-left: 5%;
+  margin-bottom: 20px;
   clear: both;
   color: $blue;
   transform: skewY(-$skew);
+  text-align: center;
   .outer, .inner {
     border-color: $blue;
+  }
+  @include respond-to($break-mid-small){
+    margin-left: 6%;
+    text-align: left;
   }
 }

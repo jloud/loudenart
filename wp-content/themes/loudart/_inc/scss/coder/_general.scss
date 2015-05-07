@@ -67,72 +67,43 @@
     }
   }
 
-
-// h1.web-header {
-//   width: 100%;
+// nav.web-main-nav {
 //   margin: 0;
-//   -webkit-font-smoothing: antialiased;
-//   display: inline-block;
-//   font: normal 600 4.5rem/1.1 $title-code;
-//   text-align: center;
-//   border-top: 1px solid rgba(255,255,255,0.5);
-//   text-shadow: -1px 1px 5px #000;
-//   .text-name {
-//     margin-left: -0.2em;
-//     padding: 40px 30px 0;
-//     text-align: left;
-//     display: inline-block;
-//     letter-spacing: 0.1em;
+//   border: 1px solid rgba(255,255,255,0.5);
+//   border-left: 0; border-right: 0;
+//   ul {
+//     width: 100%;
+//     margin: 0;
+//     padding: 0;
+//     text-align: center;
 //   }
-//   span {
+//   li {
+//     margin: 5px 0;
 //     display: inline-block;
-//     &:before {
-//       content: "\a";
+//     text-align: center;
+//   }
+//   a {
+//     padding: 15px;
+//     display: inline-block;
+//     font-family: $title-code;
+//     font-weight: 700;
+//     font-size: 1.4rem;
+//     text-transform: uppercase;
+//     letter-spacing: 0.1em;
+//     line-height: 1;
+//     cursor: pointer;
+//     color: #fff;
+//     text-shadow: -1px 1px 5px #000;
+//     transition: color 0.5s ease;
+//     &:hover {
+//       color: $blue;
+//       text-shadow: none;
 //     }
-//     &.last-name {
-//       position: relative;
-//       left: 19px;
-//     }
+//   }
+//   .chapter-header, .scroll-top {
+//     display: none;
 //   }
 // }
-
-nav.web-main-nav {
-  margin: 0;
-  border: 1px solid rgba(255,255,255,0.5);
-  border-left: 0; border-right: 0;
-  ul {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-  }
-  li {
-    margin: 5px 0;
-    display: inline-block;
-    text-align: center;
-  }
-  a {
-    padding: 15px;
-    display: inline-block;
-    font-family: $title-code;
-    font-weight: 700;
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    line-height: 1;
-    cursor: pointer;
-    color: #fff;
-    text-shadow: -1px 1px 5px #000;
-    transition: color 0.5s ease;
-    &:hover {
-      color: $blue;
-      text-shadow: none;
-    }
-  }
-  .chapter-header, .scroll-top {
-    display: none;
-  }
-}
 
 
 

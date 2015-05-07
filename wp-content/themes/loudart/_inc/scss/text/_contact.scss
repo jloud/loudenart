@@ -19,7 +19,13 @@
 .header-footer {
   margin-bottom: 50px;
   color: $blue;
+  text-align: center;
   .outer, .inner {
     border-color: $blue;
+  }
+  @include respond-to($break-mid-small){
+    h2 {
+      text-align: left;
+    }
   }
 }
