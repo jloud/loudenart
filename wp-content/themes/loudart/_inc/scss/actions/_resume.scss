@@ -1,27 +1,40 @@
 .resume-circle {
   width: 130px;
   height: 130px;
-  margin: 10px auto;
-  padding: 25px;
+  margin: 40px auto;
+  padding: 35px;
   display: block;
   position: relative;
   border: 1px solid $grey-light;
   border-radius: 50%;
   text-align: center;
   cursor: pointer;
-  // &:before {
-  //   content: "";
-  //   height: 70%;
-  //   margin: 0 auto;
-  //   position: relative;
-  //   display: block;
-  //   opacity: 0.7;
-  //   z-index: 50;
-  //   transition: opacity 0.5s ease;
-  //   background: url(../_inc/imgs/icon-resume.svg) no-repeat center center / auto 90%;
-  // }
+  transition: border-color 0.25s ease, padding 0.5s ease;
+  &:hover {
+    border-color: $blue;
+    #resume-icon {
+      transform: scale(1.1);
+    }
+    .resume-fill {
+      fill: $blue;
+    }
+  }
+  @include respond-to($break-mid-small){
+    margin: 10px 0;
+  }
 }
 
-.resume-path {
+#resume-icon {
+  width: 50%;
+  transition: transform 0.5s ease;
+}
+
+.resume-fill {
   fill: $grey-light;
+  transition: fill 0.5s ease;
+}
+
+.resume-text {
+  padding-top: 10px;
+  font-size: 2rem;
 }

@@ -1,0 +1,23 @@
+.skills {
+  h2 {
+    border-color: $red;
+    span {
+      color: $red;
+      border-color: $red;
+    }
+  }
+  li {
+    text-align: left;
+    font: normal 300 1.3rem/1.2 $text-code;
+    color: $grey;
+    &.list-head {
+      font-weight: 700;
+      font-size: 1.8rem;
+      letter-spacing: 0.05em;
+      color: $grey-light;
+    }
+    .sub-line {
+      font-size: 1.3rem;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+.page-web-single {
+  @include respond-to($break-mid-small){
+    .contact, footer {
+      padding-right: 15%;
+    }
+    footer {
+      width: 85%;
+    }
+  }
+}
+
+
+.single-header-holder {
+  background: $grey;
+  text-align: center;
+  h1.initials {
+    margin: 0;
+    display: inline-block;
+    font-family: $sans2;
+    font-size: 3rem;
+    font-weight: 300;
+    color: #fff;
+  }
+  .main-nav {
+    display: inline-block;
+    border: 0;
+  }
+}
+
+.single-sub-header {
+  position: relative;
+  margin-bottom: 10px;
+  h2 {
+    margin-top: 0;
+    color: $blue;
+    span {
+      border-color: $blue;
+    }
+  }
+  p {
+    width: 50%;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #fff;
+  }
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+}
+
+.main-holder.single-post {
+  .container {
+    transform: none;
+  }
+  .work-single {
+    max-width: 100%;
+    margin: auto;
+    padding: 80px 20px 12%;
+    background: $grey-dark url(../_inc/imgs/strip.png);
+    backface-visibility: hidden;
+    &:after {
+      @include clear;
+    }
+  }
+  @include respond-to($break-mid-small){
+    padding-right: 15%;
+    .work-single {
+      padding-top: 40px;
+    }
+  }
+}
+
+.work-thumbs {
+  margin: 0;
+  padding: 0;
+  .thumbs {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    float: left;
+    img {
+      width: 100%;
+      height: auto;
+    }
+    span {
+      padding: 10px;
+      display: inline-block;
+    }
+  }
+  .grid-sizer {
+    width: 100%;
+    clear: both;
+  }
+  @include respond-to(tablet){
+    .thumbs {
+      width: 50%;
+    }
+    .post-hotp.pic-12, .post-tp.pic-5, .post-tp.pic-10 {
+      width: 100%;
+      img {
+        width: 75%;
+      }
+    }
+    .grid-sizer {
+      width: 50%;
+    }
+  }
+}
+
+.work-description {
+  margin-top: 30px;
+  padding: 3% 6% 0;
+  p {
+    width: 70%;
+    margin: auto;
+    padding: 30px;
+    border-top: 1px solid $grey-light;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.chapter-holder.web-single {
+  right: 0;
+  opacity: 1;
+}
+
+@include respond-to($break-mid-small){
+  .chapter-holder.web-single {
+    .chapter-link {
+      height: 60px;
+    }
+  }
+}
+
+@include respond-to(tablet){
+  .thumbs.pic-1 {
+    width: 100%;
+    img {
+      width: 75%;
+    }
+  }
+  .page-ef {
+    .pic-4, .pic-5 {
+      width: 100%;
+      margin-top: 30px;
+      img {
+        width: 75%;
+      }
+    }
+  }
+  .page-tp {
+    .pic-6 {
+      width: 100%;
+      margin-top: 30px;
+      img {
+        width: 75%;
+      }
+    }
+  }
+}

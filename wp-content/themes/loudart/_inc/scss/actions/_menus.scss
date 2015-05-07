@@ -1,31 +1,22 @@
 .chapter-holder {
-  width: 15%;
-  height: 100vh;
-  height: 100%;
+  width: 100%;
+  height: 50px;
   position: fixed;
   backface-visibility: hidden;
-  // top: 0;
-  bottom: 0;
-  z-index: 40;
+  top: 0;
+  left: 0;
+  z-index: 200;
   opacity: 1;
-  transition: right 0.5s ease, opacity 0.75s ease;
+  transform: translate(0,-53px);
+  transition: right 0.5s ease, opacity 0.75s ease, transform 0.5s ease;
   right: -15%;
   background: #000;
-  ul {
-    @include vertical-align;
-    min-height: 410px;
-    margin: 0;
-    padding: 0 10px;
-  }
   a {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 5px 0;
+    // width: 100%;
     display: inline-block;
     position: relative;
-    top: -10px;
     opacity: 1;
-    font: normal 300 1.7rem/1 $text-code;
+    font: normal 300 1.5rem/30px $text-code;
     color: $grey-light;
     border-radius: 0;
     transition:
@@ -35,10 +26,17 @@
       border-radius 0.35s ease,
       background 0.35s ease;
   }
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
   .chapter-link, .chapter-header {
-    height: 60px;
+    height: 30px;
+    padding: 0 10px;
     position: relative;
     text-align: center;
+    display: inline-block;
     &:first-child a {
       top: 0;
     }
@@ -47,39 +45,37 @@
     }
   }
   .chapter-header{
-    max-width: 80px;
-    margin: 0 auto 50px;
-    padding: 0;
+    height: 30px;
+    margin: 5px auto 0;
     a {
-      margin-bottom: 30px;
-      padding: 0;
+      padding-right: 3px;
+      position: relative;
+      top: 3px;
       box-sizing: content-box;
-      font: normal 700 4rem/70px $title-code;
-      border-bottom: 1px solid rgba(255,255,255,0.7);
-      vertical-align: middle;
+      font: normal 700 3rem/30px $title-code;
+      border-right: 1px solid rgba(255,255,255,0.7);
       &:after {
         content: "";
-        width: 100%;
-        max-width: 73px;
-        height: 3px;
+        width: 3px;
+        height: 30px;
+        padding-left: 10px;
         margin: auto;
-        display: block;
+        display: inline-block;
         position: relative;
-        top: 5px;
-        border-bottom: 1px solid rgba(255,255,255,0.7);
+        top: 3px;
+        border-right: 1px solid rgba(255,255,255,0.7);
       }
     }
   }
   .chapter-link {
-    a {
-      transform: rotate(90deg);
-    }
+    top: -4px;
   }
   .scroll-top {
-    margin-top: 70%;
+    padding-left: 10px;
+    display: inline-block;
     text-align: center;
     a {
-      width: 30px;
+      width: 20px;
       margin: 0 auto;
       display: block;
       line-height: 0.4;
@@ -88,22 +84,87 @@
       transition: border 0.5s ease;
       &:after {
         @include arrow-icon(180deg);
+        font-size: 13px;
+        width: 100%;
         text-align: center;
         transition: color 0.5s ease;
         -webkit-font-smoothing: antialiased;
       }
     }
   }
-  &.active {
+  &.menu-active, .page-web-single & {
     right: 0;
+    transform: translate(0,0);
     li a {
       opacity: 1;
     }
   }
-  &.mobile {
-
-  }
   @include respond-to($break-mid-small){
+    width: 15%;
+    height: 100vh;
+    height: 100%;
+    transform: translate(15%,0);
+    bottom: 0;
+    top: auto;
+    left: auto;
+    ul {
+      @include vertical-align;
+      width: 100%;
+      min-height: 410px;
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 5px 0;
+      display: inline-block;
+      position: relative;
+      top: -10px;
+      opacity: 1;
+      font: normal 300 1.7rem/1 $text-code;
+      color: $grey-light;
+      border-radius: 0;
+    }
+    .chapter-link, .chapter-header {
+      height: 60px;
+      padding: 0;
+      position: relative;
+      display: block;
+      text-align: center;
+      &:first-child a {
+        top: 0;
+      }
+      &:last-child a {
+        margin-bottom: 0;
+      }
+    }
+    .chapter-header{
+      max-width: 80px;
+      margin: 0 auto 50px;
+      padding: 0;
+      a {
+        margin-bottom: 30px;
+        padding: 0;
+        box-sizing: content-box;
+        font: normal 700 4rem/70px $title-code;
+        border-right: 0;
+        border-bottom: 1px solid rgba(255,255,255,0.7);
+        vertical-align: middle;
+        &:after {
+          content: "";
+          width: 100%;
+          max-width: 73px;
+          height: 3px;
+          margin: auto;
+          display: block;
+          position: relative;
+          top: 5px;
+          border-right: 0;
+          border-bottom: 1px solid rgba(255,255,255,0.7);
+        }
+      }
+    }
     .chapter-link a {
       transform: rotate(0deg);
     }
@@ -118,6 +179,26 @@
     }
     &.mobile {
       right: 0;
+    }
+    .scroll-top {
+      margin-top: 70%;
+      padding-left: 0;
+      text-align: center;
+      a {
+        width: 30px;
+        margin: 0 auto;
+        display: block;
+        line-height: 0.4;
+        border-top: 2px solid $grey-light;
+        text-align: center;
+        transition: border 0.5s ease;
+        &:after {
+          @include arrow-icon(180deg);
+          text-align: center;
+          transition: color 0.5s ease;
+          -webkit-font-smoothing: antialiased;
+        }
+      }
     }
   }
   @for $i from 1 through 4 {

@@ -21,10 +21,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: '_inc/**/*.scss',
-        tasks: ['compass:dist'],
-        options: {
-          livereload: true,
-        }
+        tasks: ['compass:dist']
       },
       autoprefixer: {
         files: ['css/styles.css'],

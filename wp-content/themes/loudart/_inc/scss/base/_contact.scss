@@ -9,7 +9,6 @@
   background: $grey-dark;
   z-index: 20;
   transform: skewY($skew);
-  
   .about-me, .contact-form {
     @include span(12);
   }

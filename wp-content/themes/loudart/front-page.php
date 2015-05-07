@@ -25,23 +25,28 @@
 <div id="site-container" class="page-web">
 
   <div id="landing" class="landing">
-    <div class="box forParallax">
+    <div class="landing-box forParallax">
       <div>
-        <a class="landing-link web" href="<?php echo get_bloginfo('url'); ?>/web"><span>Webwork</span></a>
-        <h1 class="landing-header" ><span class="double-rules"><span>Jim Louden</span></span></h1>
-        <a class="landing-link art" href="<?php echo get_bloginfo('url'); ?>/art"><span>Artwork</span></a>
+        <a class="landing-link web" href="#webwork"><span>Webwork</span></a>
+        <h1 class="landing-header" ><a id="intro-contact" href="#contact" class="no-smoothstate"><span class="double-rules"><span>Jim Louden</span></span></a></h1>
+        <a class="landing-link art" href="#artwork"><span>Artwork</span></a>
       </div>
-      <button class="landing-button"><a href="#contact" class="no-smoothstate">Contact me<span></span></a></button>
+     <button class="landing-button"><a href="#contact" class="no-smoothstate">Contact me<span></span></a></button>
     </div>
     <div class="landing-home-bg bgParallax"></div>
   </div>
+
+  <nav class="chapter-target chapter-holder menu-adjust">
+    <?php code_nav(); ?>
+  </nav>
   
     <main id="main-content" class="main-holder web" role="main">
 
     <div class="container">
-    <section id="work" class="work page-section">
+  
+    <section id="work" class="work page-section menu-adjust">
       <div class="work-holder">
-        <h2><span class="outer"><span class="inner">Webwork</span></span></h2>
+        <h2 id="webwork"><span class="outer"><span class="inner">Webwork</span></span></h2>
         <div class="holder">
         <?php
           while ($the_query -> have_posts()) : $the_query -> the_post();
@@ -59,7 +64,7 @@
           endwhile;
         ?>
         </div><!-- holder -->
-        <h2><span class="outer"><span class="inner">Artwork</span></span></h2>
+        <h2 id="artwork"><span class="outer"><span class="inner">Artwork</span></span></h2>
         <div class="holder">
         <?php
           while ($the_query_ill -> have_posts()) : $the_query_ill -> the_post();
@@ -79,16 +84,17 @@
           </div><!-- holder -->
         </div><!-- work-holder -->
       </section><!-- work -->
-      <section id="skills" class="skills page-section">
+      <section id="skills" class="skills page-section menu-adjust">
         <div class="holder">
           <h2><span class="outer"><span class="inner"><?php echo $skills_post->post_title; ?></span></span></h2>
           <?php echo $skills_post->post_content; ?>
         </div>
+        <div class="skills-bg bgParallax"></div>
       </section>
     </div><!-- .container -->
 
   </main>
 
-  <section id="contact" class="contact page-section">
+  <section id="contact" class="contact page-section menu-adjust">
 
 <?php get_footer(); ?>

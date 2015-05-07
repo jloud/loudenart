@@ -1,8 +1,8 @@
 .work h2 {
   margin-left: 5%;
-  transform: skewY(-$skew);
   clear: both;
   color: $blue;
+  transform: skewY(-$skew);
   .outer, .inner {
     border-color: $blue;
   }
