@@ -10,15 +10,6 @@
   text-align: center;
   cursor: pointer;
   transition: border-color 0.25s ease, padding 0.5s ease;
-  &:hover {
-    border-color: $blue;
-    #resume-icon {
-      transform: scale(1.1);
-    }
-    .resume-fill {
-      fill: $blue;
-    }
-  }
   @include respond-to($break-mid-small){
     margin: 10px 0;
   }

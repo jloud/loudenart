@@ -118,19 +118,6 @@
     });
   }
 
-  // function homeHome() {
-  //   if(!detectTab()) {
-  //     animController = new ScrollMagic();
-  //     animControl();
-  //   } else {
-  //     $('.forParallax').addClass('vert-align');
-  //   }
-
-  //   if(detectIOS()){
-  //     $('#landing').css({ 'height': getWindowHeight() });
-  //   }
-  // }
-
   function webHome() {
     if(!detectTab()) {
       $('.web-landing-box').addClass('parFix');
@@ -143,10 +130,7 @@
       animController = new ScrollMagic();
       $('.chapter-holder').addClass('mobile');
       $('.forParallax').addClass('vert-align');
-      new ScrollScene({triggerElement: '#main-content'})
-      // .setClassToggle('.chapter-target', 'active')
-      .setClassToggle('.work', 'active')
-      .addTo(animController)
+      chapterLinks();
     }
   }
 
@@ -233,8 +217,6 @@
     $(window).on('resize', function () {
       currWinWidth = getWindowWidth();
     }); 
-
-    // parController = new ScrollMagic();
 
     $('#site-container').addClass('page-show');
 

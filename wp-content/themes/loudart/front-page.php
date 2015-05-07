@@ -27,7 +27,7 @@
   <div id="landing" class="landing">
     <div class="landing-box forParallax">
       <div>
-        <a class="landing-link web" href="#webwork"><span>Webwork</span></a>
+        <a class="landing-link web" href="#work"><span>Webwork</span></a>
         <h1 class="landing-header" ><a id="intro-contact" href="#contact" class="no-smoothstate"><span class="double-rules"><span>Jim Louden</span></span></a></h1>
         <a class="landing-link art" href="#artwork"><span>Artwork</span></a>
       </div>
@@ -46,7 +46,7 @@
   
     <section id="work" class="work page-section menu-adjust">
       <div class="work-holder">
-        <h2 id="webwork"><span class="outer"><span class="inner">Webwork</span></span></h2>
+        <h2 id="webwork" class="work-header"><span class="outer"><span class="inner">Webwork</span></span></h2>
         <div class="holder">
         <?php
           while ($the_query -> have_posts()) : $the_query -> the_post();
@@ -64,7 +64,7 @@
           endwhile;
         ?>
         </div><!-- holder -->
-        <h2 id="artwork"><span class="outer"><span class="inner">Artwork</span></span></h2>
+        <h2 id="artwork" class="work-header"><span class="outer"><span class="inner">Artwork</span></span></h2>
         <div class="holder">
         <?php
           while ($the_query_ill -> have_posts()) : $the_query_ill -> the_post();
@@ -86,7 +86,7 @@
       </section><!-- work -->
       <section id="skills" class="skills page-section menu-adjust">
         <div class="holder">
-          <h2><span class="outer"><span class="inner"><?php echo $skills_post->post_title; ?></span></span></h2>
+          <h2 class="work-header"><span class="outer"><span class="inner"><?php echo $skills_post->post_title; ?></span></span></h2>
           <?php echo $skills_post->post_content; ?>
         </div>
         <div class="skills-bg bgParallax"></div>

@@ -1,5 +1,6 @@
 .skills {
   h2 {
+    margin: 40px 0 30px;
     border-color: $red;
     span {
       color: $red;
@@ -14,6 +15,7 @@
       font-weight: 700;
       font-size: 1.8rem;
       letter-spacing: 0.05em;
+      background: transparentize($red, 0.5);
       color: $grey-light;
     }
     .sub-line {

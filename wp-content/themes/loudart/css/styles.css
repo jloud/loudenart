@@ -3212,7 +3212,7 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   overflow: hidden;
 }
 
-/* line 11, ../_inc/scss/layouts/_landing.scss */
+/* line 10, ../_inc/scss/layouts/_landing.scss */
 .landing-home-bg {
   width: 100%;
   height: 110%;
@@ -3228,13 +3228,13 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   overflow: hidden;
 }
 @media only screen and (min-width: 600px) {
-  /* line 11, ../_inc/scss/layouts/_landing.scss */
+  /* line 10, ../_inc/scss/layouts/_landing.scss */
   .landing-home-bg {
     position: fixed;
   }
 }
 
-/* line 29, ../_inc/scss/layouts/_landing.scss */
+/* line 26, ../_inc/scss/layouts/_landing.scss */
 .landing-box {
   position: relative;
   top: 50%;
@@ -3249,24 +3249,24 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   transition: padding 0.5s ease;
   z-index: 100;
 }
-/* line 38, ../_inc/scss/layouts/_landing.scss */
+/* line 35, ../_inc/scss/layouts/_landing.scss */
 .landing-box:after {
   content: '';
   display: block;
   clear: both;
 }
-/* line 41, ../_inc/scss/layouts/_landing.scss */
+/* line 38, ../_inc/scss/layouts/_landing.scss */
 .landing-box .icon-holder {
   width: 100%;
   margin: 20px 0;
 }
 @media only screen and (min-width: 769px) {
-  /* line 29, ../_inc/scss/layouts/_landing.scss */
+  /* line 26, ../_inc/scss/layouts/_landing.scss */
   .landing-box {
     margin: 0 auto;
     position: relative;
   }
-  /* line 48, ../_inc/scss/layouts/_landing.scss */
+  /* line 45, ../_inc/scss/layouts/_landing.scss */
   .landing-box .icon-holder {
     width: 100%;
     position: absolute;
@@ -3275,36 +3275,31 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   }
 }
 
-/* line 57, ../_inc/scss/layouts/_landing.scss */
+/* line 54, ../_inc/scss/layouts/_landing.scss */
 .main-holder {
   margin: 0;
   margin-top: -2%;
   position: relative;
 }
-/* line 62, ../_inc/scss/layouts/_landing.scss */
+/* line 58, ../_inc/scss/layouts/_landing.scss */
 .main-holder .container {
   position: relative;
   border-left: 0;
   border-right: 0;
 }
 
-/* line 69, ../_inc/scss/layouts/_landing.scss */
-.main-holder .menu-adjust.menu-active, .contact.menu-active {
-  padding-right: 15%;
+@media only screen and (min-width: 600px) {
+  /* line 65, ../_inc/scss/layouts/_landing.scss */
+  .main-holder .menu-adjust.menu-active, .contact.menu-active {
+    padding-right: 15%;
+  }
 }
-
-/* line 73, ../_inc/scss/layouts/_landing.scss */
-.contact.menu-active + footer {
-  width: 85%;
-  padding-right: 15%;
-}
-
-/* line 78, ../_inc/scss/layouts/_landing.scss */
+/* line 70, ../_inc/scss/layouts/_landing.scss */
 .page-section {
   transition: padding 0.5s ease;
 }
 
-/* line 83, ../_inc/scss/layouts/_landing.scss */
+/* line 75, ../_inc/scss/layouts/_landing.scss */
 #wrapper.page-web footer, #wrapper.web-single footer {
   width: 85%;
   padding-right: 15%;
@@ -3326,13 +3321,13 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   position: relative;
 }
 
-/* line 20, ../_inc/scss/layouts/_work.scss */
+/* line 13, ../_inc/scss/layouts/_work.scss */
 .work-holder {
   max-width: 1000px;
   margin: auto;
   padding-bottom: 6%;
 }
-/* line 24, ../_inc/scss/layouts/_work.scss */
+/* line 17, ../_inc/scss/layouts/_work.scss */
 .work-holder .holder {
   max-width: 100%;
   margin-left: auto;
@@ -3349,17 +3344,27 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   display: block;
   clear: both;
 }
-/* line 29, ../_inc/scss/layouts/_work.scss */
+/* line 22, ../_inc/scss/layouts/_work.scss */
 .work-holder .holder:after {
   content: '';
   display: block;
   clear: both;
 }
 
+/* line 30, ../_inc/scss/layouts/_work.scss */
+#webwork {
+  padding-top: 40px;
+}
+
+/* line 34, ../_inc/scss/layouts/_work.scss */
+#artwork {
+  padding-top: 58px;
+}
+
 /* line 1, ../_inc/scss/layouts/_skills.scss */
 .skills {
   margin-top: -4%;
-  padding: 3% 0 3%;
+  padding: 3% 0 8%;
   position: relative;
   background: #d3d3d3;
 }
@@ -3419,69 +3424,64 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
   padding: 10px 20px;
   margin-bottom: 5px;
   display: block;
-  font-weight: 700;
-  font-size: 1.8rem;
-  letter-spacing: 0.05em;
-  color: #d3d3d3;
-  background: rgba(116, 61, 55, 0.5);
 }
-/* line 54, ../_inc/scss/layouts/_skills.scss */
+/* line 49, ../_inc/scss/layouts/_skills.scss */
 .skills li .sub-line {
   font-size: 1.3rem;
   display: block;
 }
-/* line 58, ../_inc/scss/layouts/_skills.scss */
+/* line 53, ../_inc/scss/layouts/_skills.scss */
 .skills li:nth-child(2) {
   padding-top: 20px;
 }
-/* line 61, ../_inc/scss/layouts/_skills.scss */
+/* line 56, ../_inc/scss/layouts/_skills.scss */
 .skills li:last-child {
   padding-bottom: 30px;
 }
 @media only screen and (min-width: 600px) {
-  /* line 66, ../_inc/scss/layouts/_skills.scss */
+  /* line 61, ../_inc/scss/layouts/_skills.scss */
   .skills .conditional-clear {
     clear: both;
   }
-  /* line 69, ../_inc/scss/layouts/_skills.scss */
+  /* line 64, ../_inc/scss/layouts/_skills.scss */
   .skills ul {
     margin-bottom: 0;
     width: 50%;
     float: left;
   }
-  /* line 72, ../_inc/scss/layouts/_skills.scss */
+  /* line 67, ../_inc/scss/layouts/_skills.scss */
   .skills ul.platforms {
     float: none;
     margin: 5px auto 0;
   }
-  /* line 76, ../_inc/scss/layouts/_skills.scss */
+  /* line 71, ../_inc/scss/layouts/_skills.scss */
   .skills ul.design li:not(.list-head) {
     margin-right: 5px;
   }
 }
 @media only screen and (min-width: 769px) {
-  /* line 82, ../_inc/scss/layouts/_skills.scss */
+  /* line 77, ../_inc/scss/layouts/_skills.scss */
   .skills .holder {
     padding: 0 5% 6%;
   }
-  /* line 85, ../_inc/scss/layouts/_skills.scss */
+  /* line 80, ../_inc/scss/layouts/_skills.scss */
   .skills .conditional-clear {
     clear: none;
   }
-  /* line 88, ../_inc/scss/layouts/_skills.scss */
+  /* line 83, ../_inc/scss/layouts/_skills.scss */
   .skills ul, .skills ul.platforms, .skills ul:last-child {
     width: 33.33333%;
     float: left;
   }
-  /* line 91, ../_inc/scss/layouts/_skills.scss */
+  /* line 86, ../_inc/scss/layouts/_skills.scss */
   .skills ul.design li {
     margin-right: 0 !important;
   }
-  /* line 94, ../_inc/scss/layouts/_skills.scss */
+  /* line 89, ../_inc/scss/layouts/_skills.scss */
   .skills ul.platforms {
     margin-top: 0;
   }
-  /* line 97, ../_inc/scss/layouts/_skills.scss */
+  /* line 92, ../_inc/scss/layouts/_skills.scss */
   .skills ul.tech li:not(.list-head) {
     margin: 0 5px;
   }
@@ -3533,88 +3533,6 @@ nav.web-main-nav .chapter-header, nav.web-main-nav .scroll-top {
     margin-top: 60px;
     text-align: right;
   }
-}
-
-/* line 27, ../_inc/scss/layouts/_contact.scss */
-.footer {
-  width: 92%;
-  height: 100%;
-  margin: 0 4%;
-  padding: 20px 0 0;
-  border-top: 1px solid #1e1e1e;
-  font: normal 300 1.5rem/1.4 "Roboto Slab", serif;
-  color: #1e1e1e;
-  vertical-align: middle;
-  display: inline-block;
-}
-/* line 37, ../_inc/scss/layouts/_contact.scss */
-.footer a {
-  color: #1e1e1e;
-  font-weight: 300;
-  transition: color 0.5s ease;
-}
-/* line 41, ../_inc/scss/layouts/_contact.scss */
-.footer a:hover {
-  color: #3061a5;
-}
-/* line 45, ../_inc/scss/layouts/_contact.scss */
-.footer li {
-  display: inline-block;
-  text-align: center;
-  line-height: 1.4;
-}
-/* line 49, ../_inc/scss/layouts/_contact.scss */
-.footer li:first-child a {
-  padding-left: 0;
-}
-/* line 52, ../_inc/scss/layouts/_contact.scss */
-.footer li:after {
-  padding: 0 10px 0 14px;
-  content: "\2022";
-  color: #383838;
-}
-/* line 57, ../_inc/scss/layouts/_contact.scss */
-.footer li:last-child:after {
-  display: none;
-}
-/* line 60, ../_inc/scss/layouts/_contact.scss */
-.footer li.email-link {
-  margin-bottom: 10px;
-  display: block;
-}
-/* line 63, ../_inc/scss/layouts/_contact.scss */
-.footer li.email-link:after {
-  content: "";
-  padding: 0;
-}
-@media only screen and (min-width: 600px) {
-  /* line 27, ../_inc/scss/layouts/_contact.scss */
-  .footer {
-    padding: 0;
-    text-align: left;
-    line-height: 90px;
-  }
-  /* line 73, ../_inc/scss/layouts/_contact.scss */
-  .footer li.email-link {
-    margin-bottom: 0;
-    display: inline-block;
-  }
-  /* line 76, ../_inc/scss/layouts/_contact.scss */
-  .footer li.email-link:after {
-    content: "\2022";
-    padding: 0 10px 0 14px;
-  }
-}
-
-/* line 84, ../_inc/scss/layouts/_contact.scss */
-footer {
-  width: 100%;
-  height: 100px;
-  position: absolute;
-  bottom: 0;
-  background: #1e1e1e;
-  z-index: 20;
-  text-align: center;
 }
 
 /* line 1, ../_inc/scss/layouts/_thumbnails.scss */
@@ -3944,6 +3862,95 @@ footer {
     width: 75%;
   }
 }
+/* line 1, ../_inc/scss/layouts/_footer.scss */
+.footer {
+  width: 92%;
+  height: 100%;
+  margin: 0 4%;
+  padding: 20px 0 0;
+  border-top: 1px solid #1e1e1e;
+  font: normal 300 1.5rem/1.4 "Roboto Slab", serif;
+  color: #1e1e1e;
+  vertical-align: middle;
+  display: inline-block;
+}
+/* line 11, ../_inc/scss/layouts/_footer.scss */
+.footer a {
+  color: #1e1e1e;
+  font-weight: 300;
+  transition: color 0.5s ease;
+}
+/* line 15, ../_inc/scss/layouts/_footer.scss */
+.footer a:hover {
+  color: #3061a5;
+}
+/* line 19, ../_inc/scss/layouts/_footer.scss */
+.footer li {
+  display: inline-block;
+  text-align: center;
+  line-height: 1.4;
+}
+/* line 23, ../_inc/scss/layouts/_footer.scss */
+.footer li:first-child a {
+  padding-left: 0;
+}
+/* line 26, ../_inc/scss/layouts/_footer.scss */
+.footer li:after {
+  padding: 0 10px 0 14px;
+  content: "\2022";
+  color: #383838;
+}
+/* line 31, ../_inc/scss/layouts/_footer.scss */
+.footer li:last-child:after {
+  display: none;
+}
+/* line 34, ../_inc/scss/layouts/_footer.scss */
+.footer li.email-link {
+  margin-bottom: 10px;
+  display: block;
+}
+/* line 37, ../_inc/scss/layouts/_footer.scss */
+.footer li.email-link:after {
+  content: "";
+  padding: 0;
+}
+@media only screen and (min-width: 600px) {
+  /* line 1, ../_inc/scss/layouts/_footer.scss */
+  .footer {
+    padding: 0;
+    text-align: left;
+    line-height: 90px;
+  }
+  /* line 47, ../_inc/scss/layouts/_footer.scss */
+  .footer li.email-link {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+  /* line 50, ../_inc/scss/layouts/_footer.scss */
+  .footer li.email-link:after {
+    content: "\2022";
+    padding: 0 10px 0 14px;
+  }
+}
+
+/* line 58, ../_inc/scss/layouts/_footer.scss */
+footer {
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  bottom: 0;
+  background: #1e1e1e;
+  z-index: 20;
+  text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  /* line 69, ../_inc/scss/layouts/_footer.scss */
+  .contact.menu-active + footer {
+    width: 85%;
+    padding-right: 15%;
+  }
+}
 /* line 1, ../_inc/scss/text/_landing.scss */
 .landing-header {
   margin: 0;
@@ -4039,27 +4046,29 @@ footer {
 
 /* line 2, ../_inc/scss/text/_skills.scss */
 .skills h2 {
+  margin: 40px 0 30px;
   border-color: #743D37;
 }
-/* line 4, ../_inc/scss/text/_skills.scss */
+/* line 5, ../_inc/scss/text/_skills.scss */
 .skills h2 span {
   color: #743D37;
   border-color: #743D37;
 }
-/* line 9, ../_inc/scss/text/_skills.scss */
+/* line 10, ../_inc/scss/text/_skills.scss */
 .skills li {
   text-align: left;
   font: normal 300 1.3rem/1.2 "Roboto Slab", serif;
   color: #383838;
 }
-/* line 13, ../_inc/scss/text/_skills.scss */
+/* line 14, ../_inc/scss/text/_skills.scss */
 .skills li.list-head {
   font-weight: 700;
   font-size: 1.8rem;
   letter-spacing: 0.05em;
+  background: rgba(116, 61, 55, 0.5);
   color: #d3d3d3;
 }
-/* line 19, ../_inc/scss/text/_skills.scss */
+/* line 21, ../_inc/scss/text/_skills.scss */
 .skills li .sub-line {
   font-size: 1.3rem;
 }
@@ -4078,20 +4087,6 @@ footer {
   cursor: pointer;
   transition: border-color 0.25s ease, padding 0.5s ease;
 }
-/* line 13, ../_inc/scss/actions/_resume.scss */
-.resume-circle:hover {
-  border-color: #3061a5;
-}
-/* line 15, ../_inc/scss/actions/_resume.scss */
-.resume-circle:hover #resume-icon {
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
-}
-/* line 18, ../_inc/scss/actions/_resume.scss */
-.resume-circle:hover .resume-fill {
-  fill: #3061a5;
-}
 @media only screen and (min-width: 600px) {
   /* line 1, ../_inc/scss/actions/_resume.scss */
   .resume-circle {
@@ -4099,20 +4094,20 @@ footer {
   }
 }
 
-/* line 27, ../_inc/scss/actions/_resume.scss */
+/* line 18, ../_inc/scss/actions/_resume.scss */
 #resume-icon {
   width: 50%;
   transition: -webkit-transform 0.5s ease;
   transition: transform 0.5s ease;
 }
 
-/* line 32, ../_inc/scss/actions/_resume.scss */
+/* line 23, ../_inc/scss/actions/_resume.scss */
 .resume-fill {
   fill: #d3d3d3;
   transition: fill 0.5s ease;
 }
 
-/* line 37, ../_inc/scss/actions/_resume.scss */
+/* line 28, ../_inc/scss/actions/_resume.scss */
 .resume-text {
   padding-top: 10px;
   font-size: 2rem;

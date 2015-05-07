@@ -7,13 +7,6 @@
     width: 100%;
     padding-top: 3%;
     position: relative;
-    // top: -15px;
-    // @include respond-to($break-mid-small){
-    //   top: -30px;
-    // }
-    // @include respond-to(desktop){
-    //   top: -40px;
-    // }
   }
 }
 
@@ -32,4 +25,12 @@
       clear: both;
     }
   }
+}
+
+#webwork {
+  padding-top: 40px;
+}
+
+#artwork {
+  padding-top: 58px;
 }

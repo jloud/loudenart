@@ -6,7 +6,6 @@
   position: relative;
   background: $grey-dark;
   overflow: hidden;
-  // z-index: 30;
 }
   .landing-home-bg {
     width: 100%;
@@ -16,10 +15,8 @@
     bottom: 0;
     background-image: url(../_inc/imgs/strip.png);
     transform: translate3d(0, 0, 0);
-    // background-attachment: fixed;
     backface-visibility: hidden;
     opacity: 0.25;
-    // transform: skewY(-$skew);
     overflow: hidden;
     @include respond-to($break-mid-small){
       position: fixed;
@@ -58,21 +55,16 @@
   margin: 0;
   margin-top: -2%;
   position: relative;
-  // z-index: 20;
   .container {
     position: relative;
     border-left: 0; border-right: 0;
-    // z-index: 15;
   }
 }
 
-.main-holder .menu-adjust.menu-active, .contact.menu-active {
-  padding-right: 15%;
-}
-
-.contact.menu-active + footer {
-  width: 85%;
-  padding-right: 15%;
+@include respond-to($break-mid-small){
+  .main-holder .menu-adjust.menu-active, .contact.menu-active {
+    padding-right: 15%;
+  }
 }
 
 .page-section {
