@@ -222,7 +222,7 @@
     $('#site-container').addClass('page-show');
 
     if (currWinWidth > 700) {
-      smoothState();
+      //smoothState();
     }
 
     var urlClass,
