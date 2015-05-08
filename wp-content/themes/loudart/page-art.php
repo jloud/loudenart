@@ -3,8 +3,13 @@
   <?php
     $args = array('category_name=illustration');
     $ill_query = new WP_Query('category_name=artpage');
-    //$bio_query = new WP_Query($args);
-    $attachments = new Attachments( 'art_attachments', 324 );
+    
+    // $artpost = get_posts('numberposts=10&category=17');
+
+    $artpost = 324;
+    $artpost = 344;
+
+    $attachments = new Attachments( 'art_attachments', $artpost );
     $counter = 1;
   ?>
 
