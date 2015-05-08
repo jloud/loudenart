@@ -1,0 +1,55 @@
+$animate-distance: 50px;
+
+.artwork-holder {
+  width: 90%;
+  margin: 0 auto 15%;
+  padding: 0;
+}
+
+.art-holder {
+  width: 100%;
+  clear: both;
+}
+
+.art-img {
+  width: 50%;
+  margin: 0;
+  display: block;
+  text-align: center;
+  float: left;
+  a {
+    margin: 5px 10px 5px;
+    padding: 5px;
+    display: block;
+    transition: box-shadow 0.5s ease;
+    box-sizing: content-box;
+    border: 0px solid transparent;
+    background: #fff;
+  }
+  img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 0 auto;
+    transition: opacity 0.5s ease;
+  }
+  @include respond-to($break-mid-small){
+    float: none;
+    width: 30%;
+    &.art-holder-1 {
+      width: 50%;
+      float: right;
+    }
+    &:hover a {
+      // border: 3px solid $grey-dark;
+      img {
+        opacity: 0.3;
+      }
+    }
+  }
+}
+
+.art-grid-sizer {
+  width: 33%;
+  clear: both;
+}

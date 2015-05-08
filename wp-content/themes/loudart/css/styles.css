@@ -1778,306 +1778,6 @@ h2 span {
   color: #d3d3d3 !important;
 }
 
-/* line 1, ../_inc/scss/ill/_landing.scss */
-.introduction {
-  padding: 20px;
-  position: relative;
-}
-/* line 4, ../_inc/scss/ill/_landing.scss */
-.introduction h1 {
-  margin: 0;
-  font: normal 400 4.5rem/1 "Droid Serif", serif;
-  text-align: center;
-  color: #1e1e1e;
-}
-/* line 9, ../_inc/scss/ill/_landing.scss */
-.introduction h1 .double-rules {
-  margin-top: 10px;
-  border-color: #1e1e1e;
-  border-bottom: 0;
-}
-/* line 13, ../_inc/scss/ill/_landing.scss */
-.introduction h1 .double-rules > span {
-  color: #1e1e1e;
-  padding: 10px 20px;
-  border-color: #1e1e1e;
-  border-bottom: 0;
-}
-/* line 18, ../_inc/scss/ill/_landing.scss */
-.introduction h1 .double-rules > span .fix {
-  padding: 0;
-  font-size: 0.6em;
-  position: relative;
-  bottom: 5px;
-}
-/* line 26, ../_inc/scss/ill/_landing.scss */
-.introduction h1 .text-piece {
-  padding: 20px 0 10px;
-  display: block;
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-/* line 32, ../_inc/scss/ill/_landing.scss */
-.introduction h1 .text-piece.bottom {
-  padding-top: 0;
-}
-/* line 36, ../_inc/scss/ill/_landing.scss */
-.introduction h1 span {
-  margin: 0;
-}
-/* line 38, ../_inc/scss/ill/_landing.scss */
-.introduction h1 span.name, .introduction h1 span.ill {
-  display: block;
-  font-size: 3.2rem;
-}
-/* line 44, ../_inc/scss/ill/_landing.scss */
-.introduction .front-email {
-  margin: 0;
-  font-family: "Nunito", sans-serif;
-  font-size: 1.5rem;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-}
-
-/* line 3, ../_inc/scss/ill/_artwork.scss */
-.artwork-holder {
-  width: 90%;
-  margin: 0 auto 15%;
-  padding: 0;
-}
-
-/* line 9, ../_inc/scss/ill/_artwork.scss */
-.art-holder {
-  width: 100%;
-  clear: both;
-}
-
-/* line 14, ../_inc/scss/ill/_artwork.scss */
-.art-img {
-  width: 50%;
-  margin: 0;
-  display: block;
-  text-align: center;
-  float: left;
-}
-/* line 20, ../_inc/scss/ill/_artwork.scss */
-.art-img a {
-  margin: 5px 10px 5px;
-  padding: 5px;
-  display: block;
-  transition: box-shadow 0.5s ease;
-  box-sizing: content-box;
-  border: 0px solid transparent;
-  background: #fff;
-}
-/* line 29, ../_inc/scss/ill/_artwork.scss */
-.art-img img {
-  width: 100%;
-  max-width: none;
-  margin: 0 auto;
-  transition: opacity 0.5s ease;
-}
-/* line 35, ../_inc/scss/ill/_artwork.scss */
-.art-img.heavy-pen-work {
-  width: 50%;
-}
-@media only screen and (min-width: 600px) {
-  /* line 14, ../_inc/scss/ill/_artwork.scss */
-  .art-img {
-    float: none;
-  }
-  /* line 40, ../_inc/scss/ill/_artwork.scss */
-  .art-img.inked-cities {
-    width: 50%;
-  }
-  /* line 45, ../_inc/scss/ill/_artwork.scss */
-  .art-img:hover a img {
-    opacity: 0.3;
-  }
-}
-
-/* line 52, ../_inc/scss/ill/_artwork.scss */
-.inked-cities {
-  width: 100%;
-}
-
-/* line 57, ../_inc/scss/ill/_artwork.scss */
-.loose-pen-work.art-holder-1 {
-  width: 50%;
-}
-
-/* line 62, ../_inc/scss/ill/_artwork.scss */
-.pen-pencil-faces.art-holder-3 {
-  clear: both;
-}
-@media only screen and (min-width: 600px) {
-  /* line 62, ../_inc/scss/ill/_artwork.scss */
-  .pen-pencil-faces.art-holder-3 {
-    clear: none;
-  }
-}
-
-/* line 70, ../_inc/scss/ill/_artwork.scss */
-.pen-drawings.art-holder-3 {
-  margin-top: 10px;
-}
-
-/* line 76, ../_inc/scss/ill/_artwork.scss */
-.pencil-color.art-holder-1 {
-  width: 50%;
-}
-
-/* line 82, ../_inc/scss/ill/_artwork.scss */
-.room-sims.art-holder-1 {
-  width: 50%;
-}
-
-/* line 87, ../_inc/scss/ill/_artwork.scss */
-.header-clear {
-  width: 100%;
-  min-height: 50px;
-  margin: 40px auto 20px;
-  font: normal 300 1.75rem/2 "Droid Serif", serif;
-  letter-spacing: 0.1em;
-  color: #1e1e1e;
-  text-transform: none;
-}
-/* line 95, ../_inc/scss/ill/_artwork.scss */
-.header-clear span {
-  height: 100%;
-  padding: 0 15px;
-  border: 0;
-  display: inline-block;
-  vertical-align: middle;
-  border-top: 1px solid #1e1e1e;
-  text-transform: uppercase;
-}
-
-/* line 110, ../_inc/scss/ill/_artwork.scss */
-.art-grid-sizer {
-  width: 50%;
-  clear: both;
-}
-
-/* line 5, ../_inc/scss/ill/_general.scss */
-.page-art {
-  border: 15px solid #1e1e1e;
-  z-index: 10;
-}
-/* line 8, ../_inc/scss/ill/_general.scss */
-.page-art .content {
-  max-width: 1000px;
-  margin: auto;
-}
-/* line 12, ../_inc/scss/ill/_general.scss */
-.page-art .landing-bg {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: url("imgs/strip-wh.gif");
-  z-index: -1;
-}
-/* line 21, ../_inc/scss/ill/_general.scss */
-.page-art .arrow-down {
-  background: rgba(30, 30, 30, 0.5);
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-/* line 24, ../_inc/scss/ill/_general.scss */
-.page-art .arrow-down span:after {
-  color: #fff;
-}
-/* line 27, ../_inc/scss/ill/_general.scss */
-.page-art .arrow-down span:after {
-  display: inline-block;
-  font-family: 'Arrow';
-  font-size: 17px;
-  content: "\e600";
-  -webkit-transform: rotate(0deg);
-      -ms-transform: rotate(0deg);
-          transform: rotate(0deg);
-  position: relative;
-  text-align: center;
-  transition: color 0.5s ease;
-  -webkit-font-smoothing: antialiased;
-}
-/* line 33, ../_inc/scss/ill/_general.scss */
-.page-art .arrow-down:hover {
-  background: transparent;
-  border-color: #1e1e1e;
-}
-/* line 36, ../_inc/scss/ill/_general.scss */
-.page-art .arrow-down:hover span:after {
-  color: #1e1e1e;
-}
-/* line 41, ../_inc/scss/ill/_general.scss */
-.page-art footer, .page-art .contact {
-  background: transparent;
-}
-/* line 44, ../_inc/scss/ill/_general.scss */
-.page-art .contact {
-  width: 92%;
-  margin: 0 4%;
-  padding: 4% 0;
-  border-top: 1px solid rgba(30, 30, 30, 0.75);
-}
-/* line 49, ../_inc/scss/ill/_general.scss */
-.page-art .contact .holder {
-  max-width: 700px;
-  padding: 0;
-  margin: auto;
-}
-/* line 54, ../_inc/scss/ill/_general.scss */
-.page-art .contact .contact-form {
-  width: 100%;
-}
-/* line 57, ../_inc/scss/ill/_general.scss */
-.page-art .contact .contact-form input, .page-art .contact .contact-form textarea {
-  margin: auto;
-}
-/* line 61, ../_inc/scss/ill/_general.scss */
-.page-art .header-footer {
-  color: #1e1e1e;
-}
-/* line 63, ../_inc/scss/ill/_general.scss */
-.page-art .header-footer .outer, .page-art .header-footer .inner {
-  border-color: #1e1e1e;
-}
-/* line 67, ../_inc/scss/ill/_general.scss */
-.page-art .about-me {
-  color: #1e1e1e;
-}
-/* line 70, ../_inc/scss/ill/_general.scss */
-.page-art .contact-form {
-  background: transparent;
-}
-/* line 73, ../_inc/scss/ill/_general.scss */
-.page-art .footer {
-  border-color: #1e1e1e !important;
-}
-/* line 75, ../_inc/scss/ill/_general.scss */
-.page-art .footer a {
-  color: #1e1e1e !important;
-}
-
-/* line 81, ../_inc/scss/ill/_general.scss */
-.clear-row {
-  margin-top: 100px;
-  margin-bottom: 40px;
-  text-align: center;
-}
-/* line 85, ../_inc/scss/ill/_general.scss */
-.clear-row > span {
-  padding: 10px 20%;
-  display: inline-block;
-  border-top: 1px solid #1e1e1e;
-  border-bottom: 0;
-  color: #1e1e1e;
-}
-
 /* line 3, ../_inc/scss/coder/_general.scss */
 #wrapper.page-web footer, #wrapper.web-single footer {
   width: 85%;
@@ -3913,6 +3613,254 @@ footer {
     padding-right: 15%;
   }
 }
+/* line 1, ../_inc/scss/layouts/_artpage.scss */
+.page-art {
+  border: 15px solid #1e1e1e;
+  z-index: 10;
+}
+/* line 4, ../_inc/scss/layouts/_artpage.scss */
+.page-art .content {
+  max-width: 1000px;
+  margin: auto;
+}
+/* line 8, ../_inc/scss/layouts/_artpage.scss */
+.page-art .landing-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: url("../_inc/imgs/strip-wh.gif");
+  z-index: -1;
+}
+/* line 17, ../_inc/scss/layouts/_artpage.scss */
+.page-art footer, .page-art .contact {
+  background: transparent;
+}
+/* line 20, ../_inc/scss/layouts/_artpage.scss */
+.page-art .contact {
+  width: 92%;
+  margin: 0 4%;
+  padding: 4% 0;
+  border-top: 1px solid rgba(30, 30, 30, 0.75);
+}
+/* line 25, ../_inc/scss/layouts/_artpage.scss */
+.page-art .contact .holder {
+  max-width: 700px;
+  padding: 0;
+  margin: auto;
+  -webkit-transform: skewY(-3deg);
+      -ms-transform: skewY(-3deg);
+          transform: skewY(-3deg);
+}
+/* line 30, ../_inc/scss/layouts/_artpage.scss */
+.page-art .contact .holder:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+/* line 36, ../_inc/scss/layouts/_artpage.scss */
+.page-art .contact .contact-form {
+  width: 100%;
+}
+/* line 39, ../_inc/scss/layouts/_artpage.scss */
+.page-art .contact .contact-form input, .page-art .contact .contact-form textarea {
+  margin: auto;
+}
+/* line 43, ../_inc/scss/layouts/_artpage.scss */
+.page-art .header-footer {
+  color: #1e1e1e;
+}
+/* line 45, ../_inc/scss/layouts/_artpage.scss */
+.page-art .header-footer .outer, .page-art .header-footer .inner {
+  border-color: #1e1e1e;
+}
+/* line 49, ../_inc/scss/layouts/_artpage.scss */
+.page-art .about-me {
+  color: #1e1e1e;
+}
+/* line 52, ../_inc/scss/layouts/_artpage.scss */
+.page-art .contact-form {
+  background: transparent;
+}
+/* line 55, ../_inc/scss/layouts/_artpage.scss */
+.page-art .footer {
+  border-color: #1e1e1e !important;
+}
+/* line 57, ../_inc/scss/layouts/_artpage.scss */
+.page-art .footer a {
+  color: #1e1e1e !important;
+}
+
+/* line 63, ../_inc/scss/layouts/_artpage.scss */
+.clear-row {
+  margin-top: 100px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+/* line 67, ../_inc/scss/layouts/_artpage.scss */
+.clear-row > span {
+  padding: 10px 20%;
+  display: inline-block;
+  border-top: 1px solid #1e1e1e;
+  border-bottom: 0;
+  color: #1e1e1e;
+}
+
+/* line 3, ../_inc/scss/layouts/_artthumbs.scss */
+.artwork-holder {
+  width: 90%;
+  margin: 0 auto 15%;
+  padding: 0;
+}
+
+/* line 9, ../_inc/scss/layouts/_artthumbs.scss */
+.art-holder {
+  width: 100%;
+  clear: both;
+}
+
+/* line 14, ../_inc/scss/layouts/_artthumbs.scss */
+.art-img {
+  width: 50%;
+  margin: 0;
+  display: block;
+  text-align: center;
+  float: left;
+}
+/* line 20, ../_inc/scss/layouts/_artthumbs.scss */
+.art-img a {
+  margin: 5px 10px 5px;
+  padding: 5px;
+  display: block;
+  transition: box-shadow 0.5s ease;
+  box-sizing: content-box;
+  border: 0px solid transparent;
+  background: #fff;
+}
+/* line 29, ../_inc/scss/layouts/_artthumbs.scss */
+.art-img img {
+  width: 100%;
+  max-width: none;
+  height: auto;
+  margin: 0 auto;
+  transition: opacity 0.5s ease;
+}
+@media only screen and (min-width: 600px) {
+  /* line 14, ../_inc/scss/layouts/_artthumbs.scss */
+  .art-img {
+    float: none;
+    width: 30%;
+  }
+  /* line 39, ../_inc/scss/layouts/_artthumbs.scss */
+  .art-img.art-holder-1 {
+    width: 50%;
+    float: right;
+  }
+  /* line 45, ../_inc/scss/layouts/_artthumbs.scss */
+  .art-img:hover a img {
+    opacity: 0.3;
+  }
+}
+
+/* line 52, ../_inc/scss/layouts/_artthumbs.scss */
+.art-grid-sizer {
+  width: 33%;
+  clear: both;
+}
+
+/* line 1, ../_inc/scss/layouts/_artlanding.scss */
+.art-intro, .art-holder-1 {
+  width: 100%;
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+}
+@media only screen and (min-width: 600px) {
+  /* line 1, ../_inc/scss/layouts/_artlanding.scss */
+  .art-intro, .art-holder-1 {
+    width: 40%;
+    height: 80vh;
+    float: left;
+  }
+}
+
+/* line 13, ../_inc/scss/layouts/_artlanding.scss */
+h1.art-title {
+  margin: 0;
+}
+@media only screen and (min-width: 600px) {
+  /* line 13, ../_inc/scss/layouts/_artlanding.scss */
+  h1.art-title {
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  /* line 22, ../_inc/scss/layouts/_artlanding.scss */
+  .art-holder-1 a {
+    height: 100%;
+  }
+  /* line 25, ../_inc/scss/layouts/_artlanding.scss */
+  .art-holder-1 img {
+    height: 100%;
+    width: auto;
+  }
+}
+
+/* line 1, ../_inc/scss/text/_art.scss */
+h1.art-title {
+  font: normal 400 4.5rem/1 "Droid Serif", serif;
+  color: #1e1e1e;
+}
+/* line 4, ../_inc/scss/text/_art.scss */
+h1.art-title .double-rules {
+  margin-top: 10px;
+  border-color: #1e1e1e;
+  border-bottom: 0;
+}
+/* line 8, ../_inc/scss/text/_art.scss */
+h1.art-title .double-rules > span {
+  color: #1e1e1e;
+  padding: 10px 20px 0px 5px;
+  border-color: #1e1e1e;
+  border-bottom: 0;
+}
+/* line 13, ../_inc/scss/text/_art.scss */
+h1.art-title .double-rules > span .fix {
+  padding: 0;
+  font-size: 0.6em;
+  position: relative;
+  bottom: 5px;
+}
+/* line 21, ../_inc/scss/text/_art.scss */
+h1.art-title .text-piece {
+  padding: 20px 0 10px 5px;
+  display: block;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+/* line 27, ../_inc/scss/text/_art.scss */
+h1.art-title .text-piece.bottom {
+  padding-top: 0;
+  padding-left: 10px;
+  text-transform: capitalize;
+}
+/* line 33, ../_inc/scss/text/_art.scss */
+h1.art-title span {
+  margin: 0;
+}
+/* line 35, ../_inc/scss/text/_art.scss */
+h1.art-title span.name, h1.art-title span.ill {
+  display: block;
+  font-size: 3.2rem;
+}
+
 /* line 1, ../_inc/scss/text/_landing.scss */
 .landing-header {
   margin: 0;

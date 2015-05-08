@@ -163,10 +163,11 @@
     if(currWinWidth > 600) {
       imagesLoaded(isoContainer, function(){
         iso = new Isotope(isoContainer, {
-          itemSelector: '.art-img',
+          itemSelector: '.art-iso',
           masonry: {
             columnWidth: '.art-grid-sizer'
-          }
+          },
+          stamp             : '.stamp'
         });
       });
     }
@@ -224,9 +225,9 @@
       smoothState();
     }
 
-     var urlClass,
-         urlHash,
-         $siteCont = $('#site-container');
+    var urlClass,
+        urlHash,
+        $siteCont = $('#site-container');
 
     if( $('.page-home').length ){
       homeHome();

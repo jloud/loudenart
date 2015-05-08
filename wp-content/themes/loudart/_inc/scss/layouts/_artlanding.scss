@@ -1,0 +1,30 @@
+.art-intro, .art-holder-1 {
+  width: 100%;
+  margin-bottom: 50px;
+  position: relative;
+  overflow: hidden;
+  @include respond-to($break-mid-small){
+    width: 40%;
+    height: 80vh;
+    float: left;
+  }
+}
+
+h1.art-title {
+  margin: 0;
+  @include respond-to($break-mid-small){
+    @include vertical-align;
+  }
+}
+
+.art-holder-1 {
+  @include respond-to($break-mid-small){
+    a {
+      height: 100%;
+    }
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+}

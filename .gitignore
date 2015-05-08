@@ -6,6 +6,9 @@ search-replace.php
 wp-admin/*
 wp-includes/*
 
+art/*
+_art/*
+
 wp-content/plugins/*
 wp-content/upgrade/*
 wp-content/uploads/*
