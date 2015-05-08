@@ -27,9 +27,9 @@
   <div id="landing" class="landing">
     <div class="landing-box forParallax">
       <div>
-        <a class="landing-link web" href="#work"><span>Webwork</span></a>
+        <a class="landing-link web no-smoothstate" href="#work"><span>Webwork</span></a>
         <h1 class="landing-header" ><a id="intro-contact" href="#contact" class="no-smoothstate"><span class="double-rules"><span>Jim Louden</span></span></a></h1>
-        <a class="landing-link art" href="#artwork"><span>Artwork</span></a>
+        <a class="no-smoothstate landing-link art" href="#artwork"><span>Artwork</span></a>
       </div>
      <button class="landing-button"><a href="#contact" class="no-smoothstate">Contact me<span></span></a></button>
     </div>
