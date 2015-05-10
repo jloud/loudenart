@@ -83,9 +83,14 @@
   }
 
   function chapterLinks() {
-    new ScrollScene({triggerElement: '#main-content'})
+    if($('.menu-adjust').length) {
+      new ScrollScene({triggerElement: '#main-content'})
       .setClassToggle('.menu-adjust', 'menu-active')
       .addTo(animController)
+    } else {
+      return;
+    }
+    
   }
 
   function animControl() {
@@ -135,7 +140,8 @@
   }
 
   function webSingle() {
-    animController = new ScrollMagic();
+    animController = new ScrollMagic(),
+    currWinWidth = getWindowWidth();
 
     if(!detectTab()) {
 
