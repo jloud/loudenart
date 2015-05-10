@@ -585,9 +585,15 @@ left: 0;
 }
 
 #lightGallery-Gallery.opacity .lightGallery-slide .object {
-  height: 80%;
+	width: 100%;
+  height: auto;
+  max-height: none;
   max-width: none;
   transform: scale3d(1, 1, 1);
+  @include respond-to($break-mid-small){
+    width: auto;
+    height: 90%;
+  }
 }
 
 #lightGallery-action {

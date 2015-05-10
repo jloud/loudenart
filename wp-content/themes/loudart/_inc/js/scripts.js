@@ -144,14 +144,17 @@
           
       animControl();
       chapterLinks();
-      imagesLoaded(isoContainer, function(){
-        iso = new Isotope(isoContainer, {
-          itemSelector: 'li',
-          masonry: {
-            columnWidth: '.grid-sizer'
-          }
+
+      if(currWinWidth > 600) {
+        imagesLoaded(isoContainer, function(){
+          iso = new Isotope(isoContainer, {
+            itemSelector: 'li',
+            masonry: {
+              columnWidth: '.grid-sizer'
+            }
+          });
         });
-      });
+      }
     }
   }
 
@@ -166,8 +169,7 @@
           itemSelector: '.art-iso',
           masonry: {
             columnWidth: '.art-grid-sizer'
-          },
-          stamp             : '.stamp'
+          }
         });
       });
     }

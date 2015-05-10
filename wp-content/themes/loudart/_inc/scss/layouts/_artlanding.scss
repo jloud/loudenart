@@ -1,23 +1,44 @@
-.art-intro, .art-holder-1 {
-  width: 100%;
+.art-intro-holder {
+  height: auto;
   margin-bottom: 50px;
+  position: relative;
+  @include respond-to($break-mid-small){
+    height: 80vh;
+  }
+}
+
+.art-intro {
+  width: 100%;
+  height: auto;
   position: relative;
   overflow: hidden;
   @include respond-to($break-mid-small){
-    width: 40%;
-    height: 80vh;
+    width: 50%;
+    height: 100%;
     float: left;
   }
 }
 
 h1.art-title {
-  margin: 0;
+  width: 90%;
+  margin: 0 auto 25px;
+  padding: 0 5%;
   @include respond-to($break-mid-small){
     @include vertical-align;
+    width: 70%;
   }
 }
 
-.art-holder-1 {
+.art-img-intro {
+  height: 100%;
+  img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+  }
+  a {
+    display: block;
+  }
   @include respond-to($break-mid-small){
     a {
       height: 100%;

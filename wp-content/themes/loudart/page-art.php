@@ -1,13 +1,7 @@
 <?php get_header(); ?>
 
   <?php
-    $args = array('category_name=illustration');
-    $ill_query = new WP_Query('category_name=artpage');
-    
-    // $artpost = get_posts('numberposts=10&category=17');
-
-    $artpost = 324;
-    $artpost = 344;
+    $artpost = get_post_id( 'Art Page' );
 
     $attachments = new Attachments( 'art_attachments', $artpost );
     $counter = 1;
@@ -18,34 +12,42 @@
     <main id="content" class="content">
 
       <section id="artwork-section">
+        <div class="art-intro-holder">
+          <div class="art-intro">
+            <h1 class="art-title">
+              <span class="text-piece name">Jim Louden</span>
+              <span class="double-rules"><span>Pen <span class="fix">&</span> Pencil</span></span>
+              <span class="text-piece bottom">Illustration</span>
+            </h1>
+          </div>
+          <div class="art-intro">
+          <?php if( $attachments->exist() ) : ?>
+            <?php $first_index = 0; ?>
+            <?php if ( $attachment = $attachments->get_single( $first_index ) ) : ?>
+              <div class="thumbs art-img-intro art-lb" data-sub-html="<?php echo $attachments->field( 'title', $first_index ); ?>" data-src="<?php echo $attachments->src( 'large', $first_index ); ?>">
+              <span><a href="#"><?php echo $attachments->image( 'large', $first_index ); ?></a></span>
+              </div>
+            <?php endif ; ?>
+          </div>
+          <div class="clear"></div>
+        </div><!-- art-intro-holder -->
         <ul class="artwork-holder">
-        <li class="art-intro stamp">
-          <h1 class="art-title">
-            <span class="text-piece">Jim Louden</span>
-            <span class="double-rules"><span>Pen <span class="fix">&</span> Pencil</span></span>
-            <span class="text-piece bottom">Illustration</span>
-          </h1>
-        </li>
+       
         <?php while( $attachments->get() ) :
 
           $counter2 = $counter;
 
-          if ($counter2 == 1) { ?>
-            <li class="thumbs art-holder-<?php echo $counter2; ?> stamp art-img art-lb" data-sub-html="<?php echo $attachments->field( 'title' ); ?>" data-src="<?php echo $attachments->src( 'full' ); ?>">
-            <span><a href="#"><?php echo $attachments->image( 'full' ); ?></a></span>
-            </li>
-            <li class="clear"></li>
-        <?php } else { ?>
-            <li class="thumbs art-holder-<?php echo $counter2; ?> art-img art-iso art-lb" data-sub-html="<?php echo $attachments->field( 'title' ); ?>" data-src="<?php echo $attachments->src( 'full' ); ?>">
-            <span><a href="#"><?php echo $attachments->image( 'full' ); ?></a></span>
-            </li>
-        <?php } ?>
-
-        <?php
-          $counter++;
-          endwhile;
-        ?>
+          if ( $counter2 != 1 ) : ?>
       
+            <li class="thumbs art-holder-<?php echo $counter2; ?> art-img art-iso art-lb" data-sub-html="<?php echo $attachments->field( 'title' ); ?>" data-src="<?php echo $attachments->src( 'large' ); ?>">
+            <span><a href="#"><?php echo $attachments->image( 'thumbnail' ); ?></a></span>
+            </li>
+
+        <?php endif;
+
+            $counter++;
+            endwhile;
+          endif; ?>
           <li class="art-gutter-sizer"></li>
           <li class="art-grid-sizer"></li>
         </ul>

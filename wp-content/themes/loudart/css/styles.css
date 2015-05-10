@@ -913,13 +913,22 @@
 
 /* line 587, ../_inc/scss/_lightGallery.scss */
 #lightGallery-Gallery.opacity .lightGallery-slide .object {
-  height: 80%;
+  width: 100%;
+  height: auto;
+  max-height: none;
   max-width: none;
   -webkit-transform: scale3d(1, 1, 1);
           transform: scale3d(1, 1, 1);
 }
+@media only screen and (min-width: 600px) {
+  /* line 587, ../_inc/scss/_lightGallery.scss */
+  #lightGallery-Gallery.opacity .lightGallery-slide .object {
+    width: auto;
+    height: 90%;
+  }
+}
 
-/* line 593, ../_inc/scss/_lightGallery.scss */
+/* line 599, ../_inc/scss/_lightGallery.scss */
 #lightGallery-action {
   bottom: auto;
   left: 50%;
@@ -3640,11 +3649,10 @@ footer {
 /* line 20, ../_inc/scss/layouts/_artpage.scss */
 .page-art .contact {
   width: 92%;
-  margin: 0 4%;
-  padding: 4% 0;
-  border-top: 1px solid rgba(30, 30, 30, 0.75);
+  margin: 0 4% 0;
+  padding: 2% 0 4%;
 }
-/* line 25, ../_inc/scss/layouts/_artpage.scss */
+/* line 24, ../_inc/scss/layouts/_artpage.scss */
 .page-art .contact .holder {
   max-width: 700px;
   padding: 0;
@@ -3653,22 +3661,23 @@ footer {
       -ms-transform: skewY(-3deg);
           transform: skewY(-3deg);
 }
-/* line 30, ../_inc/scss/layouts/_artpage.scss */
+/* line 29, ../_inc/scss/layouts/_artpage.scss */
 .page-art .contact .holder:after {
   content: "";
   clear: both;
   display: block;
 }
-/* line 36, ../_inc/scss/layouts/_artpage.scss */
+/* line 35, ../_inc/scss/layouts/_artpage.scss */
 .page-art .contact .contact-form {
   width: 100%;
 }
-/* line 39, ../_inc/scss/layouts/_artpage.scss */
+/* line 38, ../_inc/scss/layouts/_artpage.scss */
 .page-art .contact .contact-form input, .page-art .contact .contact-form textarea {
   margin: auto;
 }
-/* line 43, ../_inc/scss/layouts/_artpage.scss */
+/* line 42, ../_inc/scss/layouts/_artpage.scss */
 .page-art .header-footer {
+  margin: 20px 0;
   color: #1e1e1e;
 }
 /* line 45, ../_inc/scss/layouts/_artpage.scss */
@@ -3709,104 +3718,145 @@ footer {
 
 /* line 3, ../_inc/scss/layouts/_artthumbs.scss */
 .artwork-holder {
-  width: 90%;
-  margin: 0 auto 15%;
+  width: 100%;
+  margin: 0 0 15%;
   padding: 0;
 }
 
 /* line 9, ../_inc/scss/layouts/_artthumbs.scss */
 .art-holder {
   width: 100%;
-  clear: both;
 }
 
-/* line 14, ../_inc/scss/layouts/_artthumbs.scss */
+/* line 13, ../_inc/scss/layouts/_artthumbs.scss */
 .art-img {
   width: 50%;
+  height: 200px;
   margin: 0;
   display: block;
   text-align: center;
   float: left;
+  overflow: hidden;
 }
-/* line 20, ../_inc/scss/layouts/_artthumbs.scss */
+/* line 21, ../_inc/scss/layouts/_artthumbs.scss */
 .art-img a {
-  margin: 5px 10px 5px;
-  padding: 5px;
-  display: block;
+  width: 100%;
+  display: inline-block;
   transition: box-shadow 0.5s ease;
   box-sizing: content-box;
   border: 0px solid transparent;
   background: #fff;
+  overflow: hidden;
 }
-/* line 29, ../_inc/scss/layouts/_artthumbs.scss */
+/* line 30, ../_inc/scss/layouts/_artthumbs.scss */
+.art-img span {
+  padding: 10px;
+  display: block;
+  box-sizing: border-box;
+}
+/* line 35, ../_inc/scss/layouts/_artthumbs.scss */
 .art-img img {
-  width: 100%;
+  width: auto;
+  height: 100%;
   max-width: none;
   height: auto;
   margin: 0 auto;
-  transition: opacity 0.5s ease;
+  display: block;
 }
 @media only screen and (min-width: 600px) {
-  /* line 14, ../_inc/scss/layouts/_artthumbs.scss */
+  /* line 13, ../_inc/scss/layouts/_artthumbs.scss */
   .art-img {
     float: none;
     width: 30%;
+    height: auto;
   }
-  /* line 39, ../_inc/scss/layouts/_artthumbs.scss */
-  .art-img.art-holder-1 {
-    width: 50%;
-    float: right;
-  }
-  /* line 45, ../_inc/scss/layouts/_artthumbs.scss */
-  .art-img:hover a img {
-    opacity: 0.3;
+  /* line 47, ../_inc/scss/layouts/_artthumbs.scss */
+  .art-img img {
+    width: 100%;
+    height: auto;
   }
 }
 
-/* line 52, ../_inc/scss/layouts/_artthumbs.scss */
+/* line 54, ../_inc/scss/layouts/_artthumbs.scss */
 .art-grid-sizer {
-  width: 33%;
+  width: 50%;
   clear: both;
+}
+@media only screen and (min-width: 600px) {
+  /* line 54, ../_inc/scss/layouts/_artthumbs.scss */
+  .art-grid-sizer {
+    width: 33%;
+  }
 }
 
 /* line 1, ../_inc/scss/layouts/_artlanding.scss */
-.art-intro, .art-holder-1 {
-  width: 100%;
+.art-intro-holder {
+  height: auto;
   margin-bottom: 50px;
+  position: relative;
+}
+@media only screen and (min-width: 600px) {
+  /* line 1, ../_inc/scss/layouts/_artlanding.scss */
+  .art-intro-holder {
+    height: 80vh;
+  }
+}
+
+/* line 10, ../_inc/scss/layouts/_artlanding.scss */
+.art-intro {
+  width: 100%;
+  height: auto;
   position: relative;
   overflow: hidden;
 }
 @media only screen and (min-width: 600px) {
-  /* line 1, ../_inc/scss/layouts/_artlanding.scss */
-  .art-intro, .art-holder-1 {
-    width: 40%;
-    height: 80vh;
+  /* line 10, ../_inc/scss/layouts/_artlanding.scss */
+  .art-intro {
+    width: 50%;
+    height: 100%;
     float: left;
   }
 }
 
-/* line 13, ../_inc/scss/layouts/_artlanding.scss */
+/* line 22, ../_inc/scss/layouts/_artlanding.scss */
 h1.art-title {
-  margin: 0;
+  width: 90%;
+  margin: 0 auto 25px;
+  padding: 0 5%;
 }
 @media only screen and (min-width: 600px) {
-  /* line 13, ../_inc/scss/layouts/_artlanding.scss */
+  /* line 22, ../_inc/scss/layouts/_artlanding.scss */
   h1.art-title {
     position: relative;
     top: 50%;
     -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
             transform: translateY(-50%);
+    width: 70%;
   }
 }
 
+/* line 32, ../_inc/scss/layouts/_artlanding.scss */
+.art-img-intro {
+  height: 100%;
+}
+/* line 34, ../_inc/scss/layouts/_artlanding.scss */
+.art-img-intro img {
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
+/* line 39, ../_inc/scss/layouts/_artlanding.scss */
+.art-img-intro a {
+  display: block;
+}
 @media only screen and (min-width: 600px) {
-  /* line 22, ../_inc/scss/layouts/_artlanding.scss */
-  .art-holder-1 a {
+  /* line 43, ../_inc/scss/layouts/_artlanding.scss */
+  .art-img-intro a {
     height: 100%;
   }
-  /* line 25, ../_inc/scss/layouts/_artlanding.scss */
-  .art-holder-1 img {
+  /* line 46, ../_inc/scss/layouts/_artlanding.scss */
+  .art-img-intro img {
     height: 100%;
     width: auto;
   }
@@ -3814,51 +3864,46 @@ h1.art-title {
 
 /* line 1, ../_inc/scss/text/_art.scss */
 h1.art-title {
-  font: normal 400 4.5rem/1 "Droid Serif", serif;
+  font: normal 400 3rem/1 "Droid Serif", serif;
   color: #1e1e1e;
 }
 /* line 4, ../_inc/scss/text/_art.scss */
 h1.art-title .double-rules {
-  margin-top: 10px;
+  margin-top: 20px;
   border-color: #1e1e1e;
   border-bottom: 0;
 }
 /* line 8, ../_inc/scss/text/_art.scss */
 h1.art-title .double-rules > span {
   color: #1e1e1e;
-  padding: 10px 20px 0px 5px;
+  padding: 25px 20px 0px 13px;
   border-color: #1e1e1e;
   border-bottom: 0;
 }
 /* line 13, ../_inc/scss/text/_art.scss */
 h1.art-title .double-rules > span .fix {
   padding: 0;
-  font-size: 0.6em;
+  font-size: 0.8em;
   position: relative;
-  bottom: 5px;
+  bottom: 0px;
 }
 /* line 21, ../_inc/scss/text/_art.scss */
 h1.art-title .text-piece {
-  padding: 20px 0 10px 5px;
-  display: block;
-  font-size: 2.5rem;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-}
-/* line 27, ../_inc/scss/text/_art.scss */
-h1.art-title .text-piece.bottom {
-  padding-top: 0;
-  padding-left: 10px;
-  text-transform: capitalize;
-}
-/* line 33, ../_inc/scss/text/_art.scss */
-h1.art-title span {
   margin: 0;
-}
-/* line 35, ../_inc/scss/text/_art.scss */
-h1.art-title span.name, h1.art-title span.ill {
+  padding: 0 0 10px 20px;
   display: block;
-  font-size: 3.2rem;
+}
+/* line 25, ../_inc/scss/text/_art.scss */
+h1.art-title .text-piece.name {
+  padding-top: 20px;
+  font-size: 1.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+/* line 31, ../_inc/scss/text/_art.scss */
+h1.art-title .text-piece.bottom {
+  padding-left: 17px;
+  text-transform: capitalize;
 }
 
 /* line 1, ../_inc/scss/text/_landing.scss */
@@ -4544,27 +4589,36 @@ h1.art-title span.name, h1.art-title span.ill {
     color: #3061a5;
   }
 
-  /* line 43, ../_inc/scss/actions/_hovers.scss */
+  /* line 44, ../_inc/scss/actions/_hovers.scss */
+  .art-img img, .art-img-intro img {
+    transition: opacity 0.5s ease;
+  }
+  /* line 47, ../_inc/scss/actions/_hovers.scss */
+  .art-img:hover img, .art-img-intro:hover img {
+    opacity: 0.3;
+  }
+
+  /* line 52, ../_inc/scss/actions/_hovers.scss */
   .resume-circle {
     transition: border-color 0.25s ease;
   }
-  /* line 45, ../_inc/scss/actions/_hovers.scss */
+  /* line 54, ../_inc/scss/actions/_hovers.scss */
   .resume-circle .resume-fill {
     transition: fill 0.5s ease;
   }
-  /* line 48, ../_inc/scss/actions/_hovers.scss */
+  /* line 57, ../_inc/scss/actions/_hovers.scss */
   .resume-circle .resume-text {
     transition: color 0.5s ease;
   }
-  /* line 51, ../_inc/scss/actions/_hovers.scss */
+  /* line 60, ../_inc/scss/actions/_hovers.scss */
   .resume-circle:hover {
     border-color: #3061a5;
   }
-  /* line 53, ../_inc/scss/actions/_hovers.scss */
+  /* line 62, ../_inc/scss/actions/_hovers.scss */
   .resume-circle:hover .resume-fill {
     fill: #3061a5;
   }
-  /* line 56, ../_inc/scss/actions/_hovers.scss */
+  /* line 65, ../_inc/scss/actions/_hovers.scss */
   .resume-circle:hover .resume-text {
     color: #3061a5;
   }

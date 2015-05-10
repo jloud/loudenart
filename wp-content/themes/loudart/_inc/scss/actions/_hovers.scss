@@ -40,6 +40,15 @@
     }
   }
 
+  .art-img, .art-img-intro {
+    img {
+      transition: opacity 0.5s ease;
+    }
+    &:hover img {
+      opacity: 0.3;
+    }
+  }
+
   .resume-circle {
     transition: border-color 0.25s ease;
     .resume-fill {
