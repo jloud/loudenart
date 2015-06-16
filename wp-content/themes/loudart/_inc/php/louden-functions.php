@@ -16,7 +16,7 @@ function louden_scripts()
     wp_register_script('isotope', get_template_directory_uri() . '/_inc/js/lib/isotope.pkgd.min.js', array(), '1.0.0', true);
     wp_register_script('isotope-hor', get_template_directory_uri() . '/_inc/js/lib/masonry-horizontal.js', array(), '1.0.0');
     wp_register_script('images-load', get_template_directory_uri() . '/_inc/js/lib/imagesloaded.pkgd.min.js', array(), '1.0.0', true);
-    wp_register_script('lightgallery', get_template_directory_uri() . '/_inc/js/lib/lightGallery.js', array(), '1.0.0');
+    wp_register_script('lightgallery', get_template_directory_uri() . '/_inc/js/lib/lightGallery.js', array(), '1.0.0', true);
     wp_register_script('easing', get_template_directory_uri() . '/_inc/js/lib/jquery.easing.1.3.js', array('jquery'), '1.0.0', true);
     wp_register_script('utillls', get_template_directory_uri() . '/_inc/js/lib/utils.js', array('jquery'), '1.0.0', true);
     wp_register_script('preloader', get_template_directory_uri() . '/_inc/js/lib/pace.min.js', array('jquery'), '1.0.0', true);
